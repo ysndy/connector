@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">connector</string>
+    <string name="sampleText">SAMPLE</string>
+    <string name="supplierName">도연상회</string>
+    <string name="supplierProduct">당근, 채소, 배추</string>
+    <string name="item_profile_button">Go</string>
+
+
+    <!-- 공급처 샘플데이터 1-->
+    <string name="supplier1_name">도연상회</string>
+    <string name="supplier1_location">경기도 고양시 일산동구 장항동</string>
+    <string name="supplier1_majorTarget">중식</string>
+
+
+</resources>
