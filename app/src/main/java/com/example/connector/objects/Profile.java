@@ -1,18 +1,32 @@
-package com.example.connector;
+package com.example.connector.objects;
 
 import java.util.ArrayList;
 
-public class SupplierProfile {
+public class Profile {
+
+    //1. 이름 2. 지역 3. 소개 4. 연락처 5. 이메일 6. 프로필사진 7. 주류 8. 상품 9. 팔로워 + 아이디, 비밀번호
 
     private String name;
+    private String id;
+    private String pw;
     private String location;
     private String introduce;
     private String callNumber;
     private String email;
     private String imageUrl;
     private String major;
+    private Double stars;
     private ArrayList<Product> products;
-    private ArrayList<RestaurantProfile> followers;
+    private ArrayList<Profile> follows;
+
+
+    public Double getStars() {
+        return stars;
+    }
+
+    public void setStars(Double stars) {
+        this.stars = stars;
+    }
 
     public String getName() {
         return name;
@@ -78,11 +92,27 @@ public class SupplierProfile {
         this.products = products;
     }
 
-    public ArrayList<RestaurantProfile> getFollowers() {
-        return followers;
+    public String getId() {
+        return id;
     }
 
-    public void setFollowers(ArrayList<RestaurantProfile> followers) {
-        this.followers = followers;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getPw() {
+        return pw;
+    }
+
+    public void setPw(String pw) {
+        this.pw = pw;
+    }
+
+    public ArrayList<Profile> getFollows() {
+        return follows;
+    }
+
+    public void setFollows(ArrayList<Profile> follows) {
+        this.follows = follows;
     }
 }

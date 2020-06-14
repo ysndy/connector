@@ -8,13 +8,15 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.connector.objects.Profile;
+
 import java.util.ArrayList;
 
 public class ProfileAdapter extends BaseAdapter {
 
-    private ArrayList<SupplierProfile> list;
+    private ArrayList<Profile> list;
 
-    ProfileAdapter(ArrayList<SupplierProfile> list){
+    ProfileAdapter(ArrayList<Profile> list){
         this.list = list;
     }
 
@@ -50,7 +52,7 @@ public class ProfileAdapter extends BaseAdapter {
             holder = (CustomViewHolder) convertView.getTag();
         }
 
-        SupplierProfile sp = list.get(position);
+        Profile sp = list.get(position);
 
         holder.profileImg.setImageURI(Uri.parse(sp.getImageUrl()));
         holder.profileName.setText(sp.getName());
@@ -66,7 +68,7 @@ public class ProfileAdapter extends BaseAdapter {
     }
 
     // MainActivity에서 Adapter에있는 ArrayList에 data를 추가시켜주는 함수
-    public void addItem(SupplierProfile sp) {
+    public void addItem(Profile sp) {
         list.add(sp);
     }
 }

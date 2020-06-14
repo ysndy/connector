@@ -1,4 +1,4 @@
-package com.example.connector;
+package com.example.connector.objects;
 
 public class Product {
 
