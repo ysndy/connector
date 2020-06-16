@@ -7,6 +7,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.connector.R;
+
 public class Find_IdPass extends AppCompatActivity {
 
     Button emailGo, emailGo2;

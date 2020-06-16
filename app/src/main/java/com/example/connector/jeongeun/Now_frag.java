@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.connector.R;
 import com.google.android.material.tabs.TabLayout;
 
 

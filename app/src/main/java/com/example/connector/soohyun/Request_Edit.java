@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.connector.R;
+
 public class Request_Edit extends AppCompatActivity {
 
     TextView reName, reDate;
