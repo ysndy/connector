@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.connector.R;
+
 public class Join extends AppCompatActivity {
 
     EditText joinId, jpinPass, joinEmail, joinNum;

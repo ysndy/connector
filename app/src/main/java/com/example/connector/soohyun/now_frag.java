@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.connector.R;
+
 
 public class now_frag extends Fragment {
 

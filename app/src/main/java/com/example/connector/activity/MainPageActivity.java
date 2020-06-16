@@ -22,10 +22,12 @@ import com.example.connector.activity.IntentName;
 import com.example.connector.activity.ProfileListActivity;
 import com.example.connector.activity.SearchActivity;
 import com.example.connector.activity.SupplierProfileActivity;
+import com.example.connector.jeongeun.Provider_mypage;
 import com.example.connector.sampleData.SupplierData1;
 import com.example.connector.objects.Profile;
 
 import java.io.Serializable;
+import java.security.Provider;
 import java.util.ArrayList;
 
 public class MainPageActivity extends Activity {
@@ -55,7 +57,7 @@ public class MainPageActivity extends Activity {
     Button top10Btn, newMoreBtn, recMoreBtn, searchBtn;
     ImageButton flipperLeftBtn, flipperRightBtn;
     ImageButton calendarBtn, homeBtn, myPageBtn;
-    ListView newListView;
+    ListView newListView, recommendListView;
     ViewFlipper bestProfilesFlipper;
     ArrayList<ProfileButton> bestProfileBtns;
     Profile myProfile;
@@ -137,15 +139,26 @@ public class MainPageActivity extends Activity {
             }
         });
 
+        myPageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), Provider_mypage.class);
+                startActivity(intent);
+
+            }
+        });
 
     }
 
     private void inflating(){
         myProfile = new Profile();
         top10Btn = findViewById(R.id.top10Btn);
+        recMoreBtn = findViewById(R.id.recommendMoreBtn);
         newMoreBtn = findViewById(R.id.newMoreBtn);
         searchBtn = findViewById(R.id.searchBtn);
         newListView = findViewById(R.id.newListView);
+        recommendListView = findViewById(R.id.recommendListView);
         bestProfilesFlipper = findViewById(R.id.bestProfileFlipper);
         flipperLeftBtn = findViewById(R.id.flipperLeftBtn);
         flipperRightBtn = findViewById(R.id.flipperRightBtn);
@@ -181,6 +194,10 @@ public class MainPageActivity extends Activity {
 
         ProfileAdapter adapter = new ProfileAdapter(newProfiles);
         newListView.setAdapter(adapter);
+
+    }
+
+    public void setRecommendProfiles(){
 
     }
 
