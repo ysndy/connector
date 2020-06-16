@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    // 상품 등록 화면
+    // 상품 수정 화면 생각하기
+
+    <ImageView
+        android:id="@+id/providerImg"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="30dp"
+        android:background="#3F0099"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/uploadImg"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="#BCE55C"
+        android:text="사진등록"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/providerImg" />
+
+    <TextView
+        android:id="@+id/providerName"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="상품명"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uploadImg" />
+
+    <TextView
+        android:id="@+id/providerEmail"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="단가"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/providerName" />
+
+    <TextView
+        android:id="@+id/providerPnum"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:text="원산지"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/providerEmail" />
+
+    <EditText
+        android:id="@+id/etItemName"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:background="#D5D5D5"
+        android:hint="단위가지 기재해주세요(ex. 2kg)"
+        android:textAlignment="center"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uploadImg" />
+
+    <EditText
+        android:id="@+id/etPrice"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="30dp"
+        android:background="#D5D5D5"
+        android:hint="내용을 입력해주세요"
+        android:textAlignment="center"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etItemName" />
+
+    <EditText
+        android:id="@+id/etOrigin"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="30dp"
+        android:background="#D5D5D5"
+        android:hint="내용을 입력해주세요"
+        android:textAlignment="center"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPrice" />
+
+    <Button
+        android:id="@+id/addItem"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="35dp"
+        android:background="#22741C"
+        android:text="상품등록"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etOrigin" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

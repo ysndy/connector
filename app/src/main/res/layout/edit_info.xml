@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/providerImg"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="30dp"
+        android:background="#3F0099"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/uploadImg"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="#D5D5D5"
+        android:text="사진올리기"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/providerImg" />
+
+    <TextView
+        android:id="@+id/providerName"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:background="#BCE55C"
+        android:gravity="center"
+        android:text="상호명"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uploadImg" />
+
+    <TextView
+        android:id="@+id/providerEmail"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="25dp"
+        android:background="#BCE55C"
+        android:gravity="center"
+        android:text="E-mail"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/providerName" />
+
+    <TextView
+        android:id="@+id/providerPnum"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="25dp"
+        android:background="#BCE55C"
+        android:gravity="center"
+        android:text="연락처"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/providerEmail" />
+
+    <EditText
+        android:id="@+id/etProviderName"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:background="#D5D5D5"
+        android:hint="내용을 입력해주세요"
+        android:textAlignment="center"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uploadImg" />
+
+    <EditText
+        android:id="@+id/etProviderEmail"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="30dp"
+        android:background="#D5D5D5"
+        android:hint="example@mail"
+        android:textAlignment="center"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etProviderName" />
+
+    <EditText
+        android:id="@+id/etProviderPnum"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="30dp"
+        android:background="#D5D5D5"
+        android:hint="내용을 입력해주세요"
+        android:textAlignment="center"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etProviderEmail" />
+
+    <TextView
+        android:id="@+id/introduction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="15dp"
+        android:text="업체 소개"
+        android:textColor="#22741C"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/providerPnum" />
+
+    <EditText
+        android:id="@+id/ProviderIntroduction"
+        android:layout_width="360dp"
+        android:layout_height="200dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:background="#D5D5D5"
+        android:text="내용을 입력해주세요(1000자 이내)"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/introduction" />
+
+    <Button
+        android:id="@+id/EditOk"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="#489CFF"
+        android:text="수정완료"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ProviderIntroduction" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
