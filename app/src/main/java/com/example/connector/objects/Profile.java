@@ -1,8 +1,12 @@
 package com.example.connector.objects;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Profile {
+public class Profile implements Serializable, Parcelable {
 
     //1. 이름 2. 지역 3. 소개 4. 연락처 5. 이메일 6. 프로필사진 7. 주류 8. 상품 9. 팔로워 + 아이디, 비밀번호
 
@@ -19,6 +23,39 @@ public class Profile {
     private ArrayList<Product> products;
     private ArrayList<Profile> follows;
 
+
+    public Profile(){
+
+    }
+    public Profile(Parcel in) {
+        name = in.readString();
+        id = in.readString();
+        pw = in.readString();
+        location = in.readString();
+        introduce = in.readString();
+        callNumber = in.readString();
+        email = in.readString();
+        imageUrl = in.readString();
+        major = in.readString();
+        if (in.readByte() == 0) {
+            stars = null;
+        } else {
+            stars = in.readDouble();
+        }
+        follows = in.createTypedArrayList(Profile.CREATOR);
+    }
+
+    public static final Creator<Profile> CREATOR = new Creator<Profile>() {
+        @Override
+        public Profile createFromParcel(Parcel in) {
+            return new Profile(in);
+        }
+
+        @Override
+        public Profile[] newArray(int size) {
+            return new Profile[size];
+        }
+    };
 
     public Double getStars() {
         return stars;
@@ -114,5 +151,30 @@ public class Profile {
 
     public void setFollows(ArrayList<Profile> follows) {
         this.follows = follows;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(id);
+        dest.writeString(pw);
+        dest.writeString(location);
+        dest.writeString(introduce);
+        dest.writeString(callNumber);
+        dest.writeString(email);
+        dest.writeString(imageUrl);
+        dest.writeString(major);
+        if (stars == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeDouble(stars);
+        }
+        dest.writeTypedList(follows);
     }
 }

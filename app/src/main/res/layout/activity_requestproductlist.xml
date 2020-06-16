@@ -4,14 +4,45 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topPanel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/topPanelHeight"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:background="@drawable/ic_navigate_before_black_24dp"
+            android:layout_width="@dimen/topPanelHeight"
+            android:layout_height="match_parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <TextView
+            android:id="@+id/topTextView"
+            android:gravity="center"
+            android:text="신청목록"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/line"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topPanel"
         app:layout_constraintBottom_toTopOf="@id/requestBtn"
         />
 
     <Button
+        android:text="거래요청"
         android:id="@+id/requestBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -43,14 +43,17 @@
             android:layout_weight="1">
             
             <TextView
+                android:id="@+id/productNameTV"
                 android:text="@string/sampleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
+                android:id="@+id/productFromTV"
                 android:text="@string/sampleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
+                android:id="@+id/productPriceTV"
                 android:text="@string/sampleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>

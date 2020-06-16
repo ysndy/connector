@@ -34,32 +34,41 @@
         app:layout_constraintTop_toBottomOf="@id/topPanel"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
+
     <LinearLayout
+        android:background="@color/bottomPanel"
         android:orientation="horizontal"
         android:id="@+id/bottomPanel"
         android:layout_width="match_parent"
         android:layout_height="@dimen/topPanelHeight"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <Button
+        <ImageButton
+            android:background="@color/bottomPanel"
+            android:src="@drawable/ic_date_range_black_24dp"
             android:id="@+id/calendarBtn"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             />
-        <Button
+        <ImageButton
+            android:background="@color/bottomPanel"
+            android:src="@drawable/ic_home_black_24dp"
             android:id="@+id/homeBtn"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             />
-        <Button
-            android:id="@+id/mypageBtn"
+        <ImageButton
+            android:background="@color/bottomPanel"
+            android:src="@drawable/ic_person_black_24dp"
+            android:id="@+id/myPageBtn"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             />
     </LinearLayout>
+
 
 
 

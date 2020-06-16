@@ -5,10 +5,34 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topPanel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/topPanelHeight"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <Button
+            android:id="@+id/backBtn"
+            android:background="@drawable/ic_chevron_left_black_24dp"
+            android:layout_width="@dimen/topPanelHeight"
+            android:layout_height="match_parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/searchPanel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/topPanel">
 
         <ImageView
             android:id="@+id/searchBtn"
@@ -16,15 +40,15 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_search_black_24dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/searchBtn"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/searchBtn"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -63,6 +87,7 @@
         </LinearLayout>
 
         <Button
+            android:text="상세설정"
             android:id="@+id/detailSettingBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

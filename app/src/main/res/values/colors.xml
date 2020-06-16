@@ -5,4 +5,7 @@
     <color name="colorAccent">#03DAC5</color>
 
     <color name="background">#FFFFFF</color>
+    <color name="bottomPanel">#EBF39D</color>
+
+    <color name="line">#33000000</color>
 </resources>

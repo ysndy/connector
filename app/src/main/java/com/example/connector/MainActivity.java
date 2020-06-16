@@ -6,10 +6,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.ViewFlipper;
 
+import com.example.connector.activity.IntentName;
+import com.example.connector.activity.MainPageActivity;
 import com.example.connector.activity.ProfileListActivity;
+import com.example.connector.activity.SearchActivity;
+import com.example.connector.activity.SupplierProfileActivity;
+import com.example.connector.sampleData.SupplierData1;
 import com.example.connector.objects.Profile;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,40 +41,16 @@ public class MainActivity extends AppCompatActivity {
     * 공급처일 경우 공급처 마이페이지/id 인텐트
     * 외식업자일 경우 외식업자 마이페이지/id 인텐트
     *
-    * 바인드로 정보 보내는 방향 고려
+    * 바인드로 정보 보내는 방향 고려 -> putExtra로 넘길 수 있음
     * */
-
-
-    Button top10Btn, newMoreBtn, recMoreBtn;
-    ListView newListView;
-    Profile myProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        inflating();
-        setMyProfile();
-
-        top10Btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ProfileListActivity.class);
-
-            }
-        });
-
-    }
-
-    private void inflating(){
-        myProfile = new Profile();
-        top10Btn = findViewById(R.id.top10Btn);
-        newMoreBtn = findViewById(R.id.newMoreBtn);
-        newListView = findViewById(R.id.newListView);
-    }
-
-    public void setMyProfile(){
+        Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
+        startActivity(intent);
     }
 
 }

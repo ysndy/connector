@@ -7,6 +7,6 @@
 
     <dimen name="item_profile_height">70dp</dimen>
 
-    <dimen name="topPanelHeight">40dp</dimen>
+    <dimen name="topPanelHeight">50dp</dimen>
 
 </resources>

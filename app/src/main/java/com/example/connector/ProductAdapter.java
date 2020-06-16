@@ -1,6 +1,5 @@
 package com.example.connector;
 
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,15 +7,16 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.connector.objects.Product;
 import com.example.connector.objects.Profile;
 
 import java.util.ArrayList;
 
-public class ProfileAdapter extends BaseAdapter {
+public class ProductAdapter extends BaseAdapter {
 
-    private ArrayList<Profile> list;
+    private ArrayList<Product> list;
 
-    public ProfileAdapter(ArrayList<Profile> list){
+    public ProductAdapter(ArrayList<Product> list){
         this.list = list;
     }
 
@@ -39,12 +39,12 @@ public class ProfileAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         CustomViewHolder holder;
         if (convertView == null) {
-            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_profile, null, false);
+            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product, null, false);
 
             holder = new CustomViewHolder();
-            holder.profileImg = (ImageView) convertView.findViewById(R.id.image);
-            holder.profileName = (TextView) convertView.findViewById(R.id.name);
-            holder.profileProducts = (TextView) convertView.findViewById(R.id.supplierProducts);
+            //holder.profileImg = (ImageView) convertView.findViewById(R.id.image);
+            holder.productName = (TextView) convertView.findViewById(R.id.productNameTV);
+            holder.productPrice = (TextView) convertView.findViewById(R.id.productPriceTV);
 
 
             convertView.setTag(holder);
@@ -52,23 +52,23 @@ public class ProfileAdapter extends BaseAdapter {
             holder = (CustomViewHolder) convertView.getTag();
         }
 
-        Profile sp = list.get(position);
+        Product sp = list.get(position);
 
         //holder.profileImg.setImageURI(Uri.parse(sp.getImageUrl()));
-        holder.profileName.setText(sp.getName());
-        holder.profileProducts.setText(sp.getMajor());
+        holder.productName.setText(sp.getName());
+        holder.productPrice.setText(sp.getPrice().toString());
 
         return convertView;
     }
 
     class CustomViewHolder {
         ImageView profileImg;
-        TextView profileName;
-        TextView profileProducts;
+        TextView productName;
+        TextView productPrice;
     }
 
     // MainActivity에서 Adapter에있는 ArrayList에 data를 추가시켜주는 함수
-    public void addItem(Profile sp) {
+    public void addItem(Product sp) {
         list.add(sp);
     }
 }
