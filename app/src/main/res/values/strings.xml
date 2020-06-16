@@ -12,4 +12,18 @@
     <string name="supplier1_majorTarget">중식</string>
 
 
+    <!-- 수현 -->
+    <string name="id">아이디</string>
+    <string name="password">패스워드</string>
+    <string name="email">이메일</string>
+    <string name="PhoneNum">휴대폰번호</string>
+    <string name="Go">GO</string>
+
+    <string name="findID">아이디찾기</string>
+    <string name="findPass">비밀번호 찾기</string>
+
+    <string name="Agree">약관동의 내용입니다.\n 약관동의에 관해서 읽어주고 동의해주세요.</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

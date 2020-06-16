@@ -7,7 +7,7 @@
 
     <EditText
         android:id="@+id/joinId"
-        android:text="아이디"
+        android:text="@string/id"
         android:layout_width="300dp"
         android:layout_height="50dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -17,7 +17,7 @@
 
     <EditText
         android:id="@+id/joinPass"
-        android:text="비밀번호"
+        android:text="@string/password"
         android:layout_width="300dp"
         android:layout_height="50dp"
         app:layout_constraintTop_toBottomOf="@+id/joinId"
@@ -28,7 +28,7 @@
 
     <EditText
         android:id="@+id/joinEmail"
-        android:text="이메일"
+        android:text="@string/email"
         android:layout_width="300dp"
         android:layout_height="50dp"
         app:layout_constraintTop_toBottomOf="@+id/joinPass"
@@ -40,7 +40,7 @@
 
     <EditText
         android:id="@+id/joinNum"
-        android:text="휴대폰번호"
+        android:text="@string/PhoneNum"
         android:layout_width="300dp"
         android:layout_height="50dp"
         app:layout_constraintTop_toBottomOf="@+id/joinEmail"
