@@ -24,7 +24,7 @@ public class Join extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.join);
 
         Intent intent = getIntent();
 
