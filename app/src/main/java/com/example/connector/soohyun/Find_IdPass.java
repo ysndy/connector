@@ -7,6 +7,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.connector.R;
+
 public class Find_IdPass extends AppCompatActivity {
 
     Button emailGo, emailGo2;
@@ -14,7 +16,7 @@ public class Find_IdPass extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.findidpass);
 
         Intent intent = getIntent();
 

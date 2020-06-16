@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.connector.R;
+
 public class Join extends AppCompatActivity {
 
     EditText joinId, jpinPass, joinEmail, joinNum;
@@ -22,7 +24,7 @@ public class Join extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.join);
 
         Intent intent = getIntent();
 
