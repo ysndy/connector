@@ -13,7 +13,7 @@
 
         <ImageView
             android:id="@+id/logoImg"
-            android:src="@drawable/Logo"
+            android:src="@drawable/logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
