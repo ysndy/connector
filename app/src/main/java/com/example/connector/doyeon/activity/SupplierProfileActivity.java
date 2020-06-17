@@ -155,15 +155,7 @@ public class SupplierProfileActivity extends Activity {
 
     private void setProduct(){
         // 서버에서 profileSup.getId 로 조회해서 상품들 가져옴
-        ArrayList<Product> products = new ArrayList<>();
-        Product product = new Product();
-        product.setCategory(ProductData1.category);
-        product.setFrom(ProductData1.from);
-        product.setName(ProductData1.name);
-        product.setPrice(ProductData1.price);
-        product.setImageUrl(ProductData1.imageUrl);
-        products.add(product);
-        profileSup.setProducts(products);
+        profileSup.insertProducts();
     }
 
     private void setProductList(){
