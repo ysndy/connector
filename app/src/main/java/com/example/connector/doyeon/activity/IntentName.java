@@ -1,4 +1,4 @@
-package com.example.connector.activity;
+package com.example.connector.doyeon.activity;
 
 public interface IntentName {
 

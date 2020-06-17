@@ -1,4 +1,4 @@
-package com.example.connector.objects;
+package com.example.connector.doyeon.objects;
 
 public class Product {
 

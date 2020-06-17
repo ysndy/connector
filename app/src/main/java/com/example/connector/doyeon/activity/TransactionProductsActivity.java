@@ -1,16 +1,15 @@
-package com.example.connector.activity;
+package com.example.connector.doyeon.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.Adapter;
 import android.widget.ListView;
 
 import androidx.annotation.Nullable;
 
 import com.example.connector.R;
-import com.example.connector.RequestAdapter;
-import com.example.connector.objects.Product;
-import com.example.connector.objects.Profile;
+import com.example.connector.doyeon.lib.RequestAdapter;
+import com.example.connector.doyeon.objects.Product;
+import com.example.connector.doyeon.objects.Profile;
 
 import java.util.ArrayList;
 

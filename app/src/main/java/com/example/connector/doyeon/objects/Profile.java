@@ -1,4 +1,4 @@
-package com.example.connector.objects;
+package com.example.connector.doyeon.objects;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -23,7 +23,13 @@ public class Profile implements Serializable, Parcelable {
     private ArrayList<Product> products;
     private ArrayList<Profile> follows;
 
+    public void insertProducts(){
+        //서버 DB 상품테이블에서 id로 상품 찾고 products 세팅
+    }
 
+    public void insertFollows(){
+        //서버 DB 팔로우테이블에서 id로 팔로워 찾고 follows 세팅
+    }
     public Profile(){
 
     }

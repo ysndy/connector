@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.connector.R;
-import com.example.connector.activity.MainPageActivity;
+import com.example.connector.doyeon.activity.MainPageActivity;
 
 public class Login extends AppCompatActivity {
 

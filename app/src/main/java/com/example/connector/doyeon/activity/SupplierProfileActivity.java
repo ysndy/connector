@@ -1,4 +1,4 @@
-package com.example.connector.activity;
+package com.example.connector.doyeon.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -19,12 +19,12 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import com.example.connector.ProductAdapter;
+import com.example.connector.doyeon.lib.ProductAdapter;
 import com.example.connector.R;
-import com.example.connector.objects.Product;
-import com.example.connector.objects.Profile;
-import com.example.connector.sampleData.ProductData1;
-import com.example.connector.sampleData.SupplierData1;
+import com.example.connector.doyeon.objects.Product;
+import com.example.connector.doyeon.objects.Profile;
+import com.example.connector.doyeon.sampleData.ProductData1;
+import com.example.connector.doyeon.sampleData.SupplierData1;
 
 import java.util.ArrayList;
 

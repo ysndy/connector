@@ -1,4 +1,4 @@
-package com.example.connector;
+package com.example.connector.doyeon.lib;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,16 +7,16 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.connector.objects.Product;
-import com.example.connector.objects.Profile;
+import com.example.connector.R;
+import com.example.connector.doyeon.objects.Product;
 
 import java.util.ArrayList;
 
-public class ProductAdapter extends BaseAdapter {
+public class RequestAdapter extends BaseAdapter {
 
     private ArrayList<Product> list;
 
-    public ProductAdapter(ArrayList<Product> list){
+    public RequestAdapter(ArrayList<Product> list){
         this.list = list;
     }
 
@@ -39,11 +39,12 @@ public class ProductAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         CustomViewHolder holder;
         if (convertView == null) {
-            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product, null, false);
+            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_requestproductlist, null, false);
 
             holder = new CustomViewHolder();
             //holder.profileImg = (ImageView) convertView.findViewById(R.id.image);
             holder.productName = (TextView) convertView.findViewById(R.id.productNameTV);
+            holder.productFrom = (TextView) convertView.findViewById(R.id.productFromTV);
             holder.productPrice = (TextView) convertView.findViewById(R.id.productPriceTV);
 
 
@@ -56,6 +57,7 @@ public class ProductAdapter extends BaseAdapter {
 
         //holder.profileImg.setImageURI(Uri.parse(sp.getImageUrl()));
         holder.productName.setText(sp.getName());
+        holder.productFrom.setText(sp.getFrom());
         holder.productPrice.setText(sp.getPrice().toString());
 
         return convertView;
@@ -63,6 +65,7 @@ public class ProductAdapter extends BaseAdapter {
 
     class CustomViewHolder {
         ImageView profileImg;
+        TextView productFrom;
         TextView productName;
         TextView productPrice;
     }

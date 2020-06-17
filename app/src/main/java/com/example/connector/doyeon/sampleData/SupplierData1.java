@@ -1,7 +1,7 @@
-package com.example.connector.sampleData;
+package com.example.connector.doyeon.sampleData;
 
-import com.example.connector.objects.Product;
-import com.example.connector.objects.Profile;
+import com.example.connector.doyeon.objects.Product;
+import com.example.connector.doyeon.objects.Profile;
 
 import java.util.ArrayList;
 
