@@ -12,25 +12,25 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.connector.R;
 
-public class Request_Edit extends AppCompatActivity {
+public class rest_EditRequest extends AppCompatActivity {
 
-    TextView reName, reDate;
-    ImageView reproImg;
-    Button reBtn1, reBtn2;
+    TextView reqName, reqDate, reqItemName, reqItemAE, reqItemPrice, reqItemDate;
+    ImageView reqproImg, reqItemImg;
+    Button reqBtn1, reqBtn2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.request_edit);
+        setContentView(R.layout.res_editrequest);
 
         Intent intent = getIntent();
 
-
-        reBtn1.setOnClickListener(new View.OnClickListener() {
+        reqBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                AlertDialog.Builder dlg = new AlertDialog.Builder(Request_Edit.this);
+                AlertDialog.Builder dlg = new AlertDialog.Builder(rest_EditRequest.this);
                 dlg.setTitle("신청요청-거절");
                 dlg.setMessage("거절하시겠습니까?");
                 dlg.setNegativeButton("취소",null);
@@ -39,13 +39,13 @@ public class Request_Edit extends AppCompatActivity {
             }
         });
 
-        reBtn2.setOnClickListener(new View.OnClickListener() {
+        reqBtn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                AlertDialog.Builder dlg = new AlertDialog.Builder(Request_Edit.this);
+                AlertDialog.Builder dlg = new AlertDialog.Builder(rest_EditRequest.this);
                 dlg.setTitle("신청요청 - 수락");
-               dlg.setMessage("수락하시겠습니까?");
+                dlg.setMessage("수락하시겠습니까?");
                 dlg.setNegativeButton("취소",null);
                 dlg.setPositiveButton("확인", null);
                 dlg.show();
@@ -53,4 +53,5 @@ public class Request_Edit extends AppCompatActivity {
         });
 
     }
+
 }
