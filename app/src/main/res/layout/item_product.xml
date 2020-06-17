@@ -59,7 +59,9 @@
 
         </LinearLayout>
 
-        <ImageView
+        <ImageButton
+            android:id="@+id/favoriteBtn"
+            android:background="@color/invisible"
             android:src="@drawable/ic_favorite_border_black_24dp"
             android:layout_weight="1"
             android:layout_width="0dp"

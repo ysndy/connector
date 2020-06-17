@@ -2,8 +2,9 @@ package com.example.connector.doyeon.activity;
 
 public interface IntentName {
 
-    final String ID = "id";
-    final String PROFILE_SUP = "profile_sup";
-    final String PROFILE_RES = "profile_res";
+    final String ID = "";
+    final String PROFILE_SUP = "";
+    final String PROFILE_RES = "";
+    final String SELECTED_PRODUCTS = "";
 
 }

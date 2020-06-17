@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.example.connector.doyeon.sampleData.ProductData1;
+import com.example.connector.doyeon.sampleData.ProductData2;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -36,6 +37,15 @@ public class Profile implements Serializable, Parcelable {
         product.setPrice(ProductData1.price);
         product.setImageUrl(ProductData1.imageUrl);
         products.add(product);
+
+        Product product2 = new Product();
+        product2.setCategory(ProductData2.category);
+        product2.setFrom(ProductData2.from);
+        product2.setName(ProductData2.name);
+        product2.setPrice(ProductData2.price);
+        product2.setImageUrl(ProductData2.imageUrl);
+        products.add(product2);
+
         setProducts(products);
 
     }

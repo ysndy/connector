@@ -6,6 +6,7 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/lightGreen"
         android:id="@+id/topPanel"
         android:layout_width="match_parent"
         android:layout_height="@dimen/topPanelHeight"
@@ -42,7 +43,37 @@
         app:layout_constraintBottom_toTopOf="@id/requestBtn"
         />
 
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:background="@drawable/background_profileitem"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/requestBtn">
+
+        <TextView
+            android:id="@+id/selectedCountTv"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="0개 상품 선택"/>
+
+        <TextView
+            android:id="@+id/priceTotalTv"
+            android:textAlignment="viewEnd"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="총 0원"/>
+
+    </LinearLayout>
+
     <Button
+        android:background="@color/lightGreen"
         android:text="거래요청"
         android:id="@+id/requestBtn"
         android:layout_width="match_parent"
