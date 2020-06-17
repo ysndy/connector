@@ -27,6 +27,9 @@
         <activity android:name=".activity.TransactionCalendarActivity"/>
         <activity android:name=".activity.MainPageActivity" android:launchMode="singleTop"/>
         <activity android:name=".jeongeun.Provider_mypage"/>
+        <activity android:name=".soohyun.MyPage"/>
+        <activity android:name=".soohyun.Login"/>
+        <activity android:name=".soohyun.Join"/>
     </application>
 
 </manifest>

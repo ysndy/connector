@@ -18,6 +18,7 @@ import com.example.connector.activity.SearchActivity;
 import com.example.connector.activity.SupplierProfileActivity;
 import com.example.connector.sampleData.SupplierData1;
 import com.example.connector.objects.Profile;
+import com.example.connector.soohyun.Login;
 
 import java.util.ArrayList;
 

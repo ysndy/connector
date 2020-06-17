@@ -149,6 +149,17 @@ public class MainPageActivity extends Activity {
             }
         });
 
+        myPageBtn.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), Provider_mypage.class);
+                startActivity(intent);
+
+                return false;
+            }
+        });
+
     }
 
     private void inflating(){
