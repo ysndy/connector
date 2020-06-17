@@ -8,4 +8,12 @@
     <color name="bottomPanel">#EBF39D</color>
 
     <color name="line">#33000000</color>
+
+    <color name="lightGreen">#B1DB4E</color>
+    <color name="darkbrown">#301500</color>
+    <color name="darkGreen">#005500</color>
+    <color name="red">#CC3D3D</color>
+    <color name="blue">#489CFF</color>
+    <color name="white">#FFFFFF</color>
+
 </resources>

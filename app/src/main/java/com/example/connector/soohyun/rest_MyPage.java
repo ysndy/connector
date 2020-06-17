@@ -4,34 +4,33 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.connector.R;
 
-public class Find_IdPass extends AppCompatActivity {
+public class rest_MyPage extends AppCompatActivity {
 
-    Button emailGo, emailGo2;
+    ImageView mypageImg;
+    TextView mypageName;
+    Button mypageEditBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.findidpass);
+        setContentView(R.layout.rest_mypage);
 
         Intent intent = getIntent();
 
-        emailGo.setOnClickListener(new View.OnClickListener() {
+        mypageEditBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //아이디 찾는 이메일 전송 ?
-            }
-        });
-
-        emailGo2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //비밀번호 위한 이메일 Go?
+                Intent intent = new Intent(getApplicationContext(), rest_EditPage.class);
+                startActivity(intent);
             }
         });
     }
+
 }

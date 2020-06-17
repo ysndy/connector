@@ -11,8 +11,6 @@
     <string name="supplier1_location">경기도 고양시 일산동구 장항동</string>
     <string name="supplier1_majorTarget">중식</string>
 
-    <!-- 수현-->
-
 
     <!-- 수현 -->
     <string name="id">아이디</string>
@@ -21,11 +19,26 @@
     <string name="PhoneNum">휴대폰번호</string>
     <string name="Go">GO</string>
 
+    <string name="findIP">아이디/비밀번호찾기</string>
     <string name="findID">아이디찾기</string>
     <string name="findPass">비밀번호 찾기</string>
+    <string name="signUP">회원가입</string>
+    <string name="login">LOGIN</string>
+
 
     <string name="Agree">약관동의 내용입니다.\n 약관동의에 관해서 읽어주고 동의해주세요.</string>
 
+    <string name="Intro_content">내용을 입력해주세요.(500자 이내)</string>
+    <string name="Intro_depth">위치 \n 업종 \n \ --------------소개------------ </string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="Intro">업체 소개</string>
+    <string name="editInfo">정보수정</string>
+    <string name="ItemName">상품명</string>
+    <string name="Itemae">수량</string>
+    <string name="Itemprice">단가</string>
+    <string name="SupplyDate">공급일</string>
+    <string name="requestDate">신청일</string>
+    <string name="supplyName">공급자명</string>
 </resources>
