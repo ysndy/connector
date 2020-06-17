@@ -14,7 +14,7 @@
 
     <ImageView
         android:id="@+id/proImgEdi"
-        android:src="@drawable/proImg"
+        android:src="@drawable/pro_img"
         android:layout_width="130dp"
         android:layout_height="130dp"
         app:layout_constraintLeft_toLeftOf="parent"
