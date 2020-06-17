@@ -23,7 +23,7 @@ public class Now_frag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // View fv = inflater.inflate(R.layout.fragment_now_frag, container, false);
-        return inflater.inflate(R.layout.fragment_now_frag, container, false);
+        return inflater.inflate(R.layout.fragment_now_frag_je, container, false);
 
 
 /*
