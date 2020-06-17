@@ -2,6 +2,7 @@ package com.example.connector.doyeon.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -28,21 +29,29 @@ public class TransactionProductsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_requestproductlist);
 
-        // 공급처, 외식업자 프로필 가져옴
-        profile_sup = (Profile) getIntent().getParcelableExtra(IntentName.PROFILE_SUP);
-        profile_res = (Profile) getIntent().getParcelableExtra(IntentName.PROFILE_RES);
+        inflating(); //리소스 인플레이팅
+        setProductListView(); //리스트 세팅
 
+        //이벤트처리
+        requestBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
     }
 
     private void inflating(){
+        // 공급처, 외식업자 프로필 가져옴
+        profile_sup = (Profile) getIntent().getParcelableExtra(IntentName.PROFILE_SUP);
+        profile_res = (Profile) getIntent().getParcelableExtra(IntentName.PROFILE_RES);
+        //리소스 인플레이팅
         requestBtn = findViewById(R.id.requestBtn);
         productListView = findViewById(R.id.productListView);
     }
 
     private void setProductListView() {
         //리스트 세팅
-
         products = new ArrayList<>();
         profile_sup.insertProducts();
         products.addAll(profile_sup.getProducts());
