@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
@@ -207,7 +208,8 @@ public class MainPageActivity extends Activity {
 
         bestProfiles = new ArrayList<>();
         bestProfileBtns = new ArrayList<>();
-        for(int i=0; i<4; i++){
+        /*
+        for(int i=0; i<1; i++){
 
             Profile profile = new Profile();
             profile.setId(SupplierData1.id);
@@ -229,9 +231,11 @@ public class MainPageActivity extends Activity {
             });
 
             bestProfilesFlipper.addView(btn, new ViewFlipper.LayoutParams(ViewFlipper.LayoutParams.MATCH_PARENT, ViewFlipper.LayoutParams.MATCH_PARENT));
+         */
+
         }
         //
 
     }
 
-}
+
