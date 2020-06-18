@@ -1,5 +1,6 @@
 package com.example.connector.doyeon.lib.bestpager;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,10 +8,16 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.connector.R;
+import com.example.connector.doyeon.activity.IntentName;
+import com.example.connector.doyeon.activity.SupplierProfileActivity;
+import com.example.connector.doyeon.lib.ProfileButton;
 import com.example.connector.doyeon.objects.Profile;
+
+import java.io.Serializable;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +31,7 @@ public class BestProfileFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private TextView profile_name;
     private Profile profileSup, profileRes;
+    private ImageView profile_img;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -32,6 +40,7 @@ public class BestProfileFragment extends Fragment {
     public BestProfileFragment() {
         // Required empty public constructor
     }
+
     public BestProfileFragment(Profile profileSup, Profile profileRes) {
         this.profileSup = profileSup;
         this.profileRes = profileRes;
@@ -65,12 +74,24 @@ public class BestProfileFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_best_profile, container, false);
         profile_name = rootView.findViewById(R.id.bestProfileName);
         profile_name.setText(profileSup.getName());
+        profile_img = rootView.findViewById(R.id.bestProfileImageView);
+        profile_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(profile_name.getContext(), SupplierProfileActivity.class);
+                intent.putExtra(IntentName.PROFILE_RES, (Serializable)profileRes);
+                intent.putExtra(IntentName.PROFILE_SUP, (Serializable)profileSup);
+                startActivity(intent);
+            }
+        });
+
+        //TODO:이미지 추가해야댐
         return rootView;
     }
+
 }

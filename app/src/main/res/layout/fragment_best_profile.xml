@@ -3,9 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="true"
     tools:context=".doyeon.lib.bestpager.BestProfileFragment">
 
     <LinearLayout
+        android:layout_margin="20dp"
         android:padding="10dp"
         android:layout_gravity="center"
         android:elevation="4dp"

@@ -69,6 +69,24 @@
             app:layout_constraintRight_toRightOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.viewpager.widget.ViewPager
+        android:padding="10dp"
+        android:id="@+id/bestPager"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:layout_constraintTop_toBottomOf="@id/bestPanel">
+
+        <com.google.android.material.tabs.TabLayout
+
+            android:background="@drawable/background_profileitem"
+            app:tabIndicatorColor="@color/lightGreen"
+
+            app:tabIndicatorHeight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"/>
+    </androidx.viewpager.widget.ViewPager>
+
+<!--
     <ImageButton
         android:id="@+id/flipperLeftBtn"
         android:layout_width="wrap_content"
@@ -108,18 +126,20 @@
             android:layout_height="match_parent" />
 
     </ViewFlipper>
-
+-->
     <androidx.viewpager.widget.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/bottomPanel"
-        app:layout_constraintTop_toBottomOf="@id/bestProfileFlipper">
+        app:layout_constraintTop_toBottomOf="@id/bestPager">
 
         <com.google.android.material.tabs.TabLayout
+            app:tabIndicatorColor="@color/lightGreen"
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
 <!--
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/tab_recommend"

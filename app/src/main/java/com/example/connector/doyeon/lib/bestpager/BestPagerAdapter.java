@@ -17,31 +17,35 @@ public class BestPagerAdapter extends FragmentPagerAdapter {
 
     ArrayList<Fragment> items;
     ArrayList<Profile> profiles;
+    private int pageCount = 0;
 
-    public BestPagerAdapter(@NonNull FragmentManager fm) {
+    public BestPagerAdapter(@NonNull FragmentManager fm, Profile myProfile) {
         super(fm);
         items = new ArrayList<>();
+        pageCount = items.size()+1;
         setProfiles();
-        for(int i=0; i<4; i++){
-            Profile profile = new Profile();
-            profile.setId(SupplierData1.id);
-            profile.setName(SupplierData1.name);
-            profile.setMajor(SupplierData1.major);
-            items.add(new BestProfileFragment());
+        for(int i=0; i<profiles.size(); i++){
+            items.add(new BestProfileFragment(profiles.get(i), myProfile));
+
         }
 
     }
 
     private void setProfiles(){
 
-        for(int i=0; i<1; i++) {
-
+        profiles = new ArrayList<>();
+        for(int i=0; i<4; i++) {
             Profile profile = new Profile();
             profile.setId(SupplierData1.id);
             profile.setName(SupplierData1.name);
             profile.setMajor(SupplierData1.major);
+            profiles.add(profile);
         }
 
+    }
+
+    public Profile getProfile(int index){
+        return profiles.get(index);
     }
 
     @NonNull
@@ -54,5 +58,7 @@ public class BestPagerAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return items.size();
     }
+
+    //public
 
 }

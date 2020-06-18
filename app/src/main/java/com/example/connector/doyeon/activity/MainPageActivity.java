@@ -19,6 +19,7 @@ package com.example.connector.doyeon.activity;
         import com.example.connector.doyeon.lib.ProfileAdapter;
         import com.example.connector.doyeon.lib.ProfileButton;
         import com.example.connector.R;
+        import com.example.connector.doyeon.lib.bestpager.BestPagerAdapter;
         import com.example.connector.doyeon.lib.maintab.MainTabPagerAdapter;
         import com.example.connector.jeongeun.Provider_mypage;
         import com.example.connector.doyeon.sampleData.SupplierData1;
@@ -53,10 +54,10 @@ public class MainPageActivity extends AppCompatActivity {
 
 
     Button top10Btn, newMoreBtn, recMoreBtn, searchBtn;
-    ImageButton flipperLeftBtn, flipperRightBtn;
+    //ImageButton flipperLeftBtn, flipperRightBtn;
     ImageButton calendarBtn, homeBtn, myPageBtn;
-    ViewFlipper bestProfilesFlipper;
-    ViewPager vp;
+    //ViewFlipper bestProfilesFlipper;
+    ViewPager vp, bestVp;
     ArrayList<ProfileButton> bestProfileBtns;
     Profile myProfile;
     ArrayList<Profile> newProfiles, bestProfiles, recommendProfiles;
@@ -91,7 +92,7 @@ public class MainPageActivity extends AppCompatActivity {
 
             }
         });
-
+/*
         flipperLeftBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,6 +106,7 @@ public class MainPageActivity extends AppCompatActivity {
             }
         });
 
+ */
         calendarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,13 +151,13 @@ public class MainPageActivity extends AppCompatActivity {
         //recMoreBtn = findViewById(R.id.recommendMoreBtn);
         //newMoreBtn = findViewById(R.id.newMoreBtn);
         searchBtn = findViewById(R.id.searchBtn);
-        bestProfilesFlipper = findViewById(R.id.bestProfileFlipper);
-        flipperLeftBtn = findViewById(R.id.flipperLeftBtn);
-        flipperRightBtn = findViewById(R.id.flipperRightBtn);
+        //bestProfilesFlipper = findViewById(R.id.bestProfileFlipper);
+        //flipperLeftBtn = findViewById(R.id.flipperLeftBtn);
+        //flipperRightBtn = findViewById(R.id.flipperRightBtn);
         calendarBtn = findViewById(R.id.calendarBtn);
         homeBtn = findViewById(R.id.homeBtn);
         myPageBtn = findViewById(R.id.myPageBtn);
-
+        bestVp = findViewById(R.id.bestPager);
 
         vp = findViewById(R.id.pager);
         MainTabPagerAdapter adapter = new MainTabPagerAdapter(getSupportFragmentManager(), myProfile);
@@ -180,6 +182,9 @@ public class MainPageActivity extends AppCompatActivity {
 
         bestProfiles = new ArrayList<>();
         bestProfileBtns = new ArrayList<>();
+        BestPagerAdapter adapter = new BestPagerAdapter(getSupportFragmentManager(), myProfile);
+        bestVp.setAdapter(adapter);
+
         /*
         for(int i=0; i<1; i++){
 
