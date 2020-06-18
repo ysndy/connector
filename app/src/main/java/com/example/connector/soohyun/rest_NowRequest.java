@@ -14,8 +14,8 @@ import com.example.connector.R;
 
 public class rest_NowRequest extends AppCompatActivity {
 
-    TextView nowName, nowDate;
-    ImageView nowproImg, nowItemImg, nowItemName, nowItemAE, nowItemPrice, nowItemDate;
+    TextView nowName, nowDate, nowItemName, nowItemAE, nowItemPrice, nowItemDate;
+    ImageView nowproImg, nowItemImg;
     Button nowBtn1, nowBtn2, nowBtn3;
 
     @Override
@@ -24,6 +24,16 @@ public class rest_NowRequest extends AppCompatActivity {
         setContentView(R.layout.rest_nowrequest);
 
         Intent intent = getIntent();
+
+        nowName = findViewById(R.id.nowName);
+        nowDate = findViewById(R.id.joinId);
+        nowproImg = findViewById(R.id.nowproImg);
+        nowItemImg = findViewById(R.id.nowItemImg);
+        nowItemName = findViewById(R.id.nowItemName);
+        nowItemAE = findViewById(R.id.nowItemAE);
+        nowItemPrice = findViewById(R.id.nowItemPrice);
+        nowItemDate = findViewById(R.id.nowItemDate);
+
 
         nowBtn1.setOnClickListener(new View.OnClickListener() {
             @Override

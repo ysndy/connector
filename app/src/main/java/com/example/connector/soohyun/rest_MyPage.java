@@ -43,7 +43,7 @@ public class rest_MyPage extends ActivityGroup {
                 startActivity(intent);
             }
         });
-
+/*
         //탭만들기
         TabHost.TabSpec tabItem = tabHost.newTabSpec("좋아요");
         tabItem.setContent(R.id.tab_item);
@@ -62,6 +62,6 @@ public class rest_MyPage extends ActivityGroup {
         tabHost.addTab(tabItem);
 
         tabHost.setCurrentTab(0);
+    }*/
     }
-
 }

@@ -24,6 +24,13 @@ public class rest_Profile  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rest_profile);
 
+        proImg = findViewById(R.id.proImg);
+        callBtn = findViewById(R.id.callBtn);
+        emailBtn = findViewById(R.id.emailBtn);
+        intro = findViewById(R.id.intro);
+        intro_depth = findViewById(R.id.intro_depth);
+
+
         Intent intent = getIntent();
 
         callBtn.setOnClickListener(new View.OnClickListener() {

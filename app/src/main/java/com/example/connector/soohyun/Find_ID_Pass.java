@@ -23,6 +23,13 @@ public class Find_ID_Pass extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.find_id_pass);
 
+        findID= findViewById(R.id.findID);
+        findemail= findViewById(R.id.findemail);
+        findIdedit= findViewById(R.id.findIdEdit);
+        findemailEdit= findViewById(R.id.findemailEdit);
+        emailGo = findViewById(R.id.emailGo);
+        emailGo2 = findViewById(R.id.emailGo2);
+
         Intent intent = getIntent();
 
         emailGo.setOnClickListener(new View.OnClickListener() { //아이디 찾기 > 이메일 전송
