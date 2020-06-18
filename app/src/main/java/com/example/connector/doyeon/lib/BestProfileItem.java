@@ -16,7 +16,7 @@ import com.example.connector.R;
 import com.example.connector.doyeon.objects.Profile;
 
 public class BestProfileItem extends LinearLayout {
-
+//커스텀뷰 메인화면 베스트 프로필
     private ImageView profile_img;
     private TextView profile_name_TV;
     private Profile profile;

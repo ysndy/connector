@@ -32,9 +32,7 @@ import static androidx.core.content.ContextCompat.getSystemService;
 
 public class RequestAdapter extends BaseAdapter {
 
-    // 체크박스 선택 이벤트 만들기
-
-    //
+    // 상품선택리스트 어댑터
     private static int priceTotal = 0;
     private static int productCount = 0;
     private static int preNum = 1;
