@@ -33,18 +33,18 @@ public class Login extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        fid.setOnClickListener(new View.OnClickListener() {
+        fjoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Find_ID_Pass.class);
+                Intent intent = new Intent(getApplicationContext(), Signup.class);
                 startActivity(intent);
             }
         });
 
-        fjoin.setOnClickListener(new View.OnClickListener() {
+        fid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), rest_MyPage.class);
+                Intent intent = new Intent(getApplicationContext(), Find_ID_Pass.class);
                 startActivity(intent);
             }
         });

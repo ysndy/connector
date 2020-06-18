@@ -33,7 +33,7 @@
 
     <EditText
         android:id="@+id/joinId"
-        android:text="@string/id"
+        android:hint="@string/id"
         android:layout_width="300dp"
         android:layout_height="50dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -44,7 +44,7 @@
 
     <EditText
         android:id="@+id/joinPass"
-        android:text="@string/password"
+        android:hint="@string/password"
         android:layout_width="300dp"
         android:layout_height="50dp"
         app:layout_constraintTop_toBottomOf="@+id/joinId"
@@ -55,7 +55,7 @@
 
     <EditText
         android:id="@+id/joinEmail"
-        android:text="@string/email"
+        android:hint="@string/email"
         android:layout_width="300dp"
         android:layout_height="50dp"
         app:layout_constraintTop_toBottomOf="@+id/joinPass"
@@ -67,7 +67,7 @@
 
     <EditText
         android:id="@+id/joinNum"
-        android:text="@string/PhoneNum"
+        android:hint="@string/PhoneNum"
         android:layout_width="300dp"
         android:layout_height="50dp"
         app:layout_constraintTop_toBottomOf="@+id/joinEmail"

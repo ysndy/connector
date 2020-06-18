@@ -31,6 +31,7 @@ public class rest_MyPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rest_mypage);
 
+        mypageEditBtn = findViewById(R.id.mypageEditBtn);
         r_tab = findViewById(R.id.rest_tab);
 
         Intent intent = getIntent(); //인텐트
@@ -43,6 +44,7 @@ public class rest_MyPage extends AppCompatActivity {
             }
         });
 
+        r_tab = findViewById(R.id.rest_tab);
         r_tab.addTab(r_tab.newTab().setText("좋아요"));
         r_tab.addTab(r_tab.newTab().setText("팔로잉"));
         r_tab.addTab(r_tab.newTab().setText("거래처"));
@@ -55,7 +57,6 @@ public class rest_MyPage extends AppCompatActivity {
 
         r_tab.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(rest_viewPager));
         rest_viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(r_tab));
-
 
     }
 }
