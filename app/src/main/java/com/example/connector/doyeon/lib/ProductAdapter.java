@@ -13,7 +13,7 @@ import com.example.connector.doyeon.objects.Product;
 import java.util.ArrayList;
 
 public class ProductAdapter extends BaseAdapter {
-
+// 공급처 프로필에서 보여질 상품 리스트 어댑터
     private ArrayList<Product> list;
 
     public ProductAdapter(ArrayList<Product> list){

@@ -18,9 +18,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.connector.doyeon.lib.ProductAdapter;
 import com.example.connector.R;
+import com.example.connector.doyeon.lib.maintab.MainTabPagerAdapter;
+import com.example.connector.doyeon.lib.profiletab.ProfileTabPagerAdapter;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Profile;
 import com.example.connector.doyeon.sampleData.ProductData1;
@@ -29,15 +33,17 @@ import com.example.connector.doyeon.sampleData.SupplierData1;
 
 import java.util.ArrayList;
 
-public class SupplierProfileActivity extends Activity {
+public class SupplierProfileActivity extends AppCompatActivity {
 
     private Profile profileSup;
     private Profile profileRes;
-    private ArrayList<Product> products;
-    private Button callBtn, transactionBtn, followBtn, emailBtn, productListBtn, informationBtn;
+    //private ArrayList<Product> products;
+    private Button callBtn, transactionBtn, followBtn, emailBtn; //, productListBtn, informationBtn;
     private ImageButton backBtn, homeBtn;
-    private TextView supplierNameTV, locationTV, introduceTV, majorTV;
-    private ListView productListView;
+    private TextView supplierNameTV; //, locationTV, introduceTV, majorTV;
+    private ViewPager vp;
+
+    //private ListView productListView;
 
 
     @Override
@@ -50,9 +56,10 @@ public class SupplierProfileActivity extends Activity {
 
         inflating();
         setProfileSup();
-        setInfo();
-        setProduct();
-        setProductList();
+        setTabAdapter();
+       // setInfo();
+        //setProduct();
+        //setProductList();
 
         //전화버튼
         callBtn.setOnClickListener(new View.OnClickListener() {
@@ -154,11 +161,19 @@ public class SupplierProfileActivity extends Activity {
 
     }
 
+    private void setTabAdapter(){
+
+        vp = findViewById(R.id.pager);
+        ProfileTabPagerAdapter adapter = new ProfileTabPagerAdapter(getSupportFragmentManager(), profileSup);
+        vp.setAdapter(adapter);
+
+    }
+
     private void setProduct() {
         // 서버에서 profileSup.getId 로 조회해서 상품들 가져옴
         profileSup.insertProducts();
     }
-
+/*
     private void setProductList() {
 
         products = new ArrayList<>();
@@ -177,7 +192,7 @@ public class SupplierProfileActivity extends Activity {
         productListView.setAdapter(adapter);
 
     }
-
+*/
     private void inflating() {
 
         profileSup = (Profile) getIntent().getSerializableExtra(IntentName.PROFILE_SUP);
@@ -190,6 +205,8 @@ public class SupplierProfileActivity extends Activity {
         homeBtn = findViewById(R.id.homeBtn);
         supplierNameTV = findViewById(R.id.supplierNameTV);
 
+
+/*
         productListBtn = findViewById(R.id.productBtn);
         informationBtn = findViewById(R.id.infoBtn);
 
@@ -198,9 +215,10 @@ public class SupplierProfileActivity extends Activity {
         majorTV = findViewById(R.id.majorTV);
 
         productListView = findViewById(R.id.productListView);
-
+*/
     }
 
+/*
     private void setInfo() {
 
         setImage();
@@ -210,7 +228,7 @@ public class SupplierProfileActivity extends Activity {
         introduceTV.setText(profileSup.getIntroduce());
 
     }
-
+*/
     private void setImage() {
 
     }

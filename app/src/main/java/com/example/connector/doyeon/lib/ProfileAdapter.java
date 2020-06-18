@@ -13,7 +13,7 @@ import com.example.connector.doyeon.objects.Profile;
 import java.util.ArrayList;
 
 public class ProfileAdapter extends BaseAdapter {
-
+//프로필 어댑터
     private ArrayList<Profile> list;
 
     public ProfileAdapter(ArrayList<Profile> list){
