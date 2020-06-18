@@ -24,6 +24,13 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
+        login_logoImg = findViewById(R.id.login_logoImg);
+        ID = findViewById(R.id.ID);
+        Password = findViewById(R.id.Password);
+        loginBtn = findViewById(R.id.loginBtn);
+        fjoin = findViewById(R.id.fjoin);
+        fid = findViewById(R.id.fid);
+
         Intent intent = getIntent();
 
         fid.setOnClickListener(new View.OnClickListener() {
