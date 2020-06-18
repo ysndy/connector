@@ -45,80 +45,12 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--리스트뷰 -->
-    <ListView
-        android:id="@+id/edit_listview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/top_editReq"/>
 
-    <!--
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/item_reqMid"
-        android:layout_width="match_parent"
-        android:layout_height="175dp"
-        app:layout_constraintTop_toBottomOf="@+id/top_editReq">
-
-        <ImageView
-            android:id="@+id/reqItemImg"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:src="@drawable/nullitem"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_margin="20dp"/>
-        <TextView
-            android:id="@+id/reqItemName"
-            android:text="@string/supplyName"
-            android:textSize="20sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toRightOf="@id/reqItemImg"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"/>
-
-        <TextView
-            android:id="@+id/reqItemAE"
-            android:text="@string/Itemae"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@+id/reqItemName"
-            app:layout_constraintLeft_toRightOf="@+id/reqItemImg"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"/>
-
-        <TextView
-            android:id="@+id/reqItemPrice"
-            android:text="@string/Itemprice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@+id/reqItemAE"
-            app:layout_constraintLeft_toRightOf="@+id/reqItemImg"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"/>
-
-        <TextView
-            android:id="@+id/reqItemDate"
-            android:text="@string/SupplyDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@+id/reqItemPrice"
-            app:layout_constraintLeft_toRightOf="@+id/reqItemImg"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"/>
-
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
--->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/btnBottom"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        app:layout_constraintTop_toBottomOf="@+id/edit_listview">
+        app:layout_constraintTop_toBottomOf="@+id/top_editReq">
 
     <Button
         android:id="@+id/reqBtn1"
@@ -148,5 +80,12 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ListView
+        android:id="@+id/edit_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/btnBottom"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

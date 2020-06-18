@@ -12,6 +12,13 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.connector.R;
+import com.example.connector.doyeon.objects.Product;
+import com.example.connector.doyeon.objects.Transaction;
+import com.example.connector.doyeon.sampleData.ProductData1;
+import com.example.connector.doyeon.sampleData.TransactionData1;
+import com.example.connector.doyeon.sampleData.TransactionData2;
+
+import java.util.ArrayList;
 
 public class EditRequest extends AppCompatActivity {
 
@@ -19,6 +26,7 @@ public class EditRequest extends AppCompatActivity {
     ImageView reqproImg, reqItemImg;
     Button reqBtn1, reqBtn2;
     ListView listView_edit;
+    ArrayList<Transaction> transactions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +38,35 @@ public class EditRequest extends AppCompatActivity {
         reqBtn1 = findViewById(R.id.reqBtn1);
         reqBtn2 = findViewById(R.id.reqBtn2);
         listView_edit = findViewById(R.id.edit_listview);
+
+        //임시데이터
+        transactions = new ArrayList<>();
+
+        ArrayList<Product> products;
+        products = new ArrayList<>();
+        Product product1 = new Product();
+
+        product1.setName(ProductData1.name);
+        product1.setPrice(ProductData1.price);
+
+        products.add(product1);
+
+        Transaction transaction1 = new Transaction();
+        transaction1.setProducts(products);
+        transaction1.setCount(TransactionData1.num);
+        transaction1.setPriceTotal(TransactionData1.price);
+        transaction1.setDate(TransactionData1.date);
+        transactions.add(transaction1);
+
+        Transaction transaction2 = new Transaction();
+        transaction2.setProducts(products);
+        transaction2.setCount(TransactionData2.num);
+        transaction2.setPriceTotal(TransactionData2.price);
+        transaction2.setDate(TransactionData2.date);
+        transactions.add(transaction2);
+
+        InfoListAdapter infoListAdapter = new InfoListAdapter(transactions);
+        listView_edit.setAdapter(infoListAdapter);
 
         reqBtn1.setOnClickListener(new View.OnClickListener() {
             @Override

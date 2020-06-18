@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.connector.R;
 import com.example.connector.doyeon.activity.MainPageActivity;
+import com.example.connector.soohyun.restaurantpage.EditRequest;
+import com.example.connector.soohyun.restaurantpage.NowRequest;
 
 public class Login extends AppCompatActivity {
 
@@ -36,7 +38,7 @@ public class Login extends AppCompatActivity {
         fjoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Signup.class);
+                Intent intent = new Intent(getApplicationContext(), NowRequest.class);
                 startActivity(intent);
             }
         });

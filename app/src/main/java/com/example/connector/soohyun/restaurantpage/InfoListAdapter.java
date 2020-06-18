@@ -57,9 +57,9 @@ public class InfoListAdapter extends BaseAdapter {
         Transaction transaction = list.get(position);
 
         //holder.reqItemImg.setImageURI(Uri.parse(sp.getImageUrl()));
-        holder.reqItemName.setText(transaction.getProducts().get(position).getName());
-        holder.reqItemAE.setText(transaction.getCount());
-        holder.reqItemPrice.setText(transaction.getPriceTotal());
+        holder.reqItemName.setText(transaction.getProducts().get(0).getName());
+        holder.reqItemAE.setText(transaction.getCount().toString());
+        holder.reqItemPrice.setText(transaction.getPriceTotal().toString());
         holder.reqItemDate.setText(transaction.getDate());
 
 
