@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="30dp"
-        android:src="@drawable/pro_img"/>
+        android:src="@drawable/proimg"/>
 
     <Button
         android:id="@+id/callBtn"

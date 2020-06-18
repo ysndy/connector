@@ -4,22 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.ImageButton;
-import android.widget.ListView;
-import android.widget.ViewFlipper;
 
-import com.example.connector.activity.IntentName;
-import com.example.connector.activity.MainPageActivity;
-import com.example.connector.activity.ProfileListActivity;
-import com.example.connector.activity.SearchActivity;
-import com.example.connector.activity.SupplierProfileActivity;
-import com.example.connector.sampleData.SupplierData1;
-import com.example.connector.objects.Profile;
-
-import java.util.ArrayList;
+import com.example.connector.doyeon.activity.MainPageActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -51,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
         startActivity(intent);
+        finish();
     }
 
 }

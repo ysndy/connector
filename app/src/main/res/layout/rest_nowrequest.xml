@@ -15,7 +15,7 @@
             android:id="@+id/nowproImg"
             android:layout_width="100dp"
             android:layout_height="70dp"
-            android:src="@drawable/null_pro"
+            android:src="@drawable/nullpro"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginLeft="10dp"
@@ -55,7 +55,7 @@
             android:id="@+id/nowItemImg"
             android:layout_width="90dp"
             android:layout_height="90dp"
-            android:src="@drawable/null_item"
+            android:src="@drawable/nullitem"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_margin="20dp"/>

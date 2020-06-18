@@ -1,6 +1,5 @@
-package com.example.connector;
+package com.example.connector.doyeon.lib;
 
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,7 +7,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.connector.objects.Profile;
+import com.example.connector.R;
+import com.example.connector.doyeon.objects.Profile;
 
 import java.util.ArrayList;
 
@@ -44,7 +44,7 @@ public class ProfileAdapter extends BaseAdapter {
             holder = new CustomViewHolder();
             holder.profileImg = (ImageView) convertView.findViewById(R.id.image);
             holder.profileName = (TextView) convertView.findViewById(R.id.name);
-            holder.profileProducts = (TextView) convertView.findViewById(R.id.supplierProducts);
+            //holder.profileProducts = (TextView) convertView.findViewById(R.id.supplierProducts);
 
 
             convertView.setTag(holder);
@@ -56,7 +56,7 @@ public class ProfileAdapter extends BaseAdapter {
 
         //holder.profileImg.setImageURI(Uri.parse(sp.getImageUrl()));
         holder.profileName.setText(sp.getName());
-        holder.profileProducts.setText(sp.getMajor());
+        //holder.profileProducts.setText(sp.getMajor());
 
         return convertView;
     }
@@ -64,7 +64,7 @@ public class ProfileAdapter extends BaseAdapter {
     class CustomViewHolder {
         ImageView profileImg;
         TextView profileName;
-        TextView profileProducts;
+        //TextView profileProducts;
     }
 
     // MainActivity에서 Adapter에있는 ArrayList에 data를 추가시켜주는 함수

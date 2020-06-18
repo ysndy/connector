@@ -1,4 +1,4 @@
-package com.example.connector;
+package com.example.connector.doyeon.lib;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,8 +7,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.connector.objects.Product;
-import com.example.connector.objects.Profile;
+import com.example.connector.R;
+import com.example.connector.doyeon.objects.Product;
 
 import java.util.ArrayList;
 

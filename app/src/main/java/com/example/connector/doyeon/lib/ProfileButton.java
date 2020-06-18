@@ -1,10 +1,9 @@
-package com.example.connector;
+package com.example.connector.doyeon.lib;
 
 import android.content.Context;
 import android.view.Gravity;
-import android.widget.Button;
 
-import com.example.connector.objects.Profile;
+import com.example.connector.doyeon.objects.Profile;
 
 public class ProfileButton extends androidx.appcompat.widget.AppCompatButton {
 

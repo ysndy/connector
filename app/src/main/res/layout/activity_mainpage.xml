@@ -10,7 +10,7 @@
         android:id="@+id/topPanel"
         android:layout_width="match_parent"
         android:layout_height="@dimen/topPanelHeight"
-        android:background="@color/bottomPanel"
+        android:background="@color/lightGreen"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -147,7 +147,7 @@
             <ListView
                 android:id="@+id/newListView"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="400dp"
                 android:divider="#ffffff"
                 android:dividerHeight="0px"
                 app:layout_constraintTop_toBottomOf="@id/newPanel" />
@@ -213,7 +213,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/bottomPanel"
+            android:background="@color/lightGreen"
             android:src="@drawable/ic_date_range_black_24dp" />
 
         <ImageButton
@@ -221,7 +221,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/bottomPanel"
+            android:background="@color/lightGreen"
             android:src="@drawable/ic_home_black_24dp" />
 
         <ImageButton
@@ -229,7 +229,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/bottomPanel"
+            android:background="@color/lightGreen"
             android:src="@drawable/ic_person_black_24dp" />
     </LinearLayout>
 

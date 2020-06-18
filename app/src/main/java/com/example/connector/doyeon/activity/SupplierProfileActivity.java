@@ -1,4 +1,4 @@
-package com.example.connector.activity;
+package com.example.connector.doyeon.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -19,12 +19,13 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import com.example.connector.ProductAdapter;
+import com.example.connector.doyeon.lib.ProductAdapter;
 import com.example.connector.R;
-import com.example.connector.objects.Product;
-import com.example.connector.objects.Profile;
-import com.example.connector.sampleData.ProductData1;
-import com.example.connector.sampleData.SupplierData1;
+import com.example.connector.doyeon.objects.Product;
+import com.example.connector.doyeon.objects.Profile;
+import com.example.connector.doyeon.sampleData.ProductData1;
+import com.example.connector.doyeon.sampleData.ProductData2;
+import com.example.connector.doyeon.sampleData.SupplierData1;
 
 import java.util.ArrayList;
 
@@ -63,7 +64,7 @@ public class SupplierProfileActivity extends Activity {
                 builder.setPositiveButton("전화걸기", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String tel = "tel:"+ profileSup.getCallNumber();
+                        String tel = "tel:" + profileSup.getCallNumber();
                         startActivity(new Intent("android.intent.action.DIAL", Uri.parse(tel)));
                     }
                 });
@@ -95,7 +96,7 @@ public class SupplierProfileActivity extends Activity {
             @Override
             public void onClick(View v) {
                 //profileRes.getId(), profileSup.getId() follow 테이블에 추가
-                Toast.makeText(getApplicationContext(), profileSup.getName()+"을 팔로우하였습니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), profileSup.getName() + "을 팔로우하였습니다.", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -143,7 +144,7 @@ public class SupplierProfileActivity extends Activity {
 
     }
 
-    private void setProfileSup(){
+    private void setProfileSup() {
 
         profileSup.setCallNumber(SupplierData1.callNumber);
         profileSup.setEmail(SupplierData1.email);
@@ -153,38 +154,31 @@ public class SupplierProfileActivity extends Activity {
 
     }
 
-    private void setProduct(){
+    private void setProduct() {
         // 서버에서 profileSup.getId 로 조회해서 상품들 가져옴
-        ArrayList<Product> products = new ArrayList<>();
-        Product product = new Product();
-        product.setCategory(ProductData1.category);
-        product.setFrom(ProductData1.from);
-        product.setName(ProductData1.name);
-        product.setPrice(ProductData1.price);
-        product.setImageUrl(ProductData1.imageUrl);
-        products.add(product);
-        profileSup.setProducts(products);
+        profileSup.insertProducts();
     }
 
-    private void setProductList(){
+    private void setProductList() {
 
         products = new ArrayList<>();
 
-        for(int i =0; i<10; i++){
+        Product product = new Product();
+        product.setName(ProductData1.name);
+        product.setPrice(ProductData1.price);
+        products.add(product);
 
-            Product product = new Product();
-            product.setName(ProductData1.name);
-            product.setPrice(ProductData1.price);
-            products.add(product);
-
-        }
+        Product product2 = new Product();
+        product2.setName(ProductData2.name);
+        product2.setPrice(ProductData2.price);
+        products.add(product2);
 
         ProductAdapter adapter = new ProductAdapter(products);
         productListView.setAdapter(adapter);
 
     }
 
-    private void inflating(){
+    private void inflating() {
 
         profileSup = (Profile) getIntent().getSerializableExtra(IntentName.PROFILE_SUP);
         profileRes = (Profile) getIntent().getSerializableExtra(IntentName.PROFILE_RES);
@@ -207,7 +201,7 @@ public class SupplierProfileActivity extends Activity {
 
     }
 
-    private void setInfo(){
+    private void setInfo() {
 
         setImage();
         supplierNameTV.setText(profileSup.getName());
@@ -217,7 +211,7 @@ public class SupplierProfileActivity extends Activity {
 
     }
 
-    private void setImage(){
+    private void setImage() {
 
     }
 

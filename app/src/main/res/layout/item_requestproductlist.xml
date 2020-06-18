@@ -1,78 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="10dp">
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <ImageView
-            android:src="@drawable/ic_image_black_24dp"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        
+            android:layout_weight="3"
+            android:src="@drawable/ic_image_black_24dp" />
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
-            
+            android:layout_weight="3"
+            android:gravity="right"
+            android:orientation="vertical"
+            android:paddingRight="10dp">
+
             <TextView
-                android:text="품명"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="품명 :" />
+
             <TextView
-                android:text="원산지"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="원산지 :" />
+
             <TextView
-                android:text="단가"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            
-            
+                android:layout_height="wrap_content"
+                android:text="단가 :" />
+
         </LinearLayout>
-        
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
-            
+            android:layout_weight="3"
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/productNameTV"
-                android:text="@string/sampleText"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="@string/sampleText" />
+
             <TextView
                 android:id="@+id/productFromTV"
-                android:text="@string/sampleText"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="@string/sampleText" />
+
             <TextView
                 android:id="@+id/productPriceTV"
-                android:text="@string/sampleText"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            
-            
+                android:layout_height="wrap_content"
+                android:text="@string/sampleText" />
+
+
         </LinearLayout>
-        
+
         <EditText
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        
-        <CheckBox
-            android:gravity="center"
+            android:inputType="number"
+            android:id="@+id/countEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:background="#DDDDDD"
             android:focusable="false"
             android:clickable="false"
-            android:layout_weight="1"/>
-        
+            android:padding="10dp"
+            android:text="1" />
+
+        <CheckBox
+
+            android:id="@+id/productCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center" />
+
     </LinearLayout>
 </LinearLayout>

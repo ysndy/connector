@@ -1,4 +1,4 @@
-package com.example.connector.objects;
+package com.example.connector.doyeon.objects;
 
 import java.util.ArrayList;
 

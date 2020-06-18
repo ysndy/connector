@@ -1,4 +1,4 @@
-package com.example.connector.activity;
+package com.example.connector.doyeon.activity;
 
 import android.app.Activity;
 import android.os.Bundle;

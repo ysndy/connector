@@ -1,33 +1,24 @@
-package com.example.connector.activity;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.connector.doyeon.activity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-import com.example.connector.ProfileAdapter;
-import com.example.connector.ProfileButton;
+import com.example.connector.doyeon.lib.ProfileAdapter;
+import com.example.connector.doyeon.lib.ProfileButton;
 import com.example.connector.R;
-import com.example.connector.activity.IntentName;
-import com.example.connector.activity.ProfileListActivity;
-import com.example.connector.activity.SearchActivity;
-import com.example.connector.activity.SupplierProfileActivity;
 import com.example.connector.jeongeun.Provider_mypage;
-import com.example.connector.sampleData.SupplierData1;
-import com.example.connector.objects.Profile;
+import com.example.connector.doyeon.sampleData.SupplierData1;
+import com.example.connector.doyeon.objects.Profile;
 
 import java.io.Serializable;
-import java.security.Provider;
 import java.util.ArrayList;
 
 public class MainPageActivity extends Activity {
@@ -146,6 +137,17 @@ public class MainPageActivity extends Activity {
                 Intent intent = new Intent(getApplicationContext(), Provider_mypage.class);
                 startActivity(intent);
 
+            }
+        });
+
+        myPageBtn.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), Provider_mypage.class);
+                startActivity(intent);
+
+                return false;
             }
         });
 

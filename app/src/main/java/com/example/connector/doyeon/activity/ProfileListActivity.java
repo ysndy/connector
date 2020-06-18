@@ -1,4 +1,4 @@
-package com.example.connector.activity;
+package com.example.connector.doyeon.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.example.connector.R;
-import com.example.connector.objects.Profile;
+import com.example.connector.doyeon.objects.Profile;
 
 import java.util.ArrayList;
 
