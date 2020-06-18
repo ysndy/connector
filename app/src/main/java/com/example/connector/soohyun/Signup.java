@@ -26,14 +26,14 @@ public class Signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
 
-        Intent intent = getIntent();
-
         joinId = findViewById(R.id.joinId);
         jpinPass = findViewById(R.id.joinPass);
         joinEmail = findViewById(R.id.joinEmail);
         joinNum = findViewById(R.id.joinNum);
         joinAgree = findViewById(R.id.goBtn);
         checkAgree = findViewById(R.id.checkAgree);
+
+        Intent intent = getIntent();
 
         goBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -32,8 +32,8 @@
 
     <EditText
         android:id="@+id/ID"
-        android:text="@string/id"
-        android:textColor="@color/darkGreen"
+        android:hint="@string/id"
+        android:textColorHint="@color/darkGreen"
         android:layout_width="250dp"
         android:layout_height="50dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -43,8 +43,8 @@
 
     <EditText
         android:id="@+id/Password"
-        android:text="Password"
-        android:textColor="@color/darkGreen"
+        android:hint="Password"
+        android:textColorHint="@color/darkGreen"
         android:layout_width="250dp"
         android:layout_height="50dp"
         app:layout_constraintLeft_toLeftOf="parent"

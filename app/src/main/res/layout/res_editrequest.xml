@@ -44,7 +44,14 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!--리스트뷰 -->
+    <ListView
+        android:id="@+id/eitreq_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/top_editReq"/>
 
+    <!--
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/item_reqMid"
         android:layout_width="match_parent"
@@ -106,12 +113,12 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/btnBottom"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        app:layout_constraintTop_toBottomOf="@+id/item_reqMid">
+        app:layout_constraintTop_toBottomOf="@+id/eitreq_listview">
 
     <Button
         android:id="@+id/reqBtn1"

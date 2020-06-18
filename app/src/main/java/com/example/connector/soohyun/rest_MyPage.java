@@ -13,55 +13,49 @@ import android.widget.TabHost;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.connector.R;
+import com.example.connector.jeongeun.MyPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
-public class rest_MyPage extends ActivityGroup {
+public class rest_MyPage extends AppCompatActivity {
 
     ImageView mypageImg;
     TextView mypageName;
     Button mypageEditBtn;
-    TabHost tabHost;
+    TabLayout r_tab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rest_mypage);
 
+        r_tab = findViewById(R.id.rest_tab);
+
         Intent intent = getIntent(); //인텐트
-
-        tabHost = findViewById(R.id.tab);
-        tabHost.setup(getLocalActivityManager());
-
-        //TabHost tabHost = getTabhost();
 
         mypageEditBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //정보 수정 페이지로 이동
                 Intent intent = new Intent(getApplicationContext(), rest_EditPage.class);
                 startActivity(intent);
             }
         });
-/*
-        //탭만들기
-        TabHost.TabSpec tabItem = tabHost.newTabSpec("좋아요");
-        tabItem.setContent(R.id.tab_item);
-        tabHost.addTab(tabItem);
 
-        TabHost.TabSpec tabFollowing = tabHost.newTabSpec("팔로잉");
-        tabItem.setContent(R.id.tab_following);
-        tabHost.addTab(tabItem);
+        r_tab.addTab(r_tab.newTab().setText("좋아요"));
+        r_tab.addTab(r_tab.newTab().setText("팔로잉"));
+        r_tab.addTab(r_tab.newTab().setText("거래처"));
+        r_tab.addTab(r_tab.newTab().setText("현황"));
+        r_tab.setTabGravity(r_tab.GRAVITY_FILL);
 
-        TabHost.TabSpec tabGorae = tabHost.newTabSpec("거래처");
-        tabItem.setContent(R.id.tab_gorae);
-        tabHost.addTab(tabItem);
+        final ViewPager rest_viewPager = findViewById(R.id.rest_viewPager);
+        final  rest_MypageAdapter rest_mypageAdapter = new rest_MypageAdapter(getSupportFragmentManager(), 4);
+        rest_viewPager.setAdapter(rest_mypageAdapter);
 
-        TabHost.TabSpec tabNowing = tabHost.newTabSpec("거래현황");
-        tabItem.setContent(R.id.tab_nowing);
-        tabHost.addTab(tabItem);
+        r_tab.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(rest_viewPager));
+        rest_viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(r_tab));
 
-        tabHost.setCurrentTab(0);
-    }*/
+
     }
 }
