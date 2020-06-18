@@ -13,7 +13,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.connector.R;
 import com.google.android.material.tabs.TabLayout;
 
-public class rest_MyPage extends AppCompatActivity {
+public class MyPage extends AppCompatActivity {
 
     ImageView mypageImg;
     TextView mypageName;
@@ -46,7 +46,7 @@ public class rest_MyPage extends AppCompatActivity {
         r_tab.setTabGravity(r_tab.GRAVITY_FILL);
 
         final ViewPager rest_viewPager = findViewById(R.id.rest_viewPager);
-        final  rest_MypageAdapter rest_mypageAdapter = new rest_MypageAdapter(getSupportFragmentManager(), 4);
+        final MypageAdapter rest_mypageAdapter = new MypageAdapter(getSupportFragmentManager(), 4);
         rest_viewPager.setAdapter(rest_mypageAdapter);
 
         r_tab.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(rest_viewPager));

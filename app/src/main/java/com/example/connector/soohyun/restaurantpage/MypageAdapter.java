@@ -5,16 +5,16 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.connector.soohyun.tabs.reFollowing;
-import com.example.connector.soohyun.tabs.reGorae;
-import com.example.connector.soohyun.tabs.reLike;
-import com.example.connector.soohyun.tabs.reNow;
+import com.example.connector.soohyun.tabs.FollowingTab;
+import com.example.connector.soohyun.tabs.GoraeTab;
+import com.example.connector.soohyun.tabs.LikeTab;
+import com.example.connector.soohyun.tabs.NowTab;
 
-public class rest_MypageAdapter extends FragmentPagerAdapter {
+public class MypageAdapter extends FragmentPagerAdapter {
 
     int numTab;
 
-    public rest_MypageAdapter(@NonNull FragmentManager fragmentManager, int numTabs) {
+    public MypageAdapter(@NonNull FragmentManager fragmentManager, int numTabs) {
         super(fragmentManager);
         this.numTab = numTabs;
     }
@@ -23,16 +23,16 @@ public class rest_MypageAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-               reLike tab1 = new reLike();
+               LikeTab tab1 = new LikeTab();
                return  tab1;
             case 1:
-                reFollowing tab2 = new reFollowing();
+                FollowingTab tab2 = new FollowingTab();
                 return tab2;
             case 2:
-                reGorae tab3 = new reGorae();
+                GoraeTab tab3 = new GoraeTab();
                 return tab3;
             case 3:
-                reNow tab4 = new reNow();
+                NowTab tab4 = new NowTab();
                 return tab4;
             default:
                 return null;

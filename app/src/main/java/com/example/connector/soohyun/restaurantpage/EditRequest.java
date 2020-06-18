@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.connector.R;
 
-public class rest_EditRequest extends AppCompatActivity {
+public class EditRequest extends AppCompatActivity {
 
     TextView reqName, reqDate, reqItemName, reqItemAE, reqItemPrice, reqItemDate;
     ImageView reqproImg, reqItemImg;
@@ -35,7 +35,7 @@ public class rest_EditRequest extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                AlertDialog.Builder dlg = new AlertDialog.Builder(rest_EditRequest.this);
+                AlertDialog.Builder dlg = new AlertDialog.Builder(EditRequest.this);
                 dlg.setTitle("신청요청-거절");
                 dlg.setMessage("거절하시겠습니까?");
                 dlg.setNegativeButton("취소",null);
@@ -48,7 +48,7 @@ public class rest_EditRequest extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                AlertDialog.Builder dlg = new AlertDialog.Builder(rest_EditRequest.this);
+                AlertDialog.Builder dlg = new AlertDialog.Builder(EditRequest.this);
                 dlg.setTitle("신청요청 - 수락");
                 dlg.setMessage("수락하시겠습니까?");
                 dlg.setNegativeButton("취소",null);

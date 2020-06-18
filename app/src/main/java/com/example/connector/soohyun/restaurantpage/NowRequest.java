@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.connector.R;
 
-public class rest_NowRequest extends AppCompatActivity {
+public class NowRequest extends AppCompatActivity {
 
     TextView nowName, nowDate;
     ImageView nowproImg;

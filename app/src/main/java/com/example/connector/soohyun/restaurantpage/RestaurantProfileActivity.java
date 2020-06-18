@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.connector.R;
 
-public class rest_Profile  extends AppCompatActivity {
+public class RestaurantProfileActivity extends AppCompatActivity {
 
 
     ImageView proImg;
@@ -36,7 +36,7 @@ public class rest_Profile  extends AppCompatActivity {
         callBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder dlg = new AlertDialog.Builder(rest_Profile.this);
+                AlertDialog.Builder dlg = new AlertDialog.Builder(RestaurantProfileActivity.this);
                 dlg.setTitle("전화걸기");
                 dlg.setMessage("010 - 0000 - 0000");
                 dlg.setNegativeButton("취소", null);
@@ -48,7 +48,7 @@ public class rest_Profile  extends AppCompatActivity {
         emailBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder dlg = new AlertDialog.Builder(rest_Profile.this);
+                AlertDialog.Builder dlg = new AlertDialog.Builder(RestaurantProfileActivity.this);
                 dlg.setTitle("이메일 복사");
                 dlg.setMessage("soohyun@mjc.ac.kr");
                 dlg.setNegativeButton("취소", null);

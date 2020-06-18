@@ -12,11 +12,11 @@ import com.example.connector.doyeon.objects.Transaction;
 
 import java.util.ArrayList;
 
-public class restListAdapter_reqedit extends BaseAdapter {
+public class InfoListAdapter extends BaseAdapter {
     // 공급처 프로필에서 보여질 상품 리스트 어댑터
     private ArrayList<Transaction> list;
 
-    public restListAdapter_reqedit(ArrayList<Transaction> list){
+    public InfoListAdapter(ArrayList<Transaction> list){
         this.list = list;
     }
 
@@ -37,11 +37,11 @@ public class restListAdapter_reqedit extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        restListAdapter_reqedit.CustomViewHolder holder;
+        InfoListAdapter.CustomViewHolder holder;
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.restitem_reqedit, null, false);
 
-            holder = new restListAdapter_reqedit.CustomViewHolder();
+            holder = new InfoListAdapter.CustomViewHolder();
             //holder.reqItemImg = (ImageView) convertView.findViewById(R.id.image);
             holder.reqItemName = convertView.findViewById(R.id.reqItemName);
             holder.reqItemAE = (TextView) convertView.findViewById(R.id.reqItemAE);
@@ -51,7 +51,7 @@ public class restListAdapter_reqedit extends BaseAdapter {
 
             convertView.setTag(holder);
         } else {
-            holder = (restListAdapter_reqedit.CustomViewHolder) convertView.getTag();
+            holder = (InfoListAdapter.CustomViewHolder) convertView.getTag();
         }
 
         Transaction transaction = list.get(position);
