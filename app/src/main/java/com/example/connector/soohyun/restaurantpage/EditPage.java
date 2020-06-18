@@ -1,4 +1,4 @@
-package com.example.connector.soohyun;
+package com.example.connector.soohyun.restaurantpage;
 
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.connector.R;
 
-public class rest_EditPage extends AppCompatActivity {
+public class EditPage extends AppCompatActivity {
 
     ImageView proImgEdi;
     Button imgBtn,editSuc;
@@ -38,7 +38,7 @@ public class rest_EditPage extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "수정완료", Toast.LENGTH_SHORT).show();
 
-                AlertDialog.Builder dlg = new AlertDialog.Builder(rest_EditPage.this);
+                AlertDialog.Builder dlg = new AlertDialog.Builder(EditPage.this);
                 dlg.setTitle("수정완료");
                 dlg.setMessage("수정되었습니다");
                 dlg.setPositiveButton("확인", null);

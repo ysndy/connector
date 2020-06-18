@@ -1,10 +1,11 @@
-package com.example.connector.soohyun;
+package com.example.connector.soohyun.restaurantpage;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -17,7 +18,7 @@ public class rest_EditRequest extends AppCompatActivity {
     TextView reqName, reqDate, reqItemName, reqItemAE, reqItemPrice, reqItemDate;
     ImageView reqproImg, reqItemImg;
     Button reqBtn1, reqBtn2;
-
+    ListView listView_edit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,10 @@ public class rest_EditRequest extends AppCompatActivity {
         setContentView(R.layout.res_editrequest);
 
         Intent intent = getIntent();
+
+        reqBtn1 = findViewById(R.id.reqBtn1);
+        reqBtn2 = findViewById(R.id.reqBtn2);
+        listView_edit = findViewById(R.id.edit_listview);
 
         reqBtn1.setOnClickListener(new View.OnClickListener() {
             @Override

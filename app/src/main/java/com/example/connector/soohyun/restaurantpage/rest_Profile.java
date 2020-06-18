@@ -1,4 +1,4 @@
-package com.example.connector.soohyun;
+package com.example.connector.soohyun.restaurantpage;
 
 import android.content.Intent;
 import android.os.Bundle;

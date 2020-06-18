@@ -1,22 +1,16 @@
-package com.example.connector.soohyun;
+package com.example.connector.soohyun.restaurantpage;
 
-import android.app.Activity;
-import android.app.ActivityGroup;
-import android.app.LocalActivityManager;
-import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TabHost;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.connector.R;
-import com.example.connector.jeongeun.MyPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 public class rest_MyPage extends AppCompatActivity {
@@ -39,7 +33,7 @@ public class rest_MyPage extends AppCompatActivity {
         mypageEditBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //정보 수정 페이지로 이동
-                Intent intent = new Intent(getApplicationContext(), rest_EditPage.class);
+                Intent intent = new Intent(getApplicationContext(), EditPage.class);
                 startActivity(intent);
             }
         });

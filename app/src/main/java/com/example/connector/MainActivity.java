@@ -5,8 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.connector.doyeon.activity.MainPageActivity;
-import com.example.connector.soohyun.Login;
+import com.example.connector.soohyun.shared.Login;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.connector.soohyun;
+package com.example.connector.soohyun.tabs;
 
 import android.os.Bundle;
 

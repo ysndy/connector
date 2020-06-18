@@ -1,4 +1,4 @@
-package com.example.connector.soohyun;
+package com.example.connector.soohyun.shared;
 
 import android.content.DialogInterface;
 import android.content.Intent;

@@ -1,11 +1,14 @@
-package com.example.connector.soohyun;
-
-import android.content.Intent;
+package com.example.connector.soohyun.restaurantpage;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.example.connector.soohyun.tabs.reFollowing;
+import com.example.connector.soohyun.tabs.reGorae;
+import com.example.connector.soohyun.tabs.reLike;
+import com.example.connector.soohyun.tabs.reNow;
 
 public class rest_MypageAdapter extends FragmentPagerAdapter {
 
