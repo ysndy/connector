@@ -20,15 +20,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".doyeon.activity.SupplierProfileActivity"/>
-        <activity android:name=".doyeon.activity.TransactionProductsActivity"/>
-        <activity android:name=".doyeon.activity.SearchActivity"/>
-        <activity android:name=".doyeon.activity.ProfileListActivity"/>
-        <activity android:name=".doyeon.activity.TransactionCalendarActivity"/>
-        <activity android:name=".doyeon.activity.MainPageActivity" android:launchMode="singleTop"/>
-        <activity android:name=".jeongeun.Provider_mypage"/>
-        <activity android:name=".soohyun.Login"/>
-        <activity android:name=".doyeon.activity.TosActivity"/>
+        <activity android:name=".activity.SupplierProfileActivity"/>
+        <activity android:name=".activity.TransactionProductsActivity"/>
+        <activity android:name=".activity.SearchActivity"/>
+        <activity android:name=".activity.ProfileListActivity"/>
+        <activity android:name=".activity.TransactionCalendarActivity"/>
+        <activity android:name=".activity.MainPageActivity" android:launchMode="singleTop"/>
+
     </application>
 
 </manifest>

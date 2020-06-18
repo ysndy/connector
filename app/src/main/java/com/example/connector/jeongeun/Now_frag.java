@@ -6,11 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.connector.R;
 import com.google.android.material.tabs.TabLayout;
 
-
+// 공급자 마이페이지 현황
 public class Now_frag extends Fragment {
 
     TabLayout tabs;
@@ -22,26 +23,23 @@ public class Now_frag extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // View fv = inflater.inflate(R.layout.fragment_now_frag, container, false);
-        return inflater.inflate(R.layout.fragment_now_frag_je, container, false);
+        View v = inflater.inflate(R.layout.fragment_now_frag_je, container, false);
 
-
-/*
-        //Tablayout
-        tabs = tabs.findViewById(R.id.minitab);
+        // TabLayout
+        tabs = v.findViewById(R.id.minitab);
         tabs.addTab(tabs.newTab().setText("신청현황"));
         tabs.addTab(tabs.newTab().setText("거래현황"));
-        tabs.setTabGravity(tabs.GRAVITY_FILL);*/
+        tabs.setTabGravity(tabs.GRAVITY_FILL);
 
 
-        /*final ViewPager miniviewPager = findViewById(R.id.miniviewPager);
-        final MiniPagerAdapter myPagerAdapter = new MiniPagerAdapter(getSupportFragmentManager(), 2);
+        final ViewPager miniviewPager = v.findViewById(R.id.miniviewPager);
+        final MiniPagerAdapter myPagerAdapter = new MiniPagerAdapter(getChildFragmentManager(), 2);
         miniviewPager.setAdapter(myPagerAdapter);
 
         tabs.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(miniviewPager));
-        miniviewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs)); */
+        miniviewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs));
 
-        //return fv;
+        return v;
     }
 }
 

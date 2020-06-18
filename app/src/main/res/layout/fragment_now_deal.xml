@@ -3,15 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAED7D">
-    <!--tools:context=".Provider_frag"-->
+    tools:context=".jeongeun.Now_deal">
 
-    <!-- TODO: Update blank fragment layout -->
-
-    <!-- 거래처 리스트 -->
-    <ListView
-        android:id="@+id/provider_list"
+    <!-- 공급자 마이페이지 현황 > 거래 현황 -->
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:text="거래 현황" />
 
 </FrameLayout>

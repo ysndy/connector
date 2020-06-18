@@ -11,9 +11,10 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.connector.R;
 import com.google.android.material.tabs.TabLayout;
 
+// 공급자 마이페이지
 public class Provider_mypage extends AppCompatActivity {
 
-    Button editBtn;
+    Button editBtn; // 정보 수정
     TabLayout tabs;
 
     @Override
@@ -23,6 +24,7 @@ public class Provider_mypage extends AppCompatActivity {
 
         editBtn = findViewById(R.id.editBtn);
 
+        // 정보 수정
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,12 +33,12 @@ public class Provider_mypage extends AppCompatActivity {
             }
         });
 
-        //Tablayout
+        //Tablayout 참조, tab 추가
         tabs = findViewById(R.id.tab);
         tabs.addTab(tabs.newTab().setText("상품"));
         tabs.addTab(tabs.newTab().setText("팔로워"));
         tabs.addTab(tabs.newTab().setText("거래처"));
-        tabs.addTab(tabs.newTab().setText("거래현황"));
+        tabs.addTab(tabs.newTab().setText("현황"));
         tabs.setTabGravity(tabs.GRAVITY_FILL);
 
         final ViewPager viewPager = findViewById(R.id.viewPager);
