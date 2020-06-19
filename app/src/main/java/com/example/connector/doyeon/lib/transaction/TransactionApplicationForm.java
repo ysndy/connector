@@ -1,4 +1,4 @@
-package com.example.connector.doyeon.lib;
+package com.example.connector.doyeon.lib.transaction;
 
 import android.os.Bundle;
 
@@ -7,8 +7,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.connector.R;
+import com.example.connector.doyeon.objects.Product;
+import com.example.connector.doyeon.objects.Transaction;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,6 +26,10 @@ public class TransactionApplicationForm extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private ArrayList<Product> products;
+    private Transaction transaction;
+    private TextView dateTv, resName, supName, supAddress, priceTotal;
+    private ListView productListView;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -27,6 +37,13 @@ public class TransactionApplicationForm extends Fragment {
 
     public TransactionApplicationForm() {
         // Required empty public constructor
+    }
+
+    public TransactionApplicationForm(ArrayList<Product> selectedProducts, Transaction transaction) {
+
+        this.products = selectedProducts;
+        this.transaction = transaction;
+
     }
 
     /**
@@ -60,6 +77,21 @@ public class TransactionApplicationForm extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_transaction_application_form, container, false);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_transaction_application_form, container, false);
+        dateTv = rootView.findViewById(R.id.transactionDateTV);
+        resName = rootView.findViewById(R.id.restaurantNameTV);
+        supName = rootView.findViewById(R.id.supplierNameTV);
+        supAddress = rootView.findViewById(R.id.supplierAddressTV);
+        priceTotal = rootView.findViewById(R.id.priceTotalTv);
+        productListView = rootView.findViewById(R.id.productListView);
+
+        //데이터 세팅
+        dateTv.setText(transaction.getDate());
+        resName.setText(transaction.getRestaurant().getName());
+        supName.setText(transaction.getSupplier().getName());
+        supAddress.setText(transaction.getSupplier().getLocation());
+        priceTotal.setText(transaction.getPriceTotal());
+
+        return rootView;
     }
 }

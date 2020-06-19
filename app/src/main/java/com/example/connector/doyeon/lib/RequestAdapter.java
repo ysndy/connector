@@ -197,6 +197,7 @@ public class RequestAdapter extends BaseAdapter {
                 if(et.getText().toString().equals("")) et.setText("1");
                 priceTotal -= price*preNum;
                 priceTotal += price*Integer.parseInt(et.getText().toString());
+                sp.setSelectedCount(Integer.parseInt(et.getText().toString()));
                 preNum = Integer.parseInt(et.getText().toString());
                 priceTotalTv.setText("총 "+priceTotal+" 원");
             }

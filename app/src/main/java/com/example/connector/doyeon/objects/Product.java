@@ -5,11 +5,17 @@ import android.os.Parcelable;
 
 public class Product implements Parcelable {
 
-    private String name;
-    private Integer price;
-    private String imageUrl;
-    private String category;
-    private String from;
+    private String name;//상품 이름
+    private Integer price;//가격
+    private String imageUrl;//이미지
+    private String category;//카테고리
+    private String from;//원산지
+    private Profile supplier;//공급처
+    private Integer selectedCount;//거래 시 선택수량
+
+    public Product(){
+
+    }
 
     protected Product(Parcel in) {
         name = in.readString();
@@ -92,5 +98,21 @@ public class Product implements Parcelable {
         dest.writeString(imageUrl);
         dest.writeString(category);
         dest.writeString(from);
+    }
+
+    public Integer getSelectedCount() {
+        return selectedCount;
+    }
+
+    public void setSelectedCount(Integer selectedCount) {
+        this.selectedCount = selectedCount;
+    }
+
+    public Profile getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(Profile supplier) {
+        this.supplier = supplier;
     }
 }

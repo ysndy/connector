@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_profileitem"
-    tools:context=".doyeon.lib.TransactionApplicationForm">
+    tools:context=".doyeon.lib.transaction.TransactionApplicationForm">
 
     <!--
 
@@ -22,7 +22,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="4"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -119,11 +119,32 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <TextView
+                android:text="합계금액 : "
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/priceTotalTv"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
         <ListView
             android:id="@+id/productListView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="3" />
+            android:layout_weight="10" />
 
     </LinearLayout>
 
