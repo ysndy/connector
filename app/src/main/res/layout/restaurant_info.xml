@@ -4,14 +4,14 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    // 공급처 화면에서의 외식업자 정보
+    <!-- 공급처 화면에서의 외식업자 정보 (정은) -->
 
     <ImageView
         android:id="@+id/proImg"
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_marginTop="30dp"
-        android:background="#3F0099"
+        android:src="@drawable/ic_person_black_24dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

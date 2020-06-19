@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.connector.R;
@@ -22,6 +23,9 @@ public class Edit_info extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_info);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         uploadImg = findViewById(R.id.uploadImg);
         editOk = findViewById(R.id.editOk);

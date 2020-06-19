@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.connector.R;
@@ -23,6 +24,9 @@ public class Restaurant_info extends AppCompatActivity {
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.restaurant_info);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         proImg = findViewById(R.id.proImg);
         callBtn = findViewById(R.id.callBtn);

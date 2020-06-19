@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- 신청 현황 -->
+    <!-- 신청 현황 (정은)-->
 
     <ImageView
         android:id="@+id/pcImg"
@@ -12,7 +12,7 @@
         android:layout_height="70dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
-        android:background="#3F0099"
+        android:src="@drawable/ic_person_black_24dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,6 +38,7 @@
         app:layout_constraintLeft_toRightOf="@+id/pcImg"
         app:layout_constraintTop_toBottomOf="@+id/pcName" />
 
+
     <ListView
         android:id="@+id/lv"
         android:layout_width="390dp"
@@ -45,7 +46,8 @@
         android:layout_marginTop="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pcImg" />
+        app:layout_constraintTop_toBottomOf="@id/pcImg" />
+
 
     <LinearLayout
         android:id="@+id/ll"
@@ -54,6 +56,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lv">
+
 
         <Button
             android:id="@+id/requestBtn"

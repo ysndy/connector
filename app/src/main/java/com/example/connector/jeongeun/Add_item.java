@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.connector.R;
@@ -24,6 +25,9 @@ public class Add_item extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_item);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         uploadImg = findViewById(R.id.uploadImg);
         addItem = findViewById(R.id.addItem);

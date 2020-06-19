@@ -11,7 +11,14 @@ import android.widget.ListView;
 import androidx.fragment.app.Fragment;
 
 import com.example.connector.R;
+import com.example.connector.doyeon.objects.Product;
+import com.example.connector.doyeon.objects.Transaction;
+import com.example.connector.sampleData.ProductData1;
+import com.example.connector.sampleData.TransactionData1;
+import com.example.connector.sampleData.TransactionData2;
+import com.example.connector.soohyun.restaurantpage.InfoListAdapter;
 
+import java.util.ArrayList;
 import java.util.zip.Inflater;
 
 // 공급자 마이페이지 상품
@@ -19,6 +26,7 @@ public class Item_frag extends Fragment {
 
     Button add_itemBtn; // 상품추가 버튼
     ListView item_list; // 상품 리스트
+    ArrayList<Transaction> transactions;
 
     public Item_frag() {
         // Required empty public constructor
@@ -34,6 +42,21 @@ public class Item_frag extends Fragment {
         add_itemBtn = v.findViewById(R.id.add_ItemBtn);
         item_list = v.findViewById(R.id.item_list);
 
+        // 임시 데이터
+
+        ArrayList<Product> products;
+        products = new ArrayList<>();
+        Product product1 = new Product();
+
+        product1.setName(ProductData1.name);
+        product1.setPrice(ProductData1.price);
+
+        products.add(product1);
+
+
+        Item_list item_list_adapter = new Item_list(products);
+        item_list.setAdapter(item_list_adapter);
+
         // 상품 추가
         add_itemBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +67,7 @@ public class Item_frag extends Fragment {
                startActivity(intent);
             }
         });
+
 
         return v;
     }
