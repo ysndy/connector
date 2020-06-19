@@ -47,8 +47,8 @@ public class GoraeTab_Adapter extends BaseAdapter {
             holder = new GoraeTab_Adapter.CustomViewHolder();
             holder.goraeItemImg = convertView.findViewById(R.id.goraeItemImg);
             holder.goraeItemSupply = convertView.findViewById(R.id.goraeItemSupply);
-            holder.goraeItemContact = convertView.findViewById(R.id.gora);
-            holder.goraeItemTotal = convertView.findViewById(R.id.gora);
+            holder.goraeItemContact = convertView.findViewById(R.id.goraeItemContact);
+            holder.goraeItemTotal = convertView.findViewById(R.id.goraeItemTotal);
 
             convertView.setTag(holder);
         } else {
@@ -59,7 +59,7 @@ public class GoraeTab_Adapter extends BaseAdapter {
         // holder.goraeItemImg.setText(product.getName());
         holder.goraeItemSupply.setText(profile.getName());
         holder.goraeItemContact.setText(profile.getCallNumber());
-        holder.goraeItemTotal.setText(profile.getName());
+        holder.goraeItemTotal.setText(profile.getProducts().get(0).getPrice());
 
         return convertView;
 
