@@ -1,4 +1,4 @@
-package com.example.connector.doyeon.sampleData;
+package com.example.connector.sampleData;
 
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Profile;

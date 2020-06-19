@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,11 +13,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import com.example.connector.R;
-import com.example.connector.doyeon.lib.ProductAdapter;
 import com.example.connector.doyeon.lib.RequestAdapter;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Profile;
-import com.example.connector.doyeon.sampleData.ProductData1;
 
 import java.util.ArrayList;
 

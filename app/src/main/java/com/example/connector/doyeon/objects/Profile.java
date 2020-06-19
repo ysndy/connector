@@ -3,8 +3,8 @@ package com.example.connector.doyeon.objects;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.example.connector.doyeon.sampleData.ProductData1;
-import com.example.connector.doyeon.sampleData.ProductData2;
+import com.example.connector.sampleData.ProductData1;
+import com.example.connector.sampleData.ProductData2;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ public class Profile implements Serializable, Parcelable {
     private String email;
     private String imageUrl;
     private String major;
-    private Double stars;
+    private Double rating;
     private ArrayList<Product> products;
     private ArrayList<Profile> follows;
 
@@ -67,9 +67,9 @@ public class Profile implements Serializable, Parcelable {
         imageUrl = in.readString();
         major = in.readString();
         if (in.readByte() == 0) {
-            stars = null;
+            rating = null;
         } else {
-            stars = in.readDouble();
+            rating = in.readDouble();
         }
         follows = in.createTypedArrayList(Profile.CREATOR);
     }
@@ -86,12 +86,12 @@ public class Profile implements Serializable, Parcelable {
         }
     };
 
-    public Double getStars() {
-        return stars;
+    public float getRating() {
+        return rating.floatValue();
     }
 
-    public void setStars(Double stars) {
-        this.stars = stars;
+    public void setRating(Double rating) {
+        this.rating = rating;
     }
 
     public String getName() {
@@ -198,11 +198,11 @@ public class Profile implements Serializable, Parcelable {
         dest.writeString(email);
         dest.writeString(imageUrl);
         dest.writeString(major);
-        if (stars == null) {
+        if (rating == null) {
             dest.writeByte((byte) 0);
         } else {
             dest.writeByte((byte) 1);
-            dest.writeDouble(stars);
+            dest.writeDouble(rating);
         }
         dest.writeTypedList(follows);
     }

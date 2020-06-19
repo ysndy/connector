@@ -17,7 +17,7 @@ public class MainTabPagerAdapter extends FragmentPagerAdapter {
         super(fm);
         items = new ArrayList<>();
         items.add(new NewProfileListFragment(myProfile));
-        items.add(new RecommendProfileListFragment());
+        items.add(new RecommendProfileListFragment(myProfile));
     }
 
     @NonNull

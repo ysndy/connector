@@ -14,9 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.connector.R;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Transaction;
-import com.example.connector.doyeon.sampleData.ProductData1;
-import com.example.connector.doyeon.sampleData.TransactionData1;
-import com.example.connector.doyeon.sampleData.TransactionData2;
+import com.example.connector.sampleData.ProductData1;
+import com.example.connector.sampleData.TransactionData1;
+import com.example.connector.sampleData.TransactionData2;
 
 import java.util.ArrayList;
 

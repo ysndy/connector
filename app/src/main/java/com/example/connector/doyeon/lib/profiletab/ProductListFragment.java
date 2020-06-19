@@ -13,8 +13,8 @@ import com.example.connector.R;
 import com.example.connector.doyeon.lib.ProductAdapter;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Profile;
-import com.example.connector.doyeon.sampleData.ProductData1;
-import com.example.connector.doyeon.sampleData.ProductData2;
+import com.example.connector.sampleData.ProductData1;
+import com.example.connector.sampleData.ProductData2;
 
 import java.util.ArrayList;
 

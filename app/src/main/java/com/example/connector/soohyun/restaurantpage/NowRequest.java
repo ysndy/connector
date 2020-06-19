@@ -2,22 +2,18 @@ package com.example.connector.soohyun.restaurantpage;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.connector.R;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Transaction;
-import com.example.connector.doyeon.sampleData.ProductData1;
-import com.example.connector.doyeon.sampleData.TransactionData1;
-import com.example.connector.doyeon.sampleData.TransactionData2;
+import com.example.connector.sampleData.ProductData1;
+import com.example.connector.sampleData.TransactionData1;
+import com.example.connector.sampleData.TransactionData2;
 
 import java.util.ArrayList;
 

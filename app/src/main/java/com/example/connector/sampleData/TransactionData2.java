@@ -1,4 +1,4 @@
-package com.example.connector.doyeon.sampleData;
+package com.example.connector.sampleData;
 
 public interface TransactionData2 {
 

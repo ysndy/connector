@@ -1,6 +1,4 @@
-package com.example.connector.doyeon.sampleData;
-
-import javax.xml.namespace.QName;
+package com.example.connector.sampleData;
 
 public interface TransactionData1 {
 

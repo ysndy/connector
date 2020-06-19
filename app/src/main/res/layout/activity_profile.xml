@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:elevation="2dp"
         android:background="@color/lightGreen"
         android:padding="10dp"
         android:id="@+id/topPanel"
@@ -21,6 +22,7 @@
             app:layout_constraintLeft_toLeftOf="parent"/>
 
         <TextView
+            android:textStyle="bold"
             android:id="@+id/supplierNameTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,7 +68,7 @@
         app:layout_constraintTop_toBottomOf="@id/imageViewPanel">
 
         <Button
-            android:background="@color/bottomPanel"
+            android:background="@drawable/background_imdicator"
             android:id="@+id/callBtn"
             android:text="전화"
             android:layout_margin="5dp"
@@ -74,7 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <Button
-            android:background="@color/bottomPanel"
+            android:background="@drawable/background_button_sky"
             android:id="@+id/transactionBtn"
             android:text="거래신청"
             android:layout_margin="5dp"
@@ -82,7 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <Button
-            android:background="@color/bottomPanel"
+            android:background="@drawable/background_button_sky"
             android:id="@+id/followBtn"
             android:text="팔로우"
             android:layout_margin="5dp"
@@ -90,7 +92,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <Button
-            android:background="@color/bottomPanel"
+            android:background="@drawable/background_imdicator"
             android:id="@+id/emailBtn"
             android:text="Email"
             android:layout_margin="5dp"
@@ -108,6 +110,7 @@
         app:layout_constraintTop_toBottomOf="@id/buttonPanel">
 
         <com.google.android.material.tabs.TabLayout
+            app:tabIndicatorColor="@color/lightGreen"
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

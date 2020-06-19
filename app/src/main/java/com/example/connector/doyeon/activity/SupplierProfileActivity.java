@@ -1,6 +1,5 @@
 package com.example.connector.doyeon.activity;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -13,7 +12,6 @@ import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,17 +19,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.connector.doyeon.lib.ProductAdapter;
 import com.example.connector.R;
-import com.example.connector.doyeon.lib.maintab.MainTabPagerAdapter;
 import com.example.connector.doyeon.lib.profiletab.ProfileTabPagerAdapter;
-import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Profile;
-import com.example.connector.doyeon.sampleData.ProductData1;
-import com.example.connector.doyeon.sampleData.ProductData2;
-import com.example.connector.doyeon.sampleData.SupplierData1;
-
-import java.util.ArrayList;
+import com.example.connector.sampleData.SupplierData1;
 
 public class SupplierProfileActivity extends AppCompatActivity {
 

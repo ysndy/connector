@@ -1,28 +1,21 @@
 package com.example.connector.doyeon.activity;
 
-        import android.app.Activity;
         import android.content.Intent;
         import android.os.Bundle;
         import android.view.View;
-        import android.widget.AdapterView;
         import android.widget.Button;
         import android.widget.ImageButton;
-        import android.widget.LinearLayout;
-        import android.widget.ListView;
         import android.widget.ScrollView;
-        import android.widget.Toast;
-        import android.widget.ViewFlipper;
 
         import androidx.appcompat.app.AppCompatActivity;
         import androidx.viewpager.widget.ViewPager;
 
-        import com.example.connector.doyeon.lib.ProfileAdapter;
         import com.example.connector.doyeon.lib.ProfileButton;
         import com.example.connector.R;
         import com.example.connector.doyeon.lib.bestpager.BestPagerAdapter;
         import com.example.connector.doyeon.lib.maintab.MainTabPagerAdapter;
         import com.example.connector.jeongeun.Provider_mypage;
-        import com.example.connector.doyeon.sampleData.SupplierData1;
+        import com.example.connector.sampleData.SupplierData1;
         import com.example.connector.doyeon.objects.Profile;
         import com.google.android.material.tabs.TabLayout;
 
@@ -92,21 +85,7 @@ public class MainPageActivity extends AppCompatActivity {
 
             }
         });
-/*
-        flipperLeftBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bestProfilesFlipper.showPrevious();
-            }
-        });
-        flipperRightBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bestProfilesFlipper.showNext();
-            }
-        });
 
- */
         calendarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -151,9 +130,6 @@ public class MainPageActivity extends AppCompatActivity {
         //recMoreBtn = findViewById(R.id.recommendMoreBtn);
         //newMoreBtn = findViewById(R.id.newMoreBtn);
         searchBtn = findViewById(R.id.searchBtn);
-        //bestProfilesFlipper = findViewById(R.id.bestProfileFlipper);
-        //flipperLeftBtn = findViewById(R.id.flipperLeftBtn);
-        //flipperRightBtn = findViewById(R.id.flipperRightBtn);
         calendarBtn = findViewById(R.id.calendarBtn);
         homeBtn = findViewById(R.id.homeBtn);
         myPageBtn = findViewById(R.id.myPageBtn);
@@ -178,40 +154,11 @@ public class MainPageActivity extends AppCompatActivity {
 
     }
 
-    public void setBestProfiles(){
+    public void setBestProfiles() {
 
-        bestProfiles = new ArrayList<>();
-        bestProfileBtns = new ArrayList<>();
         BestPagerAdapter adapter = new BestPagerAdapter(getSupportFragmentManager(), myProfile);
         bestVp.setAdapter(adapter);
-
-        /*
-        for(int i=0; i<1; i++){
-
-            Profile profile = new Profile();
-            profile.setId(SupplierData1.id);
-            profile.setName(SupplierData1.name);
-            profile.setMajor(SupplierData1.major);
-            bestProfiles.add(profile);
-
-            ProfileButton btn = new ProfileButton(getApplicationContext());
-            btn.setText(SupplierData1.name);
-            btn.setProfile(profile);
-            btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(), SupplierProfileActivity.class);
-                    intent.putExtra(IntentName.PROFILE_RES, (Serializable)myProfile);
-                    intent.putExtra(IntentName.PROFILE_SUP, (Serializable) ((ProfileButton)v).getProfile());
-                    startActivity(intent);
-                }
-            });
-
-            bestProfilesFlipper.addView(btn, new ViewFlipper.LayoutParams(ViewFlipper.LayoutParams.MATCH_PARENT, ViewFlipper.LayoutParams.MATCH_PARENT));
-         */
-
     }
-    //
 
 }
 
@@ -236,7 +183,7 @@ package com.example.connector.doyeon.activity;
         import com.example.connector.doyeon.lib.ProfileButton;
         import com.example.connector.R;
         import com.example.connector.jeongeun.Provider_mypage;
-        import com.example.connector.doyeon.sampleData.SupplierData1;
+        import com.example.connector.sampleData.SupplierData1;
         import com.example.connector.doyeon.objects.Profile;
 
         import java.io.Serializable;

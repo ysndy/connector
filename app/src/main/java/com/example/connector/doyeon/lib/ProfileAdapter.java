@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.connector.R;
@@ -44,6 +45,7 @@ public class ProfileAdapter extends BaseAdapter {
             holder = new CustomViewHolder();
             holder.profileImg = (ImageView) convertView.findViewById(R.id.image);
             holder.profileName = (TextView) convertView.findViewById(R.id.name);
+            holder.rating = (RatingBar) convertView.findViewById(R.id.rating);
             //holder.profileProducts = (TextView) convertView.findViewById(R.id.supplierProducts);
 
 
@@ -56,6 +58,7 @@ public class ProfileAdapter extends BaseAdapter {
 
         //holder.profileImg.setImageURI(Uri.parse(sp.getImageUrl()));
         holder.profileName.setText(sp.getName());
+        holder.rating.setRating(sp.getRating());
         //holder.profileProducts.setText(sp.getMajor());
 
         return convertView;
@@ -64,6 +67,7 @@ public class ProfileAdapter extends BaseAdapter {
     class CustomViewHolder {
         ImageView profileImg;
         TextView profileName;
+        RatingBar rating;
         //TextView profileProducts;
     }
 

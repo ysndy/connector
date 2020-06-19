@@ -7,15 +7,17 @@
     tools:context=".doyeon.lib.bestpager.BestProfileFragment">
 
     <LinearLayout
-        android:layout_margin="20dp"
         android:padding="10dp"
         android:layout_gravity="center"
-        android:elevation="4dp"
-        android:background="@drawable/background_profileitem"
         android:id="@+id/bestProfileObjectPanel"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="@dimen/best_profile_item_height">
+        <!--
+        android:layout_margin="20dp"
+        android:elevation="4dp"
+        android:background="@drawable/background_profileitem"
+        -->
 
         <ImageView
             android:layout_weight="5"

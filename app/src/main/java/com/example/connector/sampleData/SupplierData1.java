@@ -1,4 +1,4 @@
-package com.example.connector.doyeon.sampleData;
+package com.example.connector.sampleData;
 
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Profile;
@@ -13,12 +13,12 @@ public interface SupplierData1 {
     String id = "ysndy";
     String pw = "1234";
     String location = "서울시 서대문구 홍은동";
-    String introduce = "싱싱한 당근, 배추를 납품합니다.";
+    String introduce = "싱싱한 당근, 오이를 납품합니다.";
     String callNumber = "010-7157-8105";
     String email = "ysndy@naver.com";
     String imageUrl = "";
     String major = "";
-    Double stars = 0.0;
+    Double rating = 3.5;
     ArrayList<Product> products = null;
     ArrayList<Profile> follows = null;
 

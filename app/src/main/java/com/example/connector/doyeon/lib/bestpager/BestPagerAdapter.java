@@ -1,15 +1,12 @@
 package com.example.connector.doyeon.lib.bestpager;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.connector.doyeon.lib.profiletab.ProductListFragment;
-import com.example.connector.doyeon.lib.profiletab.SupplierInfoFragment;
 import com.example.connector.doyeon.objects.Profile;
-import com.example.connector.doyeon.sampleData.SupplierData1;
+import com.example.connector.sampleData.SupplierData1;
 
 import java.util.ArrayList;
 

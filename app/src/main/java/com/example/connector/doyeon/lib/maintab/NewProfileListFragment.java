@@ -10,14 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.connector.R;
 import com.example.connector.doyeon.activity.IntentName;
 import com.example.connector.doyeon.activity.SupplierProfileActivity;
 import com.example.connector.doyeon.lib.ProfileAdapter;
 import com.example.connector.doyeon.objects.Profile;
-import com.example.connector.doyeon.sampleData.SupplierData1;
+import com.example.connector.sampleData.SupplierData1;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -104,6 +103,7 @@ public class NewProfileListFragment extends Fragment {
             profile.setId(SupplierData1.id);
             profile.setName(SupplierData1.name);
             profile.setMajor(SupplierData1.major);
+            profile.setRating(SupplierData1.rating);
             newProfiles.add(profile);
 
         }
