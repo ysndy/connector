@@ -1,5 +1,6 @@
 package com.example.connector.soohyun.restaurantpage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,11 @@ public class EditPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rest_editpage);
+
+        imgBtn = findViewById(R.id.imgBtn);
+        editSuc = findViewById(R.id.editSuc);
+
+        Intent intent = getIntent(); //인텐트
 
         imgBtn.setOnClickListener(new View.OnClickListener() { //사진올리기 버튼 > 사진 앱 접근
             @Override

@@ -6,12 +6,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.SimpleCursorAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.connector.R;
 import com.example.connector.doyeon.activity.MainPageActivity;
 import com.example.connector.soohyun.restaurantpage.EditRequest;
+import com.example.connector.soohyun.restaurantpage.MyPage;
 import com.example.connector.soohyun.restaurantpage.NowRequest;
 
 public class Login extends AppCompatActivity {
@@ -38,7 +40,7 @@ public class Login extends AppCompatActivity {
         fjoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), NowRequest.class);
+                Intent intent = new Intent(getApplicationContext(), MyPage.class);
                 startActivity(intent);
             }
         });
