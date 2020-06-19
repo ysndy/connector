@@ -48,4 +48,14 @@
     <string name="SupplyDate">공급일</string>
     <string name="requestDate">신청일</string>
     <string name="supplyName">공급자명</string>
+    <string name="ingredient">음식재료</string>
+    <string name="address">주소</string>
+    <string name="star">별점\n주기</string>
+    <string name="contact">연락처</string>
+    <string name="TotalCoin">총 매출</string>
+
+    <string name="yellBtn">수정요청</string>
+    <string name="grayBtn">대기</string>
+    <string name="redBtn">거절됨</string>
+    <string name="greenBtn">거래진행중</string>
 </resources>

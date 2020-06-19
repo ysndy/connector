@@ -17,5 +17,7 @@
     <color name="red">#CC3D3D</color>
     <color name="blue">#489CFF</color>
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="yellow">#F2CB61</color>
 
 </resources>
