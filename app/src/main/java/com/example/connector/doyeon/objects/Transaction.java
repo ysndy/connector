@@ -2,7 +2,8 @@ package com.example.connector.doyeon.objects;
 
 import java.util.ArrayList;
 
-public class Transaction { // 거래 내용 저장
+public class
+Transaction { // 거래 내용 저장
 
     // 1. 날짜 2. 거래공급처 3. 거래음식점 4. 상품
     private String date;

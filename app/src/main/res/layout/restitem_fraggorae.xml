@@ -39,7 +39,7 @@
                 android:layout_marginLeft="10dp"/>
 
             <TextView
-                android:id="@+id/goraeItemIngre"
+                android:id="@+id/goraeItemContact"
                 android:text="@string/contact"
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
@@ -49,7 +49,7 @@
 />
 
             <TextView
-                android:id="@+id/goraeItemAddre"
+                android:id="@+id/goraeItemTotal"
                 android:text="@string/TotalCoin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
