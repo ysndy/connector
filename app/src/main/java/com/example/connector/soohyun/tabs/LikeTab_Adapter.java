@@ -57,7 +57,7 @@ public class LikeTab_Adapter extends BaseAdapter {
         // holder.likeItemImg.setText(product.getName());
         holder.likeItemName.setText(product.getName());
         holder.likeItemPrice.setText(product.getPrice().toString());
-        holder.likeItemSupply.setText(product.getFrom());
+        holder.likeItemSupply.setText(product.getSupplyName());
 
         return convertView;
 

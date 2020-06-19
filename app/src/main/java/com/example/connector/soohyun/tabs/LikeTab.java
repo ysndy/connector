@@ -85,13 +85,13 @@ public class LikeTab extends Fragment {
         Product product1 = new Product();
         product1.setName(ProductData1.name);
         product1.setPrice(ProductData1.price);
-        product1.setFrom(ProductData1.supply);
+        product1.setSupplyName(ProductData1.supply);
         products.add(product1);
 
         Product product2 = new Product();
         product2.setName(ProductData2.name);
         product2.setPrice(ProductData2.price);
-        product2.setFrom(ProductData2.supply);
+        product2.setSupplyName(ProductData2.supply);
         products.add(product2);
 
         LikeTab_Adapter likeTab_adapter = new LikeTab_Adapter(products);

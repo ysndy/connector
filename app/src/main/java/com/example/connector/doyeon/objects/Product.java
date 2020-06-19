@@ -12,6 +12,7 @@ public class Product implements Parcelable {
     private String from;//원산지
     private Profile supplier;//공급처
     private Integer selectedCount;//거래 시 선택수량
+    private String supplyName; //공급처이름
 
     public Product(){
 
@@ -114,5 +115,14 @@ public class Product implements Parcelable {
 
     public void setSupplier(Profile supplier) {
         this.supplier = supplier;
+    }
+
+
+    public String getSupplyName() {
+        return supplyName;
+    }
+
+    public void setSupplyName(String supplyName) {
+        this.supplyName = supplyName;
     }
 }
