@@ -1,12 +1,39 @@
 package com.example.connector.doyeon.objects;
 
-public class Product {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Product implements Parcelable {
 
     private String name;
     private Integer price;
     private String imageUrl;
     private String category;
     private String from;
+
+    protected Product(Parcel in) {
+        name = in.readString();
+        if (in.readByte() == 0) {
+            price = null;
+        } else {
+            price = in.readInt();
+        }
+        imageUrl = in.readString();
+        category = in.readString();
+        from = in.readString();
+    }
+
+    public static final Creator<Product> CREATOR = new Creator<Product>() {
+        @Override
+        public Product createFromParcel(Parcel in) {
+            return new Product(in);
+        }
+
+        @Override
+        public Product[] newArray(int size) {
+            return new Product[size];
+        }
+    };
 
     public String getName() {
         return name;
@@ -46,5 +73,24 @@ public class Product {
 
     public void setFrom(String from) {
         this.from = from;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        if (price == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(price);
+        }
+        dest.writeString(imageUrl);
+        dest.writeString(category);
+        dest.writeString(from);
     }
 }

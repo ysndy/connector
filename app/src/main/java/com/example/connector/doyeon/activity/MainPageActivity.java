@@ -15,6 +15,7 @@ package com.example.connector.doyeon.activity;
         import com.example.connector.doyeon.lib.bestpager.BestPagerAdapter;
         import com.example.connector.doyeon.lib.maintab.MainTabPagerAdapter;
         import com.example.connector.jeongeun.Provider_mypage;
+        import com.example.connector.sampleData.RestaurantData1;
         import com.example.connector.sampleData.SupplierData1;
         import com.example.connector.doyeon.objects.Profile;
         import com.google.android.material.tabs.TabLayout;
@@ -145,12 +146,12 @@ public class MainPageActivity extends AppCompatActivity {
     public void setMyProfile(){
 
         //ID로 서버 데이터 조회해서 정보 받아옴
-        myProfile.setCallNumber(SupplierData1.callNumber);
-        myProfile.setEmail(SupplierData1.email);
-        myProfile.setIntroduce(SupplierData1.introduce);
-        myProfile.setLocation(SupplierData1.location);
-        myProfile.setMajor(SupplierData1.major);
-        myProfile.setName(SupplierData1.name);
+        myProfile.setCallNumber(RestaurantData1.callNumber);
+        myProfile.setEmail(RestaurantData1.email);
+        myProfile.setIntroduce(RestaurantData1.introduce);
+        myProfile.setLocation(RestaurantData1.location);
+        myProfile.setMajor(RestaurantData1.major);
+        myProfile.setName(RestaurantData1.name);
 
     }
 
