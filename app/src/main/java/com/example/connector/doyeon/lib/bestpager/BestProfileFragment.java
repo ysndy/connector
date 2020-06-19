@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.connector.R;
@@ -32,6 +33,7 @@ public class BestProfileFragment extends Fragment {
     private TextView profile_name;
     private Profile profileSup, profileRes;
     private ImageView profile_img;
+    private LinearLayout layout;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -80,7 +82,8 @@ public class BestProfileFragment extends Fragment {
         profile_name = rootView.findViewById(R.id.bestProfileName);
         profile_name.setText(profileSup.getName());
         profile_img = rootView.findViewById(R.id.bestProfileImageView);
-        profile_img.setOnClickListener(new View.OnClickListener() {
+        layout = rootView.findViewById(R.id.bestProfileObjectPanel);
+        layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(profile_name.getContext(), SupplierProfileActivity.class);
