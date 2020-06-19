@@ -7,8 +7,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.example.connector.R;
+import com.example.connector.doyeon.lib.ProductAdapter;
+import com.example.connector.doyeon.objects.Product;
+import com.example.connector.sampleData.ProductData1;
+import com.example.connector.sampleData.ProductData2;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,6 +27,10 @@ public class LikeTab extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private ArrayList<Product> products;
+    private ListView likeItemListView;
+
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -60,6 +71,31 @@ public class LikeTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_re_like, container, false);
+        ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_re_like, container, false);
+
+        likeItemListView = viewGroup.findViewById(R.id.likeItemListView);
+        setProductList();
+        return likeItemListView;
+    }
+
+    private void setProductList() {
+
+        products = new ArrayList<>();
+
+        Product product1 = new Product();
+        product1.setName(ProductData1.name);
+        product1.setPrice(ProductData1.price);
+        product1.setFrom(ProductData1.supply);
+        products.add(product1);
+
+        Product product2 = new Product();
+        product2.setName(ProductData2.name);
+        product2.setPrice(ProductData2.price);
+        product2.setFrom(ProductData2.supply);
+        products.add(product2);
+
+        LikeTab_Adapter likeTab_adapter = new LikeTab_Adapter(products);
+        likeItemListView.setAdapter(likeTab_adapter);
+
     }
 }

@@ -7,5 +7,6 @@ public interface ProductData1 {
     String imageUrl = null;
     String category = "채소";
     String from = "국내산";
+    String supply = "나거래처";
 
 }
