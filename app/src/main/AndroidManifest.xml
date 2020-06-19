@@ -27,6 +27,9 @@
         <activity android:name=".doyeon.activity.TransactionCalendarActivity"/>
         <activity android:name=".doyeon.activity.MainPageActivity" android:launchMode="singleTop"/>
         <activity android:name=".jeongeun.Provider_mypage"/>
+        <activity android:name=".jeongeun.Edit_item" />
+        <activity android:name=".jeongeun.Edit_info" />
+        <activity android:name=".jeongeun.Add_item" />
         <activity android:name=".soohyun.shared.Login"/>
         <activity android:name=".soohyun.restaurantpage.MyPage"/>
         <activity android:name=".soohyun.restaurantpage.EditRequest"/>

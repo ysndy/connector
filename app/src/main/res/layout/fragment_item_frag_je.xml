@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
     <!--tools:context=".Item_frag" -->
 
-    <!-- 공급처 마이페이지(상품) -->
+    <!-- 공급처 마이페이지(상품) (정은)-->
 
     <!-- 상품 추가 버튼 -->
     <Button
@@ -18,7 +18,9 @@
         android:text="+ 상품추가"
         android:textSize="18sp" />
 
+
     <!-- 상품 리스트 -->
+
     <ListView
         android:id="@+id/item_list"
         android:layout_width="match_parent"

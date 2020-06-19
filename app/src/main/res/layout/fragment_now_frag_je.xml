@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".jeongeun.Now_frag">
 
-    <!-- 공급처 현황 -->
+    <!-- 공급처 현황 (정은)-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

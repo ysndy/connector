@@ -8,7 +8,7 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <!-- 거래처 리스트 -->
+    <!-- 거래처 리스트 (정은)-->
     <ListView
         android:id="@+id/provider_list"
         android:layout_width="match_parent"
