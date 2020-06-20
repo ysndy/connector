@@ -14,6 +14,7 @@ public class Transaction implements Parcelable { // 거래 내용 저장
     private Integer count;
     private Integer priceTotal; //총금액
     private ArrayList<Product> products; //선택상품
+    private String supplyName; //공급처이름
 
     public Transaction(){
 
@@ -119,5 +120,12 @@ public class Transaction implements Parcelable { // 거래 내용 저장
             dest.writeInt(priceTotal);
         }
         dest.writeTypedList(products);
+    }
+    public String getSupplyName() {
+        return supplyName;
+    }
+
+    public void setSupplyName(String supplyName) {
+        this.supplyName = supplyName;
     }
 }
