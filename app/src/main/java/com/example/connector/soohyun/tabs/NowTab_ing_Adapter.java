@@ -16,6 +16,10 @@ public class NowTab_ing_Adapter extends BaseAdapter {
 
     private ArrayList<Transaction> list;
 
+    public NowTab_ing_Adapter(ArrayList<Transaction> list) {
+        this.list = list;
+    }
+
     @Override
     public int getCount() {
         return list.size();
