@@ -18,20 +18,14 @@ import com.example.connector.sampleData.SupplierData1;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link GoraeTab#newInstance} factory method to
- * create an instance of this fragment.
- */
+//거래처탭
 public class GoraeTab extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private ArrayList<Profile> profiles;
     private ListView goraeItemListView;
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -39,16 +33,7 @@ public class GoraeTab extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment reGorae.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static GoraeTab newInstance(String param1, String param2) {
+      public static GoraeTab newInstance(String param1, String param2) {
         GoraeTab fragment = new GoraeTab();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
@@ -72,18 +57,18 @@ public class GoraeTab extends Fragment {
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_re_gorae, container, false);
 
         goraeItemListView = viewGroup.findViewById(R.id.goraeItemListView);
-        setProfiletList();
+        setProfileList();
         return goraeItemListView;
     }
 
-    private void setProfiletList() {
+    private void setProfileList() {
 
         profiles = new ArrayList<>();
 
         Profile profile1 = new Profile();
         profile1.setName(SupplierData1.name);
         profile1.setMajor(SupplierData1.major);
-        //profile1.getProducts().get(0).setPrice(SupplierData1.);
+        profile1.getProducts().get(0).setPrice(ProductData1.price);
         profiles.add(profile1);
 
         GoraeTab_Adapter goraeTab_adapter = new GoraeTab_Adapter(profiles);

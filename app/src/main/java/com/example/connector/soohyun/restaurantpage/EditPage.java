@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.connector.R;
 
+//마이페이지 수정하는 페이지
 public class EditPage extends AppCompatActivity {
 
     ImageView proImgEdi;

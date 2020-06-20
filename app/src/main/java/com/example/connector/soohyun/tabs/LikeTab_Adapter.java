@@ -12,6 +12,7 @@ import com.example.connector.doyeon.objects.Product;
 
 import java.util.ArrayList;
 
+//좋아요탭 어댑터
 public class LikeTab_Adapter extends BaseAdapter {
 
     private ArrayList<Product> list;

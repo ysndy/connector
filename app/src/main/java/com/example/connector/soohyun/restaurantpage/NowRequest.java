@@ -17,6 +17,7 @@ import com.example.connector.sampleData.TransactionData2;
 
 import java.util.ArrayList;
 
+//신청현황
 public class NowRequest extends AppCompatActivity {
 
     TextView nowName, nowDate;

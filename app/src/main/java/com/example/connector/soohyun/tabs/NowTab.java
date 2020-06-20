@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import com.example.connector.R;
 import com.google.android.material.tabs.TabLayout;
 
+//현황 탭
 public class NowTab extends Fragment {
 
     TabLayout tabLayout;

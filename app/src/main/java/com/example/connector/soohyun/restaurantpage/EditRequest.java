@@ -20,6 +20,7 @@ import com.example.connector.sampleData.TransactionData2;
 
 import java.util.ArrayList;
 
+//공급자로부터 받아온 수정요청 페이지
 public class EditRequest extends AppCompatActivity {
 
     TextView reqName, reqDate, reqItemName, reqItemAE, reqItemPrice, reqItemDate;

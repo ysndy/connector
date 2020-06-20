@@ -13,6 +13,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.connector.R;
 import com.google.android.material.tabs.TabLayout;
 
+//외식업자 마이페이지
 public class MyPage extends AppCompatActivity {
 
     ImageView mypageImg;

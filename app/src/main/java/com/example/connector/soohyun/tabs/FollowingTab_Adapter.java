@@ -12,6 +12,7 @@ import com.example.connector.doyeon.objects.Profile;
 
 import java.util.ArrayList;
 
+//팔로잉탭 어댑터
 public class FollowingTab_Adapter extends BaseAdapter {
 
     private ArrayList<Profile> list;

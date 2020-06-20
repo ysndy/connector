@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -38,7 +39,6 @@ public class GoraeTab_Adapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
         GoraeTab_Adapter.CustomViewHolder holder;
 
         if (convertView == null) {
@@ -49,6 +49,7 @@ public class GoraeTab_Adapter extends BaseAdapter {
             holder.goraeItemSupply = convertView.findViewById(R.id.goraeItemSupply);
             holder.goraeItemContact = convertView.findViewById(R.id.goraeItemContact);
             holder.goraeItemTotal = convertView.findViewById(R.id.goraeItemTotal);
+            //holder.giveStar = convertView.findViewById(R.id.giveStar);
 
             convertView.setTag(holder);
         } else {
@@ -59,7 +60,8 @@ public class GoraeTab_Adapter extends BaseAdapter {
         // holder.goraeItemImg.setText(product.getName());
         holder.goraeItemSupply.setText(profile.getName());
         holder.goraeItemContact.setText(profile.getCallNumber());
-        holder.goraeItemTotal.setText(profile.getProducts().get(0).getPrice());
+        holder.goraeItemTotal.setText(profile.getProducts().get(0).getPrice().toString());
+        //holder.giverStar.setOnClickListener();
 
         return convertView;
 
@@ -69,6 +71,7 @@ public class GoraeTab_Adapter extends BaseAdapter {
     public class CustomViewHolder {
         ImageView goraeItemImg;
         TextView goraeItemSupply, goraeItemContact, goraeItemTotal;
+        Button giverStar;
     }
 
     public void addItem(Profile profile){
