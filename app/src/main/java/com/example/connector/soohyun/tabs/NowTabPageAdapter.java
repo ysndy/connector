@@ -8,11 +8,11 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.example.connector.jeongeun.Now_deal;
 import com.example.connector.jeongeun.Now_request;
 
-public class TabPageAdapter extends FragmentPagerAdapter {
+public class NowTabPageAdapter extends FragmentPagerAdapter {
 
     int num;
 
-    public TabPageAdapter(@NonNull FragmentManager fragmentPagerAdapter, int tabnum){
+    public NowTabPageAdapter(@NonNull FragmentManager fragmentPagerAdapter, int tabnum){
        super(fragmentPagerAdapter);
         this.num = tabnum;
     }
@@ -22,10 +22,10 @@ public class TabPageAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position){
         switch (position) {
             case 0:
-                Now_request tab1 = new Now_request();
+                NowTab_request tab1 = new NowTab_request();
                 return tab1;
             case 1:
-                Now_deal tab2 = new Now_deal();
+                NowTab_ing tab2 = new NowTab_ing();
                 return tab2;
             default:
                 return null;

@@ -34,7 +34,7 @@ public class NowTab extends Fragment {
         tabLayout.setTabGravity(tabLayout.GRAVITY_FILL);
 
         final ViewPager nowtabviewPager = view.findViewById(R.id.nowtabviewPager);
-        final TabPageAdapter tabPageAdapter = new TabPageAdapter(getChildFragmentManager(),2);
+        final NowTabPageAdapter tabPageAdapter = new NowTabPageAdapter(getChildFragmentManager(),2);
         nowtabviewPager.setAdapter(tabPageAdapter);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(nowtabviewPager));
