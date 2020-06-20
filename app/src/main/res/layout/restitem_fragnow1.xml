@@ -15,7 +15,7 @@
             android:layout_gravity="left"
             android:layout_weight="1">
             <ImageView
-                android:id="@+id/nowItemImg"
+                android:id="@+id/now1ItemImg"
                 android:layout_width="80dp"
                 android:layout_height="70dp"
                 android:src="@drawable/nullpro"
@@ -28,7 +28,7 @@
             android:layout_weight="1"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/nowItemSupply"
+                android:id="@+id/now1ItemSupply"
                 android:text="@string/supplyName"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -39,7 +39,7 @@
                 android:layout_marginLeft="10dp"/>
 
             <TextView
-                android:id="@+id/nowItemReqDate"
+                android:id="@+id/now1ItemReqDate"
                 android:text="@string/requestDate"
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
