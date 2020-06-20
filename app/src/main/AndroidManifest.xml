@@ -21,13 +21,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".doyeon.activity.SupplierProfileActivity"/>
-        <activity android:name=".doyeon.activity.TransactionProductsActivity"/>
+        <activity android:name=".doyeon.activity.transaction.TransactionProductsActivity"/>
         <activity android:name=".doyeon.activity.SearchActivity"/>
         <activity android:name=".doyeon.activity.ProfileListActivity"/>
-        <activity android:name=".doyeon.activity.TransactionCalendarActivity"/>
+        <activity android:name=".doyeon.activity.transaction.TransactionCalendarActivity"/>
         <activity android:name=".doyeon.activity.MainPageActivity" android:launchMode="singleTop"/>
-        <activity android:name=".doyeon.activity.TosActivity"/>
-        <activity android:name=".doyeon.activity.TransactionRequestActivity"/>
+        <activity android:name=".doyeon.activity.transaction.TosActivity"/>
+        <activity android:name=".doyeon.activity.transaction.TransactionRequestActivity"/>
+        <activity android:name=".doyeon.activity.transaction.TransactionSetDateActivity"/>
         <activity android:name=".jeongeun.Provider_mypage"/>
         <activity android:name=".jeongeun.Edit_item" />
         <activity android:name=".jeongeun.Edit_info" />

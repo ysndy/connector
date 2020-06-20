@@ -1,4 +1,4 @@
-package com.example.connector.doyeon.activity;
+package com.example.connector.doyeon.activity.transaction;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import com.example.connector.R;
+import com.example.connector.doyeon.activity.IntentName;
+import com.example.connector.doyeon.activity.transaction.TransactionRequestActivity;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Profile;
 import com.example.connector.doyeon.objects.Transaction;

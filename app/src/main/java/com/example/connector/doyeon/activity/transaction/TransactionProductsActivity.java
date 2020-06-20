@@ -1,4 +1,4 @@
-package com.example.connector.doyeon.activity;
+package com.example.connector.doyeon.activity.transaction;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import com.example.connector.R;
+import com.example.connector.doyeon.activity.IntentName;
 import com.example.connector.doyeon.lib.RequestAdapter;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Profile;
@@ -49,13 +50,12 @@ public class TransactionProductsActivity extends Activity {
                     Transaction transaction = new Transaction();
                     transaction.setSupplier(profile_sup); //해당 거래의 공급자 세팅
                     transaction.setRestaurant(profile_res); //해당 거래의 외식업자 세팅
-                    transaction.setDate("2020-06-30"); // 거래 날짜 세팅
                     transaction.setPriceTotal(Integer.parseInt(priceTotalTv.getText().toString())); // 거래 총 금액
 
                     selectedProducts = adapter.getSelectedProducts();
                     Log.d("asd", selectedProducts.size()+"  "+transaction.getPriceTotal());
                     //여기부터
-                    Intent intent = new Intent(getApplicationContext(), TosActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), TransactionSetDateActivity.class);
                     intent.putParcelableArrayListExtra(IntentName.SELECTED_PRODUCTS, selectedProducts);
                     intent.putExtra(IntentName.TRANSACTION, transaction);
                     startActivity(intent);

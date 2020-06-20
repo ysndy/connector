@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.connector.R;
+import com.example.connector.doyeon.activity.transaction.TransactionProductsActivity;
 import com.example.connector.doyeon.lib.profiletab.ProfileTabPagerAdapter;
 import com.example.connector.doyeon.objects.Profile;
 import com.example.connector.sampleData.SupplierData1;

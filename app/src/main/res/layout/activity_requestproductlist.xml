@@ -99,7 +99,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/lightGreen"
-        android:text="거래요청"
+        android:text="다음"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 

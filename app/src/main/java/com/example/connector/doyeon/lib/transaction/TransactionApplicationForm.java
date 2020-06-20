@@ -84,6 +84,8 @@ public class TransactionApplicationForm extends Fragment {
         supAddress = rootView.findViewById(R.id.supplierAddressTV);
         priceTotal = rootView.findViewById(R.id.priceTotalTv);
         productListView = rootView.findViewById(R.id.productListView);
+        final View header = getLayoutInflater().inflate(R.layout.listview_header_transactionapp, null, false);
+        productListView.addHeaderView(header);
         ApplicationProductListAdapter adapter = new ApplicationProductListAdapter(products);
         productListView.setAdapter(adapter);
 

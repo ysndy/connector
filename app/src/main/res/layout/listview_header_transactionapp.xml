@@ -4,6 +4,9 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:textStyle="bold"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:background="@drawable/background_list_border"
         android:gravity="center"
         android:text="원산지"
@@ -11,6 +14,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
     <TextView
+        android:textStyle="bold"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:background="@drawable/background_list_border"
         android:gravity="center"
         android:text="품목"
@@ -18,6 +24,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
     <TextView
+        android:textStyle="bold"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:background="@drawable/background_list_border"
         android:gravity="center"
         android:text="수량"
@@ -25,6 +34,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
     <TextView
+        android:textStyle="bold"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:background="@drawable/background_list_border"
         android:gravity="center"
         android:text="단가"
@@ -32,6 +44,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
     <TextView
+        android:textStyle="bold"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:background="@drawable/background_list_border"
         android:gravity="center"
         android:text="공급가액"
