@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_profileitem"
     tools:context=".doyeon.lib.transaction.TransactionApplicationForm">
 
     <!--
@@ -32,20 +31,22 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:gravity="center"
-                    android:text="2020-06-30"
                     android:id="@+id/transactionDateTV"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:background="@drawable/background_list_border"
+                    android:gravity="center"
+                    android:text="2020-06-30" />
 
                 <TextView
-                    android:gravity="center"
-                    android:text="도연상회"
                     android:id="@+id/restaurantNameTV"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:background="@drawable/background_list_border"
+                    android:gravity="center"
+                    android:text="도연상회" />
 
 
             </LinearLayout>
@@ -60,6 +61,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:background="@drawable/background_list_border"
                     android:gravity="center"
                     android:text="공급자"
                     android:textAlignment="center"
@@ -81,14 +83,17 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:background="@drawable/background_list_border"
                             android:gravity="center"
                             android:text="상호" />
 
                         <TextView
+                            android:gravity="center"
                             android:id="@+id/supplierNameTV"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="3" />
+                            android:layout_weight="3"
+                            android:background="@drawable/background_list_border" />
 
                     </LinearLayout>
 
@@ -102,14 +107,17 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:background="@drawable/background_list_border"
                             android:gravity="center"
                             android:text="주소" />
 
                         <TextView
+                            android:gravity="center"
                             android:id="@+id/supplierAddressTV"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="3" />
+                            android:layout_weight="3"
+                            android:background="@drawable/background_list_border" />
 
                     </LinearLayout>
 
@@ -120,23 +128,24 @@
         </LinearLayout>
 
         <LinearLayout
-            android:padding="10dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/background_list_border"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
             <TextView
-                android:text="합계금액 : "
-                android:gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="합계금액 : " />
 
             <TextView
                 android:id="@+id/priceTotalTv"
-                android:gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:gravity="center" />
 
         </LinearLayout>
 
@@ -144,7 +153,9 @@
             android:id="@+id/productListView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="10" />
+            android:layout_weight="10"
+            android:divider="#ffffff"
+            android:dividerHeight="0px" />
 
     </LinearLayout>
 

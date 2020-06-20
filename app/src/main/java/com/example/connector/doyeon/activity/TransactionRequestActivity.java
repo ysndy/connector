@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
@@ -24,12 +25,13 @@ public class TransactionRequestActivity extends AppCompatActivity {
     //1. 인텐트 받음(트랜잭션, 선택상품리스트) 2. 거래신청서 프래그먼트 보여줌 3. 거래데이터 서버에 저장
     Transaction transaction;
     ArrayList<Product> transactionProducts;
+    Button completeBtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transaction_request);
-        //layout = findViewById(R.id.applicationLayout);
+
         //인텐트
         Intent intent = getIntent();
         transactionProducts = intent.getParcelableArrayListExtra(IntentName.SELECTED_PRODUCTS);

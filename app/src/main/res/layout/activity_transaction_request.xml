@@ -40,12 +40,23 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout
+        android:elevation="2dp"
+        android:background="@drawable/background_list_border"
+        android:layout_margin="10dp"
         android:id="@+id/applicationLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/topPanel"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toTopOf="@id/completeBtn">
 
     </FrameLayout>
+
+    <Button
+        android:id="@+id/completeBtn"
+        android:background="@color/lightGreen"
+        android:text="신청완료"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/topPanelHeight"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
