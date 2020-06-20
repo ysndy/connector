@@ -16,6 +16,7 @@ import com.example.connector.R;
 import com.example.connector.doyeon.lib.RequestAdapter;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Profile;
+import com.example.connector.doyeon.objects.Transaction;
 
 import java.util.ArrayList;
 
@@ -27,6 +28,7 @@ public class TransactionProductsActivity extends Activity {
     ListView productListView;
     Button requestBtn;
     TextView priceTotalTv, selectedCountTv;
+    RequestAdapter adapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,11 +42,20 @@ public class TransactionProductsActivity extends Activity {
         requestBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(selectedCountTv.getText().toString().equals("0 개 상품 선택"))
-                    Toast.makeText(getApplicationContext(), "상품, 수량을 선택해주세요", Toast.LENGTH_SHORT);
+                if(selectedCountTv.getText().toString().equals("0"))
+                    Toast.makeText(getApplicationContext(), "상품, 수량을 선택해주세요", Toast.LENGTH_SHORT).show();
                 else {
+                    Transaction transaction = new Transaction();
+                    transaction.setSupplier(profile_sup); //해당 거래의 공급자 세팅
+                    transaction.setRestaurant(profile_res); //해당 거래의 외식업자 세팅
+                    transaction.setDate("2020-06-30"); // 거래 날짜 세팅
+                    transaction.setPriceTotal(Integer.parseInt(priceTotalTv.getText().toString())); // 거래 총 금액
+                    selectedProducts = adapter.getSelectedProducts();
+                    selectedProducts.size();
+                    //여기부터
                     Intent intent = new Intent(getApplicationContext(), TosActivity.class);
-                    intent.putExtra(IntentName.SELECTED_PRODUCTS, selectedProducts);
+                    intent.putParcelableArrayListExtra(IntentName.SELECTED_PRODUCTS, selectedProducts);
+                    intent.putExtra(IntentName.TRANSACTION, transaction);
                     startActivity(intent);
                 }
             }
@@ -81,7 +92,7 @@ public class TransactionProductsActivity extends Activity {
         products = new ArrayList<>();
         profile_sup.insertProducts();
         products.addAll(profile_sup.getProducts());
-        RequestAdapter adapter = new RequestAdapter(products, priceTotalTv, selectedCountTv);
+        adapter = new RequestAdapter(products, priceTotalTv, selectedCountTv);
         productListView.setAdapter(adapter);
     }
 }

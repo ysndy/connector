@@ -1,17 +1,52 @@
 package com.example.connector.doyeon.objects;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 
-public class
-Transaction { // 거래 내용 저장
+public class Transaction implements Parcelable { // 거래 내용 저장
 
     // 1. 날짜 2. 거래공급처 3. 거래음식점 4. 상품
-    private String date;
-    private Profile restaurant;
-    private Profile supplier;
+    private String date; //날짜
+    private Profile restaurant; //외식업자
+    private Profile supplier; //공급처
     private Integer count;
-    private Integer priceTotal;
-    private ArrayList<Product> products;
+    private Integer priceTotal; //총금액
+    private ArrayList<Product> products; //선택상품
+
+    public Transaction(){
+
+    }
+
+    protected Transaction(Parcel in) {
+        date = in.readString();
+        restaurant = in.readParcelable(Profile.class.getClassLoader());
+        supplier = in.readParcelable(Profile.class.getClassLoader());
+        if (in.readByte() == 0) {
+            count = null;
+        } else {
+            count = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            priceTotal = null;
+        } else {
+            priceTotal = in.readInt();
+        }
+        products = in.createTypedArrayList(Product.CREATOR);
+    }
+
+    public static final Creator<Transaction> CREATOR = new Creator<Transaction>() {
+        @Override
+        public Transaction createFromParcel(Parcel in) {
+            return new Transaction(in);
+        }
+
+        @Override
+        public Transaction[] newArray(int size) {
+            return new Transaction[size];
+        }
+    };
 
     public String getDate() {
         return date;
@@ -59,5 +94,30 @@ Transaction { // 거래 내용 저장
 
     public void setPriceTotal(Integer priceTotal) {
         this.priceTotal = priceTotal;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(date);
+        dest.writeParcelable(restaurant, flags);
+        dest.writeParcelable(supplier, flags);
+        if (count == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(count);
+        }
+        if (priceTotal == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(priceTotal);
+        }
+        dest.writeTypedList(products);
     }
 }

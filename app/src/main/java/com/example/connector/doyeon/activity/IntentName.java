@@ -6,5 +6,6 @@ public interface IntentName {
     final String PROFILE_SUP = "";
     final String PROFILE_RES = "";
     final String SELECTED_PRODUCTS = "";
+    final String TRANSACTION ="";
 
 }

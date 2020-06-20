@@ -41,11 +41,13 @@ public class RequestAdapter extends BaseAdapter {
     private TextView priceTotalTv;
     private TextView selectedCountTv;
     private Product sp;
+    private ArrayList<Product> selectedProducts;
 
     public RequestAdapter(ArrayList<Product> list, TextView priceTotalTv, TextView selectedCountTv){
         this.list = list;
         this.priceTotalTv = priceTotalTv;
         this.selectedCountTv = selectedCountTv;
+        selectedProducts = new ArrayList<>();
     }
 
     @Override
@@ -85,7 +87,7 @@ public class RequestAdapter extends BaseAdapter {
 
         CheckBox cb = (CheckBox) convertView.findViewById(R.id.productCheckBox);
         //리스너 장착
-        cb.setOnCheckedChangeListener(new checkEvent(holder.productCountEt, sp.getPrice()));
+        cb.setOnCheckedChangeListener(new checkEvent(holder.productCountEt, sp.getPrice(), sp));
         holder.productCountEt.addTextChangedListener(new ExceptionET(holder.productCountEt));
         holder.productCountEt.setOnFocusChangeListener(new ChangeET(holder.productCountEt, sp.getPrice()));
         holder.productCountEt.setOnEditorActionListener(new OnEditorAction(holder.productCountEt));
@@ -96,6 +98,10 @@ public class RequestAdapter extends BaseAdapter {
         holder.productPrice.setText(sp.getPrice().toString());
 
         return convertView;
+    }
+
+    public ArrayList<Product> getSelectedProducts() {
+        return selectedProducts;
     }
 
     class CustomViewHolder {
@@ -113,10 +119,12 @@ public class RequestAdapter extends BaseAdapter {
 
     class checkEvent implements CompoundButton.OnCheckedChangeListener {
 
+        Product selectedProduct;
         EditText editText;
         int price;
 
-        checkEvent(EditText editText, int price){
+        checkEvent(EditText editText, int price, Product selectedProduct){
+            this.selectedProduct = selectedProduct;
             this.editText = editText;
             this.price = price;
         }
@@ -129,6 +137,7 @@ public class RequestAdapter extends BaseAdapter {
                 editText.setFocusableInTouchMode(true);
                 priceTotal += (price * Integer.parseInt(editText.getText().toString()));
                 productCount++;
+                selectedProducts.add(selectedProduct);
 
             } else {
                 editText.setClickable(false);
@@ -136,11 +145,12 @@ public class RequestAdapter extends BaseAdapter {
                 editText.setBackgroundColor(ContextCompat.getColor(editText.getContext(), R.color.false1));
                 priceTotal -= (price * Integer.parseInt(editText.getText().toString()));
                 productCount--;
+                selectedProducts.remove(selectedProduct);
 
             }
 
-            priceTotalTv.setText("총 "+priceTotal+" 원");
-            selectedCountTv.setText(productCount+" 개 상품 선택");
+            priceTotalTv.setText(""+priceTotal);
+            selectedCountTv.setText(productCount+"");
         }
     }
 
@@ -199,7 +209,7 @@ public class RequestAdapter extends BaseAdapter {
                 priceTotal += price*Integer.parseInt(et.getText().toString());
                 sp.setSelectedCount(Integer.parseInt(et.getText().toString()));
                 preNum = Integer.parseInt(et.getText().toString());
-                priceTotalTv.setText("총 "+priceTotal+" 원");
+                priceTotalTv.setText(""+priceTotal);
             }
         }
     }

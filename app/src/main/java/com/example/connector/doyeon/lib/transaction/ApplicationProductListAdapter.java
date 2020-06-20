@@ -39,12 +39,15 @@ public class ApplicationProductListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         CustomViewHolder holder;
         if (convertView == null) {
-            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product, null, false);
+            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_transaction_application_product, null, false);
 
             holder = new CustomViewHolder();
             //holder.profileImg = (ImageView) convertView.findViewById(R.id.image);
-            holder.productName = (TextView) convertView.findViewById(R.id.productNameTV);
-            holder.productPrice = (TextView) convertView.findViewById(R.id.productPriceTV);
+            holder.productName = (TextView) convertView.findViewById(R.id.nameTV);
+            holder.productPrice = (TextView) convertView.findViewById(R.id.priceTV);
+            holder.productCount = (TextView) convertView.findViewById(R.id.countTV);
+            holder.productFrom = (TextView) convertView.findViewById(R.id.fromTV);
+            holder.productPriceTotal = (TextView) convertView.findViewById(R.id.priceTotalTV);
 
 
             convertView.setTag(holder);
@@ -56,6 +59,9 @@ public class ApplicationProductListAdapter extends BaseAdapter {
 
         //holder.profileImg.setImageURI(Uri.parse(sp.getImageUrl()));
         holder.productName.setText(sp.getName());
+        holder.productPriceTotal.setText((sp.getPrice()*sp.getSelectedCount())+"");
+        holder.productFrom.setText(sp.getFrom());
+        holder.productCount.setText(sp.getSelectedCount().toString());
         holder.productPrice.setText(sp.getPrice().toString());
 
         return convertView;

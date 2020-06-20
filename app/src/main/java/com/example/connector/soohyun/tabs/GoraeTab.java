@@ -58,16 +58,23 @@ public class GoraeTab extends Fragment {
 
         goraeItemListView = viewGroup.findViewById(R.id.goraeItemListView);
         setProfileList();
-        return goraeItemListView;
+        return viewGroup; // viewGroup을 리턴해야댐
     }
 
     private void setProfileList() {
 
         profiles = new ArrayList<>();
+        ArrayList<Product> products = new ArrayList<>(); // 프로필에서 가지고 있는 상품들
+        Product product1 = new Product(); // 상품1
+        product1.setPrice(5000); //상품의 가격
+        products.add(product1); //상품들에 상품 추가
 
         Profile profile1 = new Profile();
         profile1.setName(SupplierData1.name);
         profile1.setMajor(SupplierData1.major);
+        profile1.setCallNumber(SupplierData1.callNumber); //전화번호 추가
+        profile1.setProducts(products);
+
         profile1.getProducts().get(0).setPrice(ProductData1.price);
         profiles.add(profile1);
 
