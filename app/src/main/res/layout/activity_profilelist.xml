@@ -5,14 +5,15 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:padding="10dp"
         android:id="@+id/topPanel"
         android:layout_width="match_parent"
         android:layout_height="@dimen/topPanelHeight"
-        android:background="@color/lightGreen"
+        android:background="@color/invisible"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:layout_width="@dimen/topPanelHeight"
+        <ImageButton
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@drawable/ic_navigate_before_black_24dp"
             app:layout_constraintLeft_toLeftOf="parent" />
@@ -50,7 +51,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/bottomPanel"
+            android:background="@color/colorPrimary"
             android:src="@drawable/ic_date_range_black_24dp" />
 
         <ImageButton
@@ -58,7 +59,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/bottomPanel"
+            android:background="@color/colorPrimary"
             android:src="@drawable/ic_home_black_24dp" />
 
         <ImageButton
@@ -66,7 +67,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/bottomPanel"
+            android:background="@color/colorPrimary"
             android:src="@drawable/ic_person_black_24dp" />
     </LinearLayout>
 

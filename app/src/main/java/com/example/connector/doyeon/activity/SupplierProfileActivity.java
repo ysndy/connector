@@ -43,7 +43,7 @@ public class SupplierProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        // 서버에서 상품목록 가져오기
+        // 서버에서 ID로 조회해서 상품목록 가져오기
         // profile 데이터를 못받아왔을 때 예외처리
 
         inflating();
@@ -165,26 +165,7 @@ public class SupplierProfileActivity extends AppCompatActivity {
         // 서버에서 profileSup.getId 로 조회해서 상품들 가져옴
         profileSup.insertProducts();
     }
-/*
-    private void setProductList() {
 
-        products = new ArrayList<>();
-
-        Product product = new Product();
-        product.setName(ProductData1.name);
-        product.setPrice(ProductData1.price);
-        products.add(product);
-
-        Product product2 = new Product();
-        product2.setName(ProductData2.name);
-        product2.setPrice(ProductData2.price);
-        products.add(product2);
-
-        ProductAdapter adapter = new ProductAdapter(products);
-        productListView.setAdapter(adapter);
-
-    }
-*/
     private void inflating() {
 
         profileSup = (Profile) getIntent().getSerializableExtra(IntentName.PROFILE_SUP);
@@ -197,30 +178,8 @@ public class SupplierProfileActivity extends AppCompatActivity {
         homeBtn = findViewById(R.id.homeBtn);
         supplierNameTV = findViewById(R.id.supplierNameTV);
 
-
-/*
-        productListBtn = findViewById(R.id.productBtn);
-        informationBtn = findViewById(R.id.infoBtn);
-
-        locationTV = findViewById(R.id.locationTV);
-        introduceTV = findViewById(R.id.introduceTV);
-        majorTV = findViewById(R.id.majorTV);
-
-        productListView = findViewById(R.id.productListView);
-*/
     }
 
-/*
-    private void setInfo() {
-
-        setImage();
-        supplierNameTV.setText(profileSup.getName());
-        locationTV.setText(profileSup.getLocation());
-        majorTV.setText(profileSup.getMajor());
-        introduceTV.setText(profileSup.getIntroduce());
-
-    }
-*/
     private void setImage() {
 
     }

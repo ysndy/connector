@@ -30,7 +30,7 @@ public class BestProfileFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private TextView profile_name;
+    private TextView profile_name, profile_info, profile_add;
     private Profile profileSup, profileRes;
     private ImageView profile_img;
     private LinearLayout layout;
@@ -80,9 +80,15 @@ public class BestProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_best_profile, container, false);
         profile_name = rootView.findViewById(R.id.bestProfileName);
-        profile_name.setText(profileSup.getName());
         profile_img = rootView.findViewById(R.id.bestProfileImageView);
+        profile_add = rootView.findViewById(R.id.addressTV);
+        profile_info = rootView.findViewById(R.id.infoTV);
         layout = rootView.findViewById(R.id.bestProfileObjectPanel);
+
+        profile_name.setText(profileSup.getName());
+        profile_info.setText(profileSup.getIntroduce());
+        profile_add.setText(profileSup.getLocation());
+
         layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

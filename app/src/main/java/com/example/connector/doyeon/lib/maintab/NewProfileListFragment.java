@@ -19,6 +19,8 @@ import com.example.connector.doyeon.activity.SupplierProfileActivity;
 import com.example.connector.doyeon.lib.ProfileAdapter;
 import com.example.connector.doyeon.objects.Profile;
 import com.example.connector.sampleData.SupplierData1;
+import com.example.connector.sampleData.SupplierData2;
+import com.example.connector.sampleData.SupplierData3;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -107,18 +109,32 @@ public class NewProfileListFragment extends Fragment {
         return rootView;
     }
 
-    public void setNewProfiles(){
+    public void setNewProfiles() {
         newProfiles = new ArrayList<>();
-        for(int i=0; i<3; i++){
 
-            Profile profile = new Profile();
-            profile.setId(SupplierData1.id);
-            profile.setName(SupplierData1.name);
-            profile.setMajor(SupplierData1.major);
-            profile.setRating(SupplierData1.rating);
-            newProfiles.add(profile);
+        Profile profile = new Profile();
+        profile.setId(SupplierData1.id);
+        profile.setName(SupplierData1.name);
+        profile.setMajor(SupplierData1.major);
+        profile.setRating(SupplierData1.rating);
+        profile.setSimpleInfo(SupplierData1.simpleInfo);
+        newProfiles.add(profile);
 
-        }
+        profile = new Profile();
+        profile.setId(SupplierData2.id);
+        profile.setName(SupplierData2.name);
+        profile.setMajor(SupplierData2.major);
+        profile.setRating(SupplierData2.rating);
+        profile.setSimpleInfo(SupplierData2.simpleInfo);
+        newProfiles.add(profile);
+
+        profile = new Profile();
+        profile.setId(SupplierData3.id);
+        profile.setName(SupplierData3.name);
+        profile.setMajor(SupplierData3.major);
+        profile.setRating(SupplierData3.rating);
+        profile.setSimpleInfo(SupplierData3.simpleInfo);
+        newProfiles.add(profile);
 
         ProfileAdapter adapter = new ProfileAdapter(newProfiles);
         newListView.setAdapter(adapter);

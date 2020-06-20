@@ -21,7 +21,8 @@ public class Profile implements Serializable, Parcelable {
     private String callNumber;
     private String email;
     private String imageUrl;
-    private String major;
+    private String major; //주거래업종
+    private String simpleInfo; //간략소개
     private Double rating;
     private ArrayList<Product> products;
     private ArrayList<Profile> follows;
@@ -205,5 +206,13 @@ public class Profile implements Serializable, Parcelable {
             dest.writeDouble(rating);
         }
         dest.writeTypedList(follows);
+    }
+
+    public String getSimpleInfo() {
+        return simpleInfo;
+    }
+
+    public void setSimpleInfo(String simpleInfo) {
+        this.simpleInfo = simpleInfo;
     }
 }

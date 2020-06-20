@@ -45,6 +45,7 @@ public class ProfileAdapter extends BaseAdapter {
             holder = new CustomViewHolder();
             holder.profileImg = (ImageView) convertView.findViewById(R.id.image);
             holder.profileName = (TextView) convertView.findViewById(R.id.name);
+            holder.simpleInfo = (TextView) convertView.findViewById(R.id.simpleInfo);
             holder.rating = (RatingBar) convertView.findViewById(R.id.rating);
             //holder.profileProducts = (TextView) convertView.findViewById(R.id.supplierProducts);
             convertView.setTag(holder);
@@ -57,6 +58,7 @@ public class ProfileAdapter extends BaseAdapter {
         //holder.profileImg.setImageURI(Uri.parse(sp.getImageUrl()));
         holder.profileName.setText(sp.getName());
         holder.rating.setRating(sp.getRating());
+        holder.simpleInfo.setText(sp.getSimpleInfo());
         //holder.profileProducts.setText(sp.getMajor());
 
         return convertView;
@@ -65,6 +67,7 @@ public class ProfileAdapter extends BaseAdapter {
     class CustomViewHolder {
         ImageView profileImg;
         TextView profileName;
+        TextView simpleInfo;
         RatingBar rating;
         //TextView profileProducts;
     }

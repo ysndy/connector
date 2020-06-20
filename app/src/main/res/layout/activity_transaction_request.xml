@@ -15,20 +15,24 @@
     -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@color/lightGreen"
+        android:padding="10dp"
+        android:background="@color/invisible"
         android:elevation="2dp"
         android:id="@+id/topPanel"
         android:layout_width="match_parent"
         android:layout_height="@dimen/topPanelHeight"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:layout_width="@dimen/topPanelHeight"
+        <ImageButton
+            android:background="#00ff0000"
+            android:src="@drawable/ic_chevron_left_black_24dp"
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:background="@drawable/ic_navigate_before_black_24dp"
-            app:layout_constraintLeft_toLeftOf="parent" />
+            app:layout_constraintLeft_toLeftOf="parent"/>
 
         <TextView
+            android:textStyle="bold"
             android:id="@+id/topTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -51,6 +55,7 @@
     </FrameLayout>
 
     <CheckBox
+        android:layout_margin="10dp"
         android:id="@+id/check"
         android:text="신청내역을 확인하였습니다."
         android:layout_width="match_parent"
@@ -60,7 +65,7 @@
 
     <Button
         android:id="@+id/completeBtn"
-        android:background="@color/lightGreen"
+        android:background="@color/colorPrimary"
         android:text="신청완료"
         android:layout_width="match_parent"
         android:layout_height="@dimen/topPanelHeight"
