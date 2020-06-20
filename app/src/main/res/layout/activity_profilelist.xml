@@ -41,7 +41,7 @@
         android:id="@+id/bottomPanel"
         android:layout_width="match_parent"
         android:layout_height="@dimen/topPanelHeight"
-        android:background="@color/bottomPanel"
+        android:background="@color/lightGreen"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent">
 

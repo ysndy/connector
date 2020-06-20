@@ -47,8 +47,6 @@ public class ProfileAdapter extends BaseAdapter {
             holder.profileName = (TextView) convertView.findViewById(R.id.name);
             holder.rating = (RatingBar) convertView.findViewById(R.id.rating);
             //holder.profileProducts = (TextView) convertView.findViewById(R.id.supplierProducts);
-
-
             convertView.setTag(holder);
         } else {
             holder = (CustomViewHolder) convertView.getTag();

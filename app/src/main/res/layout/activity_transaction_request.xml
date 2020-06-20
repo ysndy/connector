@@ -47,9 +47,16 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/topPanel"
-        app:layout_constraintBottom_toTopOf="@id/completeBtn">
-
+        app:layout_constraintBottom_toTopOf="@id/check">
     </FrameLayout>
+
+    <CheckBox
+        android:id="@+id/check"
+        android:text="신청내역을 확인하였습니다."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/completeBtn"
+        />
 
     <Button
         android:id="@+id/completeBtn"

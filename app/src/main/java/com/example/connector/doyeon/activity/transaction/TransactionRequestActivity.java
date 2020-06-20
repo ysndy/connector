@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -30,12 +31,14 @@ public class TransactionRequestActivity extends AppCompatActivity {
     Transaction transaction;
     ArrayList<Product> transactionProducts;
     Button completeBtn;
+    CheckBox checkBox;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transaction_request);
         completeBtn = findViewById(R.id.completeBtn);
+        checkBox = findViewById(R.id.check);
 
         //인텐트
         Intent intent = getIntent();
@@ -53,13 +56,14 @@ public class TransactionRequestActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //서버에 거래 데이터 저장
-                Toast.makeText(getApplicationContext(), "거래일정이 생성되었습니다.", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-
-            }        });
+                if(checkBox.isChecked()) {
+                    //서버에 거래 데이터 저장
+                    Toast.makeText(getApplicationContext(), "거래일정이 생성되었습니다.", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                }else Toast.makeText(getApplicationContext(), "신청내역 확인여부를 체크해주세요", Toast.LENGTH_SHORT).show();
+            }});
 
     }
 }

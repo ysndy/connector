@@ -9,10 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.connector.R;
 import com.example.connector.doyeon.activity.IntentName;
+import com.example.connector.doyeon.activity.ProfileListActivity;
 import com.example.connector.doyeon.activity.SupplierProfileActivity;
 import com.example.connector.doyeon.lib.ProfileAdapter;
 import com.example.connector.doyeon.objects.Profile;
@@ -80,6 +82,16 @@ public class RecommendProfileListFragment extends Fragment {
         // Inflate the layout for this fragment
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_recommend_profile_list, container, false);
         recommendListView = rootView.findViewById(R.id.recommendListView);
+        View footer = getLayoutInflater().inflate(R.layout.listfooter_main_more, null, false);
+        recommendListView.addFooterView(footer);
+        Button moreBtn = (Button) footer.findViewById(R.id.moreBtn);
+        moreBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ProfileListActivity.class);
+                startActivity(intent);
+            }
+        });
         recommendListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
