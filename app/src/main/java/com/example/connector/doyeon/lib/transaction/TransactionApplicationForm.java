@@ -92,7 +92,7 @@ public class TransactionApplicationForm extends Fragment {
         resName.setText(transaction.getRestaurant().getName());
         supName.setText(transaction.getSupplier().getName());
         supAddress.setText(transaction.getSupplier().getLocation());
-        priceTotal.setText(transaction.getPriceTotal());
+        priceTotal.setText(transaction.getPriceTotal()+"");
 
         return rootView;
     }

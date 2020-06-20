@@ -1,5 +1,6 @@
 package com.example.connector.doyeon.lib.transaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,6 +60,8 @@ public class ApplicationProductListAdapter extends BaseAdapter {
 
         //holder.profileImg.setImageURI(Uri.parse(sp.getImageUrl()));
         holder.productName.setText(sp.getName());
+        Log.d("asd", "price ="+sp.getPrice());
+        Log.d("asd", "count ="+sp.getSelectedCount());
         holder.productPriceTotal.setText((sp.getPrice()*sp.getSelectedCount())+"");
         holder.productFrom.setText(sp.getFrom());
         holder.productCount.setText(sp.getSelectedCount().toString());

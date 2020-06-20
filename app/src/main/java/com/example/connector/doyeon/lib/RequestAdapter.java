@@ -43,6 +43,13 @@ public class RequestAdapter extends BaseAdapter {
     private Product sp;
     private ArrayList<Product> selectedProducts;
 
+    public void fieldClear(){
+        priceTotal = 0;
+        productCount = 0;
+        preNum = 1;
+        preNum_input = 1;
+    }
+
     public RequestAdapter(ArrayList<Product> list, TextView priceTotalTv, TextView selectedCountTv){
         this.list = list;
         this.priceTotalTv = priceTotalTv;
@@ -138,6 +145,7 @@ public class RequestAdapter extends BaseAdapter {
                 priceTotal += (price * Integer.parseInt(editText.getText().toString()));
                 productCount++;
                 selectedProducts.add(selectedProduct);
+                selectedProduct.setSelectedCount(Integer.parseInt(editText.getText().toString()));
 
             } else {
                 editText.setClickable(false);

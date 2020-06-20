@@ -3,6 +3,7 @@ package com.example.connector.doyeon.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -50,8 +51,9 @@ public class TransactionProductsActivity extends Activity {
                     transaction.setRestaurant(profile_res); //해당 거래의 외식업자 세팅
                     transaction.setDate("2020-06-30"); // 거래 날짜 세팅
                     transaction.setPriceTotal(Integer.parseInt(priceTotalTv.getText().toString())); // 거래 총 금액
+
                     selectedProducts = adapter.getSelectedProducts();
-                    selectedProducts.size();
+                    Log.d("asd", selectedProducts.size()+"  "+transaction.getPriceTotal());
                     //여기부터
                     Intent intent = new Intent(getApplicationContext(), TosActivity.class);
                     intent.putParcelableArrayListExtra(IntentName.SELECTED_PRODUCTS, selectedProducts);
@@ -71,6 +73,12 @@ public class TransactionProductsActivity extends Activity {
 
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        adapter.fieldClear();
     }
 
     private void inflating(){

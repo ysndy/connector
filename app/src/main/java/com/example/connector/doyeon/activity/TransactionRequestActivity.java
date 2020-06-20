@@ -3,6 +3,7 @@ package com.example.connector.doyeon.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
@@ -33,7 +34,8 @@ public class TransactionRequestActivity extends AppCompatActivity {
         Intent intent = getIntent();
         transactionProducts = intent.getParcelableArrayListExtra(IntentName.SELECTED_PRODUCTS);
         transaction = intent.getParcelableExtra(IntentName.TRANSACTION);
-
+        Log.d("asd", transactionProducts.size()+"");
+        
         //프래그먼트 생성
         TransactionApplicationForm applicationForm = new TransactionApplicationForm(transactionProducts, transaction);
         FragmentManager fm = getSupportFragmentManager();

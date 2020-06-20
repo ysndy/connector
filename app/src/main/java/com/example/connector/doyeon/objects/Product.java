@@ -18,6 +18,7 @@ public class Product implements Parcelable {
 
     }
 
+
     protected Product(Parcel in) {
         name = in.readString();
         if (in.readByte() == 0) {
@@ -28,6 +29,35 @@ public class Product implements Parcelable {
         imageUrl = in.readString();
         category = in.readString();
         from = in.readString();
+        supplier = in.readParcelable(Profile.class.getClassLoader());
+        if (in.readByte() == 0) {
+            selectedCount = null;
+        } else {
+            selectedCount = in.readInt();
+        }
+        supplyName = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        if (price == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(price);
+        }
+        dest.writeString(imageUrl);
+        dest.writeString(category);
+        dest.writeString(from);
+        dest.writeParcelable(supplier, flags);
+        if (selectedCount == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(selectedCount);
+        }
+        dest.writeString(supplyName);
     }
 
     public static final Creator<Product> CREATOR = new Creator<Product>() {
@@ -85,20 +115,6 @@ public class Product implements Parcelable {
     @Override
     public int describeContents() {
         return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(name);
-        if (price == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeInt(price);
-        }
-        dest.writeString(imageUrl);
-        dest.writeString(category);
-        dest.writeString(from);
     }
 
     public Integer getSelectedCount() {
