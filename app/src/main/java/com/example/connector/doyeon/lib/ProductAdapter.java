@@ -4,6 +4,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -37,7 +39,7 @@ public class ProductAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        CustomViewHolder holder;
+        final CustomViewHolder holder;
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product, null, false);
 
@@ -45,6 +47,7 @@ public class ProductAdapter extends BaseAdapter {
             //holder.profileImg = (ImageView) convertView.findViewById(R.id.image);
             holder.productName = (TextView) convertView.findViewById(R.id.productNameTV);
             holder.productPrice = (TextView) convertView.findViewById(R.id.productPriceTV);
+            holder.favoriteBtn = (ImageButton) convertView.findViewById(R.id.favoriteBtn);
             convertView.setTag(holder);
 
         } else {
@@ -56,6 +59,14 @@ public class ProductAdapter extends BaseAdapter {
         //holder.profileImg.setImageURI(Uri.parse(sp.getImageUrl()));
         holder.productName.setText(sp.getName());
         holder.productPrice.setText(sp.getPrice().toString());
+        holder.favoriteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(holder.favoriteBtn.getImageAlpha()==R.drawable.ic_favorite_red_24dp){
+                    holder.favoriteBtn.setImageResource(R.drawable.ic_favorite_border_red_24dp);
+                }else holder.favoriteBtn.setImageResource(R.drawable.ic_favorite_red_24dp);
+            }
+        });
 
         return convertView;
     }
@@ -64,6 +75,7 @@ public class ProductAdapter extends BaseAdapter {
         ImageView profileImg;
         TextView productName;
         TextView productPrice;
+        ImageButton favoriteBtn;
     }
 
     // MainActivity에서 Adapter에있는 ArrayList에 data를 추가시켜주는 함수
