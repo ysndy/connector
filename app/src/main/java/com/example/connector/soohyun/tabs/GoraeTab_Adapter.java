@@ -1,16 +1,22 @@
 package com.example.connector.soohyun.tabs;
 
+import android.app.Dialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.example.connector.R;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Profile;
+import com.example.connector.soohyun.restaurantpage.MyPage;
+import com.example.connector.soohyun.shared.Signup;
 
 import java.util.ArrayList;
 
@@ -41,6 +47,7 @@ public class GoraeTab_Adapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         GoraeTab_Adapter.CustomViewHolder holder;
 
+
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.restitem_fraggorae, null, false);
 
@@ -61,12 +68,26 @@ public class GoraeTab_Adapter extends BaseAdapter {
         holder.goraeItemSupply.setText(profile.getName());
         holder.goraeItemContact.setText(profile.getCallNumber());
         holder.goraeItemTotal.setText(profile.getProducts().get(0).getPrice().toString());
-        //holder.giverStar.setOnClickListener();
+
+        //별점등록
+        /*
+        holder.giverStar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog dialog;
+                RatingBar ratingBar;
+
+                dialog = new Dialog(GoraeTab.this);
+                dialog.setContentView(R.layout.rest_gorae_givestar_dialog);
+                ratingBar = dialog.findViewById(R.id.ratingBar);
+
+                dialog.setCanceledOnTouchOutside(false);
+                dialog.show();
+            }
+        });*/
 
         return convertView;
-
     }
-
 
     public class CustomViewHolder {
         ImageView goraeItemImg;

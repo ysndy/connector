@@ -31,10 +31,16 @@
     <string name="findPass">비밀번호 찾기</string>
     <string name="signUP">회원가입</string>
     <string name="login">LOGIN</string>
+    <string name="repet">중복확인</string>
+    <string name="verify">인증</string>
 
+    <string name="supLogin">공급자\nLogin</string>
+    <string name="resLogin">외식업자\nLogin</string>
 
     <string name="Agree">약관동의 내용입니다.\n 약관동의에 관해서 읽어주고 동의해주세요.</string>
 
+    <string name="giverStar">별점을 등록해주세요!\n\n별점은 더 나은 거래를 위한 앱이 됩니다.\n\n솔직한 별점을 주세요!\n\n단, 별점은 한 번만 가능합니다.</string>
+    <string name="addStar">별 점 등 록</string>
     <string name="Intro_content">내용을 입력해주세요.(500자 이내)</string>
     <string name="Intro_depth">위치 \n 업종 \n \ --------------소개------------ </string>
 
@@ -58,4 +64,5 @@
     <string name="grayBtn">대기</string>
     <string name="redBtn">거절됨</string>
     <string name="greenBtn">거래진행중</string>
+    <!--수현끝-->
 </resources>

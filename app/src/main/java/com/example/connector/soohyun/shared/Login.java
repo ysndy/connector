@@ -21,7 +21,7 @@ public class Login extends AppCompatActivity {
 
     ImageView login_logoImg;
     EditText ID, Password;
-    Button loginBtn, fjoin, fid;
+    Button login1Btn, login2Btn, fjoin, fid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,8 @@ public class Login extends AppCompatActivity {
         login_logoImg = findViewById(R.id.login_logoImg);
         ID = findViewById(R.id.ID);
         Password = findViewById(R.id.Password);
-        loginBtn = findViewById(R.id.loginBtn);
+        login1Btn = findViewById(R.id.login1Btn);
+        login2Btn = findViewById(R.id.login2Btn);
         fjoin = findViewById(R.id.fjoin);
         fid = findViewById(R.id.fid);
 
@@ -40,7 +41,7 @@ public class Login extends AppCompatActivity {
         fjoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MyPage.class);
+                Intent intent = new Intent(getApplicationContext(), Signup.class);
                 startActivity(intent);
             }
         });
@@ -53,7 +54,7 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        loginBtn.setOnClickListener(new View.OnClickListener() {
+        login1Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
@@ -61,6 +62,13 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        login2Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MyPage.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }
