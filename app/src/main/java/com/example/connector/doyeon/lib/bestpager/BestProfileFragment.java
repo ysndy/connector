@@ -80,7 +80,7 @@ public class BestProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_best_profile, container, false);
         profile_name = rootView.findViewById(R.id.bestProfileName);
-        profile_img = rootView.findViewById(R.id.bestProfileImageView);
+        //profile_img = rootView.findViewById(R.id.bestProfileImageView);
         profile_add = rootView.findViewById(R.id.addressTV);
         profile_info = rootView.findViewById(R.id.infoTV);
         layout = rootView.findViewById(R.id.bestProfileObjectPanel);
