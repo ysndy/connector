@@ -25,6 +25,7 @@ public class GoraeTab_Adapter extends BaseAdapter {
 
     private ArrayList<Profile> list;
     private Context context;
+    Dialog dialog;
 
     public GoraeTab_Adapter(ArrayList<Profile> list){
         this.list = list;
@@ -75,14 +76,27 @@ public class GoraeTab_Adapter extends BaseAdapter {
         holder.giverStar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Dialog dialog;
                 RatingBar ratingBar;
+                Button addStar;
 
                 dialog = new Dialog(context);
                 dialog.setContentView(R.layout.rest_gorae_givestar_dialog);
                 ratingBar = dialog.findViewById(R.id.ratingBar);
+                addStar = dialog.findViewById(R.id.addStar);
 
-                dialog.setCanceledOnTouchOutside(false);
+                addStar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                        AlertDialog.Builder dlg = new AlertDialog.Builder(context);
+                        dlg.setTitle("별점 등록 완료");
+                        dlg.setMessage("별점이 등록되었습니다.");
+                        dlg.setPositiveButton("확인",null);
+                        dlg.show();
+                    }
+                });
+
+                dialog.setCanceledOnTouchOutside(false);//무조건 별점 등록해주어야 닫힐 수 있게 함.
                 dialog.show();
             }
         });
@@ -93,7 +107,7 @@ public class GoraeTab_Adapter extends BaseAdapter {
     public class CustomViewHolder {
         ImageView goraeItemImg;
         TextView goraeItemSupply, goraeItemContact, goraeItemTotal;
-        Button giverStar;
+        Button giverStar,addStar;
     }
 
     public void addItem(Profile profile){

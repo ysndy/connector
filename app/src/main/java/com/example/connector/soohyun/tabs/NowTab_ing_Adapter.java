@@ -53,7 +53,7 @@ public class NowTab_ing_Adapter extends BaseAdapter {
             holder.now2ItemImg = convertView.findViewById(R.id.now2ItemImg);
             holder.now2ItemSupply = convertView.findViewById(R.id.now2ItemSupply);
             holder.now2ItemReqDate = convertView.findViewById(R.id.now2ItemReqDate);
-            holder.yellBtn = convertView.findViewById(R.id.yellBtn);
+            holder.greenBtn = convertView.findViewById(R.id.greenBtn);
 
             convertView.setTag(holder);
         }
@@ -67,7 +67,7 @@ public class NowTab_ing_Adapter extends BaseAdapter {
         holder.now2ItemReqDate.setText(transaction.getDate());
 
 
-        holder.yellBtn.setOnClickListener(new View.OnClickListener() {
+        holder.greenBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, NowRequest.class);
@@ -82,7 +82,7 @@ public class NowTab_ing_Adapter extends BaseAdapter {
 
         ImageView now2ItemImg;
         TextView now2ItemSupply, now2ItemReqDate;
-        Button yellBtn;
+        Button greenBtn;
     }
 
     public void addItem(Transaction transaction){
