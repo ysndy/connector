@@ -1,16 +1,18 @@
 package com.example.connector.jeongeun;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.connector.R;
 import com.example.connector.doyeon.objects.Profile;
-import com.example.connector.sampleData.RestaurantData1;
+import com.example.connector.sampleData.restaurantprofile.RestaurantData1;
 
 import java.util.ArrayList;
 
@@ -46,6 +48,14 @@ public class Provider_frag extends Fragment {
 
         Provider_list provider_list_adapter = new Provider_list(profiles);
         provider_list.setAdapter(provider_list_adapter);
+
+        provider_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getActivity(), Restaurant_info.class);
+                startActivity(intent);
+            }
+        });
 
         return v;
     }

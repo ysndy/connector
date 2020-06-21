@@ -11,12 +11,11 @@
     <Button
         android:id="@+id/add_ItemBtn"
         android:layout_width="90dp"
-        android:layout_height="35dp"
+        android:layout_height="30dp"
         android:layout_gravity="center|top"
         android:layout_marginTop="20dp"
-        android:background="#4374D9"
-        android:text="+ 상품추가"
-        android:textSize="18sp" />
+        android:background="@color/colorAccent"
+        android:text="+ 상품추가" />
 
 
     <!-- 상품 리스트 -->

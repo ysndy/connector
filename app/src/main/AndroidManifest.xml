@@ -34,6 +34,8 @@
         <activity android:name=".jeongeun.Edit_item" />
         <activity android:name=".jeongeun.Edit_info" />
         <activity android:name=".jeongeun.Add_item" />
+        <activity android:name=".jeongeun.Request" />
+        <activity android:name=".jeongeun.Deal" />
         <activity android:name=".soohyun.shared.Login"/>
         <activity android:name=".soohyun.restaurantpage.MyPage"/>
         <activity android:name=".soohyun.restaurantpage.EditRequest"/>

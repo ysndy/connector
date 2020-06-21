@@ -6,9 +6,9 @@
     tools:context=".jeongeun.Now_request">
 
     <!-- 공급자 마이페이지 현황 > 신청 현황 (정은) -->
-    <TextView
+    <ListView
+        android:id="@+id/now_request_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="신청 현황" />
+        android:layout_height="match_parent" />
 
 </FrameLayout>

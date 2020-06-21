@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/topPanelHeight"
         android:padding="10dp"
-        android:background="@color/lightGreen"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
@@ -61,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
-        android:background="@color/lightGreen"
+        android:background="@color/colorAccent"
         android:text="정보수정"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -85,7 +84,8 @@
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></androidx.viewpager.widget.ViewPager>
+            android:layout_height="wrap_content">
+        </androidx.viewpager.widget.ViewPager>
 
 
     </LinearLayout>

@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="신청현황"
+            android:text="거래진행중"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
@@ -42,7 +42,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
-        android:id="@+id/pcImg"
+        android:id="@+id/dpcImg"
         android:layout_width="80dp"
         android:layout_height="70dp"
         android:layout_marginLeft="30dp"
@@ -52,7 +52,7 @@
         app:layout_constraintTop_toBottomOf="@+id/topPanel" />
 
     <TextView
-        android:id="@+id/pcName"
+        android:id="@+id/dpcName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
@@ -60,69 +60,43 @@
         android:text="정은이네"
         android:textColor="@color/darkGreen"
         android:textSize="18sp"
-        app:layout_constraintLeft_toRightOf="@+id/pcImg"
+        app:layout_constraintLeft_toRightOf="@+id/dpcImg"
         app:layout_constraintTop_toBottomOf="@+id/topPanel" />
 
     <TextView
-        android:id="@+id/pcDatetv"
+        android:id="@+id/dpcDatetv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="10dp"
         android:text="신청일 :"
         android:textSize="18sp"
-        app:layout_constraintLeft_toRightOf="@+id/pcImg"
-        app:layout_constraintTop_toBottomOf="@+id/pcName" />
+        app:layout_constraintLeft_toRightOf="@+id/dpcImg"
+        app:layout_constraintTop_toBottomOf="@+id/dpcName" />
 
     <TextView
-        android:id="@+id/pcDate"
+        android:id="@+id/dpcDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:text="2020년 5월 12일"
         android:textSize="18sp"
-        app:layout_constraintLeft_toRightOf="@+id/pcDatetv"
-        app:layout_constraintTop_toBottomOf="@+id/pcName" />
+        app:layout_constraintLeft_toRightOf="@+id/dpcDatetv"
+        app:layout_constraintTop_toBottomOf="@+id/dpcName" />
 
 
     <ListView
-        android:id="@+id/pc_lv"
+        android:id="@+id/dpc_lv"
         android:layout_width="390dp"
         android:layout_height="450dp"
         android:layout_marginTop="10dp"
         android:scrollbars="vertical"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pcImg" />
+        app:layout_constraintTop_toBottomOf="@id/dpcImg" />
 
 
-    <LinearLayout
-        android:id="@+id/ll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pc_lv">
-
-
-        <Button
-            android:id="@+id/requestBtn"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="13dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorAccent"
-            android:text="수정요청" />
-
-        <Button
-            android:id="@+id/acceptBtn"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="13dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorAccent"
-            android:text="수락" />
 
         <Button
             android:id="@+id/refuseBtn"
@@ -131,9 +105,11 @@
             android:layout_marginLeft="13dp"
             android:layout_marginTop="10dp"
             android:background="#FFB4B4"
-            android:text="거절" />
+            android:text="거절"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dpc_lv"/>
 
-    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

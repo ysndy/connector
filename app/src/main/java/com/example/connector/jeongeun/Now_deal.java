@@ -7,55 +7,54 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.connector.R;
+import com.example.connector.doyeon.objects.Transaction;
+import com.example.connector.sampleData.transaction.TransactionData1;
+import com.example.connector.sampleData.transaction.TransactionData2;
+
+import java.util.ArrayList;
 
 // 공급자 마이페이지 현황 > 거래 현황
 public class Now_deal extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    ListView now_deal_list;
+    Button pr_now_dealBtn;
+    ArrayList<Transaction> transactions;
+    TextView pr_now_dealName, pr_now_dealDate;
 
-    public Now_deal() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Now_deal.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Now_deal newInstance(String param1, String param2) {
-        Now_deal fragment = new Now_deal();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_now_deal, container, false);
+        View v = inflater.inflate(R.layout.fragment_now_deal, container, false);
+
+        now_deal_list = v.findViewById(R.id.now_deal_list);
+
+        // 임시 데이터
+
+        ArrayList<Transaction> transactions;
+        transactions = new ArrayList<>();
+        Transaction transaction1 = new Transaction();
+
+        transaction1.setSupplyName(TransactionData1.supply);
+        transaction1.setDate(TransactionData1.date);
+
+        transactions.add(transaction1);
+
+        Transaction transaction2 = new Transaction();
+
+        transaction2.setSupplyName(TransactionData2.supply);
+        transaction2.setDate(TransactionData2.date);
+
+        transactions.add(transaction2);
+
+        Now_deal_list now_deal_adapter = new Now_deal_list(transactions);
+        now_deal_list.setAdapter(now_deal_adapter);
+
+        return v;
     }
 }

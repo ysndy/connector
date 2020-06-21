@@ -11,10 +11,9 @@ import android.widget.ListView;
 import androidx.fragment.app.Fragment;
 
 import com.example.connector.R;
-import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Profile;
-import com.example.connector.sampleData.ProductData1;
-import com.example.connector.sampleData.RestaurantData1;
+
+import com.example.connector.sampleData.restaurantprofile.RestaurantData1;
 
 import java.util.ArrayList;
 

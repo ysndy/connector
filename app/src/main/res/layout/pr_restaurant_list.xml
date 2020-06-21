@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <!-- 마이페이지 팔로워 리스트 (정은) -->
@@ -15,12 +15,13 @@
             android:layout_height="100dp"
             android:layout_gravity="left"
             android:layout_weight="1">
+
             <ImageView
                 android:id="@+id/followerRestImg"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/ic_face_black_24dp"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_face_black_24dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -40,24 +41,53 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/providerRestPnum"
-                android:text="@string/contact"
-                android:textColor="@color/black"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="8dp"/>
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/providerRestTotal"
-                android:text="@string/TotalCoin"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:text="연락처 :"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/providerRestPnum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:text="010-0000-0000"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="8dp"/>
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:text="총 매출 :"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/providerRestTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:text="291,000"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
