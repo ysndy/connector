@@ -1,5 +1,7 @@
 package com.example.connector.jeongeun;
 
+
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,15 +12,15 @@ import android.widget.TextView;
 
 import com.example.connector.R;
 import com.example.connector.doyeon.objects.Product;
-import com.example.connector.doyeon.objects.Transaction;
 
 import java.util.ArrayList;
 
 public class Item_list extends BaseAdapter {
 
     private ArrayList<Product> list;
+    private ViewGroup parent;
 
-    public Item_list(ArrayList<Product> list){
+    public Item_list(ArrayList<Product> list) {
         this.list = list;
     }
 
@@ -38,8 +40,9 @@ public class Item_list extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, final ViewGroup parent) {
         Item_list.CustomViewHolder holder;
+        this.parent = parent;
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.pr_item_list, null, false);
 
@@ -59,10 +62,20 @@ public class Item_list extends BaseAdapter {
         holder.proItemName.setText(product.getName());
         holder.proItemPrice.setText(product.getPrice().toString());
 
+        Button pr_item_edit = convertView.findViewById(R.id.pr_item_edit);
+        pr_item_edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(parent.getContext(), Edit_item.class);
+                parent.getContext().startActivity(intent);
+            }
+        });
+
         return convertView;
     }
 
-    class CustomViewHolder { //restitem_reqdit.xml 아이디들
+
+    class CustomViewHolder {
         ImageView proItemImg;
         TextView proItemName, proItemPrice;
     }

@@ -9,6 +9,10 @@ import android.widget.ListView;
 import androidx.fragment.app.Fragment;
 
 import com.example.connector.R;
+import com.example.connector.doyeon.objects.Profile;
+import com.example.connector.sampleData.RestaurantData1;
+
+import java.util.ArrayList;
 
 // 공급자 마이페이지 거래처
 public class Provider_frag extends Fragment {
@@ -28,7 +32,21 @@ public class Provider_frag extends Fragment {
         provider_list = v.findViewById(R.id.provider_list);
 
 
-        // Inflate the layout for this fragment
+        // 임시 데이터
+        ArrayList<Profile> profiles;
+        profiles = new ArrayList<>();
+        Profile profile1 = new Profile();
+
+        profile1.setName(RestaurantData1.name);
+        profile1.setCallNumber(RestaurantData1.callNumber); // [연락처 : ---]로 수정
+        profile1.setLocation(RestaurantData1.location); // 수정, 총매출로 바꿔야함
+
+        profiles.add(profile1);
+
+
+        Provider_list provider_list_adapter = new Provider_list(profiles);
+        provider_list.setAdapter(provider_list_adapter);
+
         return v;
     }
 }

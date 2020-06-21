@@ -1,14 +1,22 @@
 package com.example.connector.jeongeun;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.connector.R;
+import com.example.connector.doyeon.objects.Product;
+import com.example.connector.doyeon.objects.Profile;
+import com.example.connector.sampleData.ProductData1;
+import com.example.connector.sampleData.RestaurantData1;
+
+import java.util.ArrayList;
 
 // 공급자 마이페이지 팔로워
 public class Follower_frag extends Fragment {
@@ -27,7 +35,30 @@ public class Follower_frag extends Fragment {
 
         follower_list = v.findViewById(R.id.follower_list);
 
-        // Inflate the layout for this fragment
+        // 임시 데이터
+        ArrayList<Profile> profiles;
+        profiles = new ArrayList<>();
+        Profile profile1 = new Profile();
+
+        profile1.setName(RestaurantData1.name);
+        profile1.setMajor(RestaurantData1.major);
+        profile1.setLocation(RestaurantData1.location);
+
+        profiles.add(profile1);
+
+
+        Follower_list follower_list_adapter = new Follower_list(profiles);
+        follower_list.setAdapter(follower_list_adapter);
+
+        // 외식업자 프로필 이동
+        follower_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getActivity(), Restaurant_info.class);
+                startActivity(intent);
+            }
+        });
+
         return v;
     }
 }

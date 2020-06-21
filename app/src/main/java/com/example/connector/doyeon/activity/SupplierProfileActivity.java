@@ -68,6 +68,7 @@ public class SupplierProfileActivity extends AppCompatActivity {
                         startActivity(new Intent("android.intent.action.DIAL", Uri.parse(tel)));
                     }
                 });
+
                 builder.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

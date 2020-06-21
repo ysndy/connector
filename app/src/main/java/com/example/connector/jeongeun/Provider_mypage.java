@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
@@ -24,9 +23,6 @@ public class Provider_mypage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.provider_mypage);
-
-        //ActionBar actionBar = getSupportActionBar();
-        //actionBar.hide();
 
         editBtn = findViewById(R.id.editBtn);
         backBtn = findViewById(R.id.backBtn);

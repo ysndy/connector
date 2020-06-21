@@ -6,15 +6,52 @@
 
     <!-- 공급처 화면에서의 외식업자 정보 (정은) -->
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topPanel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/topPanelHeight"
+        android:padding="10dp"
+        android:background="@color/lightGreen"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#00ff0000"
+            android:src="@drawable/ic_chevron_left_black_24dp"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/app_name"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+        <ImageButton
+            android:id="@+id/homeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#00ff0000"
+            android:src="@drawable/ic_home_black_24dp"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <ImageView
         android:id="@+id/proImg"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/ic_person_black_24dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_face_black_24dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/topPanel" />
 
     <LinearLayout
         android:id="@+id/ll"
@@ -29,21 +66,20 @@
             android:id="@+id/callBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="93dp"
-            android:background="#BCE55C"
+            android:background="@drawable/background_imdicator"
             android:text="전화"
-            android:textSize="18sp" />
+            />
 
         <Button
             android:id="@+id/emailBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="50dp"
-            android:background="#BCE55C"
-            android:text="E-mail"
-            android:textSize="18sp" />
+            android:background="@drawable/background_imdicator"
+            android:text="E-mail" />
     </LinearLayout>
 
     <TextView
@@ -51,11 +87,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="가게 소개"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/ll"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="20dp" />
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="@color/darkGreen"/>
 
     <EditText
         android:id="@+id/etinfo"

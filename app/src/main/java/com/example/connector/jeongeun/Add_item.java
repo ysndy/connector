@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,7 +19,7 @@ public class Add_item extends AppCompatActivity {
 
     ImageView providerImg; // 이미지
     Button uploadImg, addItem; // 사진등록, 상품등록
-    TextView providerName, providerEmail, providerPnum; // 상품명, 단가, 원산지
+    ImageButton backBtn; // 뒤로가기
     EditText etItemName, etPrice, etOrigin; // 상품명et, 단가et, 원산지et
 
     @Override
@@ -26,11 +27,17 @@ public class Add_item extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_item);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
-
         uploadImg = findViewById(R.id.uploadImg);
         addItem = findViewById(R.id.addItem);
+        backBtn = findViewById(R.id.backBtn);
+
+        // 뒤로가기
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         // 사진 등록
         uploadImg.setOnClickListener(new View.OnClickListener() {
@@ -40,7 +47,7 @@ public class Add_item extends AppCompatActivity {
             }
         });
 
-        // 상품 등록
+        // 상품 등록 (임시)
         addItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

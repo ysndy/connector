@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
@@ -15,16 +16,23 @@ import com.example.connector.R;
 public class Edit_item extends AppCompatActivity {
 
     Button upload_itemImg, deleteItem, editItem; // 사진올리기, 상품삭제, 수정
+    ImageButton backBtn; // 뒤로가기
     EditText etItemName, etPrice, etOrigin; // 상품명, 단가, 원산지
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_item);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
-
         editItem = findViewById(R.id.editItem);
+        backBtn = findViewById(R.id.backBtn);
+
+        // 뒤로가기
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         // 수정 (임시)
         editItem.setOnClickListener(new View.OnClickListener() {

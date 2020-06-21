@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp">
-
+<!-- 마이페이지 상품 리스트 (정은) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -67,10 +67,10 @@
 
             <Button
                 android:id="@+id/pr_item_edit"
-                android:layout_width="50dp"
+                android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="30dp"
-                android:text="수정" />
+                android:background="@drawable/edit_item"/>
 
 
         </LinearLayout>
