@@ -31,7 +31,11 @@
     <string name="findPass">비밀번호 찾기</string>
     <string name="signUP">회원가입</string>
     <string name="login">LOGIN</string>
+    <string name="repet">중복확인</string>
+    <string name="verify">인증</string>
 
+    <string name="supLogin">공급자\nLogin</string>
+    <string name="resLogin">외식업자\nLogin</string>
 
     <string name="Agree">약관동의 내용입니다.\n 약관동의에 관해서 읽어주고 동의해주세요.</string>
 
@@ -58,4 +62,5 @@
     <string name="grayBtn">대기</string>
     <string name="redBtn">거절됨</string>
     <string name="greenBtn">거래진행중</string>
+    <!--수현끝-->
 </resources>

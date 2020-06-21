@@ -61,7 +61,13 @@ public class GoraeTab_Adapter extends BaseAdapter {
         holder.goraeItemSupply.setText(profile.getName());
         holder.goraeItemContact.setText(profile.getCallNumber());
         holder.goraeItemTotal.setText(profile.getProducts().get(0).getPrice().toString());
-        //holder.giverStar.setOnClickListener();
+
+        holder.giverStar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         return convertView;
 
