@@ -6,7 +6,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:elevation="2dp"
-        android:background="@color/invisible"
+        android:background="@color/topPanel"
         android:padding="10dp"
         android:id="@+id/topPanel"
         android:layout_width="match_parent"
@@ -50,7 +50,8 @@
         app:layout_constraintTop_toBottomOf="@id/topPanel">
 
         <ImageView
-            android:src="@drawable/ic_face_black_24dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_profile_sample"
             android:id="@+id/profileImageView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -61,13 +62,15 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <LinearLayout
+        android:paddingBottom="10dp"
         android:id="@+id/buttonPanel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/imageViewPanel">
+        app:layout_constraintBottom_toBottomOf="@id/imageViewPanel">
 
         <Button
+            android:elevation="1dp"
             android:background="@drawable/background_imdicator"
             android:id="@+id/callBtn"
             android:text="전화"
@@ -76,6 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <Button
+            android:elevation="1dp"
             android:background="@drawable/background_button_sky"
             android:id="@+id/transactionBtn"
             android:text="거래신청"
@@ -84,6 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <Button
+            android:elevation="1dp"
             android:background="@drawable/background_button_sky"
             android:id="@+id/followBtn"
             android:text="팔로우"
@@ -92,6 +97,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <Button
+            android:elevation="1dp"
             android:background="@drawable/background_imdicator"
             android:id="@+id/emailBtn"
             android:text="Email"
@@ -101,6 +107,12 @@
             android:layout_height="wrap_content"/>
 
     </LinearLayout>
+
+    <View
+        android:background="#DDDDDD"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintBottom_toTopOf="@id/pager"/>
 
     <androidx.viewpager.widget.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/pager"
@@ -110,7 +122,6 @@
         app:layout_constraintTop_toBottomOf="@id/buttonPanel">
 
         <com.google.android.material.tabs.TabLayout
-            app:tabIndicatorColor="@color/lightGreen"
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -120,277 +131,4 @@
 
     </androidx.viewpager.widget.ViewPager>
 
-
-    <!--
-        <TabHost
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@id/buttonPanel"
-            app:layout_constraintBottom_toBottomOf="parent"
-
-            >
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                >
-
-                <TabWidget
-                    android:id="@+id/tabs"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ListView
-                        android:id="@+id/productList"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
-
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <LinearLayout
-                            android:orientation="horizontal"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:text="위치"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
-
-                            <TextView
-                                android:id="@+id/location"
-                                android:text="@string/supplier1_location"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:orientation="horizontal"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:text="주거래"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
-
-                            <TextView
-                                android:id="@+id/major"
-                                android:text="@string/supplier1_majorTarget"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </FrameLayout>
-
-            </LinearLayout>
-
-        </TabHost>
-    -->
-
 </androidx.constraintlayout.widget.ConstraintLayout>
-<!--
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@color/lightGreen"
-        android:padding="10dp"
-        android:id="@+id/topPanel"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/topPanelHeight"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageButton
-            android:background="#00ff0000"
-            android:src="@drawable/ic_chevron_left_black_24dp"
-            android:id="@+id/backBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:layout_constraintLeft_toLeftOf="parent"/>
-
-        <TextView
-            android:id="@+id/supplierNameTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/supplier1_name"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <ImageButton
-            android:background="#00ff0000"
-            android:src="@drawable/ic_home_black_24dp"
-            android:id="@+id/homeBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:layout_constraintRight_toRightOf="parent"/>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/imageViewPanel"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/profile_imageViewHeight"
-        app:layout_constraintTop_toBottomOf="@id/topPanel">
-
-        <ImageView
-            android:src="@drawable/ic_face_black_24dp"
-            android:id="@+id/profileImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <LinearLayout
-        android:id="@+id/buttonPanel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/imageViewPanel">
-
-        <Button
-            android:background="@color/bottomPanel"
-            android:id="@+id/callBtn"
-            android:text="전화"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:background="@color/bottomPanel"
-            android:id="@+id/transactionBtn"
-            android:text="거래신청"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:background="@color/bottomPanel"
-            android:id="@+id/followBtn"
-            android:text="팔로우"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:background="@color/bottomPanel"
-            android:id="@+id/emailBtn"
-            android:text="Email"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/infoChangeBtnPanel"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/buttonPanel">
-
-        <Button
-            android:background="#00ff0000"
-            android:id="@+id/productBtn"
-            android:text="대표상품"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:background="#00ff0000"
-            android:id="@+id/infoBtn"
-            android:text="정보"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
-    <ListView
-        android:id="@+id/productListView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/infoChangeBtnPanel"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
-    <LinearLayout
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/infoChangeBtnPanel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:text="위치 : "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:id="@+id/locationTV"
-                android:text="@string/supplier1_location"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:text="주거래 : "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:id="@+id/majorTV"
-                android:text="@string/supplier1_majorTarget"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-        </LinearLayout>
-
-        <TextView
-            android:text="소개"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:id="@+id/introduceTV"
-            android:text="소개"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
--->

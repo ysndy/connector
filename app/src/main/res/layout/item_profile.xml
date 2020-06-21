@@ -30,12 +30,18 @@
             app:layout_constraintRight_toLeftOf="@id/go">
 
             <TextView
-                android:padding="2dp"
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/supplierName"
-                android:textSize="22dp" />
+                android:textSize="20dp" />
+
+            <TextView
+                android:paddingBottom="5dp"
+                android:id="@+id/simpleInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/supplierProduct" />
 
             <RatingBar
                 android:id="@+id/rating"
@@ -43,18 +49,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <TextView
-                android:padding="2dp"
-                android:id="@+id/simpleInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/supplierProduct" />
-
-
-
         </LinearLayout>
 
         <TextView
+            android:background="@drawable/background_profileitem_small2"
             android:id="@+id/go"
             android:layout_width="@dimen/item_profile_contentsWidth"
             android:layout_height="match_parent"

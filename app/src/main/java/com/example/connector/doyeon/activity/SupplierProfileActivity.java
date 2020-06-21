@@ -23,7 +23,7 @@ import com.example.connector.R;
 import com.example.connector.doyeon.activity.transaction.TransactionProductsActivity;
 import com.example.connector.doyeon.lib.profiletab.ProfileTabPagerAdapter;
 import com.example.connector.doyeon.objects.Profile;
-import com.example.connector.sampleData.SupplierData1;
+import com.example.connector.sampleData.supplierprofile.SupplierData1;
 
 public class SupplierProfileActivity extends AppCompatActivity {
 
@@ -52,6 +52,7 @@ public class SupplierProfileActivity extends AppCompatActivity {
        // setInfo();
         //setProduct();
         //setProductList();
+        supplierNameTV.setText(profileSup.getName());
 
         //전화버튼
         callBtn.setOnClickListener(new View.OnClickListener() {

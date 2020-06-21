@@ -13,13 +13,9 @@ import androidx.fragment.app.Fragment;
 import com.example.connector.R;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Transaction;
-import com.example.connector.sampleData.ProductData1;
-import com.example.connector.sampleData.TransactionData1;
-import com.example.connector.sampleData.TransactionData2;
-import com.example.connector.soohyun.restaurantpage.InfoListAdapter;
+import com.example.connector.sampleData.product.ProductData1;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 // 공급자 마이페이지 상품
 public class Item_frag extends Fragment {

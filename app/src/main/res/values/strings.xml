@@ -3,14 +3,14 @@
     <string name="sampleText">SAMPLE</string>
     <string name="supplierName">도연상회</string>
     <string name="supplierProduct">당근, 채소, 배추</string>
-    <string name="item_profile_button">Go</string>
+    <string name="item_profile_button">GO!</string>
 
     <!-- 도연 -->
     <!-- 공급처 샘플데이터 1-->
     <string name="supplier1_name">도연상회</string>
     <string name="supplier1_location">경기도 고양시 일산동구 장항동</string>
     <string name="supplier1_majorTarget">중식</string>
-    <string name="activityChangeBtn">GO</string>
+    <string name="activityChangeBtn">GO!</string>
 
     <string name="tos_topPanel">약관동의</string>
     <string name="tos1">사업자정보제공\n\n본 거래 예약 시스템은 해당 거래처에 사업자, 사업장 정보를 제공합니다.</string>

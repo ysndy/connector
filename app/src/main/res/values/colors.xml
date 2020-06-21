@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#E9F6DA</color> <!-- #6200EE  #3700B3-->
-    <color name="colorPrimaryDark">#84A859</color>
-    <color name="colorAccent">#AFDCAE</color>
+    <color name="colorPrimary">#E9F6DA</color> <!-- #6200EE  #3700B3  #AFDCAE  마지막색#E9F6DA-->
+    <color name="colorPrimaryDark">#AFDCAE</color>
+    <color name="colorAccent">#CDECCC</color>
 
 
     <color name="background">#FFFFFF</color>
-    <color name="bottomPanel">#E9F6DA</color>
+    <color name="bottomPanel">#CCEDBA</color>
+    <color name="topPanel">@color/white</color>
     <color name="line">#33000000</color>
     <color name="invisible">#00ff0000</color>
     <color name="false1">#DDDDDD</color>

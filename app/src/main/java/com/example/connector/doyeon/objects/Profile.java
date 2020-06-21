@@ -3,8 +3,8 @@ package com.example.connector.doyeon.objects;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.example.connector.sampleData.ProductData1;
-import com.example.connector.sampleData.ProductData2;
+import com.example.connector.sampleData.product.ProductData1;
+import com.example.connector.sampleData.product.ProductData2;
 
 import java.io.Serializable;
 import java.util.ArrayList;

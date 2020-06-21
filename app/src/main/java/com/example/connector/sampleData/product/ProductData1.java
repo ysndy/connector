@@ -1,4 +1,4 @@
-package com.example.connector.sampleData;
+package com.example.connector.sampleData.product;
 
 public interface ProductData1 {
 

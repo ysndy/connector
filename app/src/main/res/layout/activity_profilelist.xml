@@ -5,11 +5,12 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:elevation="2dp"
         android:padding="10dp"
         android:id="@+id/topPanel"
         android:layout_width="match_parent"
         android:layout_height="@dimen/topPanelHeight"
-        android:background="@color/invisible"
+        android:background="@color/topPanel"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
@@ -37,6 +38,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/topPanel" />
 
+    <View
+        android:background="#DDDDDD"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomPanel"/>
 
     <LinearLayout
         android:id="@+id/bottomPanel"
@@ -51,7 +57,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
+            android:background="@color/white"
             android:src="@drawable/ic_date_range_black_24dp" />
 
         <ImageButton
@@ -59,7 +65,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
+            android:background="@color/white"
             android:src="@drawable/ic_home_black_24dp" />
 
         <ImageButton
@@ -67,7 +73,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
+            android:background="@color/white"
             android:src="@drawable/ic_person_black_24dp" />
     </LinearLayout>
 

@@ -2,7 +2,7 @@
 <resources>
 
     <dimen name="profile_topPanelHeight">40dp</dimen>
-    <dimen name="profile_imageViewHeight">100dp</dimen>
+    <dimen name="profile_imageViewHeight">230dp</dimen>
     <dimen name="item_profile_contentsWidth">50dp</dimen>
 
     <dimen name="item_profile_height">70dp</dimen>

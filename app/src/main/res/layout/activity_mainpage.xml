@@ -39,15 +39,15 @@
         android:id="@+id/bestPanel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/bottomPanel"
+        android:background="@color/colorPrimary"
         android:padding="10dp"
         app:layout_constraintTop_toBottomOf="@id/topPanel">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:visibility="gone"
             android:id="@+id/bestTopPanel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
@@ -87,10 +87,10 @@
                 android:id="@+id/tab"
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
+                android:background="@drawable/background_imdicator"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:tabGravity="fill"
-                android:background="@drawable/background_profileitem_small"
-                app:tabIndicatorColor="#AFDCAE"
+                app:tabIndicatorColor="@color/colorAccent"
                 app:tabIndicatorGravity="bottom"
                 app:tabIndicatorHeight="10dp"
                 app:tabMode="fixed" />
@@ -98,6 +98,12 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"
+        app:layout_constraintBottom_toTopOf="@id/pager" />
 
     <androidx.viewpager.widget.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/pager"
@@ -110,12 +116,20 @@
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabIndicatorColor="@color/colorAccent">
+            android:background="@drawable/background_border_bottom"
+            app:tabIndicatorColor="@color/colorAccent"
+            app:tabInlineLabel="true">
 
         </com.google.android.material.tabs.TabLayout>
 
 
     </androidx.viewpager.widget.ViewPager>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"
+        app:layout_constraintBottom_toTopOf="@id/bottomPanel" />
 
     <LinearLayout
         android:id="@+id/bottomPanel"
@@ -130,7 +144,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
+            android:background="@color/white"
             android:src="@drawable/ic_date_range_black_24dp" />
 
         <ImageButton
@@ -138,7 +152,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
+            android:background="@color/white"
             android:src="@drawable/ic_home_black_24dp" />
 
         <ImageButton
@@ -146,7 +160,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
+            android:background="@color/white"
             android:src="@drawable/ic_person_black_24dp" />
     </LinearLayout>
 

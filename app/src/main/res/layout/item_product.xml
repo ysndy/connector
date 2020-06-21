@@ -2,10 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
     android:orientation="vertical">
 
     <LinearLayout
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -28,11 +29,13 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:padding="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="품명 : " />
 
                 <TextView
+                    android:padding="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="단가 : " />
@@ -44,12 +47,14 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:padding="5dp"
                     android:id="@+id/productNameTV"
                     android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                     android:text="품명" />
 
                 <TextView
+                    android:padding="5dp"
                     android:id="@+id/productPriceTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -62,7 +67,7 @@
         <ImageButton
             android:id="@+id/favoriteBtn"
             android:background="@color/invisible"
-            android:src="@drawable/ic_favorite_border_black_24dp"
+            android:src="@drawable/ic_favorite_border_red_24dp"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"/>

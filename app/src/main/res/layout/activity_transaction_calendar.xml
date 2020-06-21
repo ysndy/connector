@@ -7,7 +7,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:padding="10dp"
-        android:background="@color/invisible"
+        android:background="@color/topPanel"
         android:elevation="2dp"
         android:id="@+id/topPanel"
         android:layout_width="match_parent"
@@ -41,14 +41,6 @@
         app:layout_constraintTop_toTopOf="@id/topPanel"
         app:layout_constraintBottom_toTopOf="@id/completeBtn"/>
 
-    <Button
-        android:id="@+id/completeBtn"
-        android:background="@color/colorPrimary"
-        android:text="다음"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/topPanelHeight"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
     <TextView
         android:text="공급받으실 일자를 선택해주세요."
         android:layout_width="wrap_content"
@@ -56,5 +48,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/calendar"/>
+
+    <Button
+        android:id="@+id/completeBtn"
+        android:background="@color/colorAccent"
+        android:text="다음"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/topPanelHeight"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,7 @@ import android.widget.ListView;
 
 import com.example.connector.R;
 import com.example.connector.doyeon.objects.Transaction;
-import com.example.connector.sampleData.TransactionData1;
+import com.example.connector.sampleData.transaction.TransactionData1;
 
 import java.util.ArrayList;
 

@@ -18,9 +18,9 @@ import com.example.connector.doyeon.activity.ProfileListActivity;
 import com.example.connector.doyeon.activity.SupplierProfileActivity;
 import com.example.connector.doyeon.lib.ProfileAdapter;
 import com.example.connector.doyeon.objects.Profile;
-import com.example.connector.sampleData.SupplierData1;
-import com.example.connector.sampleData.SupplierData2;
-import com.example.connector.sampleData.SupplierData3;
+import com.example.connector.sampleData.supplierprofile.SupplierData1;
+import com.example.connector.sampleData.supplierprofile.SupplierData2;
+import com.example.connector.sampleData.supplierprofile.SupplierData3;
 
 import java.io.Serializable;
 import java.util.ArrayList;
