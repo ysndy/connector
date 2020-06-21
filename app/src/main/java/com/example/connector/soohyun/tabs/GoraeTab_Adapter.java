@@ -1,6 +1,7 @@
 package com.example.connector.soohyun.tabs;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 public class GoraeTab_Adapter extends BaseAdapter {
 
     private ArrayList<Profile> list;
+    private Context context;
 
     public GoraeTab_Adapter(ArrayList<Profile> list){
         this.list = list;
@@ -47,7 +49,7 @@ public class GoraeTab_Adapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         GoraeTab_Adapter.CustomViewHolder holder;
 
-
+        this.context = parent.getContext();
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.restitem_fraggorae, null, false);
 
@@ -56,7 +58,7 @@ public class GoraeTab_Adapter extends BaseAdapter {
             holder.goraeItemSupply = convertView.findViewById(R.id.goraeItemSupply);
             holder.goraeItemContact = convertView.findViewById(R.id.goraeItemContact);
             holder.goraeItemTotal = convertView.findViewById(R.id.goraeItemTotal);
-            //holder.giveStar = convertView.findViewById(R.id.giveStar);
+            holder.giverStar = convertView.findViewById(R.id.giveStar);
 
             convertView.setTag(holder);
         } else {
@@ -70,21 +72,20 @@ public class GoraeTab_Adapter extends BaseAdapter {
         holder.goraeItemTotal.setText(profile.getProducts().get(0).getPrice().toString());
 
         //별점등록
-        /*
         holder.giverStar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Dialog dialog;
                 RatingBar ratingBar;
 
-                dialog = new Dialog(GoraeTab.this);
+                dialog = new Dialog(context);
                 dialog.setContentView(R.layout.rest_gorae_givestar_dialog);
                 ratingBar = dialog.findViewById(R.id.ratingBar);
 
                 dialog.setCanceledOnTouchOutside(false);
                 dialog.show();
             }
-        });*/
+        });
 
         return convertView;
     }

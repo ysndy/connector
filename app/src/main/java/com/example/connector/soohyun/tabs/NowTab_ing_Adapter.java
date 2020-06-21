@@ -61,15 +61,16 @@ public class NowTab_ing_Adapter extends BaseAdapter {
         //holder.now2ItemImg
         holder.now2ItemSupply.setText(transaction.getSupplyName());
         holder.now2ItemReqDate.setText(transaction.getDate());
-       /*
+
+        /*
         holder.yellBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Login.class);
                 startActivity(intent);
             }
-        }); */
-
+        });
+*/
         return convertView;
     }
 
