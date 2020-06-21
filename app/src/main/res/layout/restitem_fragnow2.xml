@@ -53,7 +53,7 @@
             android:layout_width="100dp"
             android:layout_height="80dp">
             <Button
-                android:id="@+id/yellBtn"
+                android:id="@+id/greenBtn"
                 android:text="@string/greenBtn"
                 android:textColor="@color/white"
                 android:background="@color/lightGreen"
