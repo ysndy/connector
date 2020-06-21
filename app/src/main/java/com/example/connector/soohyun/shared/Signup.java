@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -20,7 +21,7 @@ public class Signup extends AppCompatActivity {
     TextView joinAgree;
     Button goBtn, IDver, emailver;
     CheckBox checkAgree;
-
+    ImageButton backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +37,16 @@ public class Signup extends AppCompatActivity {
         checkAgree = findViewById(R.id.checkAgree);
         IDver = findViewById(R.id.IDver);
         emailver = findViewById(R.id.email_ver);
+        backBtn = findViewById(R.id.backBtn);
 
         Intent intent = getIntent();
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         goBtn.setOnClickListener(new View.OnClickListener() {
             @Override

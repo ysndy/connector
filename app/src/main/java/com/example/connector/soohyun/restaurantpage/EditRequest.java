@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -28,6 +29,7 @@ public class EditRequest extends AppCompatActivity {
     Button reqBtn1, reqBtn2;
     ListView listView_edit;
     ArrayList<Transaction> transactions;
+    ImageButton backBtn, homeBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,8 @@ public class EditRequest extends AppCompatActivity {
         reqBtn1 = findViewById(R.id.reqBtn1);
         reqBtn2 = findViewById(R.id.reqBtn2);
         listView_edit = findViewById(R.id.edit_listview);
+        backBtn = findViewById(R.id.backBtn);
+        homeBtn = findViewById(R.id.homeBtn);
 
         //임시데이터
         transactions = new ArrayList<>();
@@ -68,6 +72,21 @@ public class EditRequest extends AppCompatActivity {
 
         InfoListAdapter infoListAdapter = new InfoListAdapter(transactions);
         listView_edit.setAdapter(infoListAdapter);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
 
         reqBtn1.setOnClickListener(new View.OnClickListener() {
             @Override

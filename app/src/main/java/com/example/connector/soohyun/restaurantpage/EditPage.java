@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ public class EditPage extends AppCompatActivity {
     Button imgBtn,editSuc;
     TextView name, email, number, introText;
     EditText nameEdit, emailEdit, numEdit, introEdit;
+    ImageButton backBtn, homeBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +31,24 @@ public class EditPage extends AppCompatActivity {
 
         imgBtn = findViewById(R.id.imgBtn);
         editSuc = findViewById(R.id.editSuc);
+        backBtn = findViewById(R.id.backBtn);
+        homeBtn = findViewById(R.id.homeBtn);
 
         Intent intent = getIntent(); //인텐트
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         imgBtn.setOnClickListener(new View.OnClickListener() { //사진올리기 버튼 > 사진 앱 접근
             @Override
@@ -47,7 +65,7 @@ public class EditPage extends AppCompatActivity {
 
                 AlertDialog.Builder dlg = new AlertDialog.Builder(EditPage.this);
                 dlg.setTitle("수정완료");
-                dlg.setMessage("수정되었습니다");
+                dlg.setMessage("수정되었습니다.");
                 dlg.setPositiveButton("확인", null);
                 dlg.show();
             }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,6 +21,7 @@ public class MyPage extends AppCompatActivity {
     TextView mypageName;
     Button mypageEditBtn;
     TabLayout r_tab;
+    ImageButton backBtn, homeBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +30,24 @@ public class MyPage extends AppCompatActivity {
 
         mypageEditBtn = findViewById(R.id.mypageEditBtn);
         r_tab = findViewById(R.id.rest_tab);
+        backBtn = findViewById(R.id.backBtn);
+        homeBtn = findViewById(R.id.homeBtn);
 
         Intent intent = getIntent(); //인텐트
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         mypageEditBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -13,7 +13,7 @@ public interface SupplierData1 {
     String id = "ysndy";
     String pw = "1234";
     String location = "서울시 서대문구 홍은동";
-    String introduce = "질 좋은 육류를 저렴하게 공급합니다.";
+    String introduce = "좋은 품질의 육류를 저렴하게 공급합니다.";
     String callNumber = "010-7157-8105";
     String email = "ysndy@naver.com";
     String imageUrl = "";

@@ -52,16 +52,9 @@ public class MainPageActivity extends AppCompatActivity {
 
 
     Button newMoreBtn, recMoreBtn, searchBtn;
-    TextView top10Btn;
-    //ImageButton flipperLeftBtn, flipperRightBtn;
     ImageButton calendarBtn, homeBtn, myPageBtn;
-    //ViewFlipper bestProfilesFlipper;
     ViewPager vp, bestVp;
-    ArrayList<ProfileButton> bestProfileBtns;
     Profile myProfile;
-    ArrayList<Profile> newProfiles, bestProfiles, recommendProfiles;
-    ScrollView ms;
-    TabLayout tab;
     MainTabPagerAdapter mainTabPagerAdapter;
 
     int currentPage = 0;
@@ -78,15 +71,6 @@ public class MainPageActivity extends AppCompatActivity {
         inflating();
         setMyProfile();
         setBestProfiles(); // BEST 리스트
-
-        top10Btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ProfileListActivity.class);
-                startActivity(intent);
-            }
-        });
-
 
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,7 +123,6 @@ public class MainPageActivity extends AppCompatActivity {
 
     private void inflating(){
         myProfile = new Profile();
-        top10Btn = findViewById(R.id.top10Btn);
         //recMoreBtn = findViewById(R.id.recommendMoreBtn);
         //newMoreBtn = findViewById(R.id.newMoreBtn);
         searchBtn = findViewById(R.id.searchBtn);

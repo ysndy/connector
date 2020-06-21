@@ -114,6 +114,7 @@ public class SupplierProfileActivity extends AppCompatActivity {
                         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                         ClipData clip = ClipData.newPlainText("simple text", profileSup.getEmail());
                         clipboard.setPrimaryClip(clip);
+                        Toast.makeText(getApplicationContext(), "이메일이 복사되었습니다.", Toast.LENGTH_SHORT).show();
                     }
                 });
                 builder.setNegativeButton("닫기", new DialogInterface.OnClickListener() {

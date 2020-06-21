@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#E9F6DA</color> <!-- #6200EE  #3700B3  #AFDCAE  마지막색#E9F6DA-->
-    <color name="colorPrimaryDark">#AFDCAE</color>
-    <color name="colorAccent">#CDECCC</color>
 
+    <color name="colorPrimary">#D6EFC7</color>
+    <color name="colorPrimaryDark">#184D47</color>
+    <color name="colorAccent">#a0c334</color>
+
+    <!--
+    <color name="colorPrimary">#CDECCC</color>
+    <color name="colorPrimaryDark">#9CCC65</color>
+    <color name="colorAccent">#AED581</color>
+-->
 
     <color name="background">#FFFFFF</color>
     <color name="bottomPanel">#CCEDBA</color>
@@ -13,7 +19,7 @@
     <color name="false1">#DDDDDD</color>
 
     <color name="lightGreen">#B1DB4E</color>
-    <color name="darkbrown">#301500</color>
+    <color name="darkbrown">#664B00</color>
     <color name="darkGreen">#005500</color>
     <color name="red">#CC3D3D</color>
     <color name="blue">#489CFF</color>
@@ -21,5 +27,6 @@
     <color name="black">#000000</color>
     <color name="yellow">#F2CB61</color>
     <color name="whiteGray">#E7E7E7</color>
+    <color name="morewhiteGray">#F6F6F6</color>
 
 </resources>

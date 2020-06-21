@@ -15,6 +15,7 @@ import com.example.connector.doyeon.activity.MainPageActivity;
 import com.example.connector.soohyun.restaurantpage.EditRequest;
 import com.example.connector.soohyun.restaurantpage.MyPage;
 import com.example.connector.soohyun.restaurantpage.NowRequest;
+import com.example.connector.soohyun.restaurantpage.RestaurantProfileActivity;
 
 public class Login extends AppCompatActivity {
 

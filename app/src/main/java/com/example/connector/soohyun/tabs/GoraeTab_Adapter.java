@@ -1,6 +1,7 @@
 package com.example.connector.soohyun.tabs;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,8 @@ import java.util.ArrayList;
 public class GoraeTab_Adapter extends BaseAdapter {
 
     private ArrayList<Profile> list;
+    private Context context;
+    Dialog dialog;
 
     public GoraeTab_Adapter(ArrayList<Profile> list){
         this.list = list;
@@ -47,7 +50,7 @@ public class GoraeTab_Adapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         GoraeTab_Adapter.CustomViewHolder holder;
 
-
+        this.context = parent.getContext();
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.restitem_fraggorae, null, false);
 
@@ -56,7 +59,7 @@ public class GoraeTab_Adapter extends BaseAdapter {
             holder.goraeItemSupply = convertView.findViewById(R.id.goraeItemSupply);
             holder.goraeItemContact = convertView.findViewById(R.id.goraeItemContact);
             holder.goraeItemTotal = convertView.findViewById(R.id.goraeItemTotal);
-            //holder.giveStar = convertView.findViewById(R.id.giveStar);
+            holder.giverStar = convertView.findViewById(R.id.giveStar);
 
             convertView.setTag(holder);
         } else {
@@ -70,21 +73,33 @@ public class GoraeTab_Adapter extends BaseAdapter {
         holder.goraeItemTotal.setText(profile.getProducts().get(0).getPrice().toString());
 
         //별점등록
-        /*
         holder.giverStar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Dialog dialog;
                 RatingBar ratingBar;
+                Button addStar;
 
-                dialog = new Dialog(GoraeTab.this);
+                dialog = new Dialog(context);
                 dialog.setContentView(R.layout.rest_gorae_givestar_dialog);
                 ratingBar = dialog.findViewById(R.id.ratingBar);
+                addStar = dialog.findViewById(R.id.addStar);
 
-                dialog.setCanceledOnTouchOutside(false);
+                addStar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                        AlertDialog.Builder dlg = new AlertDialog.Builder(context);
+                        dlg.setTitle("별점 등록 완료");
+                        dlg.setMessage("별점이 등록되었습니다.");
+                        dlg.setPositiveButton("확인",null);
+                        dlg.show();
+                    }
+                });
+
+                dialog.setCanceledOnTouchOutside(false);//무조건 별점 등록해주어야 닫힐 수 있게 함.
                 dialog.show();
             }
-        });*/
+        });
 
         return convertView;
     }
@@ -92,7 +107,7 @@ public class GoraeTab_Adapter extends BaseAdapter {
     public class CustomViewHolder {
         ImageView goraeItemImg;
         TextView goraeItemSupply, goraeItemContact, goraeItemTotal;
-        Button giverStar;
+        Button giverStar,addStar;
     }
 
     public void addItem(Profile profile){

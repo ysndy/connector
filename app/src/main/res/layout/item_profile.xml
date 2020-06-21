@@ -54,6 +54,8 @@
         <TextView
             android:background="@drawable/background_profileitem_small2"
             android:id="@+id/go"
+            android:textStyle="bold"
+            android:textColor="#f7f7f7"
             android:layout_width="@dimen/item_profile_contentsWidth"
             android:layout_height="match_parent"
             android:gravity="center"

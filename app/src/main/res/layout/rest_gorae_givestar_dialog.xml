@@ -22,7 +22,7 @@
         android:numStars="5"
         />
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/addStar"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
