@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +18,7 @@ public class Find_ID_Pass extends AppCompatActivity {
     TextView findID, findPass;
     EditText findemail, findIdedit, findemailEdit;
     Button emailGo, emailGo2;
+    ImageButton backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +31,16 @@ public class Find_ID_Pass extends AppCompatActivity {
         findemailEdit= findViewById(R.id.findemailEdit);
         emailGo = findViewById(R.id.emailGo);
         emailGo2 = findViewById(R.id.emailGo2);
+        backBtn = findViewById(R.id.backBtn);
 
         Intent intent = getIntent();
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         emailGo.setOnClickListener(new View.OnClickListener() { //아이디 찾기 > 이메일 전송
             @Override

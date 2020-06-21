@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,6 +28,7 @@ public class RestaurantProfileActivity extends AppCompatActivity {
     Button callBtn, emailBtn;
     TextView intro, intro_depth;
     Profile profileSup;
+    ImageButton backBtn, homeBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +40,26 @@ public class RestaurantProfileActivity extends AppCompatActivity {
         emailBtn = findViewById(R.id.emailBtn);
         intro = findViewById(R.id.intro);
         intro_depth = findViewById(R.id.intro_depth);
-
+        backBtn = findViewById(R.id.backBtn);
+        homeBtn = findViewById(R.id.homeBtn);
 
         Intent intent = getIntent();
         profileSup = new Profile();
         profileSup.setCallNumber(SupplierData2.callNumber);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         callBtn.setOnClickListener(new View.OnClickListener() {
             @Override

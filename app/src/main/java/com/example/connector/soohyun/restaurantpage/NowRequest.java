@@ -2,6 +2,8 @@ package com.example.connector.soohyun.restaurantpage;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -24,6 +26,7 @@ public class NowRequest extends AppCompatActivity {
     ImageView nowproImg;
     ListView listView_now;
     ArrayList<Transaction> transactions;
+    ImageButton backBtn, homeBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,22 @@ public class NowRequest extends AppCompatActivity {
         nowName = findViewById(R.id.nowName);
         nowDate = findViewById(R.id.joinId);
         nowproImg = findViewById(R.id.nowproImg);
+        backBtn = findViewById(R.id.backBtn);
+        homeBtn = findViewById(R.id.homeBtn);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         //임시데이터
         transactions = new ArrayList<>();
