@@ -65,7 +65,7 @@ public class EditPage extends AppCompatActivity {
 
                 AlertDialog.Builder dlg = new AlertDialog.Builder(EditPage.this);
                 dlg.setTitle("수정완료");
-                dlg.setMessage("수정되었습니다");
+                dlg.setMessage("수정되었습니다.");
                 dlg.setPositiveButton("확인", null);
                 dlg.show();
             }
