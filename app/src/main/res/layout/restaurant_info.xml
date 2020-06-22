@@ -68,7 +68,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="93dp"
-            android:background="@color/colorAccent"
+            android:textColor="@color/white"
+            android:background="@color/lightGreen"
             android:text="전화"
             />
 
@@ -78,7 +79,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="50dp"
-            android:background="@color/colorAccent"
+            android:textColor="@color/white"
+            android:background="@color/lightGreen"
             android:text="E-mail" />
     </LinearLayout>
 
@@ -94,7 +96,7 @@
         android:layout_marginLeft="30dp"
         android:textColor="@color/darkGreen"/>
 
-    <EditText
+    <TextView
         android:id="@+id/etinfo"
         android:layout_width="360dp"
         android:layout_height="400dp"
@@ -102,7 +104,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="10dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:hint="위치 : 경기도 고양시 일산서구 대화동"
+        android:text="위치 : 경기도 고양시 일산서구 대화동"
         android:gravity="left"/>
 
 

@@ -31,6 +31,7 @@
                 <TextView
                     android:id="@+id/pr_now_dealName"
                     android:layout_width="wrap_content"
+                    android:textColor="@color/darkGreen"
                     android:layout_height="wrap_content"
                     android:text="정은이네" />
 
@@ -56,8 +57,9 @@
                 android:layout_height="30dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
-                android:background="@color/colorPrimaryDark"
-                android:text="거래진행중" />
+                android:background="@color/lightGreen"
+                android:text="거래진행중"
+                android:textColor="@color/white" />
 
 
         </LinearLayout>

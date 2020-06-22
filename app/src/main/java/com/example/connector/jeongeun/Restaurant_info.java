@@ -27,8 +27,7 @@ public class Restaurant_info extends AppCompatActivity {
     ImageView proImg; // 외식업자 이미지
     Button callBtn, emailBtn; // 전화, E-mail
     ImageButton backBtn, homeBtn; // 뒤로가기, 홈
-    EditText etinfo; // 가게소개et
-    TextView topResName; // 탑패널 이름
+    TextView topResName, etinfo; // 탑패널 이름, 가게소개
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

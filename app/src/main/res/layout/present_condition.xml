@@ -113,7 +113,8 @@
             android:layout_marginLeft="13dp"
             android:layout_marginTop="10dp"
             android:background="@color/colorAccent"
-            android:text="수정요청" />
+            android:text="수정요청"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/acceptBtn"
@@ -122,7 +123,8 @@
             android:layout_marginLeft="13dp"
             android:layout_marginTop="10dp"
             android:background="@color/colorAccent"
-            android:text="수락" />
+            android:text="수락"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/refuseBtn"
@@ -130,8 +132,9 @@
             android:layout_height="40dp"
             android:layout_marginLeft="13dp"
             android:layout_marginTop="10dp"
-            android:background="#FFB4B4"
-            android:text="거절" />
+            android:background="#FF4646"
+            android:text="거절"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 

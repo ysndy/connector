@@ -75,6 +75,7 @@ public class Request_adapter extends BaseAdapter {
         holder.reqItemPrice.setText(transaction.getPriceTotal().toString());
         holder.reqItemDate.setText(transaction.getDate());
 
+        // 날짜 수정 기능
       /*  reqItemDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

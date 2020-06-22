@@ -14,8 +14,9 @@
         android:layout_height="30dp"
         android:layout_gravity="center|top"
         android:layout_marginTop="20dp"
-        android:background="@color/colorAccent"
-        android:text="+ 상품추가" />
+        android:background="@color/lightGreen"
+        android:text="+ 상품추가"
+        android:textColor="@color/white" />
 
 
     <!-- 상품 리스트 -->
