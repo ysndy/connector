@@ -13,8 +13,9 @@ public class Product implements Parcelable {
     private Profile supplier;//공급처
     private Integer selectedCount;//거래 시 선택수량
     private String supplyName; //공급처이름
+    private String transactionState; //거래 상태
 
-    public Product(){
+    public Product() {
 
     }
 
@@ -140,5 +141,13 @@ public class Product implements Parcelable {
 
     public void setSupplyName(String supplyName) {
         this.supplyName = supplyName;
+    }
+
+    public String getTransactionState() {
+        return transactionState;
+    }
+
+    public void setTransactionState(String transactionState) {
+        this.transactionState = transactionState;
     }
 }

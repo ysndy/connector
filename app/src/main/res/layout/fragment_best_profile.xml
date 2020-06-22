@@ -34,7 +34,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="BEST"
-                    android:textColor="#a0c334"
+                    android:textColor="#e5d429"
                     android:textSize="28dp"
                     android:textStyle="bold" />
 
@@ -47,7 +47,7 @@
                     android:maxLines="1"
                     android:text=""
                     android:textAlignment="center"
-                    android:textColor="#a0c334"
+                    android:textColor="#709053"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
