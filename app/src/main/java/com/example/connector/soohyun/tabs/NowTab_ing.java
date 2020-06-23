@@ -11,6 +11,7 @@ import android.widget.ListView;
 
 import com.example.connector.R;
 import com.example.connector.doyeon.objects.Transaction;
+import com.example.connector.sampleData.supplierprofile.SupplierData7;
 import com.example.connector.sampleData.transaction.TransactionData1;
 
 import java.util.ArrayList;
@@ -66,7 +67,7 @@ public class NowTab_ing extends Fragment {
         transactions = new ArrayList<>();
 
         Transaction transaction1 = new Transaction();
-        transaction1.setSupplyName(TransactionData1.supply);
+        transaction1.setSupplyName(SupplierData7.name);
         transaction1.setDate(TransactionData1.date);
         transactions.add(transaction1);
 
