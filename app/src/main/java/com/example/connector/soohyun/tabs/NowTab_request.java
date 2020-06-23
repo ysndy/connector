@@ -22,41 +22,11 @@ import java.util.ArrayList;
 //현황탭 중 신청현황
 public class NowTab_request extends Fragment {
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
     private ArrayList<Transaction> transactions;
     private ListView now1ItemListView;
 
-    private String mParam1;
-    private String mParam2;
-
-    private Button greenBtn; //거래진행중 버튼
-
-
     public NowTab_request() {
         // Required empty public constructor
-    }
-
-
-     public static NowTab_request newInstance(String param1, String param2) {
-        NowTab_request fragment = new NowTab_request();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-
-
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override

@@ -20,36 +20,12 @@ import java.util.ArrayList;
 //좋아요 탭
 public class LikeTab extends Fragment {
 
-
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
     private ArrayList<Product> products;
     private ListView likeItemListView;
 
 
-    private String mParam1;
-    private String mParam2;
-
     public LikeTab() {
         // Required empty public constructor
-    }
-
-    public static LikeTab newInstance(String param1, String param2) {
-        LikeTab fragment = new LikeTab();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override

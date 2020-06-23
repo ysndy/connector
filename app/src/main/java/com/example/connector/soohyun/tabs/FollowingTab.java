@@ -22,8 +22,6 @@ import java.util.ArrayList;
 //팔로잉 탭
 public class FollowingTab extends Fragment {
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
     private ArrayList<Profile> profiles;
     private ListView followingItemListView;
 
@@ -32,25 +30,6 @@ public class FollowingTab extends Fragment {
 
     public FollowingTab() {
         // Required empty public constructor
-    }
-
-
-     public static FollowingTab newInstance(String param1, String param2) {
-        FollowingTab fragment = new FollowingTab();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
