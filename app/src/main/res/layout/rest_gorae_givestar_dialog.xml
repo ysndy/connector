@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/giverStar"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:gravity="center"
         android:textColor="@color/darkbrown"/>
 
@@ -23,12 +23,12 @@
         />
     <Button
         android:id="@+id/addStar"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:background="@color/yellow"
         android:text="@string/addStar"
-        android:textSize="25dp"/>
+        android:textSize="18dp"/>
 
 
 </LinearLayout>

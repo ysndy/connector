@@ -30,7 +30,7 @@
             <TextView
                 android:id="@+id/likeItemName"
                 android:text="@string/ItemName"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -41,7 +41,7 @@
                 android:text="@string/Itemprice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"/>
 
@@ -55,6 +55,7 @@
             <TextView
                 android:id="@+id/likeItemSupply"
                 android:text="@string/supplyName"
+                android:textSize="10sp"
                 android:textColor="@color/darkGreen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
