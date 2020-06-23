@@ -15,6 +15,7 @@ public class Transaction implements Parcelable { // 거래 내용 저장
     private Integer priceTotal; //총금액
     private ArrayList<Product> products; //선택상품
     private String supplyName; //공급처이름
+    private String tranState; // 거래상태
 
     public Transaction(){
 

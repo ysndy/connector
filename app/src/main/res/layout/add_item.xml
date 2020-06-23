@@ -48,7 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/providerImg" />
 
     <TextView
-        android:id="@+id/providerName"
+        android:id="@+id/itemName"
         android:layout_width="60dp"
         android:layout_height="30dp"
         android:layout_marginLeft="40dp"
@@ -61,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/uploadImg" />
 
     <TextView
-        android:id="@+id/providerEmail"
+        android:id="@+id/itemPrice"
         android:layout_width="60dp"
         android:layout_height="30dp"
         android:layout_marginLeft="40dp"
@@ -71,10 +71,10 @@
         android:text="단가"
         android:textColor="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/providerName" />
+        app:layout_constraintTop_toBottomOf="@+id/itemName" />
 
     <TextView
-        android:id="@+id/providerPnum"
+        android:id="@+id/itemOrigin"
         android:layout_width="60dp"
         android:layout_height="30dp"
         android:layout_marginLeft="40dp"
@@ -84,45 +84,46 @@
         android:text="원산지"
         android:textColor="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/providerEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/itemPrice" />
 
     <EditText
         android:id="@+id/etItemName"
         android:layout_width="250dp"
         android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="30dp"
-        android:layout_marginRight="40dp"
         android:background="@color/invisible"
         android:hint="단위까지 기재해주세요(ex. 2kg)"
         android:textAlignment="center"
         android:textSize="14sp"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/itemName"
         app:layout_constraintTop_toBottomOf="@+id/uploadImg" />
 
     <EditText
         android:id="@+id/etPrice"
         android:layout_width="250dp"
         android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="25dp"
-        android:layout_marginRight="40dp"
         android:background="@color/invisible"
         android:hint="내용을 입력해주세요"
         android:textAlignment="center"
         android:textSize="14sp"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/itemPrice"
         app:layout_constraintTop_toBottomOf="@+id/etItemName" />
 
     <EditText
         android:id="@+id/etOrigin"
         android:layout_width="250dp"
         android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="25dp"
         android:layout_marginRight="40dp"
         android:background="@color/invisible"
         android:hint="내용을 입력해주세요"
         android:textAlignment="center"
         android:textSize="14sp"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/itemOrigin"
         app:layout_constraintTop_toBottomOf="@+id/etPrice" />
 
     <Button
@@ -130,12 +131,12 @@
         android:layout_width="120dp"
         android:layout_height="40dp"
         android:layout_marginTop="35dp"
+        android:layout_marginBottom="15dp"
         android:background="@color/colorAccent"
         android:text="상품등록"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="15dp"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintRight_toRightOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

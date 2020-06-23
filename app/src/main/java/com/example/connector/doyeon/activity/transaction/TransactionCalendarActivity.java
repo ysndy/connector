@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -15,11 +14,12 @@ import androidx.annotation.Nullable;
 
 import com.example.connector.R;
 import com.example.connector.doyeon.lib.ProductAdapter;
-import com.example.connector.doyeon.lib.TranState;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Profile;
 import com.example.connector.sampleData.product.ProductData1;
 import com.example.connector.sampleData.product.ProductData2;
+import com.example.connector.sampleData.transaction.TransactionData1;
+import com.example.connector.sampleData.transaction.TransactionData2;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -101,11 +101,13 @@ public class TransactionCalendarActivity extends Activity {
         Product product = new Product();
         product.setName(ProductData1.name);
         product.setPrice(ProductData1.price);
+        product.setTransactionState(TransactionData1.state);
         products.add(product);
 
         Product product2 = new Product();
         product2.setName(ProductData2.name);
         product2.setPrice(ProductData2.price);
+        product2.setTransactionState(TransactionData2.state);
         products.add(product2);
 
         ProductAdapter adapter = new ProductAdapter(products);
