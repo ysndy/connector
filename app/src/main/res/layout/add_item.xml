@@ -95,6 +95,7 @@
         android:background="@color/invisible"
         android:hint="단위까지 기재해주세요(ex. 2kg)"
         android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uploadImg" />
 
@@ -107,6 +108,7 @@
         android:background="@color/invisible"
         android:hint="내용을 입력해주세요"
         android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etItemName" />
 
@@ -119,6 +121,7 @@
         android:background="@color/invisible"
         android:hint="내용을 입력해주세요"
         android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPrice" />
 
@@ -132,6 +135,7 @@
         android:textColor="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etOrigin" />
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

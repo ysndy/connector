@@ -20,7 +20,8 @@
                 android:id="@+id/followerRestImg"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_margin="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
                 android:src="@drawable/ic_face_black_24dp" />
         </LinearLayout>
 
@@ -38,7 +39,6 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/supplyName"
                 android:textColor="@color/darkGreen"
-                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -51,8 +51,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="8dp"
-                    android:text="연락처 :"
-                    android:textSize="15sp" />
+                    android:text="연락처 :" />
 
                 <TextView
                     android:id="@+id/providerRestPnum"
@@ -60,8 +59,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="8dp"
-                    android:text="010-0000-0000"
-                    android:textSize="15sp" />
+                    android:text="010-0000-0000" />
 
             </LinearLayout>
 
@@ -75,8 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="8dp"
-                    android:text="총 매출 :"
-                    android:textSize="15sp" />
+                    android:text="총 매출 :" />
 
                 <TextView
                     android:id="@+id/providerRestTotal"
@@ -84,8 +81,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="8dp"
-                    android:text="291,000"
-                    android:textSize="15sp" />
+                    android:text="291,000" />
 
             </LinearLayout>
 

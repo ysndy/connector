@@ -15,12 +15,14 @@
             android:layout_height="100dp"
             android:layout_gravity="left"
             android:layout_weight="1">
+
             <ImageView
                 android:id="@+id/followerRestImg"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/ic_face_black_24dp"
-                android:layout_margin="10dp"/>
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_face_black_24dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -37,7 +39,6 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/supplyName"
                 android:textColor="@color/darkGreen"
-                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -46,7 +47,6 @@
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="8dp"/>
 
@@ -55,7 +55,6 @@
                 android:text="@string/address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="8dp"/>
 

@@ -102,6 +102,7 @@
         android:background="@color/invisible"
         android:hint="내용을 입력해주세요"
         android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uploadImg" />
 
@@ -114,6 +115,7 @@
         android:background="@color/invisible"
         android:hint="example@mail"
         android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etProviderName" />
 
@@ -126,6 +128,7 @@
         android:background="@color/invisible"
         android:hint="내용을 입력해주세요"
         android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etProviderEmail" />
 
@@ -134,7 +137,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:text="업체 소개"
         android:textColor="@color/darkGreen"
         android:textSize="20sp"
@@ -144,14 +147,15 @@
     <EditText
         android:id="@+id/ProviderIntroduction"
         android:layout_width="350dp"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="25dp"
         android:background="@color/invisible"
         android:gravity="top"
         android:hint="내용을 입력해주세요(1000자 이내)"
-        android:paddingTop="10dp"
+        android:paddingTop="15dp"
+        android:textSize="14sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/introduction" />
@@ -166,7 +170,8 @@
         android:textColor="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ProviderIntroduction" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="15dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

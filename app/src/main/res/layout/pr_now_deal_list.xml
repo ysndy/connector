@@ -55,7 +55,7 @@
                 android:id="@+id/pr_now_dealBtn"
                 android:layout_width="70dp"
                 android:layout_height="30dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:background="@color/lightGreen"
                 android:text="거래진행중"
