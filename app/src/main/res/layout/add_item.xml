@@ -47,84 +47,108 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/providerImg" />
 
-    <TextView
-        android:id="@+id/itemName"
-        android:layout_width="60dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="40dp"
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:background="@color/lightGreen"
-        android:gravity="center"
-        android:text="상품명"
-        android:textColor="@color/white"
+        android:orientation="horizontal"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/uploadImg" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/uploadImg">
 
-    <TextView
-        android:id="@+id/itemPrice"
-        android:layout_width="60dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="24dp"
-        android:background="@color/lightGreen"
-        android:gravity="center"
-        android:text="단가"
-        android:textColor="@color/white"
+        <TextView
+            android:id="@+id/itemName"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@color/lightGreen"
+            android:gravity="center"
+            android:text="상품명"
+            android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/etItemName"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:layout_weight="2"
+            android:background="@color/invisible"
+            android:hint="단위까지 기재해주세요(ex. 2kg)"
+            android:textAlignment="center"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/itemName" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll1">
 
-    <TextView
-        android:id="@+id/itemOrigin"
-        android:layout_width="60dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="25dp"
-        android:background="@color/lightGreen"
-        android:gravity="center"
-        android:text="원산지"
-        android:textColor="@color/white"
+        <TextView
+            android:id="@+id/itemPrice"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@color/lightGreen"
+            android:gravity="center"
+            android:text="단가"
+            android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/etPrice"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:layout_weight="2"
+            android:background="@color/invisible"
+            android:hint="내용을 입력해주세요"
+            android:textAlignment="center"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/itemPrice" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll2">
 
-    <EditText
-        android:id="@+id/etItemName"
-        android:layout_width="250dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
-        android:background="@color/invisible"
-        android:hint="단위까지 기재해주세요(ex. 2kg)"
-        android:textAlignment="center"
-        android:textSize="14sp"
-        app:layout_constraintLeft_toRightOf="@id/itemName"
-        app:layout_constraintTop_toBottomOf="@+id/uploadImg" />
+        <TextView
+            android:id="@+id/itemOrigin"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@color/lightGreen"
+            android:gravity="center"
+            android:text="원산지"
+            android:textColor="@color/white" />
 
-    <EditText
-        android:id="@+id/etPrice"
-        android:layout_width="250dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="25dp"
-        android:background="@color/invisible"
-        android:hint="내용을 입력해주세요"
-        android:textAlignment="center"
-        android:textSize="14sp"
-        app:layout_constraintLeft_toRightOf="@id/itemPrice"
-        app:layout_constraintTop_toBottomOf="@+id/etItemName" />
 
-    <EditText
-        android:id="@+id/etOrigin"
-        android:layout_width="250dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="40dp"
-        android:background="@color/invisible"
-        android:hint="내용을 입력해주세요"
-        android:textAlignment="center"
-        android:textSize="14sp"
-        app:layout_constraintLeft_toRightOf="@id/itemOrigin"
-        app:layout_constraintTop_toBottomOf="@+id/etPrice" />
+        <EditText
+            android:id="@+id/etOrigin"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:layout_weight="2"
+            android:background="@color/invisible"
+            android:hint="내용을 입력해주세요"
+            android:textAlignment="center"
+            android:textSize="14sp" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/addItem"
