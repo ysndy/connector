@@ -43,11 +43,13 @@ public class NowTab_request extends Fragment {
     private void setTransactionList() {
         transactions = new ArrayList<>();
 
+        //임시데이터1
         Transaction transaction1 = new Transaction();
         transaction1.setSupplyName(SupplierData3.name);
         transaction1.setDate(TransactionData1.date);
         transactions.add(transaction1);
 
+        //임시데이터2
         Transaction transaction2 = new Transaction();
         transaction2.setSupplyName(SupplierData8.name);
         transaction2.setDate(TransactionData2.date);
