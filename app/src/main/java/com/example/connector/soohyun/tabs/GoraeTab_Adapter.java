@@ -75,19 +75,19 @@ public class GoraeTab_Adapter extends BaseAdapter {
         //별점등록
         holder.giverStar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //'giverStar'버튼 = '별점주기'을 눌렀을 때
                 RatingBar ratingBar;
                 Button addStar;
 
                 dialog = new Dialog(context);
-                dialog.setContentView(R.layout.rest_gorae_givestar_dialog);
+                dialog.setContentView(R.layout.rest_gorae_givestar_dialog);//별점주는 창이 뜸
                 ratingBar = dialog.findViewById(R.id.ratingBar);
                 addStar = dialog.findViewById(R.id.addStar);
 
                 addStar.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View view) {
-                        dialog.dismiss();
+                    public void onClick(View view) { // 다이어로그 창안의 'addStar 버튼' = '별점등록 버튼' 을 눌렀을 때
+                        dialog.dismiss(); //별점입력 후 다이어로그창이 사라질수 있게
                         AlertDialog.Builder dlg = new AlertDialog.Builder(context);
                         dlg.setTitle("별점 등록 완료");
                         dlg.setMessage("별점이 등록되었습니다.");
@@ -95,8 +95,7 @@ public class GoraeTab_Adapter extends BaseAdapter {
                         dlg.show();
                     }
                 });
-
-                dialog.setCanceledOnTouchOutside(false);//무조건 별점 등록해주어야 닫힐 수 있게 함.
+                dialog.setCanceledOnTouchOutside(false);//무조건 별점 등록해주어야 닫힐 수 있게 함. 다른데눌렀을 때 종료 안됨.
                 dialog.show();
             }
         });
