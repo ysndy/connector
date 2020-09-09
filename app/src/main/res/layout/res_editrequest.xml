@@ -69,7 +69,11 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!--리스트뷰 -->
+    <ListView
+        android:id="@+id/edit_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/answer_btn"/>
 
     <LinearLayout
         android:id="@+id/answer_btn"
@@ -102,11 +106,6 @@
         android:layout_marginLeft="30dp" />
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/edit_listview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/answer_btn"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
