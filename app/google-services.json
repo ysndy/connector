@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "749647439428",
+    "firebase_url": "https://team-c5500.firebaseio.com",
+    "project_id": "team-c5500",
+    "storage_bucket": "team-c5500.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:749647439428:android:bfd967c77b3264c7b5be11",
+        "android_client_info": {
+          "package_name": "com.example.connector"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "749647439428-37qu934885lf4vu30aoil8ou5aq3gjvq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6l0gXHnsfklcDSmMAP16dNe5g04FWwZM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "749647439428-37qu934885lf4vu30aoil8ou5aq3gjvq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

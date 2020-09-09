@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 
 import com.example.connector.R;
 import com.example.connector.doyeon.lib.ProductAdapter;
+import com.example.connector.doyeon.lib.TransProductAdapter;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Profile;
 import com.example.connector.sampleData.product.ProductData1;
@@ -100,17 +101,17 @@ public class TransactionCalendarActivity extends Activity {
 
         Product product = new Product();
         product.setName(ProductData1.name);
-        product.setPrice(ProductData1.price);
-        product.setTransactionState(TransactionData1.state);
+        product.setPrice(1);
+        product.setTransactionState(TransactionData2.state);
         products.add(product);
 
         Product product2 = new Product();
         product2.setName(ProductData2.name);
-        product2.setPrice(ProductData2.price);
+        product2.setPrice(5);
         product2.setTransactionState(TransactionData2.state);
         products.add(product2);
 
-        ProductAdapter adapter = new ProductAdapter(products);
+        TransProductAdapter adapter = new TransProductAdapter(products);
         productListView.setAdapter(adapter);
 
     }

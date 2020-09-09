@@ -78,8 +78,8 @@ public class RequestAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_requestproductlist, null, false);
 
+            //인플레이팅
             holder = new CustomViewHolder();
-            //holder.profileImg = (ImageView) convertView.findViewById(R.id.image);
             holder.productName = (TextView) convertView.findViewById(R.id.productNameTV);
             holder.productFrom = (TextView) convertView.findViewById(R.id.productFromTV);
             holder.productPrice = (TextView) convertView.findViewById(R.id.productPriceTV);
@@ -93,13 +93,20 @@ public class RequestAdapter extends BaseAdapter {
         sp = list.get(position);
 
         CheckBox cb = (CheckBox) convertView.findViewById(R.id.productCheckBox);
+
         //리스너 장착
+        // 체크박스가 선택되었을 때 이벤트 처리
         cb.setOnCheckedChangeListener(new checkEvent(holder.productCountEt, sp.getPrice(), sp));
+
+        //숫자만 입력 예외처리
         holder.productCountEt.addTextChangedListener(new ExceptionET(holder.productCountEt));
+
+        //입력창이 활성화/비활성화되었을 때
         holder.productCountEt.setOnFocusChangeListener(new ChangeET(holder.productCountEt, sp.getPrice()));
+
+        //키패드에서 완료/다음버튼을 눌렀을 때
         holder.productCountEt.setOnEditorActionListener(new OnEditorAction(holder.productCountEt));
 
-        //holder.profileImg.setImageURI(Uri.parse(sp.getImageUrl()));
         holder.productName.setText(sp.getName());
         holder.productFrom.setText(sp.getFrom());
         holder.productPrice.setText(sp.getPrice().toString());
@@ -124,6 +131,7 @@ public class RequestAdapter extends BaseAdapter {
         list.add(sp);
     }
 
+    //체크박스를 체크/해제했을 때 이벤트 처리
     class checkEvent implements CompoundButton.OnCheckedChangeListener {
 
         Product selectedProduct;
@@ -137,32 +145,42 @@ public class RequestAdapter extends BaseAdapter {
         }
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            if(isChecked){
+            if(isChecked){ // 체크되었을 때
+                //입력창 활성화 처리
                 editText.setBackgroundColor(ContextCompat.getColor(editText.getContext(), R.color.invisible));
                 editText.setClickable(true);
                 editText.setFocusable(true);
                 editText.setFocusableInTouchMode(true);
+
+                //총금액, 수량 계산
                 priceTotal += (price * Integer.parseInt(editText.getText().toString()));
                 productCount++;
+
+                //선택된 상품 ArrayList에 추가
                 selectedProducts.add(selectedProduct);
                 selectedProduct.setSelectedCount(Integer.parseInt(editText.getText().toString()));
 
-            } else {
+            } else { // 체크 해제되었을 때
+                //입력창 비활성화 처리
                 editText.setClickable(false);
                 editText.setFocusable(false);
                 editText.setBackgroundColor(ContextCompat.getColor(editText.getContext(), R.color.false1));
+                //총금액, 수량 계산
                 priceTotal -= (price * Integer.parseInt(editText.getText().toString()));
                 productCount--;
+                //선택된 상품에서 삭제
                 selectedProducts.remove(selectedProduct);
 
             }
 
+            //상품 수량, 총금액 세팅
             priceTotalTv.setText(""+priceTotal);
             selectedCountTv.setText(productCount+"");
         }
     }
 
-    class ExceptionET implements TextWatcher {
+    //숫자가 아닌 문자를 입력 받았을 때 예외처리
+    class ExceptionET implements TextWatcher { //키 입력이 될 때마다 호출
 
         EditText et;
         ExceptionET(EditText et){
@@ -180,11 +198,10 @@ public class RequestAdapter extends BaseAdapter {
         }
 
         @Override
-        public void afterTextChanged(Editable s) {
-            if(!et.getText().toString().equals("")) {
+        public void afterTextChanged(Editable s) { //입력된 후
+            if(!et.getText().toString().equals("")) {//아무것도 입력되지 않았을 경우 제외
                 try {
                     preNum_input = Integer.parseInt(et.getText().toString());
-
                 } catch (NumberFormatException e) {
                     Toast.makeText(et.getContext(), "숫자만 입력 가능합니다.", Toast.LENGTH_SHORT).show();
                     et.setText(preNum_input);
@@ -193,6 +210,7 @@ public class RequestAdapter extends BaseAdapter {
         }
     }
 
+    // 상품 수량을 입력받는 EditText가 활성화되었을 때 입력된 숫자를 비활성화되었을 때 총 금액에 더함
     class ChangeET implements View.OnFocusChangeListener {
 
         EditText et;
@@ -206,15 +224,15 @@ public class RequestAdapter extends BaseAdapter {
 
         @Override
         public void onFocusChange(View v, boolean hasFocus) {
-            if(hasFocus){
-                //선택하자마자 1X상품값 더함
-                //포커스가 꺼지면 이전 숫자를 빼고 입력된 숫자를 더함
+            if(hasFocus){ // 입력창이 활성화되었을 때
                 preNum_input = Integer.parseInt(et.getText().toString());
                 preNum = Integer.parseInt(et.getText().toString());
-            }else {
-                if(et.getText().toString().equals("")) et.setText("1");
+            }else {// 입력창에 포커스가 제거되었을 때
+                if(et.getText().toString().equals("")) et.setText("1"); //기본값 1 세팅 예외처리
+                //금액 계산
                 priceTotal -= price*preNum;
                 priceTotal += price*Integer.parseInt(et.getText().toString());
+                //각 상품수량 세팅
                 sp.setSelectedCount(Integer.parseInt(et.getText().toString()));
                 preNum = Integer.parseInt(et.getText().toString());
                 priceTotalTv.setText(""+priceTotal);
@@ -222,6 +240,7 @@ public class RequestAdapter extends BaseAdapter {
         }
     }
 
+    //숫자를 입력하고 키패드의 완료버튼을 눌렀을 때 키패드를 내린다.
     class OnEditorAction implements TextView.OnEditorActionListener {
 
         EditText et;
@@ -231,10 +250,11 @@ public class RequestAdapter extends BaseAdapter {
 
         @Override
         public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-            if(actionId== EditorInfo.IME_ACTION_DONE) {
+            if(actionId== EditorInfo.IME_ACTION_DONE || actionId== EditorInfo.IME_ACTION_NEXT) {
                 et.clearFocus();
                 InputMethodManager imm = (InputMethodManager) et.getContext().getSystemService(et.getContext().INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(et.getWindowToken(), 0);
+                fieldClear();
             }
             return false;
         }
