@@ -20,6 +20,7 @@ package com.example.connector.doyeon.activity;
         import com.example.connector.jeongeun.Provider_mypage;
         import com.example.connector.sampleData.restaurantprofile.RestaurantData1;
         import com.example.connector.doyeon.objects.Profile;
+        import com.example.connector.soohyun.restaurantpage.MyPage;
         import com.google.android.material.tabs.TabLayout;
 
         import java.io.Serializable;
@@ -112,7 +113,7 @@ public class MainPageActivity extends AppCompatActivity {
             @Override
             public boolean onLongClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), Provider_mypage.class);
+                Intent intent = new Intent(getApplicationContext(), MyPage.class);
                 startActivity(intent);
 
                 return false;

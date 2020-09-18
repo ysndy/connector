@@ -9,7 +9,7 @@ public interface RestaurantData1 {
 
     //1. 이름 2. 지역 3. 소개 4. 연락처 5. 이메일 6. 프로필사진 7. 주류 8. 상품 9. 팔로워 + 아이디, 비밀번호
 
-    String name = "도연채소";
+    String name = "진미식당";
     String id = "ysndy";
     String pw = "1234";
     String location = "서울시 서대문구 홍은동";

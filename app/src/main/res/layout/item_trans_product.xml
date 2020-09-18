@@ -38,7 +38,7 @@
                     android:padding="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="단가 : " />
+                    android:text="수량 : " />
             </LinearLayout>
 
             <LinearLayout
@@ -58,13 +58,16 @@
                     android:id="@+id/productPriceTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="단가" />
+                    android:text="수량" />
 
             </LinearLayout>
 
         </LinearLayout>
 
         <TextView
+            android:elevation="3dp"
+            android:textStyle="bold"
+            android:gravity="center"
             android:id="@+id/stateTv"
             android:layout_margin="5dp"
             android:background="@drawable/background_profileitem"

@@ -58,7 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="20dp"
-        android:paddingRight="20dp"
+        android:paddingRight="10dp"
         app:layout_constraintTop_toBottomOf="@id/dateTextView">
 
         <Spinner
@@ -71,14 +71,27 @@
 
         <TextView
             android:padding="10dp"
+            android:gravity="center"
             android:id="@+id/calendarBtn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:background="@drawable/background_profileitem"
             android:text="달력 접어두기"
             app:layout_constraintRight_toRightOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"
+        app:layout_constraintBottom_toTopOf="@id/calendar_centerPanel"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"
+        app:layout_constraintTop_toBottomOf="@id/calendar_centerPanel"
+        />
 
     <ListView
         android:id="@+id/productListView"
