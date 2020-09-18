@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class LikeTab extends Fragment {
 
     private ArrayList<Product> products;
-    private ListView likeItemListView;
+    ListView likeItemListView;
 
 
     public LikeTab() {

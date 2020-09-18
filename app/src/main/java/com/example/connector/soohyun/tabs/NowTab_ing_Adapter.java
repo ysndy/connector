@@ -50,10 +50,10 @@ public class NowTab_ing_Adapter extends BaseAdapter {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.restitem_fragnow2,null,false);
 
             holder = new NowTab_ing_Adapter.CustomViewHolder();
-            holder.now2ItemImg = convertView.findViewById(R.id.now2ItemImg);
-            holder.now2ItemSupply = convertView.findViewById(R.id.now2ItemSupply);
-            holder.now2ItemReqDate = convertView.findViewById(R.id.now2ItemReqDate);
-            holder.greenBtn = convertView.findViewById(R.id.greenBtn);
+            holder.now2ItemImg = convertView.findViewById(R.id.now2ItemImg);//공급처대표이미지
+            holder.now2ItemSupply = convertView.findViewById(R.id.now2ItemSupply);//공급처명
+            holder.now2ItemReqDate = convertView.findViewById(R.id.now2ItemReqDate); //신청일
+            holder.greenBtn = convertView.findViewById(R.id.greenBtn); //거래진행중 버튼
 
             convertView.setTag(holder);
         }
@@ -63,14 +63,14 @@ public class NowTab_ing_Adapter extends BaseAdapter {
         Transaction transaction = list.get(position);
 
         //holder.now2ItemImg
-        holder.now2ItemSupply.setText(transaction.getSupplyName());
-        holder.now2ItemReqDate.setText(transaction.getDate());
+        holder.now2ItemSupply.setText(transaction.getSupplyName()); //공급처명 표시
+        holder.now2ItemReqDate.setText(transaction.getDate()); // 신청일 표시
 
 
         holder.greenBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, NowRequest.class);
+            public void onClick(View v) { //greenBtn = 거래진행중 버튼을 눌렀을 때
+                Intent intent = new Intent(context, NowRequest.class); //거래진행중인 내역 화면으로 이동
                 context.startActivity(intent);
             }
         });
