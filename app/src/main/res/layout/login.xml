@@ -55,7 +55,7 @@
         <LinearLayout
             android:id="@+id/loginBtn_mid"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             android:gravity="center"
             android:background="@color/background"
             app:layout_constraintTop_toBottomOf="@+id/Id_Pass_Mid"
@@ -65,7 +65,7 @@
         android:id="@+id/login1Btn"
         android:text="카카오로그인"
         android:textColor="@color/darkbrown"
-        android:background="@color/yellow"
+        android:background="@drawable/kakaobutton"
         android:textSize="15sp"
         android:layout_width="180dp"
         android:layout_height="40dp" />
@@ -74,7 +74,7 @@
             android:id="@+id/login2Btn"
             android:text="네이버로그인"
             android:textColor="@color/darkbrown"
-            android:background="@color/lightGreen"
+            android:background="@drawable/naverbutton"
             android:textSize="15sp"
             android:layout_width="180dp"
             android:layout_height="40dp"
@@ -89,7 +89,7 @@
         android:layout_height="100dp"
         android:background="@color/background"
         app:layout_constraintTop_toBottomOf="@+id/loginBtn_mid"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="20dp">
 
     <Button
         android:id="@+id/fjoin"
