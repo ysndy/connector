@@ -25,13 +25,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_Find"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="250dp"
         app:layout_constraintTop_toBottomOf="@id/topPanel">
 
     <TextView
         android:id="@+id/findID"
         android:text="@string/findID"
-        android:textSize="18sp"
+        android:textSize="@dimen/subtitle"
         android:textColor="@color/darkGreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,8 +43,8 @@
     <EditText
         android:id="@+id/findemail"
         android:text="@string/email"
-        android:textSize="15sp"
-        android:layout_width="300dp"
+        android:textSize="@dimen/edittext"
+        android:layout_width="330dp"
         android:layout_height="50dp"
         app:layout_constraintTop_toBottomOf="@+id/findID"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -54,15 +54,15 @@
     <Button
         android:id="@+id/emailGo"
         android:text="@string/Go"
-        android:layout_width="60dp"
-        android:layout_height="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:textColor="@color/darkbrown"
-        android:background="@color/lightGreen"
-        android:textSize="15sp"
+        android:textSize="@dimen/gobtn"
         app:layout_constraintTop_toBottomOf="@+id/findemail"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:background="@drawable/radius"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -75,7 +75,7 @@
     <TextView
         android:id="@+id/findPass"
         android:text="@string/findPass"
-        android:textSize="18sp"
+        android:textSize="@dimen/subtitle"
         android:textColor="@color/darkGreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -87,9 +87,9 @@
     <EditText
         android:id="@+id/findIdEdit"
         android:text="@string/id"
-        android:layout_width="300dp"
+        android:layout_width="330dp"
         android:layout_height="50dp"
-        android:textSize="15sp"
+        android:textSize="@dimen/edittext"
         app:layout_constraintTop_toBottomOf="@+id/findPass"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -98,9 +98,9 @@
     <EditText
         android:id="@+id/findemailEdit"
         android:text="@string/email"
-        android:layout_width="300dp"
+        android:layout_width="330dp"
         android:layout_height="50dp"
-        android:textSize="15sp"
+        android:textSize="@dimen/edittext"
         app:layout_constraintTop_toBottomOf="@+id/findIdEdit"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -109,15 +109,15 @@
     <Button
         android:id="@+id/emailGo2"
         android:text="@string/Go"
-        android:layout_width="60dp"
-        android:layout_height="30dp"
-        android:textSize="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textSize="@dimen/gobtn"
         android:textColor="@color/darkbrown"
-        android:background="@color/lightGreen"
         app:layout_constraintTop_toBottomOf="@+id/findemailEdit"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:background="@drawable/radius"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

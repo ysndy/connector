@@ -11,4 +11,7 @@
     <dimen name="best_profile_height">150dp</dimen>
     <dimen name="best_profile_item_height">100dp</dimen>
 
+    <dimen name="subtitle">22dp</dimen>
+    <dimen name="gobtn">18dp</dimen>
+    <dimen name="edittext">18sp</dimen>
 </resources>

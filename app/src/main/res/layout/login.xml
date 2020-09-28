@@ -2,14 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/back_try1"
+    android:background="@color/background"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/login_logoTop"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="@color/back_try1"
+        android:background="@color/background"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
@@ -27,16 +27,16 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/Id_Pass_Mid"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="@color/back_try1"
+        android:layout_height="200dp"
+        android:background="@color/background"
         app:layout_constraintTop_toBottomOf="@+id/login_logoTop">
 
     <EditText
         android:id="@+id/ID"
         android:hint="@string/id"
-        android:textColorHint="@color/point_try1"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
+        android:textColorHint="@color/darkbrown"
+        android:layout_width="220dp"
+        android:layout_height="80dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -44,9 +44,9 @@
     <EditText
         android:id="@+id/Password"
         android:hint="Password"
-        android:textColorHint="@color/point_try1"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
+        android:textColorHint="@color/darkbrown"
+        android:layout_width="220dp"
+        android:layout_height="80dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ID"/>
@@ -55,44 +55,46 @@
         <LinearLayout
             android:id="@+id/loginBtn_mid"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="200dp"
             android:gravity="center"
-            android:background="@color/back_try1"
+            android:background="@color/background"
             app:layout_constraintTop_toBottomOf="@+id/Id_Pass_Mid"
             android:layout_marginTop="10dp">
 
     <Button
         android:id="@+id/login1Btn"
-        android:text="@string/supLogin"
+        android:text="카카오로그인"
         android:textColor="@color/darkbrown"
-        android:background="@color/point_try1"
+        android:background="@color/yellow"
         android:textSize="15sp"
-        android:layout_width="80dp"
+        android:layout_width="180dp"
         android:layout_height="40dp" />
 
         <Button
             android:id="@+id/login2Btn"
-            android:text="@string/resLogin"
+            android:text="네이버로그인"
             android:textColor="@color/darkbrown"
-            android:background="@color/point_try1"
+            android:background="@color/lightGreen"
             android:textSize="15sp"
-            android:layout_width="80dp"
+            android:layout_width="180dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="30dp" />
+            android:layout_marginLeft="30dp"
+            />
 
         </LinearLayout>
 
     <LinearLayout
         android:id="@+id/findBtn_Bottom"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/back_try1"
+        android:layout_height="100dp"
+        android:background="@color/background"
         app:layout_constraintTop_toBottomOf="@+id/loginBtn_mid"
         android:layout_marginTop="10dp">
 
     <Button
         android:id="@+id/fjoin"
         android:text="@string/signUP"
+        android:textSize="18sp"
         android:background="#00ff0000"
         android:textColor="@color/darkbrown"
         android:layout_width="wrap_content"
@@ -104,6 +106,7 @@
     <Button
         android:id="@+id/fid"
         android:text="@string/findIP"
+        android:textSize="18sp"
         android:background="#00ff0000"
         android:textColor="@color/darkbrown"
         android:layout_width="wrap_content"

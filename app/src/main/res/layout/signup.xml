@@ -43,7 +43,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/contentMid"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="300dp"
         app:layout_constraintTop_toBottomOf="@+id/logoTop">
         <!--아이디-->
         <LinearLayout
@@ -56,7 +56,7 @@
         android:id="@+id/joinId"
         android:hint="@string/id"
         android:layout_width="230dp"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:textSize="15sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -71,7 +71,7 @@
             android:textColor="@color/white"
             android:background="@color/colorAccent"
             android:layout_width="50dp"
-            android:layout_height="30dp"
+            android:layout_height="35dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/joinId" />
         </LinearLayout>
@@ -88,7 +88,7 @@
         android:id="@+id/joinPass"
         android:hint="@string/password"
         android:layout_width="280dp"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:textSize="15sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -97,12 +97,34 @@
         android:layout_marginTop="5dp"/>
         </LinearLayout>
 
+<!--  패스워드 일치 여부 확인 -->
+        <LinearLayout
+            android:id="@+id/passwordline2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/passwordline"
+            android:layout_marginTop="5dp">
+
+            <EditText
+                android:id="@+id/joinPass2"
+                android:hint="@string/passwordcheck"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:textSize="15sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"/>
+        </LinearLayout>
+
         <LinearLayout
             android:id="@+id/emailline"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@+id/passwordline"
+            app:layout_constraintTop_toBottomOf="@+id/passwordline2"
             android:layout_marginTop="5dp">
 
     <EditText
@@ -195,7 +217,7 @@
         android:background="@color/lightGreen"
         android:textColor="@color/darkbrown"
         android:textSize="18sp"
-        android:layout_width="80dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
