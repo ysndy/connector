@@ -38,14 +38,12 @@ public class FollowingTab_Adapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
         FollowingTab_Adapter.CustomViewHolder holder;
-
         if(convertView == null){
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.restitem_fragfollowing, null, false);
 
             holder = new FollowingTab_Adapter.CustomViewHolder();
-            holder.followingItemImg = convertView.findViewById(R.id.followingItemImg);
+            //holder.followingItemImg = convertView.findViewById(R.id.followingItemImg);
             holder.followingItemSupply = convertView.findViewById(R.id.followingItemSupply);
             holder.followingItemIngre = convertView.findViewById(R.id.followingItemIngre);
             holder.followingItemAddre = convertView.findViewById(R.id.followingItemAddre);

@@ -44,7 +44,7 @@ public class LikeTab_Adapter extends BaseAdapter {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.restitem_fraglike, null, false);
 
             holder = new LikeTab_Adapter.CustomViewHolder();
-            holder.likeItemImg = convertView.findViewById(R.id.likeItemImg);
+            //holder.likeItemImg = convertView.findViewById(R.id.likeItemImg);
             holder.likeItemName = convertView.findViewById(R.id.likeItemName);
             holder.likeItemPrice = convertView.findViewById(R.id.likeItemPrice);
             holder.likeItemSupply = convertView.findViewById(R.id.likeItemSupply);

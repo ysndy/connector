@@ -39,6 +39,10 @@ public class FollowingTab extends Fragment {
 
         followingItemListView = viewGroup.findViewById(R.id.followingItemListView);
         setProfileList();
+
+        //공급업자 프로필 이동
+
+
         return followingItemListView;
     }
 
@@ -60,6 +64,7 @@ public class FollowingTab extends Fragment {
 
         FollowingTab_Adapter followingTab_adapter = new FollowingTab_Adapter(profiles);
         followingItemListView.setAdapter(followingTab_adapter);
+
 
     }
 }

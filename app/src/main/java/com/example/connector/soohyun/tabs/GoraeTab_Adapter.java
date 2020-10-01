@@ -55,7 +55,7 @@ public class GoraeTab_Adapter extends BaseAdapter {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.restitem_fraggorae, null, false);
 
             holder = new GoraeTab_Adapter.CustomViewHolder();
-            holder.goraeItemImg = convertView.findViewById(R.id.goraeItemImg);
+            //holder.goraeItemImg = convertView.findViewById(R.id.goraeItemImg);
             holder.goraeItemSupply = convertView.findViewById(R.id.goraeItemSupply);
             holder.goraeItemContact = convertView.findViewById(R.id.goraeItemContact);
             holder.goraeItemTotal = convertView.findViewById(R.id.goraeItemTotal);
@@ -104,7 +104,7 @@ public class GoraeTab_Adapter extends BaseAdapter {
     }
 
     public class CustomViewHolder {
-        ImageView goraeItemImg;
+        //ImageView goraeItemImg;
         TextView goraeItemSupply, goraeItemContact, goraeItemTotal;
         Button giverStar,addStar;
     }

@@ -21,7 +21,8 @@ import java.util.ArrayList;
 public class NowTab_request_Adapter extends BaseAdapter {
 
     private ArrayList<Transaction> list;
-    private Context context;
+    /*private Context context;*/
+    private ViewGroup parent;
 
     public NowTab_request_Adapter(ArrayList<Transaction> list){
         this.list = list;
@@ -43,10 +44,10 @@ public class NowTab_request_Adapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, final ViewGroup parent) {
         NowTab_request_Adapter.CustomViewHolder holder;
-
-        this.context = parent.getContext();
+        this.parent = parent;
+        /*this.context = parent.getContext();*/
 
         if(convertView == null){
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.restitem_fragnow1, null, false);
@@ -64,14 +65,16 @@ public class NowTab_request_Adapter extends BaseAdapter {
         }
         Transaction transaction = list.get(position);
 
-        holder.now1ItemSupply.setText(transaction.getSupplyName());
-        holder.now1ItemReqDate.setText(transaction.getDate());
+        holder.now1ItemSupply.setText(transaction.getSupplyName()); //신청한 공급처명 표시
+        holder.now1ItemReqDate.setText(transaction.getDate()); //신청한 날짜 표시
 
         holder.yellBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, EditRequest.class);
-                context.startActivity(intent);
+            public void onClick(View v) { //yellBtn = 수정요청 버튼 눌렀을 때
+                /*Intent intent = new Intent(context, EditRequest.class); //수정요청받은 화면으로 이동
+                context.startActivity(intent);*/
+                Intent intent = new Intent(parent.getContext(), EditRequest.class);
+                parent.getContext().startActivity(intent);
             }
         });
 

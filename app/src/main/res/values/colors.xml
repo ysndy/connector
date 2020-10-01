@@ -19,14 +19,21 @@
     <color name="false1">#DDDDDD</color>
 
     <color name="lightGreen">#B1DB4E</color>
+    <!--원래 lightGreen #CC723DE-->
     <color name="darkbrown">#664B00</color>
     <color name="darkGreen">#005500</color>
-    <color name="red">#CC3D3D</color>
-    <color name="blue">#489CFF</color>
+    <color name="red">#DB3A00</color>
+<!--  원래red #CC3D3D-->
+    <color name="blue">#A1C05A</color>
+<!-- 원래 blue : #489CFF-->
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="yellow">#F2CB61</color>
     <color name="whiteGray">#E7E7E7</color>
     <color name="morewhiteGray">#F6F6F6</color>
 
+<!--  Try -->
+    <color name="back_try1">#FAF4C0</color>
+    <color name="point_try1">#CC723D</color>
+    <color name="reject_try1">#DB3A00</color>
 </resources>

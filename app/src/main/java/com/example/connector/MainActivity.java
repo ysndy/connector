@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.connector.soohyun.Loading;
 import com.example.connector.soohyun.shared.Login;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent = new Intent(getApplicationContext(), Login.class);
+        Intent intent = new Intent(getApplicationContext(), Loading.class);
         startActivity(intent);
         finish();
     }

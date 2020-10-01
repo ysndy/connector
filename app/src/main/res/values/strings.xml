@@ -22,6 +22,7 @@
     <!-- 수현 -->
     <string name="id">아이디</string>
     <string name="password">패스워드</string>
+    <string name="passwordcheck">패스워드 확인</string>
     <string name="email">이메일</string>
     <string name="PhoneNum">휴대폰번호</string>
     <string name="Go">GO</string>

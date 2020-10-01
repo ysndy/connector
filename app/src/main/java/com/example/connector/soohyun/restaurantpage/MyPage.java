@@ -17,8 +17,8 @@ import com.google.android.material.tabs.TabLayout;
 //외식업자 마이페이지
 public class MyPage extends AppCompatActivity {
 
-    ImageView mypageImg;
-    TextView mypageName;
+    //ImageView mypageImg;
+    //TextView mypageName;
     Button mypageEditBtn;
     TabLayout r_tab;
     ImageButton backBtn, homeBtn;
@@ -33,7 +33,7 @@ public class MyPage extends AppCompatActivity {
         backBtn = findViewById(R.id.backBtn);
         homeBtn = findViewById(R.id.homeBtn);
 
-        Intent intent = getIntent(); //인텐트
+        //Intent intent = getIntent(); //인텐트
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
