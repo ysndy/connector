@@ -55,7 +55,7 @@ public class Profile implements Serializable, Parcelable {
         //서버 DB 팔로우테이블에서 id로 팔로워 찾고 follows 세팅
     }
     public Profile(){
-
+        insertProducts();
     }
     public Profile(Parcel in) {
         name = in.readString();
@@ -73,6 +73,7 @@ public class Profile implements Serializable, Parcelable {
             rating = in.readDouble();
         }
         follows = in.createTypedArrayList(Profile.CREATOR);
+        insertProducts();
     }
 
     public static final Creator<Profile> CREATOR = new Creator<Profile>() {

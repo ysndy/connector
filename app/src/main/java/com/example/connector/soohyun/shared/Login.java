@@ -37,6 +37,9 @@ public class Login extends AppCompatActivity {
         fjoin = findViewById(R.id.fjoin);
         fid = findViewById(R.id.fid);
 
+        //입력된 아이디로 서버에서 조회한 뒤 PW 맞추어보고 틀리면 빠꾸 맞으면 로그인
+
+
         Intent intent = getIntent();
 
         fjoin.setOnClickListener(new View.OnClickListener() {

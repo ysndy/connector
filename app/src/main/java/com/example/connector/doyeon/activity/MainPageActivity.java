@@ -3,6 +3,7 @@ package com.example.connector.doyeon.activity;
         import android.content.Intent;
         import android.os.Bundle;
         import android.os.Handler;
+        import android.util.Log;
         import android.view.View;
         import android.widget.Button;
         import android.widget.ImageButton;
@@ -22,6 +23,11 @@ package com.example.connector.doyeon.activity;
         import com.example.connector.doyeon.objects.Profile;
         import com.example.connector.soohyun.restaurantpage.MyPage;
         import com.google.android.material.tabs.TabLayout;
+        import com.google.firebase.database.DataSnapshot;
+        import com.google.firebase.database.DatabaseError;
+        import com.google.firebase.database.DatabaseReference;
+        import com.google.firebase.database.FirebaseDatabase;
+        import com.google.firebase.database.ValueEventListener;
 
         import java.io.Serializable;
         import java.util.ArrayList;
@@ -57,6 +63,7 @@ public class MainPageActivity extends AppCompatActivity {
     ViewPager vp, bestVp;
     Profile myProfile;
     MainTabPagerAdapter mainTabPagerAdapter;
+    final String TAG = "3322";
 
     int currentPage = 0;
 
@@ -77,10 +84,31 @@ public class MainPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("message1");
+
+                myRef.setValue("Hello, World!3");
+
+                myRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        // This method is called once with the initial value and again
+                        // whenever data at this location is updated.
+                        String value = dataSnapshot.getValue(String.class);
+                        Log.d(TAG, "Value is: " + value);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+                        // Failed to read value
+                        Log.w(TAG, "Failed to read value.", error.toException());
+                    }
+                });
+                /*
                 Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
                 intent.putExtra(IntentName.PROFILE_RES, (Serializable) myProfile);
                 startActivity(intent);
-
+                */
             }
         });
 
