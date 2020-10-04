@@ -20,10 +20,20 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+
+        //카카오 SDK 레포지토리 설정
+        maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
     }
 }
 
+/*카카오 https://devlog-h.tistory.com/4 보고 한 거*/
+subprojects {
+    repositories {
+        mavenCentral()
+        maven { url 'http://devrepo.kakao.com:8088/nexus/content/groups/public/'
+        }
+    }
+}
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
