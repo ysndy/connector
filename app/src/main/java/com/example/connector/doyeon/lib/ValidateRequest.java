@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class ValidateRequest extends StringRequest {
 
-    final static private String URL = "http://10.0.2.2/2018081093/ValidateTest.php"; // 서버 URL
+    final static private String URL = "http://ysndy123.cafe24.com/ValidateTest.php"; // 서버 URL
     private Map<String, String> parameters;
 
     public ValidateRequest(String userID, Response.Listener<String> listener) { //Constructor에서 두 번째 것 자동완성
