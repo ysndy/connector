@@ -66,4 +66,13 @@
     <string name="redBtn">거절됨</string>
     <string name="greenBtn">거래진행중</string>
     <!--수현끝-->
+
+    <!--카카오 로그인-->
+    <string name="kakao_key">b309c471c54ebdb2d10c06b6c7a80bcc
+    </string>
+
+    <!--네이버 로그인인-->
+    <string name="naver_client_id">uMzH56lm9EaQQmvV4jJm</string>
+    <string name="naver_client_secret">c0mTBFEUDa</string>
+    <string name="naver_client_name">고래처</string>
 </resources>
