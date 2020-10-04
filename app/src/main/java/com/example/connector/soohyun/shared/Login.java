@@ -95,54 +95,9 @@ public class Login extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-
+        mContext = getApplicationContext();
 
         etId = ID;
-        Button btnValidate = shareLoginBtn;
-
-        btnValidate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                userID = etId.getText().toString();
-                Log.d("asd", userID);
-
-                //JSONObject를 StringRequest 객체를 통해 받아옴옴
-                Response.Listener rListener = new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            Log.d("asd", "click");
-                            JSONObject jResponse = new JSONObject(response);
-                            boolean newID = jResponse.getBoolean("newID");
-                            //서버에서 받은 reponse JSONObject 객체의 newID 키의 값을 받아와서 확인
-
-                            if(newID){
-                                AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
-                                AlertDialog dialog = builder.setMessage("사용할 수 있는 아이디입니다.")
-                                        .setNegativeButton("확인", null).create();
-                                dialog.show();
-                            } else {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
-                                AlertDialog dialog = builder.setMessage("사용할 수 없는 아이디입니다.")
-                                        .setNegativeButton("확인", null).create();
-                                dialog.show();
-                            }
-
-                        }catch(Exception e){
-                            Log.d("asd", e.toString());
-                        }
-                    }
-                };
-
-                ValidateRequest validateRequest = new ValidateRequest(userID, rListener); //Request 처리 클래스
-                RequestQueue queue = Volley.newRequestQueue(Login.this);
-                queue.add(validateRequest);
-                //데이터 전송에 사용할 Volley 큐 생성 및 Request 객체 추가
-
-            }
-        });
-
 
         /*구글API*/
         googleBtn.setOnClickListener(new View.OnClickListener() {
@@ -230,8 +185,45 @@ public class Login extends AppCompatActivity {
         shareLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
-                startActivity(intent);
+
+                userID = etId.getText().toString();
+                Log.d("asd", userID);
+
+                //JSONObject를 StringRequest 객체를 통해 받아옴옴
+                Response.Listener rListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+
+                            JSONObject jResponse = new JSONObject(response);
+                            boolean newID = jResponse.getBoolean("newID");
+                            //서버에서 받은 reponse JSONObject 객체의 newID 키의 값을 받아와서 확인
+                            Log.d("asd", ""+newID);
+                            if(newID){
+                                AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+                                AlertDialog dialog = builder.setMessage("사용할 수 있는 아이디입니다.")
+                                        .setNegativeButton("확인", null).create();
+                                dialog.show();
+                            } else {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+                                AlertDialog dialog = builder.setMessage("사용할 수 없는 아이디입니다.")
+                                        .setNegativeButton("확인", null).create();
+                                dialog.show();
+                            }
+
+                        }catch(Exception e){
+                            Log.d("asd", e.toString());
+                        }
+                    }
+                };
+
+                ValidateRequest validateRequest = new ValidateRequest(userID, rListener); //Request 처리 클래스
+                RequestQueue queue = Volley.newRequestQueue(Login.this);
+                queue.add(validateRequest);
+                //데이터 전송에 사용할 Volley 큐 생성 및 Request 객체 추가
+
+               // Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
+               // startActivity(intent);
             }
         });
 
