@@ -16,11 +16,16 @@ import android.widget.ImageView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
 import com.example.connector.MainActivity;
 import com.example.connector.R;
 import com.example.connector.doyeon.activity.MainPageActivity;
+import com.example.connector.doyeon.lib.ValidateRequest;
 import com.example.connector.soohyun.restaurantpage.EditRequest;
 import com.example.connector.soohyun.restaurantpage.MyPage;
 import com.example.connector.soohyun.restaurantpage.NowRequest;
@@ -36,6 +41,8 @@ import com.kakao.sdk.auth.LoginClient;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
 
+import org.json.JSONObject;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -48,6 +55,9 @@ public class Login extends AppCompatActivity {
     EditText ID, Password;
     Button login1Btn, naverLogin, fjoin, fid, shareLoginBtn;
     SignInButton googleBtn;//구글 로그인 버튼
+    //volley test
+    String userID;
+    EditText etId;
 
     OAuthLogin mOAuthLoginModule;//네이버
     Context mContext; //네이버
@@ -85,6 +95,54 @@ public class Login extends AppCompatActivity {
 
 
         Intent intent = getIntent();
+
+
+        etId = ID;
+        Button btnValidate = shareLoginBtn;
+
+        btnValidate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                userID = etId.getText().toString();
+                Log.d("asd", userID);
+
+                //JSONObject를 StringRequest 객체를 통해 받아옴옴
+                Response.Listener rListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            Log.d("asd", "click");
+                            JSONObject jResponse = new JSONObject(response);
+                            boolean newID = jResponse.getBoolean("newID");
+                            //서버에서 받은 reponse JSONObject 객체의 newID 키의 값을 받아와서 확인
+
+                            if(newID){
+                                AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+                                AlertDialog dialog = builder.setMessage("사용할 수 있는 아이디입니다.")
+                                        .setNegativeButton("확인", null).create();
+                                dialog.show();
+                            } else {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+                                AlertDialog dialog = builder.setMessage("사용할 수 없는 아이디입니다.")
+                                        .setNegativeButton("확인", null).create();
+                                dialog.show();
+                            }
+
+                        }catch(Exception e){
+                            Log.d("asd", e.toString());
+                        }
+                    }
+                };
+
+                ValidateRequest validateRequest = new ValidateRequest(userID, rListener); //Request 처리 클래스
+                RequestQueue queue = Volley.newRequestQueue(Login.this);
+                queue.add(validateRequest);
+                //데이터 전송에 사용할 Volley 큐 생성 및 Request 객체 추가
+
+            }
+        });
+
 
         /*구글API*/
         googleBtn.setOnClickListener(new View.OnClickListener() {
