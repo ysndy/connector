@@ -16,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,6 +24,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="b309c471c54ebdb2d10c06b6c7a80bcc"/>
+            <!--android:value="@string/kakao_key"-->
+
+
         <activity android:name=".doyeon.activity.SupplierProfileActivity"/>
         <activity android:name=".doyeon.activity.transaction.TransactionProductsActivity"/>
         <activity android:name=".doyeon.activity.SearchActivity"/>
@@ -50,5 +57,6 @@
         <activity android:name=".soohyun.Loading"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
     </application>
+
 
 </manifest>

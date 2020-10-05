@@ -11,8 +11,10 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -52,6 +54,7 @@ public class Login extends AppCompatActivity {
     //volley test
     String userID, userPW;
     EditText etId;
+    RadioButton rest_check, supply_check; //로그인 시 외식업자인지 공급업자인지 체크
 
     OAuthLogin mOAuthLoginModule;//네이버
     Context mContext; //네이버
@@ -78,12 +81,13 @@ public class Login extends AppCompatActivity {
         login_logoImg = findViewById(R.id.login_logoImg);
         ID = findViewById(R.id.ID);
         Password = findViewById(R.id.Password);
-        login1Btn = findViewById(R.id.login1Btn);
         naverLogin = findViewById(R.id.naverLogin);
         fjoin = findViewById(R.id.fjoin);
         fid = findViewById(R.id.fid);
         shareLoginBtn = findViewById(R.id.ShareLoginBtn);
         googleBtn = findViewById(R.id.googleBtn);
+        rest_check = findViewById(R.id.rest_check);
+        supply_check = findViewById(R.id.supply_check);
 
         //입력된 아이디로 서버에서 조회한 뒤 PW 맞추어보고 틀리면 빠꾸 맞으면 로그인
 
@@ -219,14 +223,6 @@ public class Login extends AppCompatActivity {
                 //데이터 전송에 사용할 Volley 큐 생성 및 Request 객체 추가
 
 
-            }
-        });
-
-        login1Btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
-                startActivity(intent);
             }
         });
 

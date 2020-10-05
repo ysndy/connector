@@ -8,7 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/login_logoTop"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="130dp"
         android:background="@color/background"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -27,7 +27,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/Id_Pass_Mid"
         android:layout_width="280dp"
-        android:layout_height="200dp"
+        android:layout_height="180dp"
         android:background="@color/background"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_logoTop">
@@ -59,7 +59,7 @@
     <!--공통로그인버튼-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="120dp"
-        android:layout_height="200dp"
+        android:layout_height="180dp"
         app:layout_constraintLeft_toRightOf="@id/Id_Pass_Mid"
         app:layout_constraintTop_toBottomOf="@+id/login_logoTop">
 
@@ -81,7 +81,7 @@
     <LinearLayout
         android:id="@+id/login_check"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:background="@color/background"
         android:gravity="center"
@@ -118,13 +118,35 @@
     <!--구글 로그인 버튼-->
     <com.google.android.gms.common.SignInButton
         android:id="@+id/googleBtn"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_check" />
 
-    <LinearLayout
+    <com.kakao.usermgmt.LoginButton
+        android:id="@+id/kakaoLogin"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/googleBtn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="5dp">
+    </com.kakao.usermgmt.LoginButton>
+
+    <Button
+        android:id="@+id/naverLogin"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/naverloginbutton"
+        android:textColor="@color/darkbrown"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/kakaoLogin"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="10dp"/>
+
+<!--    <LinearLayout
         android:id="@+id/loginBtn_mid"
         android:layout_width="match_parent"
         android:layout_height="80dp"
@@ -133,15 +155,11 @@
         android:gravity="center"
         app:layout_constraintTop_toBottomOf="@+id/googleBtn">
 
-
-        <Button
-            android:id="@+id/login1Btn"
+        <com.kakao.usermgmt.LoginButton
+            android:id="@+id/kakaoLogin"
             android:layout_width="180dp"
-            android:layout_height="40dp"
-            android:background="@drawable/kakaobutton"
-            android:text="카카오로그인"
-            android:textColor="@color/darkbrown"
-            android:textSize="15sp" />
+            android:layout_height="40dp">
+        </com.kakao.usermgmt.LoginButton>
 
         <Button
             android:id="@+id/naverLogin"
@@ -152,7 +170,7 @@
             android:textColor="@color/darkbrown"
             android:textSize="15sp" />
 
-    </LinearLayout>
+    </LinearLayout>-->
 
     <LinearLayout
         android:id="@+id/findBtn_Bottom"
@@ -160,7 +178,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="20dp"
         android:background="@color/background"
-        app:layout_constraintTop_toBottomOf="@+id/loginBtn_mid">
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
             android:id="@+id/fjoin"
