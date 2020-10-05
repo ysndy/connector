@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-<!--로고-->
+    android:background="@color/background">
+    <!--로고-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/login_logoTop"
         android:layout_width="match_parent"
@@ -14,46 +14,46 @@
 
         <ImageView
             android:id="@+id/login_logoImg"
-            android:src="@drawable/new_logo"
             android:layout_width="200dp"
             android:layout_height="100dp"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/new_logo"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="20dp"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-<!--아이디패스워드입력창-->
+    <!--아이디패스워드입력창-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/Id_Pass_Mid"
         android:layout_width="280dp"
         android:layout_height="200dp"
         android:background="@color/background"
-        app:layout_constraintTop_toBottomOf="@+id/login_logoTop"
-        app:layout_constraintLeft_toLeftOf="parent">
-
-    <EditText
-        android:id="@+id/ID"
-        android:hint="@string/id"
-        android:textColorHint="@color/darkbrown"
-        android:layout_width="220dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/login_logoTop">
 
-    <EditText
-        android:id="@+id/Password"
-        android:hint="Password"
-        android:textColorHint="@color/darkbrown"
-        android:layout_width="220dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ID"/>
+        <EditText
+            android:id="@+id/ID"
+            android:layout_width="220dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="50dp"
+            android:hint="@string/id"
+            android:textColorHint="@color/darkbrown"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/Password"
+            android:layout_width="220dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="20dp"
+            android:hint="Password"
+            android:textColorHint="@color/darkbrown"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ID" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--공통로그인버튼-->
@@ -61,123 +61,130 @@
         android:layout_width="120dp"
         android:layout_height="200dp"
         app:layout_constraintLeft_toRightOf="@id/Id_Pass_Mid"
-        app:layout_constraintTop_toBottomOf="@+id/login_logoTop" >
+        app:layout_constraintTop_toBottomOf="@+id/login_logoTop">
+
         <Button
             android:id="@+id/ShareLoginBtn"
             android:layout_width="80dp"
             android:layout_height="100dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/radius"
             android:text="GO!"
-            android:textSize="@dimen/subtitle"
             android:textColor="@color/darkbrown"
-            android:layout_marginTop="10dp"
+            android:textSize="@dimen/subtitle"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/login_check"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:gravity="center"
+        android:layout_marginTop="10dp"
         android:background="@color/background"
-        app:layout_constraintTop_toBottomOf="@+id/Id_Pass_Mid"
+        android:gravity="center"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="10dp">
+        app:layout_constraintTop_toBottomOf="@+id/Id_Pass_Mid">
 
-        <RadioButton
-            android:id="@+id/rest_check"
-            android:text="공급업자 로그인"
-            android:layout_width="130dp"
+        <RadioGroup
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/Id_Pass_Mid"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"/>
-        <RadioButton
-            android:id="@+id/supply_check"
-            android:text="외식업자 로그인"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/Id_Pass_Mid"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rest_check"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="공급업자"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Id_Pass_Mid" />
+
+            <RadioButton
+                android:id="@+id/supply_check"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="외식업자"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Id_Pass_Mid" />
+        </RadioGroup>
     </LinearLayout>
 
-<!--구글 로그인 버튼-->
+    <!--구글 로그인 버튼-->
     <com.google.android.gms.common.SignInButton
         android:id="@+id/googleBtn"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/login_check"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/login_check" />
 
-        <LinearLayout
-            android:id="@+id/loginBtn_mid"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:gravity="center"
-            android:background="@color/background"
-            app:layout_constraintTop_toBottomOf="@+id/googleBtn"
-            android:layout_marginTop="10dp">
+    <LinearLayout
+        android:id="@+id/loginBtn_mid"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/background"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/googleBtn">
 
 
-
-    <Button
-        android:id="@+id/login1Btn"
-        android:text="카카오로그인"
-        android:textColor="@color/darkbrown"
-        android:background="@drawable/kakaobutton"
-        android:textSize="15sp"
-        android:layout_width="180dp"
-        android:layout_height="40dp" />
+        <Button
+            android:id="@+id/login1Btn"
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:background="@drawable/kakaobutton"
+            android:text="카카오로그인"
+            android:textColor="@color/darkbrown"
+            android:textSize="15sp" />
 
         <Button
             android:id="@+id/naverLogin"
-            android:textColor="@color/darkbrown"
-            android:background="@drawable/naverloginbutton"
-            android:textSize="15sp"
             android:layout_width="180dp"
             android:layout_height="40dp"
             android:layout_marginLeft="30dp"
-            />
+            android:background="@drawable/naverloginbutton"
+            android:textColor="@color/darkbrown"
+            android:textSize="15sp" />
 
-        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/findBtn_Bottom"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:layout_marginTop="20dp"
         android:background="@color/background"
-        app:layout_constraintTop_toBottomOf="@+id/loginBtn_mid"
-        android:layout_marginTop="20dp">
+        app:layout_constraintTop_toBottomOf="@+id/loginBtn_mid">
 
-    <Button
-        android:id="@+id/fjoin"
-        android:text="@string/signUP"
-        android:textSize="18sp"
-        android:background="#00ff0000"
-        android:textColor="@color/darkbrown"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/fjoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#00ff0000"
+            android:text="@string/signUP"
+            android:textColor="@color/darkbrown"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/fid"
-        android:text="@string/findIP"
-        android:textSize="18sp"
-        android:background="#00ff0000"
-        android:textColor="@color/darkbrown"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/fid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#00ff0000"
+            android:text="@string/findIP"
+            android:textColor="@color/darkbrown"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </LinearLayout>
 

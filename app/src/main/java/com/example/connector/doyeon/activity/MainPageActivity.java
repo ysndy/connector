@@ -7,29 +7,27 @@ package com.example.connector.doyeon.activity;
         import android.view.View;
         import android.widget.Button;
         import android.widget.ImageButton;
-        import android.widget.ScrollView;
-        import android.widget.TextView;
 
         import androidx.appcompat.app.AppCompatActivity;
         import androidx.viewpager.widget.ViewPager;
 
+        import com.android.volley.RequestQueue;
+        import com.android.volley.Response;
+        import com.android.volley.toolbox.Volley;
         import com.example.connector.doyeon.activity.transaction.TransactionCalendarActivity;
-        import com.example.connector.doyeon.lib.ProfileButton;
         import com.example.connector.R;
+        import com.example.connector.doyeon.lib.request.RestaurantInfoRequest;
         import com.example.connector.doyeon.lib.bestpager.BestPagerAdapter;
         import com.example.connector.doyeon.lib.maintab.MainTabPagerAdapter;
+        import com.example.connector.doyeon.lib.request.SupplierListRequest;
         import com.example.connector.jeongeun.Provider_mypage;
-        import com.example.connector.sampleData.restaurantprofile.RestaurantData1;
         import com.example.connector.doyeon.objects.Profile;
         import com.example.connector.soohyun.restaurantpage.MyPage;
         import com.google.android.material.tabs.TabLayout;
-        import com.google.firebase.database.DataSnapshot;
-        import com.google.firebase.database.DatabaseError;
-        import com.google.firebase.database.DatabaseReference;
-        import com.google.firebase.database.FirebaseDatabase;
-        import com.google.firebase.database.ValueEventListener;
 
-        import java.io.Serializable;
+        import org.json.JSONArray;
+        import org.json.JSONObject;
+
         import java.util.ArrayList;
         import java.util.Timer;
         import java.util.TimerTask;
@@ -84,31 +82,6 @@ public class MainPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("message1");
-
-                myRef.setValue("Hello, World!3");
-
-                myRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        // This method is called once with the initial value and again
-                        // whenever data at this location is updated.
-                        String value = dataSnapshot.getValue(String.class);
-                        Log.d(TAG, "Value is: " + value);
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError error) {
-                        // Failed to read value
-                        Log.w(TAG, "Failed to read value.", error.toException());
-                    }
-                });
-                /*
-                Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
-                intent.putExtra(IntentName.PROFILE_RES, (Serializable) myProfile);
-                startActivity(intent);
-                */
             }
         });
 
@@ -168,23 +141,95 @@ public class MainPageActivity extends AppCompatActivity {
     }
 
     public void setMyProfile(){
-
+        //외식업자일 경우
+        myProfile.setId(getIntent().getStringExtra(IntentName.ID));
         //ID로 서버 데이터 조회해서 정보 받아옴
-        myProfile.setCallNumber(RestaurantData1.callNumber);
-        myProfile.setEmail(RestaurantData1.email);
-        myProfile.setIntroduce(RestaurantData1.introduce);
-        myProfile.setLocation(RestaurantData1.location);
-        myProfile.setMajor(RestaurantData1.major);
-        myProfile.setName(RestaurantData1.name);
+
+        final String userID = myProfile.getId();
+
+        //JSONObject를 StringRequest 객체를 통해 받아옴옴
+        Response.Listener rListener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+
+                    JSONObject jResponse = new JSONObject(response);
+                    //서버에서 받은 reponse JSONObject 객체의 newID 키의 값을 받아와서 확인
+                    //Log.d("asd", "jResponse"+jResponse.);
+                    myProfile.setCallNumber(jResponse.getString(IntentName.CALLNUMBER));
+                    Log.d("asd", jResponse.getString(IntentName.CALLNUMBER));
+                    myProfile.setEmail(jResponse.getString(IntentName.EMAIL));
+                    Log.d("asd", jResponse.getString(IntentName.EMAIL));
+                    myProfile.setIntroduce(jResponse.getString(IntentName.INFOMATION));
+                    Log.d("asd", jResponse.getString(IntentName.INFOMATION));
+                    myProfile.setLocation(jResponse.getString(IntentName.LOCATION));
+                    Log.d("asd", jResponse.getString(IntentName.LOCATION));
+                    //myProfile.setMajor(jResponse.getString(IntentName.));
+                    myProfile.setName(jResponse.getString(IntentName.NAME));
+                    Log.d("asd", jResponse.getString(IntentName.NAME));
+
+                }catch(Exception e){
+                    Log.d("asd", e.toString());
+                }
+            }
+        };
+
+        RestaurantInfoRequest restaurantInfoRequest = new RestaurantInfoRequest(userID, rListener); //Request 처리 클래스
+        RequestQueue queue = Volley.newRequestQueue(MainPageActivity.this);
+        queue.add(restaurantInfoRequest);
+        //데이터 전송에 사용할 Volley 큐 생성 및 Request 객체 추가
+
+        //myProfile.setCallNumber(RestaurantData1.callNumber);
+        //myProfile.setEmail(RestaurantData1.email);
+        //myProfile.setIntroduce(RestaurantData1.introduce);
+        //myProfile.setLocation(RestaurantData1.location);
+        //myProfile.setMajor(RestaurantData1.major);
+        //myProfile.setName(RestaurantData1.name);
 
     }
 
     public void setBestProfiles() {
 
-        BestPagerAdapter adapter = new BestPagerAdapter(getSupportFragmentManager(), myProfile);
-        TabLayout tabLayout = findViewById(R.id.tab);
-        tabLayout.setupWithViewPager(bestVp);
-        bestVp.setAdapter(adapter);
+        Response.Listener rListener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    ArrayList<Profile> profiles = new ArrayList<>();
+                    JSONArray jResponse = new JSONArray(response);
+
+                    int max = 10;
+                    if(jResponse.length()<10) max = jResponse.length();
+                    for(int i = 0; i < max; i++){
+                        JSONObject jso = jResponse.getJSONObject(i);
+                        Profile profile = new Profile();
+
+                        profile.setId(jso.getString(IntentName.ID));
+                        profile.setName(jso.getString(IntentName.NAME));
+                        //profile.setMajor(jso.getString(IntentName.NAME));
+                        profile.setIntroduce(jso.getString(IntentName.INFOMATION));
+                        profile.setLocation(jso.getString(IntentName.LOCATION));
+
+                        profiles.add(profile);
+
+                    }
+
+                    BestPagerAdapter adapter = new BestPagerAdapter(getSupportFragmentManager(), myProfile, profiles);
+                    TabLayout tabLayout = findViewById(R.id.tab);
+                    tabLayout.setupWithViewPager(bestVp);
+                    bestVp.setAdapter(adapter);
+                    //서버에서 받은 reponse JSONObject 객체의 newID 키의 값을 받아와서 확인
+                    //Log.d("asd", "jResponse"+jResponse.);
+
+                }catch(Exception e){
+                    Log.d("asd", e.toString());
+                }
+            }
+        };
+
+        SupplierListRequest supplierListRequest = new SupplierListRequest(rListener); //Request 처리 클래스
+        RequestQueue queue = Volley.newRequestQueue(MainPageActivity.this);
+        queue.add(supplierListRequest);
+
     }
 
     @Override

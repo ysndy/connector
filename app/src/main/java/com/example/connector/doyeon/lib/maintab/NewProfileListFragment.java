@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,15 +13,26 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
 import com.example.connector.R;
 import com.example.connector.doyeon.activity.IntentName;
+import com.example.connector.doyeon.activity.MainPageActivity;
 import com.example.connector.doyeon.activity.ProfileListActivity;
 import com.example.connector.doyeon.activity.SupplierProfileActivity;
 import com.example.connector.doyeon.lib.ProfileAdapter;
+import com.example.connector.doyeon.lib.bestpager.BestPagerAdapter;
+import com.example.connector.doyeon.lib.request.SupplierListRequest;
+import com.example.connector.doyeon.lib.request.SupplierNewListRequest;
 import com.example.connector.doyeon.objects.Profile;
 import com.example.connector.sampleData.supplierprofile.SupplierData1;
 import com.example.connector.sampleData.supplierprofile.SupplierData2;
 import com.example.connector.sampleData.supplierprofile.SupplierData3;
+import com.google.android.material.tabs.TabLayout;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -92,6 +104,7 @@ public class NewProfileListFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), ProfileListActivity.class);
+                intent.putExtra(IntentName.CODE, IntentName.CODE_NEW);
                 startActivity(intent);
             }
         });
@@ -110,33 +123,71 @@ public class NewProfileListFragment extends Fragment {
     }
 
     public void setNewProfiles() {
-        newProfiles = new ArrayList<>();
 
-        Profile profile = new Profile();
-        profile.setId(SupplierData1.id);
-        profile.setName(SupplierData1.name);
-        profile.setMajor(SupplierData1.major);
-        profile.setRating(SupplierData1.rating);
-        profile.setSimpleInfo(SupplierData1.simpleInfo);
-        newProfiles.add(profile);
+        Response.Listener rListener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    newProfiles = new ArrayList<>();
+                    JSONArray jResponse = new JSONArray(response);
 
-        profile = new Profile();
-        profile.setId(SupplierData2.id);
-        profile.setName(SupplierData2.name);
-        profile.setMajor(SupplierData2.major);
-        profile.setRating(SupplierData2.rating);
-        profile.setSimpleInfo(SupplierData2.simpleInfo);
-        newProfiles.add(profile);
+                    int max = 3;
+                    if(jResponse.length()<3) max = jResponse.length();
+                    for(int i = 0; i < max; i++){
+                        JSONObject jso = jResponse.getJSONObject(i);
+                        Profile profile = new Profile();
 
-        profile = new Profile();
-        profile.setId(SupplierData3.id);
-        profile.setName(SupplierData3.name);
-        profile.setMajor(SupplierData3.major);
-        profile.setRating(SupplierData3.rating);
-        profile.setSimpleInfo(SupplierData3.simpleInfo);
-        newProfiles.add(profile);
+                        profile.setId(jso.getString(IntentName.ID));
+                        profile.setName(jso.getString(IntentName.NAME));
+                        //profile.setMajor(jso.getString(IntentName.NAME));
+                        profile.setIntroduce(jso.getString(IntentName.INFOMATION));
+                        profile.setSimpleInfo(jso.getString(IntentName.INFOMATION));
+                        profile.setLocation(jso.getString(IntentName.LOCATION));
+                        profile.setRating(jso.getDouble(IntentName.RATING));
 
-        ProfileAdapter adapter = new ProfileAdapter(newProfiles);
-        newListView.setAdapter(adapter);
+                        newProfiles.add(profile);
+
+                    }
+                    ProfileAdapter adapter = new ProfileAdapter(newProfiles);
+                    newListView.setAdapter(adapter);
+                    //서버에서 받은 reponse JSONObject 객체의 newID 키의 값을 받아와서 확인
+                    //Log.d("asd", "jResponse"+jResponse.);
+
+                }catch(Exception e){
+                    Log.d("asd", e.toString());
+                }
+            }
+        };
+
+        SupplierNewListRequest supplierNewListRequest = new SupplierNewListRequest(rListener); //Request 처리 클래스
+        RequestQueue queue = Volley.newRequestQueue(getActivity());
+        queue.add(supplierNewListRequest);
+
+//        Profile profile = new Profile();
+//        profile.setId(SupplierData1.id);
+//        profile.setName(SupplierData1.name);
+//        profile.setMajor(SupplierData1.major);
+//        profile.setRating(SupplierData1.rating);
+//        profile.setSimpleInfo(SupplierData1.simpleInfo);
+//        newProfiles.add(profile);
+//
+//        profile = new Profile();
+//        profile.setId(SupplierData2.id);
+//        profile.setName(SupplierData2.name);
+//        profile.setMajor(SupplierData2.major);
+//        profile.setRating(SupplierData2.rating);
+//        profile.setSimpleInfo(SupplierData2.simpleInfo);
+//        newProfiles.add(profile);
+//
+//        profile = new Profile();
+//        profile.setId(SupplierData3.id);
+//        profile.setName(SupplierData3.name);
+//        profile.setMajor(SupplierData3.major);
+//        profile.setRating(SupplierData3.rating);
+//        profile.setSimpleInfo(SupplierData3.simpleInfo);
+//        newProfiles.add(profile);
+
+//        ProfileAdapter adapter = new ProfileAdapter(newProfiles);
+//        newListView.setAdapter(adapter);
     }
 }

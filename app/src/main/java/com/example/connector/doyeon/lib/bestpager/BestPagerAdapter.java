@@ -1,21 +1,13 @@
 package com.example.connector.doyeon.lib.bestpager;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.connector.doyeon.objects.Profile;
-import com.example.connector.sampleData.supplierprofile.SupplierData1;
-import com.example.connector.sampleData.supplierprofile.SupplierData10;
-import com.example.connector.sampleData.supplierprofile.SupplierData2;
-import com.example.connector.sampleData.supplierprofile.SupplierData3;
-import com.example.connector.sampleData.supplierprofile.SupplierData4;
-import com.example.connector.sampleData.supplierprofile.SupplierData5;
-import com.example.connector.sampleData.supplierprofile.SupplierData6;
-import com.example.connector.sampleData.supplierprofile.SupplierData7;
-import com.example.connector.sampleData.supplierprofile.SupplierData8;
-import com.example.connector.sampleData.supplierprofile.SupplierData9;
 
 import java.util.ArrayList;
 
@@ -25,11 +17,13 @@ public class BestPagerAdapter extends FragmentPagerAdapter {
     ArrayList<Profile> profiles;
     private int pageCount = 0;
 
-    public BestPagerAdapter(@NonNull FragmentManager fm, Profile myProfile) {
+    public BestPagerAdapter(@NonNull FragmentManager fm, Profile myProfile, ArrayList<Profile> profiles) {
         super(fm);
         items = new ArrayList<>();
         pageCount = items.size() + 1;
-        setProfiles();
+        this.profiles = profiles;
+        Log.d("asd", "profiles size:"+this.profiles.size());
+        //setProfiles();
         for (int i = 0; i < profiles.size(); i++) {
             items.add(new BestProfileFragment(profiles.get(i), myProfile));
 
@@ -40,7 +34,7 @@ public class BestPagerAdapter extends FragmentPagerAdapter {
     private void setProfiles() {
 
         profiles = new ArrayList<>();
-
+/*
         Profile profile = new Profile();
         profile.setId(SupplierData1.id);
         profile.setName(SupplierData1.name);
@@ -120,7 +114,7 @@ public class BestPagerAdapter extends FragmentPagerAdapter {
         profile.setIntroduce(SupplierData10.introduce);
         profile.setLocation(SupplierData10.location);
         profiles.add(profile);
-
+*/
 
     }
 

@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -22,14 +21,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
-import com.example.connector.MainActivity;
 import com.example.connector.R;
+import com.example.connector.doyeon.activity.IntentName;
 import com.example.connector.doyeon.activity.MainPageActivity;
-import com.example.connector.doyeon.lib.ValidateRequest;
-import com.example.connector.soohyun.restaurantpage.EditRequest;
-import com.example.connector.soohyun.restaurantpage.MyPage;
-import com.example.connector.soohyun.restaurantpage.NowRequest;
-import com.example.connector.soohyun.restaurantpage.RestaurantProfileActivity;
+import com.example.connector.doyeon.lib.request.ValidateRequest;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -37,7 +32,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
-import com.kakao.sdk.auth.LoginClient;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
 
@@ -56,7 +50,7 @@ public class Login extends AppCompatActivity {
     Button login1Btn, naverLogin, fjoin, fid, shareLoginBtn;
     SignInButton googleBtn;//구글 로그인 버튼
     //volley test
-    String userID;
+    String userID, userPW;
     EditText etId;
 
     OAuthLogin mOAuthLoginModule;//네이버
@@ -182,11 +176,13 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        //로그인버튼 눌렀을 때 서버에서 아이디 비번 맞는지 확인
         shareLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 userID = etId.getText().toString();
+                userPW = Password.getText().toString();
                 Log.d("asd", userID);
 
                 //JSONObject를 StringRequest 객체를 통해 받아옴옴
@@ -196,19 +192,19 @@ public class Login extends AppCompatActivity {
                         try {
 
                             JSONObject jResponse = new JSONObject(response);
-                            boolean newID = jResponse.getBoolean("newID");
+                            boolean success = jResponse.getBoolean("success");
                             //서버에서 받은 reponse JSONObject 객체의 newID 키의 값을 받아와서 확인
-                            Log.d("asd", ""+newID);
-                            if(newID){
+                            Log.d("asd", "아이디"+jResponse.getString("userID"));
+                            if(success){
                                 AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
-                                AlertDialog dialog = builder.setMessage("사용할 수 있는 아이디입니다.")
+                                AlertDialog dialog = builder.setMessage("아이디 또는 비밀번호를 확인해주세요.")
                                         .setNegativeButton("확인", null).create();
                                 dialog.show();
                             } else {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
-                                AlertDialog dialog = builder.setMessage("사용할 수 없는 아이디입니다.")
-                                        .setNegativeButton("확인", null).create();
-                                dialog.show();
+                                Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
+                                intent.putExtra(IntentName.ID, jResponse.getString("userID"));
+                                intent.putExtra(IntentName.PROFILE,IntentName.PROFILE_SUP);
+                                startActivity(intent);
                             }
 
                         }catch(Exception e){
@@ -217,13 +213,12 @@ public class Login extends AppCompatActivity {
                     }
                 };
 
-                ValidateRequest validateRequest = new ValidateRequest(userID, rListener); //Request 처리 클래스
+                ValidateRequest validateRequest = new ValidateRequest(userID, userPW, rListener); //Request 처리 클래스
                 RequestQueue queue = Volley.newRequestQueue(Login.this);
                 queue.add(validateRequest);
                 //데이터 전송에 사용할 Volley 큐 생성 및 Request 객체 추가
 
-               // Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
-               // startActivity(intent);
+
             }
         });
 
