@@ -119,7 +119,7 @@
     <com.google.android.gms.common.SignInButton
         android:id="@+id/googleBtn"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_check" />
@@ -131,13 +131,13 @@
         app:layout_constraintTop_toBottomOf="@id/googleBtn"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="10dp">
     </com.kakao.usermgmt.LoginButton>
 
     <Button
         android:id="@+id/naverLogin"
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="55dp"
         android:background="@drawable/naverloginbutton"
         android:textColor="@color/darkbrown"
         android:textSize="15sp"

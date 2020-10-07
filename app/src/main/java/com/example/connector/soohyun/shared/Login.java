@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -34,6 +35,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.kakao.auth.ISessionCallback;
+import com.kakao.auth.Session;
+import com.kakao.usermgmt.LoginButton;
+import com.kakao.util.exception.KakaoException;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
 
@@ -59,7 +64,9 @@ public class Login extends AppCompatActivity {
     OAuthLogin mOAuthLoginModule;//네이버
     Context mContext; //네이버
 
-   //네이버Client
+    LoginButton kakaoLogin; //카카오로그인버튼
+
+    //네이버Client
     private static String OAUTH_CLIENT_ID = "uMzH56lm9EaQQmvV4jJm" ;
     private static String OAUTH_CLIENT_SECRET = "c0mTBFEUDa" ;
     private static String OAUTH_CLIENT_NAME = "고래처";
@@ -70,6 +77,9 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.login);
 
         getHashKey(); //해시값가져오기
+
+        // 세션 콜백 등록 (카카오)
+//        Session.getCurrentSession().addCallback(sessionCallback);
 
         /*구글API*/
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -91,13 +101,12 @@ public class Login extends AppCompatActivity {
 
         //입력된 아이디로 서버에서 조회한 뒤 PW 맞추어보고 틀리면 빠꾸 맞으면 로그인
 
-
         Intent intent = getIntent();
         mContext = getApplicationContext();
 
         etId = ID;
 
-        /*구글API*/
+        /*구글 로그인*/
         googleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -162,6 +171,29 @@ public class Login extends AppCompatActivity {
             }
 
         });
+
+/*        *//*카카오 로그인*//*
+        kakaoLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+             세션 콜백 구현
+                ISessionCallback sessionCallback = new ISessionCallback() {
+                    @Override
+                    public void onSessionOpened() {
+                        Log.i("KAKAO_SESSION", "로그인 성공");
+                    }
+
+                    @Override
+                    public void onSessionOpenFailed(KakaoException exception) {
+                        Log.e("KAKAO_SESSION", "로그인 실패", exception);
+                    }
+                };
+                // 세션 콜백 등록
+                Session.getCurrentSession().addCallback(sessionCallback);
+*//*
+            }
+        });*/
 
         fjoin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -238,7 +270,8 @@ public class Login extends AppCompatActivity {
     /*개체에는 사용자의 이름과 같이 로그인한 사용자 저보 포함되어 있음. GoogleSignInAccount*/
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+
+        super.onActivityResult(requestCode, resultCode, data); //구글
 
         // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
@@ -246,7 +279,16 @@ public class Login extends AppCompatActivity {
             // a listener.
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
+        } //구글
+
+        /*카카오*/
+        // 카카오톡|스토리 간편로그인 실행 결과를 받아서 SDK로 전달
+        if (Session.getCurrentSession().handleActivityResult(requestCode, resultCode, data)) {
+            return;
         }
+
+        super.onActivityResult(requestCode, resultCode, data); //카카오
+
     }
 
     /*getEmail, getId를사용하여 사용자의 Google ID(클라이언트 측 사용용)와 getIdToken을 */
@@ -291,6 +333,27 @@ public class Login extends AppCompatActivity {
                 Log.e("KeyHash", "Unable to get MessageDigest. signature=" + signature, e);
             }
         }
+    }
+
+    /* 카카오 로그인 */
+    private ISessionCallback sessionCallback = new ISessionCallback() {
+        @Override
+        public void onSessionOpened() {
+            Log.i("KAKAO_SESSION", "로그인 성공");
+        }
+
+        @Override
+        public void onSessionOpenFailed(KakaoException exception) {
+            Log.e("KAKAO_SESSION", "로그인 실패", exception);
+        }
+    };
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        // 세션 콜백 삭제
+        Session.getCurrentSession().removeCallback(sessionCallback);
     }
 
 }
