@@ -18,18 +18,11 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.example.connector.R;
 import com.example.connector.doyeon.activity.IntentName;
-import com.example.connector.doyeon.activity.MainPageActivity;
 import com.example.connector.doyeon.activity.ProfileListActivity;
 import com.example.connector.doyeon.activity.SupplierProfileActivity;
 import com.example.connector.doyeon.lib.ProfileAdapter;
-import com.example.connector.doyeon.lib.bestpager.BestPagerAdapter;
-import com.example.connector.doyeon.lib.request.SupplierListRequest;
 import com.example.connector.doyeon.lib.request.SupplierNewListRequest;
 import com.example.connector.doyeon.objects.Profile;
-import com.example.connector.sampleData.supplierprofile.SupplierData1;
-import com.example.connector.sampleData.supplierprofile.SupplierData2;
-import com.example.connector.sampleData.supplierprofile.SupplierData3;
-import com.google.android.material.tabs.TabLayout;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -104,6 +97,7 @@ public class NewProfileListFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), ProfileListActivity.class);
+                intent.putExtra(IntentName.PROFILE, myProfile);
                 intent.putExtra(IntentName.CODE, IntentName.CODE_NEW);
                 startActivity(intent);
             }
@@ -113,8 +107,8 @@ public class NewProfileListFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Toast.makeText(newListView.getContext(), "touch", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(newListView.getContext(), SupplierProfileActivity.class);
-                intent.putExtra(IntentName.PROFILE_SUP, (Serializable) newProfiles.get(position));
-                intent.putExtra(IntentName.PROFILE_RES, (Serializable) myProfile);
+                intent.putExtra(IntentName.PROFILE_SUP, newProfiles.get(position));
+                intent.putExtra(IntentName.PROFILE_RES, myProfile);
                 startActivity(intent);
             }
         });
@@ -139,11 +133,13 @@ public class NewProfileListFragment extends Fragment {
 
                         profile.setId(jso.getString(IntentName.ID));
                         profile.setName(jso.getString(IntentName.NAME));
-                        //profile.setMajor(jso.getString(IntentName.NAME));
+                        profile.setMajor(jso.getString(IntentName.CATEGORY));
                         profile.setIntroduce(jso.getString(IntentName.INFOMATION));
                         profile.setSimpleInfo(jso.getString(IntentName.INFOMATION));
                         profile.setLocation(jso.getString(IntentName.LOCATION));
                         profile.setRating(jso.getDouble(IntentName.RATING));
+                        profile.setCallNumber(jso.getString(IntentName.CALLNUMBER));
+                        profile.setEmail(jso.getString(IntentName.EMAIL));
 
                         newProfiles.add(profile);
 

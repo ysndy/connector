@@ -28,7 +28,12 @@ public interface IntentName {
     final String PROFILE_RES = "RES";
     final String SELECTED_PRODUCTS = "PRO";
 
+    final String RECOMMENDS = "recommends";
+    final String CATEGORY = "category";
+
     final int CODE_NEW = 11;
     final int CODE_RECO = 12;
+    final int CODE_RES = 13;
+    final int CODE_SUP = 14;
 
 }

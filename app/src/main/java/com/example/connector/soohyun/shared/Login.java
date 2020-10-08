@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ import com.example.connector.R;
 import com.example.connector.doyeon.activity.IntentName;
 import com.example.connector.doyeon.activity.MainPageActivity;
 import com.example.connector.doyeon.lib.request.ValidateRequest;
+import com.example.connector.doyeon.lib.request.ValidateRequest_Res;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -59,16 +61,17 @@ public class Login extends AppCompatActivity {
     //volley test
     String userID, userPW;
     EditText etId;
+    RadioGroup loginTypeRG;
     RadioButton rest_check, supply_check; //로그인 시 외식업자인지 공급업자인지 체크
 
     OAuthLogin mOAuthLoginModule;//네이버
     Context mContext; //네이버
 
-    LoginButton kakaoLogin; //카카오로그인버튼
-
     //네이버Client
-    private static String OAUTH_CLIENT_ID = "uMzH56lm9EaQQmvV4jJm" ;
-    private static String OAUTH_CLIENT_SECRET = "c0mTBFEUDa" ;
+    private static String OAUTH_CLIENT_ID = "uMzH56lm9EaQQmvV4jJm";
+    private static String OAUTH_CLIENT_SECRET = "c0mTBFEUDa";
+    //LoginButton kakaoLogin; //카카오로그인버튼
+
     private static String OAUTH_CLIENT_NAME = "고래처";
 
     @Override
@@ -96,6 +99,7 @@ public class Login extends AppCompatActivity {
         fid = findViewById(R.id.fid);
         shareLoginBtn = findViewById(R.id.ShareLoginBtn);
         googleBtn = findViewById(R.id.googleBtn);
+        loginTypeRG = findViewById(R.id.loginTypeRG);
         rest_check = findViewById(R.id.rest_check);
         supply_check = findViewById(R.id.supply_check);
 
@@ -134,9 +138,9 @@ public class Login extends AppCompatActivity {
                 );*/
                 mOAuthLoginModule.init(
                         mContext
-                        ,OAUTH_CLIENT_ID
-                        ,OAUTH_CLIENT_SECRET
-                        ,OAUTH_CLIENT_NAME
+                        , OAUTH_CLIENT_ID
+                        , OAUTH_CLIENT_SECRET
+                        , OAUTH_CLIENT_NAME
                 );
 
                 @SuppressLint("HandlerLeak")
@@ -216,7 +220,6 @@ public class Login extends AppCompatActivity {
         shareLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 userID = etId.getText().toString();
                 userPW = Password.getText().toString();
                 Log.d("asd", userID);
@@ -229,9 +232,8 @@ public class Login extends AppCompatActivity {
 
                             JSONObject jResponse = new JSONObject(response);
                             boolean success = jResponse.getBoolean("success");
-                            //서버에서 받은 reponse JSONObject 객체의 newID 키의 값을 받아와서 확인
-                            Log.d("asd", "아이디"+jResponse.getString("userID"));
-                            if(success){
+                            Log.d("asd", "아이디" + jResponse.getString("userID"));
+                            if (success) {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
                                 AlertDialog dialog = builder.setMessage("아이디 또는 비밀번호를 확인해주세요.")
                                         .setNegativeButton("확인", null).create();
@@ -239,21 +241,29 @@ public class Login extends AppCompatActivity {
                             } else {
                                 Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
                                 intent.putExtra(IntentName.ID, jResponse.getString("userID"));
-                                intent.putExtra(IntentName.PROFILE,IntentName.PROFILE_SUP);
+                                //공급업자 로그인인지 외식업자 로그인인지 판별
+                                if (loginTypeRG.getCheckedRadioButtonId() == R.id.rest_check)
+                                    intent.putExtra(IntentName.PROFILE, IntentName.CODE_RES);
+                                else intent.putExtra(IntentName.PROFILE, IntentName.CODE_SUP);
                                 startActivity(intent);
                             }
 
-                        }catch(Exception e){
+                        } catch (Exception e) {
                             Log.d("asd", e.toString());
                         }
                     }
                 };
 
-                ValidateRequest validateRequest = new ValidateRequest(userID, userPW, rListener); //Request 처리 클래스
-                RequestQueue queue = Volley.newRequestQueue(Login.this);
-                queue.add(validateRequest);
-                //데이터 전송에 사용할 Volley 큐 생성 및 Request 객체 추가
-
+                if(loginTypeRG.getCheckedRadioButtonId() == R.id.supply_check) {
+                    ValidateRequest validateRequest = new ValidateRequest(userID, userPW, rListener); //Request 처리 클래스
+                    RequestQueue queue = Volley.newRequestQueue(Login.this);
+                    queue.add(validateRequest);
+                    //데이터 전송에 사용할 Volley 큐 생성 및 Request 객체 추가
+                }else {
+                    ValidateRequest_Res validateRequest_Res = new ValidateRequest_Res(userID, userPW, rListener); //Request 처리 클래스
+                    RequestQueue queue = Volley.newRequestQueue(Login.this);
+                    queue.add(validateRequest_Res);
+                }
 
             }
         });
@@ -299,7 +309,7 @@ public class Login extends AppCompatActivity {
 
             String googleEmail = account.getEmail(); //로그인한 사용자의 이메일 주소 반환
             String googleId = account.getId(); //Google 계정에 대한 고유 ID 반환
-            String googleName =  account.getDisplayName(); //서명된 사용자의 표시 이름 반환
+            String googleName = account.getDisplayName(); //서명된 사용자의 표시 이름 반환
             Log.d("Email", googleEmail);
             Log.d("Id", googleId);
             Log.d("Name", googleName);

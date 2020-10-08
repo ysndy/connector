@@ -61,6 +61,7 @@ public class MainPageActivity extends AppCompatActivity {
     ViewPager vp, bestVp;
     Profile myProfile;
     MainTabPagerAdapter mainTabPagerAdapter;
+    int loginCode;
     final String TAG = "3322";
 
     int currentPage = 0;
@@ -132,62 +133,60 @@ public class MainPageActivity extends AppCompatActivity {
         homeBtn = findViewById(R.id.homeBtn);
         myPageBtn = findViewById(R.id.myPageBtn);
         bestVp = findViewById(R.id.bestPager);
-
         vp = findViewById(R.id.pager);
-        mainTabPagerAdapter = new MainTabPagerAdapter(getSupportFragmentManager(), myProfile);
-        vp.setAdapter(mainTabPagerAdapter);
-
 
     }
 
-    public void setMyProfile(){
+    public void setMyProfile() {
         //외식업자일 경우
         myProfile.setId(getIntent().getStringExtra(IntentName.ID));
         //ID로 서버 데이터 조회해서 정보 받아옴
 
         final String userID = myProfile.getId();
 
-        //JSONObject를 StringRequest 객체를 통해 받아옴옴
-        Response.Listener rListener = new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
+        //외식업자는 메인화면부터 서버 데이터를 받아야하고 공급업자는 마이페이지에서 서버 데이터 받으면 됨 ㅇㅇ
+        if (getIntent().getIntExtra(IntentName.PROFILE, 0) == IntentName.CODE_RES) {
+            Response.Listener rListener = new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    try {
 
-                    JSONObject jResponse = new JSONObject(response);
-                    //서버에서 받은 reponse JSONObject 객체의 newID 키의 값을 받아와서 확인
-                    //Log.d("asd", "jResponse"+jResponse.);
-                    myProfile.setCallNumber(jResponse.getString(IntentName.CALLNUMBER));
-                    Log.d("asd", jResponse.getString(IntentName.CALLNUMBER));
-                    myProfile.setEmail(jResponse.getString(IntentName.EMAIL));
-                    Log.d("asd", jResponse.getString(IntentName.EMAIL));
-                    myProfile.setIntroduce(jResponse.getString(IntentName.INFOMATION));
-                    Log.d("asd", jResponse.getString(IntentName.INFOMATION));
-                    myProfile.setLocation(jResponse.getString(IntentName.LOCATION));
-                    Log.d("asd", jResponse.getString(IntentName.LOCATION));
-                    //myProfile.setMajor(jResponse.getString(IntentName.));
-                    myProfile.setName(jResponse.getString(IntentName.NAME));
-                    Log.d("asd", jResponse.getString(IntentName.NAME));
-
-                }catch(Exception e){
-                    Log.d("asd", e.toString());
+                        JSONObject jResponse = new JSONObject(response);
+                        //서버에서 받은 reponse JSONObject 객체의 newID 키의 값을 받아와서 확인
+                        //Log.d("asd", "jResponse"+jResponse.);
+                        myProfile.setCallNumber(jResponse.getString(IntentName.CALLNUMBER));
+                        Log.d("asd", jResponse.getString(IntentName.CALLNUMBER));
+                        myProfile.setEmail(jResponse.getString(IntentName.EMAIL));
+                        Log.d("asd", jResponse.getString(IntentName.EMAIL));
+                        myProfile.setIntroduce(jResponse.getString(IntentName.INFOMATION));
+                        Log.d("asd", jResponse.getString(IntentName.INFOMATION));
+                        myProfile.setLocation(jResponse.getString(IntentName.LOCATION));
+                        Log.d("asd", jResponse.getString(IntentName.LOCATION));
+                        myProfile.setMajor(jResponse.getString(IntentName.RECOMMENDS));
+                        myProfile.setName(jResponse.getString(IntentName.NAME));
+                        Log.d("asd", jResponse.getString(IntentName.NAME));
+                        mainTabPagerAdapter = new MainTabPagerAdapter(getSupportFragmentManager(), myProfile);
+                        vp.setAdapter(mainTabPagerAdapter);
+                    } catch (Exception e) {
+                        Log.d("asd", e.toString());
+                    }
                 }
-            }
-        };
+            };
 
-        RestaurantInfoRequest restaurantInfoRequest = new RestaurantInfoRequest(userID, rListener); //Request 처리 클래스
-        RequestQueue queue = Volley.newRequestQueue(MainPageActivity.this);
-        queue.add(restaurantInfoRequest);
-        //데이터 전송에 사용할 Volley 큐 생성 및 Request 객체 추가
+            RestaurantInfoRequest restaurantInfoRequest = new RestaurantInfoRequest(userID, rListener); //Request 처리 클래스
+            RequestQueue queue = Volley.newRequestQueue(MainPageActivity.this);
+            queue.add(restaurantInfoRequest);
+            //데이터 전송에 사용할 Volley 큐 생성 및 Request 객체 추가
 
-        //myProfile.setCallNumber(RestaurantData1.callNumber);
-        //myProfile.setEmail(RestaurantData1.email);
-        //myProfile.setIntroduce(RestaurantData1.introduce);
-        //myProfile.setLocation(RestaurantData1.location);
-        //myProfile.setMajor(RestaurantData1.major);
-        //myProfile.setName(RestaurantData1.name);
+            //myProfile.setCallNumber(RestaurantData1.callNumber);
+            //myProfile.setEmail(RestaurantData1.email);
+            //myProfile.setIntroduce(RestaurantData1.introduce);
+            //myProfile.setLocation(RestaurantData1.location);
+            //myProfile.setMajor(RestaurantData1.major);
+            //myProfile.setName(RestaurantData1.name);
 
+        }
     }
-
     public void setBestProfiles() {
 
         Response.Listener rListener = new Response.Listener<String>() {

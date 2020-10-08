@@ -147,12 +147,12 @@ public class SupplierProfileActivity extends AppCompatActivity {
     }
 
     private void setProfileSup() {
-
-        profileSup.setCallNumber(SupplierData1.callNumber);
-        profileSup.setEmail(SupplierData1.email);
-        profileSup.setIntroduce(SupplierData1.introduce);
-        profileSup.setLocation(SupplierData1.location);
-        profileSup.setMajor(SupplierData1.major);
+//
+//        profileSup.setCallNumber(SupplierData1.callNumber);
+//        profileSup.setEmail(SupplierData1.email);
+//        profileSup.setIntroduce(SupplierData1.introduce);
+//        profileSup.setLocation(SupplierData1.location);
+//        profileSup.setMajor(SupplierData1.major);
 
     }
 
@@ -171,8 +171,8 @@ public class SupplierProfileActivity extends AppCompatActivity {
 
     private void inflating() {
 
-        profileSup = (Profile) getIntent().getSerializableExtra(IntentName.PROFILE_SUP);
-        profileRes = (Profile) getIntent().getSerializableExtra(IntentName.PROFILE_RES);
+        profileSup = (Profile) getIntent().getParcelableExtra(IntentName.PROFILE_SUP);
+        profileRes = (Profile) getIntent().getParcelableExtra(IntentName.PROFILE_RES);
         callBtn = findViewById(R.id.callBtn);
         transactionBtn = findViewById(R.id.transactionBtn);
         followBtn = findViewById(R.id.followBtn);
