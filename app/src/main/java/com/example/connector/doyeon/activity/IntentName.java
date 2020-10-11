@@ -15,6 +15,7 @@ public interface IntentName {
         final String INFOMATION = "info";
         final String RATING = "rating";
         final String OWNER = "owner";
+        final String TRANSACTIONCOUNT = "transactioncount";
 
     final String CODE = "code";
         final String QUANTITY = "quantity";
@@ -22,6 +23,10 @@ public interface IntentName {
         final String PRICE = "price";
         final String PAY = "pay";
         final String DATE = "date";
+
+        //product
+    final String FROMTO = "fromto";
+    final String IMG = "img";
 
         final String PROFILE = "PRO";
     final String PROFILE_SUP = "SUP";

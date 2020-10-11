@@ -85,17 +85,17 @@ public class ProductListFragment extends Fragment {
 
         products = new ArrayList<>();
 
-        Product product = new Product();
-        product.setName(ProductData1.name);
-        product.setPrice(ProductData1.price);
-        products.add(product);
-
-        Product product2 = new Product();
-        product2.setName(ProductData2.name);
-        product2.setPrice(ProductData2.price);
-        products.add(product2);
-
-        ProductAdapter adapter = new ProductAdapter(products);
+//        Product product = new Product();
+//        product.setName(ProductData1.name);
+//        product.setPrice(ProductData1.price);
+//        products.add(product);
+//
+//        Product product2 = new Product();
+//        product2.setName(ProductData2.name);
+//        product2.setPrice(ProductData2.price);
+//        products.add(product2);
+        profile.insertProducts(getContext());
+        ProductAdapter adapter = new ProductAdapter(profile.getProducts());
         productListView.setAdapter(adapter);
 
     }

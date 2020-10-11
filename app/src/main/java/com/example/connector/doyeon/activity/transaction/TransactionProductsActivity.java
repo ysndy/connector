@@ -98,7 +98,7 @@ public class TransactionProductsActivity extends Activity {
     private void setProductListView() {
         //리스트 세팅
         products = new ArrayList<>();
-        profile_sup.insertProducts();
+        profile_sup.insertProducts(getApplicationContext());
         products.addAll(profile_sup.getProducts());
         adapter = new RequestAdapter(products, priceTotalTv, selectedCountTv);
         productListView.setAdapter(adapter);

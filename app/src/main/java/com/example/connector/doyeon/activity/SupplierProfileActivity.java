@@ -47,7 +47,9 @@ public class SupplierProfileActivity extends AppCompatActivity {
         // profile 데이터를 못받아왔을 때 예외처리
 
         inflating();
-        setProfileSup();
+        //setProfileSup();
+        //상품 가져오기
+        setProducts();
         setTabAdapter();
        // setInfo();
         //setProduct();
@@ -164,9 +166,9 @@ public class SupplierProfileActivity extends AppCompatActivity {
 
     }
 
-    private void setProduct() {
+    private void setProducts() {
         // 서버에서 profileSup.getId 로 조회해서 상품들 가져옴
-        profileSup.insertProducts();
+        profileSup.insertProducts(getApplicationContext());
     }
 
     private void inflating() {

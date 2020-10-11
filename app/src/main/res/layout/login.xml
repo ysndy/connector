@@ -50,6 +50,7 @@
             android:layout_height="60dp"
             android:layout_marginLeft="20dp"
             android:hint="Password"
+            android:inputType="textPassword"
             android:textColorHint="@color/darkbrown"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
