@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,11 +30,12 @@ import java.util.HashMap;
 
 public class Signup extends AppCompatActivity {
 
-    EditText joinId, jpinPass, joinEmail, joinNum;
+    EditText joinId, jpinPass, joinEmail, bodyNum, tailNum;
     TextView joinAgree;
     Button goBtn, IDver, emailver;
     CheckBox checkAgree;
     ImageButton backBtn;
+    Spinner headNum; //휴대폰번호앞
 
 
     @Override
@@ -44,13 +47,21 @@ public class Signup extends AppCompatActivity {
         joinId = findViewById(R.id.joinId);
         jpinPass = findViewById(R.id.joinPass);
         joinEmail = findViewById(R.id.joinEmail);
-        joinNum = findViewById(R.id.joinNum);
+        headNum = findViewById(R.id.headNum);
+        bodyNum = findViewById(R.id.bodyNum);
+        tailNum = findViewById(R.id.tailNum);
         joinAgree = findViewById(R.id.goBtn);
         checkAgree = findViewById(R.id.checkAgree);
         IDver = findViewById(R.id.IDver);
         emailver = findViewById(R.id.email_ver);
         backBtn = findViewById(R.id.backBtn);
 
+
+        final String[] spinNum = {"010", "016", "017", "018", "019", "011"}; //전화번호 앞자리 배열데이터
+
+        ArrayAdapter<String> adapter; //전화번호 앞
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, spinNum);
+        headNum.setAdapter(adapter);
 
 
         backBtn.setOnClickListener(new View.OnClickListener() {

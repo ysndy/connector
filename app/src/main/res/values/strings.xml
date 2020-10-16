@@ -38,7 +38,7 @@
     <string name="supLogin">공급자\nLogin</string>
     <string name="resLogin">외식업자\nLogin</string>
 
-    <string name="Agree">-수집내용\n성명, 휴대폰번호, 이메일\n정보제공에 대해 동의하시면 동의에 체크해주세요.\n개인정보는 탈퇴로부터 같이 사라집니다.</string>
+    <string name="Agree">-수집내용\n성명, 휴대폰번호, 이메일\n정보제공에 대해 동의하시면 동의에 체크해주세요.\n개인정보는 탈퇴로부터 같이 사라집니다. \n 동의하시지 않을 시에 가입이 어려워집니다.</string>
 
     <string name="giverStar">별점을 등록해주세요!\n\n별점은 더 나은 거래를 위한 앱이 됩니다.\n\n솔직한 별점을 주세요!\n\n단, 별점은 한 번만 가능합니다.</string>
     <string name="addStar">별 점 등 록</string>
