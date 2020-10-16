@@ -3,10 +3,12 @@ package com.example.connector.soohyun.restaurantpage;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,9 +22,10 @@ public class EditPage extends AppCompatActivity {
 
     ImageView proImgEdi;
     Button imgBtn,editSuc;
-    TextView name, email, number, introText;
-    EditText nameEdit, emailEdit, numEdit, introEdit;
+    TextView name, email, number, address, category, introText;
+    EditText nameEdit, emailEdit, numEdit, addEdit, introEdit;
     ImageButton backBtn, homeBtn;
+    Spinner cateSpin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,26 @@ public class EditPage extends AppCompatActivity {
         editSuc = findViewById(R.id.editSuc);
         backBtn = findViewById(R.id.backBtn);
         homeBtn = findViewById(R.id.homeBtn);
+
+        name = findViewById(R.id.name);
+        email = findViewById(R.id.email);
+        number = findViewById(R.id.number);
+        address = findViewById(R.id.address);
+        //category = findViewById(R.id.category);
+        introText = findViewById(R.id.introText);
+
+        nameEdit = findViewById(R.id.nameEdit);
+        emailEdit = findViewById(R.id.emailEdit);
+        numEdit = findViewById(R.id.numEdit);
+        addEdit = findViewById(R.id.addrEdit);
+        introEdit = findViewById(R.id.introEdit);
+
+       /* cateSpin = findViewById(R.id.cateSpin);
+        final String[] spinCate = {"신선식품", "가루", "일회용품", "유제품"}; // 카
+
+        ArrayAdapter<String> adapter; //전화번호 앞
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, spinCate);
+        cateSpin.setAdapter(adapter);*/
 
         Intent intent = getIntent(); //인텐트
 

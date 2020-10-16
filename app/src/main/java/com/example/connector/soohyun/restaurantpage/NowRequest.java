@@ -22,7 +22,7 @@ import java.util.ArrayList;
 //신청현황
 public class NowRequest extends AppCompatActivity {
 
-    TextView nowName, nowDate;
+    TextView nowName, nowDate, nowNum;
     ImageView nowproImg;
     ListView listView_now;
     ArrayList<Transaction> transactions;
@@ -37,6 +37,7 @@ public class NowRequest extends AppCompatActivity {
 
         nowName = findViewById(R.id.nowName);
         nowDate = findViewById(R.id.joinId);
+        nowNum = findViewById(R.id.nowNum);
         nowproImg = findViewById(R.id.nowproImg);
         backBtn = findViewById(R.id.backBtn);
         homeBtn = findViewById(R.id.homeBtn);

@@ -24,7 +24,7 @@ import java.util.ArrayList;
 //공급자로부터 받아온 수정요청 페이지
 public class EditRequest extends AppCompatActivity {
 
-    TextView reqName, reqDate, reqItemName, reqItemAE, reqItemPrice, reqItemDate;
+    TextView reqName, reqDate, reqNum, reqItemName, reqItemAE, reqItemPrice, reqItemDate;
     ImageView reqproImg, reqItemImg;
     Button reqBtn1, reqBtn2;
     ListView listView_edit;

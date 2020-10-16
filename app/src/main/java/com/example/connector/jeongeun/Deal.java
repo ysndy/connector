@@ -23,7 +23,7 @@ import java.util.ArrayList;
 // 거래 현황
 public class Deal extends AppCompatActivity {
 
-    TextView dpcName, dpcDate;
+    TextView dpcName, dpcDate, dpcNumtv;
     ListView dpc_lv;
     Button refuseBtn;
     ImageButton backBtn, homeBtn;
@@ -35,6 +35,7 @@ public class Deal extends AppCompatActivity {
 
         dpcName = findViewById(R.id.dpcName);
         dpcDate = findViewById(R.id.dpcDate);
+        dpcNumtv = findViewById(R.id.dpcNumtv);
         dpc_lv = findViewById(R.id.dpc_lv);
         backBtn = findViewById(R.id.backBtn);
         homeBtn = findViewById(R.id.homeBtn);
