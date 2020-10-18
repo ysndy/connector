@@ -190,14 +190,15 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/agreeBottom"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
     <TextView
         android:id="@+id/joinAgree"
         android:text="약관동의"
-        android:textSize="15sp"
+        android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="@color/darkGreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -216,13 +217,25 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="10dp"/>
 
+        <Button
+            android:id="@+id/agreeBtn"
+            android:text="내용보기"
+            android:textSize="12sp"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:background="@color/back_try1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/joinAgreetext"
+            android:layout_marginTop="10dp" />
+
     <CheckBox
         android:id="@+id/checkAgree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/joinAgreetext" />
+        app:layout_constraintTop_toBottomOf="@+id/agreeBtn" />
 
     <Button
         android:id="@+id/goBtn"

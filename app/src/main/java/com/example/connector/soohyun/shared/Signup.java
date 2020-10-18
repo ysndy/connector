@@ -30,9 +30,9 @@ import java.util.HashMap;
 
 public class Signup extends AppCompatActivity {
 
-    EditText joinId, jpinPass, joinEmail, bodyNum, tailNum;
+    EditText joinId, joinPass, joinPass2, joinEmail, bodyNum, tailNum;
     TextView joinAgree;
-    Button goBtn, IDver, emailver;
+    Button goBtn, IDver, emailver, agreeBtn;
     CheckBox checkAgree;
     ImageButton backBtn;
     Spinner headNum; //휴대폰번호앞
@@ -43,9 +43,12 @@ public class Signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
 
+        Intent intent = getIntent();
+
         goBtn = findViewById(R.id.goBtn);
         joinId = findViewById(R.id.joinId);
-        jpinPass = findViewById(R.id.joinPass);
+        joinPass = findViewById(R.id.joinPass);
+        joinPass2 = findViewById(R.id.joinPass2);
         joinEmail = findViewById(R.id.joinEmail);
         headNum = findViewById(R.id.headNum);
         bodyNum = findViewById(R.id.bodyNum);
@@ -55,6 +58,7 @@ public class Signup extends AppCompatActivity {
         IDver = findViewById(R.id.IDver);
         emailver = findViewById(R.id.email_ver);
         backBtn = findViewById(R.id.backBtn);
+        agreeBtn = findViewById(R.id.agreeBtn);
 
 
         final String[] spinNum = {"010", "016", "017", "018", "019", "011"}; //전화번호 앞자리 배열데이터
@@ -88,7 +92,15 @@ public class Signup extends AppCompatActivity {
                 dlg.show();
             }
         });
-//
+
+        agreeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), SignupAgree.class);
+                startActivity(intent);
+            }
+        });
+
 //        emailver.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
