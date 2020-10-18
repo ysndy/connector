@@ -35,6 +35,8 @@
     <string name="repet">중복확인</string>
     <string name="verify">인증</string>
 
+    <string name="agreeText">1.수집항목\n-고객의 사용자의 생년월일, 휴대폰번호, 성명, 성별, 이메일 \n-연계정보, 중복가입확인정보\n-사용자가 이용하는 아이디 정보(구글, 네이버, 카카오)\n\n2.이용목적\n-고객이 Application 등에 입력한 본인확인정보의 정확성 여부 확인\n-해당 Application 등에 연계정보와 중복가입확인정보 전송\n-기타 법률에서 정한 목적\n\n3.개인정보의 보유 및 이용기간\n-사용자가 서비스를 이용하는 기간에 한하여 보유 및 이용을 원칙으로 하되, 법률에서 정하는 경우 해당 기간까지 보유 및 이용(세부사항은 "회사"의 개인정보처리방침에 따름) </string>
+
     <string name="supLogin">공급자\nLogin</string>
     <string name="resLogin">외식업자\nLogin</string>
 
