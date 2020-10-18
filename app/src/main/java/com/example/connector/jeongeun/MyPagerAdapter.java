@@ -13,7 +13,6 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
         this.mNumOfTabs = numTabs;
     }
 
-
     // position 값에 해당하는 fragment를 반환
     @Override
     public Fragment getItem(int position) {
