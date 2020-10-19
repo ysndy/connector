@@ -23,7 +23,7 @@ import java.util.ArrayList;
 // 신청현황
 public class Request extends AppCompatActivity {
 
-    TextView pcName, pcDate;
+    TextView pcName, pcDate, pcNumtv;
     ListView pc_lv;
     Button requestBtn, acceptBtn, refuseBtn;
     ImageButton backBtn, homeBtn;
@@ -35,6 +35,7 @@ public class Request extends AppCompatActivity {
 
         pcName = findViewById(R.id.pcName);
         pcDate = findViewById(R.id.pcDate);
+        pcNumtv = findViewById(R.id.pcNumtv);
         pc_lv = findViewById(R.id.pc_lv);
         backBtn = findViewById(R.id.backBtn);
         homeBtn = findViewById(R.id.homeBtn);

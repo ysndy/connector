@@ -64,26 +64,37 @@
         app:layout_constraintTop_toBottomOf="@+id/topPanel" />
 
     <TextView
+        android:id="@+id/pcNumtv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:text="031-911-1234"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toRightOf="@+id/pcImg"
+        app:layout_constraintTop_toBottomOf="@+id/pcName" />
+
+    <TextView
         android:id="@+id/pcDatetv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:text="신청일 :"
         android:textSize="18sp"
         app:layout_constraintLeft_toRightOf="@+id/pcImg"
-        app:layout_constraintTop_toBottomOf="@+id/pcName" />
+        app:layout_constraintTop_toBottomOf="@+id/pcNumtv" />
 
     <TextView
         android:id="@+id/pcDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:text="2020년 5월 12일"
         android:textSize="18sp"
         app:layout_constraintLeft_toRightOf="@+id/pcDatetv"
-        app:layout_constraintTop_toBottomOf="@+id/pcName" />
+        app:layout_constraintTop_toBottomOf="@+id/pcNumtv" />
 
 
     <ListView
@@ -94,7 +105,7 @@
         android:scrollbars="vertical"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pcImg" />
+        app:layout_constraintTop_toBottomOf="@id/pcDatetv" />
 
 
     <LinearLayout

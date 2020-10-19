@@ -95,6 +95,7 @@
 
         <Button
             android:text="상세설정"
+            android:background="@color/colorAccent"
             android:id="@+id/detailSettingBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -3,10 +3,12 @@ package com.example.connector.jeongeun;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
@@ -20,8 +22,9 @@ public class Edit_info extends AppCompatActivity {
 
     ImageView providerImg; // 이미지
     Button uploadImg, editOk; // 사진올리기, 수정완료
-    EditText etProviderName, etProviderEmail, etProviderPnum, ProviderIntroduction;// 상호명, E-mail, 연락처, 업체소개
+    EditText etProviderName, etProviderEmail, etProviderPnum, etProviderAddress ,ProviderIntroduction;// 상호명, E-mail, 연락처, 업체소개
     ImageButton backBtn, hometn; // 뒤로가기, 홈
+    Spinner spinCategory; // 카테고리 스피너
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,13 @@ public class Edit_info extends AppCompatActivity {
         editOk = findViewById(R.id.editOk);
         backBtn = findViewById(R.id.backBtn);
         hometn = findViewById(R.id.homeBtn);
+        spinCategory = findViewById(R.id.spinCategory); //카테고리 스피너
+
+        final String[] spinCate = {"분류", "신선식품", "가루", "일회용품", "유제품"}; // 카테고리 목록 배열
+
+        ArrayAdapter<String> adapter; //카테고리
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, spinCate);
+        spinCategory.setAdapter(adapter);
 
         // 뒤로가기
         backBtn.setOnClickListener(new View.OnClickListener() {

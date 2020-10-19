@@ -8,7 +8,7 @@
         android:name="android.permission.INTERNET"/>
 
     <application
-        android:name=".soohyun.shared.App"
+
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,30 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-
-            <!--카카오추가-->
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth“ -->
-                <data android:host="oauth"
-                    android:scheme="b309c471c54ebdb2d10c06b6c7a80bcc" />
-
             </intent-filter>
         </activity>
-        <meta-data
-            android:name="com.kakao.sdk.AppKey"
-            android:value="b309c471c54ebdb2d10c06b6c7a80bcc"/>
-            <!--android:value="@string/kakao_key"-->
-
-
         <activity android:name=".doyeon.activity.SupplierProfileActivity"/>
         <activity android:name=".doyeon.activity.transaction.TransactionProductsActivity"/>
         <activity android:name=".doyeon.activity.SearchActivity"/>
@@ -64,13 +47,9 @@
         <activity android:name=".soohyun.shared.Signup"/>
         <activity android:name=".soohyun.shared.Find_ID_Pass"/>
         <activity android:name=".soohyun.restaurantpage.RestaurantProfileActivity"/>
+        <activity android:name=".soohyun.shared.SignupAgree"/>
         <activity android:name=".soohyun.Loading"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
     </application>
-
-    <!--queries에 카카오톡 패키지 추가-->
-    <queries>
-        <package android:name="com.kakao.talk" />
-    </queries>
 
 </manifest>
