@@ -83,7 +83,7 @@ public class ProductListFragment extends Fragment {
     //TODO: profile.getID()로 서버에서 데이터 불러옴
     private void setProductList() {
 
-        products = new ArrayList<>();
+        //products = new ArrayList<>();
 
 //        Product product = new Product();
 //        product.setName(ProductData1.name);
@@ -94,7 +94,7 @@ public class ProductListFragment extends Fragment {
 //        product2.setName(ProductData2.name);
 //        product2.setPrice(ProductData2.price);
 //        products.add(product2);
-        profile.insertProducts(getContext());
+        //profile.insertProducts(getContext());
         ProductAdapter adapter = new ProductAdapter(profile.getProducts());
         productListView.setAdapter(adapter);
 

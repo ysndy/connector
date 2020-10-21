@@ -17,7 +17,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.connector.R;
-import com.example.connector.doyeon.activity.SupplierProfileActivity;
 import com.example.connector.doyeon.objects.Profile;
 import com.example.connector.sampleData.supplierprofile.SupplierData2;
 

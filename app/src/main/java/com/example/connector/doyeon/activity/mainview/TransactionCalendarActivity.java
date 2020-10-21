@@ -1,4 +1,4 @@
-package com.example.connector.doyeon.activity.transaction;
+package com.example.connector.doyeon.activity.mainview;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -13,13 +13,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.connector.R;
-import com.example.connector.doyeon.lib.ProductAdapter;
+import com.example.connector.doyeon.lib.TranState;
 import com.example.connector.doyeon.lib.TransProductAdapter;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Profile;
 import com.example.connector.sampleData.product.ProductData1;
 import com.example.connector.sampleData.product.ProductData2;
-import com.example.connector.sampleData.transaction.TransactionData1;
 import com.example.connector.sampleData.transaction.TransactionData2;
 
 import java.text.DateFormat;

@@ -11,11 +11,10 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.connector.R;
-import com.example.connector.doyeon.activity.MainPageActivity;
+import com.example.connector.doyeon.activity.mainview.MainPageActivity;
 
 // 정보 수정
 public class Edit_info extends AppCompatActivity {

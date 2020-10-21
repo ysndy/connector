@@ -1,4 +1,4 @@
-package com.example.connector.doyeon.activity;
+package com.example.connector.doyeon.activity.mainview;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,6 +15,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.example.connector.R;
+import com.example.connector.doyeon.lib.IntentName;
 import com.example.connector.doyeon.lib.ProfileAdapter;
 import com.example.connector.doyeon.lib.request.SupplierNewListRequest;
 import com.example.connector.doyeon.lib.request.SupplierRecListRequest;
@@ -33,7 +34,6 @@ import com.example.connector.sampleData.supplierprofile.SupplierData9;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ProfileListActivity extends Activity {

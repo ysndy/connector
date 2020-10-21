@@ -23,15 +23,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".doyeon.activity.SupplierProfileActivity"/>
-        <activity android:name=".doyeon.activity.transaction.TransactionProductsActivity"/>
-        <activity android:name=".doyeon.activity.SearchActivity"/>
-        <activity android:name=".doyeon.activity.ProfileListActivity"/>
-        <activity android:name=".doyeon.activity.transaction.TransactionCalendarActivity"/>
-        <activity android:name=".doyeon.activity.MainPageActivity" android:launchMode="singleTop"/>
-        <activity android:name=".doyeon.activity.transaction.TosActivity"/>
-        <activity android:name=".doyeon.activity.transaction.TransactionRequestActivity"/>
-        <activity android:name=".doyeon.activity.transaction.TransactionSetDateActivity"/>
+        <activity android:name=".doyeon.activity.mainview.SupplierProfileActivity"/>
+        <activity android:name=".doyeon.activity.transaction.act1.TransactionProductsActivity"/>
+        <activity android:name=".doyeon.activity.mainview.SearchActivity"/>
+        <activity android:name=".doyeon.activity.mainview.ProfileListActivity"/>
+        <activity android:name=".doyeon.activity.mainview.TransactionCalendarActivity"/>
+        <activity android:name=".doyeon.activity.mainview.MainPageActivity" android:launchMode="singleTop"/>
+        <activity android:name=".doyeon.activity.transaction.act3.TosActivity"/>
+        <activity android:name=".doyeon.activity.transaction.act4.TransactionRequestActivity"/>
+        <activity android:name=".doyeon.activity.transaction.act2.TransactionSetDateActivity"/>
         <activity android:name=".jeongeun.Provider_mypage"/>
         <activity android:name=".jeongeun.Restaurant_info" />
         <activity android:name=".jeongeun.Edit_item" />

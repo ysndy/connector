@@ -1,4 +1,4 @@
-package com.example.connector.doyeon.activity;
+package com.example.connector.doyeon.activity.mainview;
 
 import android.os.Bundle;
 import android.view.View;

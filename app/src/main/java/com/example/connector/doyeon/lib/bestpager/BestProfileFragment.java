@@ -13,12 +13,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.connector.R;
-import com.example.connector.doyeon.activity.IntentName;
-import com.example.connector.doyeon.activity.SupplierProfileActivity;
-import com.example.connector.doyeon.lib.ProfileButton;
+import com.example.connector.doyeon.lib.IntentName;
+import com.example.connector.doyeon.activity.mainview.SupplierProfileActivity;
 import com.example.connector.doyeon.objects.Profile;
-
-import java.io.Serializable;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -93,8 +90,8 @@ public class BestProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(profile_name.getContext(), SupplierProfileActivity.class);
-                intent.putExtra(IntentName.PROFILE_RES, (Serializable)profileRes);
-                intent.putExtra(IntentName.PROFILE_SUP, (Serializable)profileSup);
+                intent.putExtra(IntentName.PROFILE_RES, profileRes);
+                intent.putExtra(IntentName.PROFILE_SUP, profileSup);
                 startActivity(intent);
             }
         });

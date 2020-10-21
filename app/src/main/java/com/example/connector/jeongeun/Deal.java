@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.connector.R;
-import com.example.connector.doyeon.activity.MainPageActivity;
+import com.example.connector.doyeon.activity.mainview.MainPageActivity;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Transaction;
 import com.example.connector.sampleData.product.ProductData1;

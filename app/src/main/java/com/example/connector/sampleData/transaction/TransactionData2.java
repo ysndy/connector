@@ -1,6 +1,6 @@
 package com.example.connector.sampleData.transaction;
 
-import com.example.connector.doyeon.activity.transaction.TranState;
+import com.example.connector.doyeon.lib.TranState;
 
 public interface TransactionData2 {
 

@@ -1,4 +1,4 @@
-package com.example.connector.doyeon.activity;
+package com.example.connector.doyeon.activity.mainview;
 
         import android.content.Intent;
         import android.os.Bundle;
@@ -14,7 +14,7 @@ package com.example.connector.doyeon.activity;
         import com.android.volley.RequestQueue;
         import com.android.volley.Response;
         import com.android.volley.toolbox.Volley;
-        import com.example.connector.doyeon.activity.transaction.TransactionCalendarActivity;
+        import com.example.connector.doyeon.lib.IntentName;
         import com.example.connector.R;
         import com.example.connector.doyeon.lib.request.RestaurantInfoRequest;
         import com.example.connector.doyeon.lib.bestpager.BestPagerAdapter;

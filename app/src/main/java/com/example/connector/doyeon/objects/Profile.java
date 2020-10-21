@@ -1,7 +1,6 @@
 package com.example.connector.doyeon.objects;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
@@ -9,17 +8,12 @@ import android.util.Log;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
-import com.example.connector.doyeon.activity.IntentName;
-import com.example.connector.doyeon.lib.ProfileAdapter;
-import com.example.connector.doyeon.lib.request.SupplierNewListRequest;
+import com.example.connector.doyeon.lib.IntentName;
 import com.example.connector.doyeon.lib.request.SupplierProductRequest;
-import com.example.connector.sampleData.product.ProductData1;
-import com.example.connector.sampleData.product.ProductData2;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Profile implements Parcelable {
@@ -65,6 +59,27 @@ public class Profile implements Parcelable {
         Response.Listener rListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                try {
+                    JSONArray jResponse = new JSONArray(response);
+                    Log.d("asd", "insertProducts - jResponse.length() = "+jResponse.length());
+                    for (int i = 0; i < jResponse.length(); i++) {
+                        JSONObject jso = jResponse.getJSONObject(i);
+
+                        final Product product = new Product();
+                        product.setCategory(jso.getString(IntentName.CATEGORY));
+                        product.setFrom(jso.getString(IntentName.FROMTO));
+                        product.setName(jso.getString(IntentName.NAME));
+                        product.setPrice(jso.getInt(IntentName.PRICE));
+                        product.setImageUrl(jso.getString(IntentName.IMG));
+                        products.add(product);
+
+                    }
+                    //서버에서 받은 reponse JSONObject 객체의 newID 키의 값을 받아와서 확인
+                    //Log.d("asd", "jResponse"+jResponse.);
+
+                } catch (Exception e) {
+                    Log.d("asd", "Profile.java - "+e.toString());
+                }
             }
         };
 

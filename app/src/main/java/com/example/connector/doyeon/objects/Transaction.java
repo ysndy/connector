@@ -15,6 +15,26 @@ public class Transaction implements Parcelable { // 거래 내용 저장
     private Integer priceTotal; //총금액
     private ArrayList<Product> products; //선택상품
     private String supplyName; //공급처이름
+
+    public String getSupplierID() {
+        return supplierID;
+    }
+
+    public void setSupplierID(String supplierID) {
+        this.supplierID = supplierID;
+    }
+
+    private String supplierID;
+
+    public String getRestaurantID() {
+        return restaurantID;
+    }
+
+    public void setRestaurantID(String restaurantID) {
+        this.restaurantID = restaurantID;
+    }
+
+    private String restaurantID;
     private String tranState; // 거래상태
 
     public Transaction(){
