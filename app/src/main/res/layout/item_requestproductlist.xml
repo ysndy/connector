@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp">
 
     <LinearLayout
@@ -10,92 +10,109 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="3"
-            android:src="@drawable/ic_image_black_24dp" />
-
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
             android:gravity="right"
             android:orientation="vertical"
             android:paddingRight="10dp">
 
             <TextView
+
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:text="품명 :" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:text="단가 :" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:text="원산지 :" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/productNameTV"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:text="@string/sampleText" />
 
             <TextView
                 android:id="@+id/productPriceTV"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:text="@string/sampleText" />
 
             <TextView
                 android:id="@+id/productFromTV"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:text="@string/sampleText" />
 
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/countEditText"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="2"
-            android:background="#DDDDDD"
-            android:clickable="false"
-            android:focusable="false"
-            android:inputType="number"
-            android:padding="10dp"
-            android:text="1" />
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_weight="2"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-
-            <CheckBox
-                android:layout_gravity="center"
-                android:id="@+id/productCheckBox"
+            <TextView
+                android:textAlignment="center"
+                android:id="@+id/countEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"/>
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:clickable="false"
+                android:focusable="false"
+                android:textSize="30sp"
+                android:padding="10dp"
+                android:text="0" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/upCount"
+                    android:textSize="15dp"
+                    android:text="+"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"/>
+
+                <Button
+                    android:id="@+id/downCount"
+                    android:textSize="15dp"
+                    android:text="-"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"/>
+
+
+            </LinearLayout>
+
         </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

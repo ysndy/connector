@@ -27,7 +27,7 @@ public class InsertTransactionRequest extends StringRequest {
     }
 
     protected Map<String, String> getParams() throws AuthFailureError { //서버에 전송할 데이터 리턴
-        Log.d("asd", "return-Test");
+        Log.d("asd", "return-Insert");
         return parameters;
     }
     //request 와 response 를 분리

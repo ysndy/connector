@@ -1,5 +1,10 @@
 package com.example.connector.doyeon.activity.transaction.act4;
 
+import android.app.AlertDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +22,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.example.connector.R;
+import com.example.connector.doyeon.activity.mainview.SupplierProfileActivity;
 import com.example.connector.doyeon.lib.IntentName;
 import com.example.connector.doyeon.activity.mainview.MainPageActivity;
 import com.example.connector.doyeon.lib.request.InsertTransactionRequest;
@@ -64,29 +70,52 @@ public class TransactionRequestActivity extends AppCompatActivity {
                     //서버에 거래 데이터 저장
                     Toast.makeText(getApplicationContext(), "거래일정이 생성되었습니다.", Toast.LENGTH_SHORT).show();
 
-                    for (int i = 0; i < transactionProducts.size(); i++) {
-                        Response.Listener rListener = new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                try {
-                                    JSONArray jResponse = new JSONArray(response);
-                                    Log.d("asd", "insertProducts - jResponse.length() = " + jResponse.length());
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(TransactionRequestActivity.this);
+//                    builder.setTitle("알림");
+//                    builder.setMessage("서버 데이터 전송중입니다.\n창을 닫지 말아주세요");
+//                    builder.setPositiveButton("", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//
+//                            Toast.makeText(getApplicationContext(), "이메일이 복사되었습니다.", Toast.LENGTH_SHORT).show();
+//                        }
+//                    });
+//                    builder.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//
+//                        }
+//                    });
+//                    AlertDialog alertDialog = builder.create();
+//                    alertDialog.show();
 
-                                    //서버에서 받은 reponse JSONObject 객체의 newID 키의 값을 받아와서 확인
-                                    //Log.d("asd", "jResponse"+jResponse.);
-                                } catch (Exception e) {
-                                    Log.d("asd", "Profile.java - " + e.toString());
-                                }
+                    //for (int i = 0; i < transactionProducts.size(); i++) {
+                    Response.Listener rListener = new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                JSONArray jResponse = new JSONArray(response);
+                                Log.d("asd", "insertProducts - jResponse.length() = " + jResponse.length());
+                                Log.d("asd", "jResponse" + jResponse.toString());
+
+                                Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent);
+
+                            } catch (Exception e) {
+                                Log.d("asd", "Request.java - " + e.toString());
                             }
-                        };
+                        }
+                    };
+                    int i = 0;
+                    InsertTransactionRequest insertTransactionRequest = new InsertTransactionRequest(transaction.getSupplierID(), transaction.getRestaurantID(), transaction.getDate(), "거래예정", transactionProducts.get(i).getCode(), transactionProducts.get(i).getSelectedCount() + "", rListener); //Request 처리 클래스
+                    RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+                    queue.add(insertTransactionRequest);
 
-                        InsertTransactionRequest insertTransactionRequest = new InsertTransactionRequest(transaction.getSupplierID(), transaction.getRestaurantID(), transaction.getDate(), "거래예정", transactionProducts.get(i).getCode(), transactionProducts.get(i).getSelectedCount()+"", rListener); //Request 처리 클래스
-                        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-                        queue.add(insertTransactionRequest);
-                    }
-                    Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
+                    // }
+//                    Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                    startActivity(intent);
                 } else
                     Toast.makeText(getApplicationContext(), "신청내역 확인여부를 체크해주세요", Toast.LENGTH_SHORT).show();
             }

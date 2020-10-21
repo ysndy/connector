@@ -1,9 +1,8 @@
 package com.example.connector.doyeon.lib;
 
-import android.content.Context;
-import android.graphics.Color;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,37 +23,22 @@ import androidx.core.content.ContextCompat;
 import com.example.connector.R;
 import com.example.connector.doyeon.objects.Product;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-
-import static androidx.core.content.ContextCompat.getSystemService;
 
 public class RequestAdapter extends BaseAdapter {
 
     // 상품선택리스트 어댑터
-    private static int priceTotal = 0;
-    private static int productCount = 0;
-    private static int preNum = 1;
-    private static int preNum_input = 1;
     private ArrayList<Product> list;
     private TextView priceTotalTv;
     private TextView selectedCountTv;
     private Product sp;
-    private ArrayList<Product> selectedProducts;
+    //private ArrayList<Product> selectedProducts;
 
-    public void fieldClear(){
-        priceTotal = 0;
-        productCount = 0;
-        preNum = 1;
-        preNum_input = 1;
-    }
-
-    public RequestAdapter(ArrayList<Product> list, TextView priceTotalTv, TextView selectedCountTv){
+    public RequestAdapter(ArrayList<Product> list, TextView priceTotalTv, TextView selectedCountTv) {
         this.list = list;
         this.priceTotalTv = priceTotalTv;
         this.selectedCountTv = selectedCountTv;
-        selectedProducts = new ArrayList<>();
+        //selectedProducts = new ArrayList<>();
     }
 
     @Override
@@ -83,8 +67,9 @@ public class RequestAdapter extends BaseAdapter {
             holder.productName = (TextView) convertView.findViewById(R.id.productNameTV);
             holder.productFrom = (TextView) convertView.findViewById(R.id.productFromTV);
             holder.productPrice = (TextView) convertView.findViewById(R.id.productPriceTV);
-            holder.productCountEt = (EditText) convertView.findViewById(R.id.countEditText);
-
+            holder.productCountTV = (TextView) convertView.findViewById(R.id.countEditText);
+            holder.downCountBtn = (Button) convertView.findViewById(R.id.downCount);
+            holder.upCountBtn = (Button) convertView.findViewById(R.id.upCount);
             convertView.setTag(holder);
         } else {
             holder = (CustomViewHolder) convertView.getTag();
@@ -92,20 +77,10 @@ public class RequestAdapter extends BaseAdapter {
 
         sp = list.get(position);
 
-        CheckBox cb = (CheckBox) convertView.findViewById(R.id.productCheckBox);
-
         //리스너 장착
-        // 체크박스가 선택되었을 때 이벤트 처리
-        cb.setOnCheckedChangeListener(new checkEvent(holder.productCountEt, sp.getPrice(), sp));
-
-        //숫자만 입력 예외처리
-        holder.productCountEt.addTextChangedListener(new ExceptionET(holder.productCountEt));
-
-        //입력창이 활성화/비활성화되었을 때
-        holder.productCountEt.setOnFocusChangeListener(new ChangeET(holder.productCountEt, sp.getPrice()));
-
-        //키패드에서 완료/다음버튼을 눌렀을 때
-        holder.productCountEt.setOnEditorActionListener(new OnEditorAction(holder.productCountEt));
+        //업다운 이벤트 장착
+        holder.downCountBtn.setOnClickListener(new CountEvent(holder.downCountBtn, holder.productCountTV, position));
+        holder.upCountBtn.setOnClickListener(new CountEvent(holder.upCountBtn, holder.productCountTV, position));
 
         holder.productName.setText(sp.getName());
         holder.productFrom.setText(sp.getFrom());
@@ -114,16 +89,17 @@ public class RequestAdapter extends BaseAdapter {
         return convertView;
     }
 
-    public ArrayList<Product> getSelectedProducts() {
-        return selectedProducts;
-    }
+    //public ArrayList<Product> getSelectedProducts() {
+       // return selectedProducts;
+    //}
 
     class CustomViewHolder {
         ImageView profileImg;
         TextView productFrom;
         TextView productName;
         TextView productPrice;
-        EditText productCountEt;
+        TextView productCountTV;
+        Button upCountBtn, downCountBtn;
     }
 
     // MainActivity에서 Adapter에있는 ArrayList에 data를 추가시켜주는 함수
@@ -131,133 +107,62 @@ public class RequestAdapter extends BaseAdapter {
         list.add(sp);
     }
 
-    //체크박스를 체크/해제했을 때 이벤트 처리
-    class checkEvent implements CompoundButton.OnCheckedChangeListener {
+    class CountEvent implements Button.OnClickListener {
 
-        Product selectedProduct;
-        EditText editText;
-        int price;
+        Button countBtn;
+        TextView countTV;
+        int position;
 
-        checkEvent(EditText editText, int price, Product selectedProduct){
-            this.selectedProduct = selectedProduct;
-            this.editText = editText;
-            this.price = price;
+        CountEvent(Button countBtn, TextView countTV, int position) {
+            this.countBtn = countBtn;
+            this.countTV = countTV;
+            this.position = position;
         }
+
         @Override
-        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            if(isChecked){ // 체크되었을 때
-                //입력창 활성화 처리
-                editText.setBackgroundColor(ContextCompat.getColor(editText.getContext(), R.color.invisible));
-                editText.setClickable(true);
-                editText.setFocusable(true);
-                editText.setFocusableInTouchMode(true);
+        public void onClick(View view) {
 
-                //총금액, 수량 계산
-                priceTotal += (price * Integer.parseInt(editText.getText().toString()));
-                productCount++;
+            int count = Integer.parseInt(countTV.getText().toString());
+            int counted = 0;
 
-                //선택된 상품 ArrayList에 추가
-                selectedProducts.add(selectedProduct);
-                selectedProduct.setSelectedCount(Integer.parseInt(editText.getText().toString()));
+            if (countBtn.getText().toString().equals("+")) {
+                counted = count + 1;
+                Log.d("asd", "counted: "+counted);
 
-            } else { // 체크 해제되었을 때
-                //입력창 비활성화 처리
-                editText.setClickable(false);
-                editText.setFocusable(false);
-                editText.setBackgroundColor(ContextCompat.getColor(editText.getContext(), R.color.false1));
-                //총금액, 수량 계산
-                priceTotal -= (price * Integer.parseInt(editText.getText().toString()));
-                productCount--;
-                //선택된 상품에서 삭제
-                selectedProducts.remove(selectedProduct);
+            } else if (countBtn.getText().toString().equals("-") && count != 0) {
+                counted = count - 1;
+                Log.d("asd", "counted: "+counted);
 
+            } else { //0일 때 - 버튼을 누르면.
+                Log.d("asd", "counted: "+counted);
             }
+            countTV.setText(counted + "");
+            list.get(position).setSelectedCount(counted);
+            priceTotalTv.setText(getTotalPrice()+"");
+            selectedCountTv.setText(getProductCount()+"");
 
-            //상품 수량, 총금액 세팅
-            priceTotalTv.setText(""+priceTotal);
-            selectedCountTv.setText(productCount+"");
         }
+
     }
 
-    //숫자가 아닌 문자를 입력 받았을 때 예외처리
-    class ExceptionET implements TextWatcher { //키 입력이 될 때마다 호출
-
-        EditText et;
-        ExceptionET(EditText et){
-            this.et = et;
+    public int getTotalPrice(){
+        int total = 0;
+        for(int i=0;i<list.size();i++){
+            Product product = (Product)list.get(i);
+            total += product.getPrice()*product.getSelectedCount();
         }
+        return total;
 
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) { //입력된 후
-            if(!et.getText().toString().equals("")) {//아무것도 입력되지 않았을 경우 제외
-                try {
-                    preNum_input = Integer.parseInt(et.getText().toString());
-                } catch (NumberFormatException e) {
-                    Toast.makeText(et.getContext(), "숫자만 입력 가능합니다.", Toast.LENGTH_SHORT).show();
-                    et.setText(preNum_input);
-                }
-            }
-        }
     }
 
-    // 상품 수량을 입력받는 EditText가 활성화되었을 때 입력된 숫자를 비활성화되었을 때 총 금액에 더함
-    class ChangeET implements View.OnFocusChangeListener {
-
-        EditText et;
-        int price;
-
-        ChangeET(EditText et, int price){
-
-            this.et = et;
-            this.price = price;
+    public int getProductCount(){
+        int total = 0;
+        for(int i=0;i<list.size();i++){
+            Product product = (Product)list.get(i);
+            if(product.getSelectedCount()!=0) total++;
         }
+        return total;
 
-        @Override
-        public void onFocusChange(View v, boolean hasFocus) {
-            if(hasFocus){ // 입력창이 활성화되었을 때
-                preNum_input = Integer.parseInt(et.getText().toString());
-                preNum = Integer.parseInt(et.getText().toString());
-            }else {// 입력창에 포커스가 제거되었을 때
-                if(et.getText().toString().equals("")) et.setText("1"); //기본값 1 세팅 예외처리
-                //금액 계산
-                priceTotal -= price*preNum;
-                priceTotal += price*Integer.parseInt(et.getText().toString());
-                //각 상품수량 세팅
-                sp.setSelectedCount(Integer.parseInt(et.getText().toString()));
-                preNum = Integer.parseInt(et.getText().toString());
-                priceTotalTv.setText(""+priceTotal);
-            }
-        }
-    }
-
-    //숫자를 입력하고 키패드의 완료버튼을 눌렀을 때 키패드를 내린다.
-    class OnEditorAction implements TextView.OnEditorActionListener {
-
-        EditText et;
-        OnEditorAction(EditText et){
-            this.et = et;
-        }
-
-        @Override
-        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-            if(actionId== EditorInfo.IME_ACTION_DONE || actionId== EditorInfo.IME_ACTION_NEXT) {
-                et.clearFocus();
-                InputMethodManager imm = (InputMethodManager) et.getContext().getSystemService(et.getContext().INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(et.getWindowToken(), 0);
-                fieldClear();
-            }
-            return false;
-        }
     }
 
 }

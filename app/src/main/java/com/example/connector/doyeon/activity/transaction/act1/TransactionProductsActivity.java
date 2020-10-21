@@ -45,7 +45,7 @@ public class TransactionProductsActivity extends Activity {
         requestBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(selectedCountTv.getText().toString().equals("0"))
+                if(adapter.getTotalPrice()==0)
                     Toast.makeText(getApplicationContext(), "상품, 수량을 선택해주세요", Toast.LENGTH_SHORT).show();
                 else {
                     //거래 세팅 시작
@@ -56,8 +56,10 @@ public class TransactionProductsActivity extends Activity {
                     transaction.setRestaurantID(profile_res.getId());
                     transaction.setPriceTotal(Integer.parseInt(priceTotalTv.getText().toString())); // 거래 총 금액
 
-                    selectedProducts = adapter.getSelectedProducts();
-                    Log.d("asd", selectedProducts.size()+"  "+transaction.getPriceTotal());
+                    setSelectedProducts(products, selectedProducts);
+                    //선택된 상품 담기
+                    //selectedProducts = adapter.getSelectedProducts();
+                    Log.d("asd", selectedProducts.size()+" "+transaction.getPriceTotal());
                     //여기부터
                     Intent intent = new Intent(getApplicationContext(), TransactionSetDateActivity.class);
                     intent.putParcelableArrayListExtra(IntentName.SELECTED_PRODUCTS, selectedProducts);
@@ -79,10 +81,16 @@ public class TransactionProductsActivity extends Activity {
         });
     }
 
+    public void setSelectedProducts(ArrayList<Product> products, ArrayList<Product> products_selected){
+        products_selected.clear();
+        for(int i =0;i<products.size();i++) {
+            if(products.get(i).getSelectedCount()>0) products_selected.add(products.get(i));
+        }
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        adapter.fieldClear();
     }
 
     private void inflating(){
