@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.connector.R;
@@ -16,7 +16,7 @@ public class Filter_dialog extends DialogFragment implements View.OnClickListene
 
     public static final String TAG_EVENT_DIALOG = "dialog_event";
     TabLayout tabs;
-    FragmentActivity fa = new FragmentActivity();
+    Button cancleFilter, okFilter;
 
     public Filter_dialog() {}
 
@@ -30,6 +30,9 @@ public class Filter_dialog extends DialogFragment implements View.OnClickListene
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.filter_dialog, container, false);
 
+        cancleFilter = v.findViewById(R.id.cancleFilter);
+        okFilter = v.findViewById(R.id.okFilter);
+
         tabs = v.findViewById(R.id.filterTab);
         tabs.addTab(tabs.newTab().setText("분야"));
         tabs.addTab(tabs.newTab().setText("지역"));
@@ -41,6 +44,22 @@ public class Filter_dialog extends DialogFragment implements View.OnClickListene
 
         tabs.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(filterViewPager));
         filterViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs));
+
+        // 취소 버튼
+        cancleFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
+
+        /* 필터적용 버튼
+        okFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });*/
 
         return v;
     }

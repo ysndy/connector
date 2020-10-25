@@ -3,14 +3,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".doyeon.Filter_region"
-    android:background="@color/yellow">
+    tools:context=".doyeon.Filter_region">
 
-    <!-- 필터 > 지역 리스트(정은) 구글링 필요 -->
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="horizontal">
+
+        <!-- 필터 > 지역 리스트(정은) 구글링 필요 -->
+        <ListView
+            android:choiceMode="singleChoice"
+            android:listSelector="@color/colorAccent"
+            android:id="@+id/siDo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.9" />
+
+        <ListView
+            android:choiceMode="singleChoice"
+            android:listSelector="@color/colorAccent"
+            android:id="@+id/guGun"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2" />
+
+    </LinearLayout>
 
 </FrameLayout>

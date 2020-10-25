@@ -3,13 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".doyeon.Filter_category"
-    android:background="@color/red">
+    tools:context=".doyeon.Filter_category">
 
     <!-- 필터 > 분류 리스트(정은) -->
-<ListView
-    android:id="@+id/category_list"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    <ListView
+        android:choiceMode="singleChoice"
+        android:listSelector="@color/colorAccent"
+        android:id="@+id/category_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </FrameLayout>
