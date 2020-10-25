@@ -9,7 +9,7 @@
         <item>광주</item>
         <item>부산</item>
         <item>울산</item>
-        <item>세종특별자치시</item>
+        <item>세종</item>
         <item>경기도</item>
         <item>강원도</item>
         <item>충청북도</item>
@@ -125,7 +125,7 @@
 
     <string-array name="region_list_sejong">
         <item>전체</item>
-        <item>세종특별자치시</item>
+        <item>세종시</item>
     </string-array>
 
     <string-array name="region_list_gyeonggi">
