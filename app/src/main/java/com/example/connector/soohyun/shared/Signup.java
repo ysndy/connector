@@ -30,7 +30,7 @@ import java.util.HashMap;
 
 public class Signup extends AppCompatActivity {
 
-    EditText joinId, joinPass, joinPass2, joinEmail, bodyNum, tailNum;
+    EditText editName, joinId, joinPass, joinPass2, joinEmail, bodyNum, tailNum;
     TextView joinAgree;
     Button goBtn, IDver, emailver, agreeBtn;
     CheckBox checkAgree;
@@ -46,6 +46,7 @@ public class Signup extends AppCompatActivity {
         Intent intent = getIntent();
 
         goBtn = findViewById(R.id.goBtn);
+        editName = findViewById(R.id.editName);
         joinId = findViewById(R.id.joinId);
         joinPass = findViewById(R.id.joinPass);
         joinPass2 = findViewById(R.id.joinPass2);
