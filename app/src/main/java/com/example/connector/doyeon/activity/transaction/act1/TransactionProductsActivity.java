@@ -1,4 +1,4 @@
-package com.example.connector.doyeon.activity.transaction;
+package com.example.connector.doyeon.activity.transaction.act1;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,7 +14,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import com.example.connector.R;
-import com.example.connector.doyeon.activity.IntentName;
+import com.example.connector.doyeon.lib.IntentName;
+import com.example.connector.doyeon.activity.transaction.act2.TransactionSetDateActivity;
 import com.example.connector.doyeon.lib.RequestAdapter;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Profile;
@@ -44,16 +45,21 @@ public class TransactionProductsActivity extends Activity {
         requestBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(selectedCountTv.getText().toString().equals("0"))
+                if(adapter.getTotalPrice()==0)
                     Toast.makeText(getApplicationContext(), "상품, 수량을 선택해주세요", Toast.LENGTH_SHORT).show();
                 else {
+                    //거래 세팅 시작
                     Transaction transaction = new Transaction();
                     transaction.setSupplier(profile_sup); //해당 거래의 공급자 세팅
                     transaction.setRestaurant(profile_res); //해당 거래의 외식업자 세팅
+                    transaction.setSupplierID(profile_sup.getId());
+                    transaction.setRestaurantID(profile_res.getId());
                     transaction.setPriceTotal(Integer.parseInt(priceTotalTv.getText().toString())); // 거래 총 금액
 
-                    selectedProducts = adapter.getSelectedProducts();
-                    Log.d("asd", selectedProducts.size()+"  "+transaction.getPriceTotal());
+                    setSelectedProducts(products, selectedProducts);
+                    //선택된 상품 담기
+                    //selectedProducts = adapter.getSelectedProducts();
+                    Log.d("asd", selectedProducts.size()+" "+transaction.getPriceTotal());
                     //여기부터
                     Intent intent = new Intent(getApplicationContext(), TransactionSetDateActivity.class);
                     intent.putParcelableArrayListExtra(IntentName.SELECTED_PRODUCTS, selectedProducts);
@@ -75,16 +81,23 @@ public class TransactionProductsActivity extends Activity {
         });
     }
 
+    public void setSelectedProducts(ArrayList<Product> products, ArrayList<Product> products_selected){
+        products_selected.clear();
+        for(int i =0;i<products.size();i++) {
+            if(products.get(i).getSelectedCount()>0) products_selected.add(products.get(i));
+        }
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        adapter.fieldClear();
     }
 
     private void inflating(){
         // 공급처, 외식업자 프로필 가져옴
         profile_sup = (Profile) getIntent().getParcelableExtra(IntentName.PROFILE_SUP);
         profile_res = (Profile) getIntent().getParcelableExtra(IntentName.PROFILE_RES);
+        products = getIntent().getParcelableArrayListExtra(IntentName.PRODUCTS);
 
         // 리소스 인플레이팅
         requestBtn = findViewById(R.id.requestBtn);
@@ -97,9 +110,9 @@ public class TransactionProductsActivity extends Activity {
 
     private void setProductListView() {
         //리스트 세팅
-        products = new ArrayList<>();
-        profile_sup.insertProducts();
-        products.addAll(profile_sup.getProducts());
+        //products = new ArrayList<>();
+        //profile_sup.insertProducts(getApplicationContext());
+        //products.addAll(profile_sup.getProducts());
         adapter = new RequestAdapter(products, priceTotalTv, selectedCountTv);
         productListView.setAdapter(adapter);
     }

@@ -1,4 +1,4 @@
-package com.example.connector.doyeon.activity.transaction;
+package com.example.connector.doyeon.lib;
 
 public interface TranState {
 

@@ -5,6 +5,15 @@ import android.os.Parcelable;
 
 public class Product implements Parcelable {
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    private String code;//상품 코드
     private String name;//상품 이름
     private Integer price;//가격
     private String imageUrl;//이미지
@@ -16,7 +25,7 @@ public class Product implements Parcelable {
     private String transactionState; //거래 상태
 
     public Product() {
-
+        selectedCount = 0;
     }
 
 
@@ -37,6 +46,8 @@ public class Product implements Parcelable {
             selectedCount = in.readInt();
         }
         supplyName = in.readString();
+        //selectedCount = 0; 화면이 넘어가면 자동 실행됨
+
     }
 
     @Override

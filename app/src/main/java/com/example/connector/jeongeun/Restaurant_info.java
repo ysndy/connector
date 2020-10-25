@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,7 +17,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.connector.R;
-import com.example.connector.doyeon.activity.MainPageActivity;
+import com.example.connector.doyeon.activity.mainview.MainPageActivity;
 
 
 // 외식업자 정보 (공급처 마이페이지 > 현황 > 신청/거래 현황 > 외식업자 정보)

@@ -10,40 +10,45 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:maxLines="2"
             android:gravity="center"
             android:background="@drawable/background_list_border"
             android:id="@+id/fromTV"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="@dimen/tableTupleH"/>
         <TextView
+            android:maxLines="2"
             android:gravity="center"
             android:background="@drawable/background_list_border"
             android:id="@+id/nameTV"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="@dimen/tableTupleH"/>
         <TextView
+            android:maxLines="2"
             android:gravity="center"
             android:background="@drawable/background_list_border"
             android:id="@+id/countTV"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="@dimen/tableTupleH"/>
         <TextView
+            android:maxLines="2"
             android:gravity="center"
             android:background="@drawable/background_list_border"
             android:id="@+id/priceTV"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="@dimen/tableTupleH"/>
         <TextView
+            android:maxLines="2"
             android:gravity="center"
             android:background="@drawable/background_list_border"
             android:id="@+id/priceTotalTV"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="@dimen/tableTupleH"/>
 
 
     </LinearLayout>

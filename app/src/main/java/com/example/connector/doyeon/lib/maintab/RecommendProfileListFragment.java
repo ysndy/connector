@@ -17,9 +17,9 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.example.connector.R;
-import com.example.connector.doyeon.activity.IntentName;
-import com.example.connector.doyeon.activity.ProfileListActivity;
-import com.example.connector.doyeon.activity.SupplierProfileActivity;
+import com.example.connector.doyeon.lib.IntentName;
+import com.example.connector.doyeon.activity.mainview.ProfileListActivity;
+import com.example.connector.doyeon.activity.mainview.SupplierProfileActivity;
 import com.example.connector.doyeon.lib.ProfileAdapter;
 import com.example.connector.doyeon.lib.request.SupplierRecListRequest;
 import com.example.connector.doyeon.objects.Profile;
@@ -27,7 +27,6 @@ import com.example.connector.doyeon.objects.Profile;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**

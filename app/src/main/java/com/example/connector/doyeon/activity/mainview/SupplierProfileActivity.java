@@ -1,4 +1,4 @@
-package com.example.connector.doyeon.activity;
+package com.example.connector.doyeon.activity.mainview;
 
 import android.app.AlertDialog;
 import android.content.ClipData;
@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -19,11 +20,21 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
 import com.example.connector.R;
-import com.example.connector.doyeon.activity.transaction.TransactionProductsActivity;
+import com.example.connector.doyeon.lib.IntentName;
+import com.example.connector.doyeon.activity.transaction.act1.TransactionProductsActivity;
 import com.example.connector.doyeon.lib.profiletab.ProfileTabPagerAdapter;
+import com.example.connector.doyeon.lib.request.SupplierProductRequest;
+import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Profile;
-import com.example.connector.sampleData.supplierprofile.SupplierData1;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class SupplierProfileActivity extends AppCompatActivity {
 
@@ -47,9 +58,11 @@ public class SupplierProfileActivity extends AppCompatActivity {
         // profile 데이터를 못받아왔을 때 예외처리
 
         inflating();
-        setProfileSup();
-        setTabAdapter();
-       // setInfo();
+        //setProfileSup();
+        //상품 가져오기
+        setProducts();
+        //setTabAdapter();
+        //setInfo();
         //setProduct();
         //setProductList();
         supplierNameTV.setText(profileSup.getName());
@@ -88,6 +101,7 @@ public class SupplierProfileActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), TransactionProductsActivity.class);
                 intent.putExtra(IntentName.PROFILE_SUP, (Parcelable) profileSup);
                 intent.putExtra(IntentName.PROFILE_RES, (Parcelable) profileRes);
+                intent.putExtra(IntentName.PRODUCTS, profileSup.getProducts());
                 startActivity(intent);
             }
         });
@@ -156,7 +170,7 @@ public class SupplierProfileActivity extends AppCompatActivity {
 
     }
 
-    private void setTabAdapter(){
+    private void setTabAdapter() {
 
         vp = findViewById(R.id.pager);
         ProfileTabPagerAdapter adapter = new ProfileTabPagerAdapter(getSupportFragmentManager(), profileSup);
@@ -164,9 +178,45 @@ public class SupplierProfileActivity extends AppCompatActivity {
 
     }
 
-    private void setProduct() {
+    private void setProducts() {
         // 서버에서 profileSup.getId 로 조회해서 상품들 가져옴
-        profileSup.insertProducts();
+        //profileSup.insertProducts(getApplicationContext());
+        Response.Listener rListener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    ArrayList<Product> products = new ArrayList<>();
+                    JSONArray jResponse = new JSONArray(response);
+                    Log.d("asd", "insertProducts - jResponse.length() = " + jResponse.length());
+                    for (int i = 0; i < jResponse.length(); i++) {
+                        JSONObject jso = jResponse.getJSONObject(i);
+
+                        final Product product = new Product();
+                        product.setCode(jso.getString(IntentName.CODE));
+                        product.setCategory(jso.getString(IntentName.CATEGORY));
+                        product.setFrom(jso.getString(IntentName.FROMTO));
+                        product.setName(jso.getString(IntentName.NAME));
+                        product.setPrice(jso.getInt(IntentName.PRICE));
+                        product.setImageUrl(jso.getString(IntentName.IMG));
+                        products.add(product);
+
+                    }
+                    profileSup.setProducts(products);
+                    setTabAdapter();
+                    //서버에서 받은 reponse JSONObject 객체의 newID 키의 값을 받아와서 확인
+                    //Log.d("asd", "jResponse"+jResponse.);
+
+
+                } catch (Exception e) {
+                    Log.d("asd", "Profile.java - " + e.toString());
+                }
+            }
+        };
+
+        SupplierProductRequest supplierProductRequest = new SupplierProductRequest(profileSup.getId(), rListener); //Request 처리 클래스
+        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+        queue.add(supplierProductRequest);
+        //Log.d("asd", "Profile_products.size = "+products.size());
     }
 
     private void inflating() {

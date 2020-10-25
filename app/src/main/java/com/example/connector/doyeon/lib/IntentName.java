@@ -1,4 +1,4 @@
-package com.example.connector.doyeon.activity;
+package com.example.connector.doyeon.lib;
 
 public interface IntentName {
 
@@ -15,6 +15,7 @@ public interface IntentName {
         final String INFOMATION = "info";
         final String RATING = "rating";
         final String OWNER = "owner";
+        final String TRANSACTIONCOUNT = "transactioncount";
 
     final String CODE = "code";
         final String QUANTITY = "quantity";
@@ -23,10 +24,15 @@ public interface IntentName {
         final String PAY = "pay";
         final String DATE = "date";
 
+        //product
+    final String FROMTO = "fromto";
+    final String IMG = "img";
+
         final String PROFILE = "PRO";
     final String PROFILE_SUP = "SUP";
     final String PROFILE_RES = "RES";
     final String SELECTED_PRODUCTS = "PRO";
+    final String PRODUCTS = "PRODUCTS";
 
     final String RECOMMENDS = "recommends";
     final String CATEGORY = "category";

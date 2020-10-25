@@ -1,8 +1,9 @@
-package com.example.connector.doyeon.activity.transaction;
+package com.example.connector.doyeon.activity.transaction.act2;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -11,7 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.connector.R;
-import com.example.connector.doyeon.activity.IntentName;
+import com.example.connector.doyeon.lib.IntentName;
+import com.example.connector.doyeon.activity.transaction.act3.TosActivity;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Transaction;
 
@@ -39,6 +41,7 @@ public class TransactionSetDateActivity extends Activity {
         Intent intent = getIntent();
         transaction = intent.getParcelableExtra(IntentName.TRANSACTION);
         products = intent.getParcelableArrayListExtra(IntentName.SELECTED_PRODUCTS);
+        Log.d("asd", products.get(0).getSelectedCount()+"개 1번째 상품 act2");
 
         //시작할 때 선택된 일자 적용(오늘)
         Date fDate = new Date(calendarView.getDate());
