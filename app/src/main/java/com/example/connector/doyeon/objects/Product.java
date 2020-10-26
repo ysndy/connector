@@ -47,7 +47,7 @@ public class Product implements Parcelable {
         }
         supplyName = in.readString();
         //selectedCount = 0; 화면이 넘어가면 자동 실행됨
-
+        code = in.readString();
     }
 
     @Override
@@ -70,6 +70,7 @@ public class Product implements Parcelable {
             dest.writeInt(selectedCount);
         }
         dest.writeString(supplyName);
+        dest.writeString(code);
     }
 
     public static final Creator<Product> CREATOR = new Creator<Product>() {

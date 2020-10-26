@@ -1,4 +1,4 @@
-package com.example.connector.doyeon.lib.profiletab;
+package com.example.connector.doyeon.activity.transaction.act4.transaction;
 
 import android.os.Bundle;
 
@@ -8,52 +8,55 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.connector.R;
-import com.example.connector.doyeon.lib.ProductAdapter;
 import com.example.connector.doyeon.objects.Product;
-import com.example.connector.doyeon.objects.Profile;
-import com.example.connector.sampleData.product.ProductData1;
-import com.example.connector.sampleData.product.ProductData2;
+import com.example.connector.doyeon.objects.Transaction;
 
 import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ProductListFragment#newInstance} factory method to
+ * Use the {@link TransactionApplicationForm#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProductListFragment extends Fragment {
+public class TransactionApplicationForm extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private ArrayList<Product> products;
+    private Transaction transaction;
+    private TextView dateTv, resName, supName, supAddress, priceTotal;
     private ListView productListView;
-    private Profile profile;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    public ProductListFragment() {
+    public TransactionApplicationForm() {
         // Required empty public constructor
     }
 
-    public ProductListFragment(Profile profile) {
-        this.profile = profile;
+    public TransactionApplicationForm(ArrayList<Product> selectedProducts, Transaction transaction) {
+
+        this.products = selectedProducts;
+        this.transaction = transaction;
+
     }
+
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ProductListFragment.
+     * @return A new instance of fragment TransactionApplicationForm.
      */
     // TODO: Rename and change types and number of parameters
-    public static ProductListFragment newInstance(String param1, String param2) {
-        ProductListFragment fragment = new ProductListFragment();
+    public static TransactionApplicationForm newInstance(String param1, String param2) {
+        TransactionApplicationForm fragment = new TransactionApplicationForm();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -74,29 +77,25 @@ public class ProductListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_product_list, container, false);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_transaction_application_form, container, false);
+        dateTv = rootView.findViewById(R.id.transactionDateTV);
+        resName = rootView.findViewById(R.id.restaurantNameTV);
+        supName = rootView.findViewById(R.id.supplierNameTV);
+        supAddress = rootView.findViewById(R.id.supplierAddressTV);
+        priceTotal = rootView.findViewById(R.id.priceTotalTv);
         productListView = rootView.findViewById(R.id.productListView);
-        setProductList();
-        return rootView;
-    }
-
-    //TODO: profile.getID()로 서버에서 데이터 불러옴
-    private void setProductList() {
-
-        //products = new ArrayList<>();
-
-//        Product product = new Product();
-//        product.setName(ProductData1.name);
-//        product.setPrice(ProductData1.price);
-//        products.add(product);
-//
-//        Product product2 = new Product();
-//        product2.setName(ProductData2.name);
-//        product2.setPrice(ProductData2.price);
-//        products.add(product2);
-        //profile.insertProducts(getContext());
-        ProductAdapter adapter = new ProductAdapter(profile.getProducts());
+        final View header = getLayoutInflater().inflate(R.layout.listview_header_transactionapp, null, false);
+        productListView.addHeaderView(header);
+        ApplicationProductListAdapter adapter = new ApplicationProductListAdapter(products);
         productListView.setAdapter(adapter);
 
+        //데이터 세팅
+        dateTv.setText(transaction.getDate());
+        resName.setText(transaction.getRestaurant().getName());
+        supName.setText(transaction.getSupplier().getName());
+        supAddress.setText(transaction.getSupplier().getLocation());
+        priceTotal.setText(transaction.getPriceTotal()+"");
+
+        return rootView;
     }
 }

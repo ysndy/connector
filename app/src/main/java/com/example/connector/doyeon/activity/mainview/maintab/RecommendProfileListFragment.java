@@ -1,4 +1,4 @@
-package com.example.connector.doyeon.lib.maintab;
+package com.example.connector.doyeon.activity.mainview.maintab;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,7 +21,7 @@ import com.example.connector.doyeon.lib.IntentName;
 import com.example.connector.doyeon.activity.mainview.ProfileListActivity;
 import com.example.connector.doyeon.activity.mainview.SupplierProfileActivity;
 import com.example.connector.doyeon.lib.ProfileAdapter;
-import com.example.connector.doyeon.lib.request.SupplierNewListRequest;
+import com.example.connector.doyeon.lib.request.SupplierRecListRequest;
 import com.example.connector.doyeon.objects.Profile;
 
 import org.json.JSONArray;
@@ -31,29 +31,27 @@ import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link NewProfileListFragment#newInstance} factory method to
+ * Use the {@link RecommendProfileListFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class NewProfileListFragment extends Fragment {
+public class RecommendProfileListFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    ArrayList<Profile> recommendProfiles;
+    ListView recommendListView;
     Profile myProfile;
-    ArrayList<Profile> newProfiles;
-    ListView newListView;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    public NewProfileListFragment(Profile myProfile) {
+    public RecommendProfileListFragment() {
         // Required empty public constructor
-        this.myProfile = myProfile;
     }
-
-    public NewProfileListFragment() {
-        // Required empty public constructor
+    public RecommendProfileListFragment(Profile myProfile) {
+        this.myProfile = myProfile;
     }
 
     /**
@@ -62,11 +60,11 @@ public class NewProfileListFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment NewProfileListFragment.
+     * @return A new instance of fragment RecommendProfileListFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static NewProfileListFragment newInstance(String param1, String param2) {
-        NewProfileListFragment fragment = new NewProfileListFragment();
+    public static RecommendProfileListFragment newInstance(String param1, String param2) {
+        RecommendProfileListFragment fragment = new RecommendProfileListFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -81,51 +79,52 @@ public class NewProfileListFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_new_profile_list, container, false);
-        newListView = rootView.findViewById(R.id.newListView);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_recommend_profile_list, container, false);
+        recommendListView = rootView.findViewById(R.id.recommendListView);
         View footer = getLayoutInflater().inflate(R.layout.listfooter_main_more, null, false);
-        newListView.addFooterView(footer);
+        recommendListView.addFooterView(footer);
         Button moreBtn = (Button) footer.findViewById(R.id.moreBtn);
         moreBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), ProfileListActivity.class);
                 intent.putExtra(IntentName.PROFILE, myProfile);
-                intent.putExtra(IntentName.CODE, IntentName.CODE_NEW);
+                intent.putExtra(IntentName.CODE, IntentName.CODE_RECO);
                 startActivity(intent);
             }
         });
-        newListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        recommendListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Toast.makeText(newListView.getContext(), "touch", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(newListView.getContext(), SupplierProfileActivity.class);
-                intent.putExtra(IntentName.PROFILE_SUP, newProfiles.get(position));
+                Intent intent = new Intent(recommendListView.getContext(), SupplierProfileActivity.class);
+                intent.putExtra(IntentName.PROFILE_SUP, recommendProfiles.get(position));
                 intent.putExtra(IntentName.PROFILE_RES, myProfile);
                 startActivity(intent);
             }
         });
-        setNewProfiles();
+        setRecommendProfiles();
         return rootView;
     }
 
-    public void setNewProfiles() {
+    public void setRecommendProfiles(){
 
         Response.Listener rListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
-                    newProfiles = new ArrayList<>();
+                    recommendProfiles = new ArrayList<>();
                     JSONArray jResponse = new JSONArray(response);
-
                     int max = 3;
                     if(jResponse.length()<3) max = jResponse.length();
+                    Log.d("asd", myProfile.getMajor()+jResponse.length());
                     for(int i = 0; i < max; i++){
                         JSONObject jso = jResponse.getJSONObject(i);
                         Profile profile = new Profile();
@@ -139,12 +138,11 @@ public class NewProfileListFragment extends Fragment {
                         profile.setRating(jso.getDouble(IntentName.RATING));
                         profile.setCallNumber(jso.getString(IntentName.CALLNUMBER));
                         profile.setEmail(jso.getString(IntentName.EMAIL));
-
-                        newProfiles.add(profile);
+                        recommendProfiles.add(profile);
 
                     }
-                    ProfileAdapter adapter = new ProfileAdapter(newProfiles);
-                    newListView.setAdapter(adapter);
+                    ProfileAdapter adapter = new ProfileAdapter(recommendProfiles);
+                    recommendListView.setAdapter(adapter);
                     //서버에서 받은 reponse JSONObject 객체의 newID 키의 값을 받아와서 확인
                     //Log.d("asd", "jResponse"+jResponse.);
 
@@ -154,35 +152,37 @@ public class NewProfileListFragment extends Fragment {
             }
         };
 
-        SupplierNewListRequest supplierNewListRequest = new SupplierNewListRequest(rListener); //Request 처리 클래스
+        SupplierRecListRequest supplierRecListRequest = new SupplierRecListRequest(myProfile.getMajor(), rListener); //Request 처리 클래스
         RequestQueue queue = Volley.newRequestQueue(getActivity());
-        queue.add(supplierNewListRequest);
+        queue.add(supplierRecListRequest);
+/*
+        Profile profile = new Profile();
+        profile.setId(SupplierData1.id);
+        profile.setName(SupplierData1.name);
+        profile.setMajor(SupplierData1.major);
+        profile.setRating(SupplierData1.rating);
+        profile.setSimpleInfo(SupplierData1.simpleInfo);
+        recommendProfiles.add(profile);
 
-//        Profile profile = new Profile();
-//        profile.setId(SupplierData1.id);
-//        profile.setName(SupplierData1.name);
-//        profile.setMajor(SupplierData1.major);
-//        profile.setRating(SupplierData1.rating);
-//        profile.setSimpleInfo(SupplierData1.simpleInfo);
-//        newProfiles.add(profile);
-//
-//        profile = new Profile();
-//        profile.setId(SupplierData2.id);
-//        profile.setName(SupplierData2.name);
-//        profile.setMajor(SupplierData2.major);
-//        profile.setRating(SupplierData2.rating);
-//        profile.setSimpleInfo(SupplierData2.simpleInfo);
-//        newProfiles.add(profile);
-//
-//        profile = new Profile();
-//        profile.setId(SupplierData3.id);
-//        profile.setName(SupplierData3.name);
-//        profile.setMajor(SupplierData3.major);
-//        profile.setRating(SupplierData3.rating);
-//        profile.setSimpleInfo(SupplierData3.simpleInfo);
-//        newProfiles.add(profile);
+        profile = new Profile();
+        profile.setId(SupplierData2.id);
+        profile.setName(SupplierData2.name);
+        profile.setMajor(SupplierData2.major);
+        profile.setRating(SupplierData2.rating);
+        profile.setSimpleInfo(SupplierData2.simpleInfo);
+        recommendProfiles.add(profile);
 
-//        ProfileAdapter adapter = new ProfileAdapter(newProfiles);
-//        newListView.setAdapter(adapter);
+        profile = new Profile();
+        profile.setId(SupplierData3.id);
+        profile.setName(SupplierData3.name);
+        profile.setMajor(SupplierData3.major);
+        profile.setRating(SupplierData3.rating);
+        profile.setSimpleInfo(SupplierData3.simpleInfo);
+        recommendProfiles.add(profile);
+
+        ProfileAdapter adapter = new ProfileAdapter(recommendProfiles);
+        recommendListView.setAdapter(adapter);
+
+ */
     }
 }

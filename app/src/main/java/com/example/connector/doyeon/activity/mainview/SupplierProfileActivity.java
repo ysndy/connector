@@ -26,7 +26,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.connector.R;
 import com.example.connector.doyeon.lib.IntentName;
 import com.example.connector.doyeon.activity.transaction.act1.TransactionProductsActivity;
-import com.example.connector.doyeon.lib.profiletab.ProfileTabPagerAdapter;
+import com.example.connector.doyeon.activity.mainview.profiletab.ProfileTabPagerAdapter;
 import com.example.connector.doyeon.lib.request.SupplierProductRequest;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Profile;
@@ -102,6 +102,7 @@ public class SupplierProfileActivity extends AppCompatActivity {
                 intent.putExtra(IntentName.PROFILE_SUP, (Parcelable) profileSup);
                 intent.putExtra(IntentName.PROFILE_RES, (Parcelable) profileRes);
                 intent.putExtra(IntentName.PRODUCTS, profileSup.getProducts());
+                Log.d("asd", ""+profileSup.getProducts().get(0).getCode());
                 startActivity(intent);
             }
         });
@@ -187,12 +188,12 @@ public class SupplierProfileActivity extends AppCompatActivity {
                 try {
                     ArrayList<Product> products = new ArrayList<>();
                     JSONArray jResponse = new JSONArray(response);
-                    Log.d("asd", "insertProducts - jResponse.length() = " + jResponse.length());
                     for (int i = 0; i < jResponse.length(); i++) {
                         JSONObject jso = jResponse.getJSONObject(i);
 
                         final Product product = new Product();
                         product.setCode(jso.getString(IntentName.CODE));
+                        Log.d("asd", "productCode: "+product.getCode());
                         product.setCategory(jso.getString(IntentName.CATEGORY));
                         product.setFrom(jso.getString(IntentName.FROMTO));
                         product.setName(jso.getString(IntentName.NAME));

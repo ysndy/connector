@@ -1,11 +1,10 @@
-package com.example.connector.doyeon.lib.transaction;
+package com.example.connector.doyeon.activity.transaction.act4.transaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.connector.R;

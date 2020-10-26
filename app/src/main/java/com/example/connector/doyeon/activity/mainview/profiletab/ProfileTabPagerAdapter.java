@@ -1,4 +1,4 @@
-package com.example.connector.doyeon.lib.profiletab;
+package com.example.connector.doyeon.activity.mainview.profiletab;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -6,8 +6,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.connector.doyeon.lib.maintab.NewProfileListFragment;
-import com.example.connector.doyeon.lib.maintab.RecommendProfileListFragment;
 import com.example.connector.doyeon.objects.Profile;
 
 import java.util.ArrayList;

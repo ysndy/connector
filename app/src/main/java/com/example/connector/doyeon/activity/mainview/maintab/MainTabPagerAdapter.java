@@ -1,4 +1,4 @@
-package com.example.connector.doyeon.lib.maintab;
+package com.example.connector.doyeon.activity.mainview.maintab;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

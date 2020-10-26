@@ -51,8 +51,8 @@ public class TransactionProductsActivity extends Activity {
                     //거래 세팅 시작
                     Transaction transaction = new Transaction();
                     transaction.setSupplier(profile_sup); //해당 거래의 공급자 세팅
-                    transaction.setRestaurant(profile_res); //해당 거래의 외식업자 세팅
                     transaction.setSupplierID(profile_sup.getId());
+                    transaction.setRestaurant(profile_res); //해당 거래의 외식업자 세팅
                     transaction.setRestaurantID(profile_res.getId());
                     transaction.setPriceTotal(Integer.parseInt(priceTotalTv.getText().toString())); // 거래 총 금액
 
@@ -60,10 +60,15 @@ public class TransactionProductsActivity extends Activity {
                     //선택된 상품 담기
                     //selectedProducts = adapter.getSelectedProducts();
                     Log.d("asd", selectedProducts.size()+" "+transaction.getPriceTotal());
+                    Log.d("asd", "Code: "+selectedProducts.get(0).getCode()+" "+transaction.getPriceTotal());
+                    Log.d("asd", "Code: "+products.get(0).getCode()+" "+transaction.getPriceTotal());
+
                     //여기부터
                     Intent intent = new Intent(getApplicationContext(), TransactionSetDateActivity.class);
                     intent.putParcelableArrayListExtra(IntentName.SELECTED_PRODUCTS, selectedProducts);
                     intent.putExtra(IntentName.TRANSACTION, transaction);
+                    //intent.putExtra(IntentName.PROFILE_SUP, profile_sup);
+                    //intent.putExtra(IntentName.PROFILE_RES, profile_res);
                     startActivity(intent);
                 }
             }

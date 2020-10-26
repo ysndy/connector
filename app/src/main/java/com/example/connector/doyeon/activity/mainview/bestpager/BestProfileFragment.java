@@ -1,4 +1,4 @@
-package com.example.connector.doyeon.lib.bestpager;
+package com.example.connector.doyeon.activity.mainview.bestpager;
 
 import android.content.Intent;
 import android.os.Bundle;

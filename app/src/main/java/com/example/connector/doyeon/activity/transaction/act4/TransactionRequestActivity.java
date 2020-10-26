@@ -1,10 +1,5 @@
 package com.example.connector.doyeon.activity.transaction.act4;
 
-import android.app.AlertDialog;
-import android.content.ClipData;
-import android.content.ClipboardManager;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,15 +17,14 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.example.connector.R;
-import com.example.connector.doyeon.activity.mainview.SupplierProfileActivity;
 import com.example.connector.doyeon.lib.IntentName;
 import com.example.connector.doyeon.activity.mainview.MainPageActivity;
 import com.example.connector.doyeon.lib.request.InsertTransactionRequest;
-import com.example.connector.doyeon.lib.transaction.TransactionApplicationForm;
+import com.example.connector.doyeon.activity.transaction.act4.transaction.TransactionApplicationForm;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Transaction;
 
-import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -94,9 +88,9 @@ public class TransactionRequestActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(String response) {
                             try {
-                                JSONArray jResponse = new JSONArray(response);
+                                JSONObject jResponse = new JSONObject(response);
                                 Log.d("asd", "insertProducts - jResponse.length() = " + jResponse.length());
-                                Log.d("asd", "jResponse" + jResponse.toString());
+                                //Log.d("asd", "jResponse" + jResponse.toString());
 
                                 Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -108,8 +102,10 @@ public class TransactionRequestActivity extends AppCompatActivity {
                         }
                     };
                     int i = 0;
-                    InsertTransactionRequest insertTransactionRequest = new InsertTransactionRequest(transaction.getSupplierID(), transaction.getRestaurantID(), transaction.getDate(), "거래예정", transactionProducts.get(i).getCode(), transactionProducts.get(i).getSelectedCount() + "", rListener); //Request 처리 클래스
-                    RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+                    Log.d("asd", "RequestValue "+transaction.getSupplier().getId()+ " "+transaction.getRestaurant().getId()+" "+ transaction.getDate()+" "+ "거래예정"+" "+ transactionProducts.get(i).getCode()+ " "+ transactionProducts.get(i).getSelectedCount() + "");
+                    InsertTransactionRequest insertTransactionRequest = new InsertTransactionRequest(transaction.getSupplier().getId(), transaction.getRestaurant().getId(), transaction.getDate(), "거래예정", transactionProducts.get(i).getCode(), transactionProducts.get(i).getSelectedCount() + "", rListener); //Request 처리 클래스
+                    //InsertTransactionRequest insertTransactionRequest = new InsertTransactionRequest("test", "test", "1999-11-08", "거래예정", "test1", "5", rListener); //Request 처리 클래스
+                    RequestQueue queue = Volley.newRequestQueue(TransactionRequestActivity.this);
                     queue.add(insertTransactionRequest);
 
                     // }
