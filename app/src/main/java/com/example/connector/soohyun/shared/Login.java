@@ -51,7 +51,6 @@ public class Login extends AppCompatActivity {
     public static final int RC_SIGN_IN = 1; //구글 API
     private GoogleSignInClient mGoogleSignInClient; //구글 API
 
-    ImageView login_logoImg;
     EditText ID, Password;
     Button login1Btn, naverLogin, fjoin, fid, shareLoginBtn;
     SignInButton googleBtn;//구글 로그인 버튼
@@ -88,7 +87,6 @@ public class Login extends AppCompatActivity {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso); //구글API
 
-        login_logoImg = findViewById(R.id.login_logoImg);
         ID = findViewById(R.id.ID);
         Password = findViewById(R.id.Password);
         naverLogin = findViewById(R.id.naverLogin);
