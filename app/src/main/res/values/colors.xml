@@ -32,6 +32,9 @@
     <color name="whiteGray">#E7E7E7</color>
     <color name="morewhiteGray">#F6F6F6</color>
 
+    <color name="green">#7BA518</color>
+
+
 <!--  Try -->
     <color name="back_try1">#FAF4C0</color>
     <color name="point_try1">#CC723D</color>
