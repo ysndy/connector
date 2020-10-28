@@ -27,7 +27,7 @@
         <activity android:name=".doyeon.activity.transaction.act1.TransactionProductsActivity"/>
         <activity android:name=".doyeon.activity.mainview.SearchActivity"/>
         <activity android:name=".doyeon.activity.mainview.ProfileListActivity"/>
-        <activity android:name=".doyeon.activity.mainview.TransactionCalendarActivity"/>
+        <activity android:name=".doyeon.activity.mainview.calendar.TransactionCalendarActivity"/>
         <activity android:name=".doyeon.activity.mainview.MainPageActivity" android:launchMode="singleTop"/>
         <activity android:name=".doyeon.activity.transaction.act3.TosActivity"/>
         <activity android:name=".doyeon.activity.transaction.act4.TransactionRequestActivity"/>

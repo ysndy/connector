@@ -14,6 +14,7 @@ package com.example.connector.doyeon.activity.mainview;
         import com.android.volley.RequestQueue;
         import com.android.volley.Response;
         import com.android.volley.toolbox.Volley;
+        import com.example.connector.doyeon.activity.mainview.calendar.TransactionCalendarActivity;
         import com.example.connector.doyeon.lib.IntentName;
         import com.example.connector.R;
         import com.example.connector.doyeon.lib.request.RestaurantInfoRequest;
@@ -91,6 +92,7 @@ public class MainPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), TransactionCalendarActivity.class);
+                intent.putExtra(IntentName.PROFILE_RES, myProfile);
                 startActivity(intent);
             }
         });
@@ -168,6 +170,9 @@ public class MainPageActivity extends AppCompatActivity {
                         Log.d("asd", jResponse.getString(IntentName.NAME));
                         mainTabPagerAdapter = new MainTabPagerAdapter(getSupportFragmentManager(), myProfile);
                         vp.setAdapter(mainTabPagerAdapter);
+
+
+
                     } catch (Exception e) {
                         Log.d("asd", e.toString());
                     }

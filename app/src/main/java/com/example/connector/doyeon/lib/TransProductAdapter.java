@@ -16,8 +16,17 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 
 public class TransProductAdapter extends BaseAdapter {
-// 공급처 프로필에서 보여질 상품 리스트 어댑터
+    public ArrayList<Product> getList() {
+        return list;
+    }
+
+    public void setList(ArrayList<Product> list) {
+        this.list = list;
+    }
+
+    // 공급처 프로필에서 보여질 상품 리스트 어댑터
     private ArrayList<Product> list;
+    private ViewGroup parent;
 
     public TransProductAdapter(ArrayList<Product> list){
         this.list = list;
@@ -27,6 +36,7 @@ public class TransProductAdapter extends BaseAdapter {
     public int getCount() {
         return list.size();
     }
+
 
     @Override
     public Object getItem(int position) {
@@ -43,7 +53,7 @@ public class TransProductAdapter extends BaseAdapter {
         final CustomViewHolder holder;
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_trans_product, null, false);
-
+            this.parent = parent;
             holder = new CustomViewHolder();
             //holder.profileImg = (ImageView) convertView.findViewById(R.id.image);
             holder.productName = (TextView) convertView.findViewById(R.id.productNameTV);

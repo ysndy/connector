@@ -33,6 +33,7 @@ public interface IntentName {
     final String PROFILE_RES = "RES";
     final String SELECTED_PRODUCTS = "PRO";
     final String PRODUCTS = "PRODUCTS";
+    final String PRODUCTCODE = "productCode";
 
     final String RECOMMENDS = "recommends";
     final String CATEGORY = "category";

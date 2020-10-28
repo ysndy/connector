@@ -24,6 +24,16 @@ public class Product implements Parcelable {
     private String supplyName; //공급처이름
     private String transactionState; //거래 상태
 
+    public String getTransactionDate() {
+        return transactionDate;
+    }
+
+    public void setTransactionDate(String transactionDate) {
+        this.transactionDate = transactionDate;
+    }
+
+    private String transactionDate; //거래일
+
     public Product() {
         selectedCount = 0;
     }
