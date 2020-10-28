@@ -26,7 +26,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.EmptyStackException;
 import java.util.HashMap;
+
+class EmptyException extends Exception {
+} //null 예외정의
+
+class CheckException extends Exception {
+} // CheckBox 안했을 시 예외처리
 
 public class Signup extends AppCompatActivity {
 
@@ -37,6 +44,7 @@ public class Signup extends AppCompatActivity {
     ImageButton backBtn;
     Spinner headNum; //휴대폰번호앞
 
+    String texttName, textID, textPW1, textPW2, textEmail; //Text로 받아오기위한 변수
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +54,11 @@ public class Signup extends AppCompatActivity {
         Intent intent = getIntent();
 
         goBtn = findViewById(R.id.goBtn);
-        editName = findViewById(R.id.editName);
-        joinId = findViewById(R.id.joinId);
-        joinPass = findViewById(R.id.joinPass);
-        joinPass2 = findViewById(R.id.joinPass2);
-        joinEmail = findViewById(R.id.joinEmail);
+        editName = findViewById(R.id.editName); //이름입력
+        joinId = findViewById(R.id.joinId); //아이디 입력
+        joinPass = findViewById(R.id.joinPass); //패스워드입력
+        joinPass2 = findViewById(R.id.joinPass2); //패스워드확인입력
+        joinEmail = findViewById(R.id.joinEmail); //이메일 입력
         headNum = findViewById(R.id.headNum);
         bodyNum = findViewById(R.id.bodyNum);
         tailNum = findViewById(R.id.tailNum);
@@ -61,13 +69,11 @@ public class Signup extends AppCompatActivity {
         backBtn = findViewById(R.id.backBtn);
         agreeBtn = findViewById(R.id.agreeBtn);
 
-
         final String[] spinNum = {"010", "016", "017", "018", "019", "011"}; //전화번호 앞자리 배열데이터
 
         ArrayAdapter<String> adapter; //전화번호 앞
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, spinNum);
         headNum.setAdapter(adapter);
-
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,10 +82,11 @@ public class Signup extends AppCompatActivity {
             }
         });
 
-        goBtn.setOnClickListener(new View.OnClickListener() {
+        agreeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                msg_Commit();
+                Intent intent = new Intent(getApplicationContext(), SignupAgree.class);
+                startActivity(intent);
             }
         });
 
@@ -94,11 +101,33 @@ public class Signup extends AppCompatActivity {
             }
         });
 
-        agreeBtn.setOnClickListener(new View.OnClickListener() {
+        goBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SignupAgree.class);
-                startActivity(intent);
+
+                try {
+
+                    texttName = editName.getText().toString(); //이름
+                    textID = joinId.getText().toString(); //아이디
+                    textPW1 = joinPass.getText().toString(); //비밀번호
+                    textPW2 = joinPass2.getText().toString(); //비밀번호확인
+                    textEmail = joinEmail.getText().toString(); //이메일
+
+                    if (texttName.isEmpty() || textID.isEmpty() || textPW1.isEmpty() || textPW2.isEmpty() || textEmail.isEmpty())
+                        throw new EmptyException(); //입력칸 모두 작성 안 했을 경우
+                    else if (checkAgree.isChecked()) {
+                    } else {
+                        throw new CheckException(); // 체크박스 체크 안 했을 경우
+                    }
+                    msg_Commit();
+
+
+              } catch (EmptyException e){
+                    Exception(0);
+               } catch (CheckException ee){
+                  Exception(1);
+               }
+
             }
         });
 
@@ -128,6 +157,14 @@ public class Signup extends AppCompatActivity {
         });
 
         dlg.show();
+    }
+
+    public void Exception(int num) {
+        if (num == 0) { //입력칸 모두 입력 안 했을 경우 예외처리
+            Toast.makeText(this, "모든 정보를 입력해주세요.", Toast.LENGTH_LONG).show();
+        } else if (num == 1) { //체크박스 체크 안 했을 경우 예외처리
+            Toast.makeText(this, "동의여부에 체크하지 않으셨습니다.", Toast.LENGTH_SHORT).show();
+        }
     }
 }
 

@@ -30,6 +30,7 @@
     <Button
         android:id="@+id/accessOK"
         android:text="@string/Go"
+        android:fontFamily="@font/maplestorybold"
         android:textSize="20sp"
         android:textColor="@color/darkbrown"
         android:layout_width="100dp"
