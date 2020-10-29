@@ -1,4 +1,4 @@
-package com.example.connector.jeongeun;
+package com.example.connector.jeongeun.providerpage;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;

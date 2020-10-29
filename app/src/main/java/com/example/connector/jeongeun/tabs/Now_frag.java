@@ -1,4 +1,4 @@
-package com.example.connector.jeongeun;
+package com.example.connector.jeongeun.tabs;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

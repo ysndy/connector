@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".jeongeun.Now_frag">
+    tools:context=".jeongeun.tabs.Now_frag">
 
     <!-- 공급처 현황 (정은)-->
     <LinearLayout
