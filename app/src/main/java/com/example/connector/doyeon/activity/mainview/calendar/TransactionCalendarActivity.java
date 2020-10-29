@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CalendarView;
 import android.widget.ListView;
@@ -19,17 +20,15 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.example.connector.R;
 import com.example.connector.doyeon.activity.mainview.MainPageActivity;
+import com.example.connector.doyeon.activity.mainview.SupplierProfileActivity;
 import com.example.connector.doyeon.activity.mainview.maintab.MainTabPagerAdapter;
 import com.example.connector.doyeon.lib.IntentName;
 import com.example.connector.doyeon.lib.TranState;
-import com.example.connector.doyeon.lib.TransProductAdapter;
 import com.example.connector.doyeon.lib.request.CalendarRequest;
 import com.example.connector.doyeon.lib.request.RestaurantInfoRequest;
+import com.example.connector.doyeon.lib.request.SupplierInfoRequest;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Profile;
-import com.example.connector.sampleData.product.ProductData1;
-import com.example.connector.sampleData.product.ProductData2;
-import com.example.connector.sampleData.transaction.TransactionData2;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -75,6 +74,51 @@ public class TransactionCalendarActivity extends Activity {
         //spinner 값 세팅
         arrayAdapter = new ArrayAdapter<>(getApplication(), android.R.layout.simple_spinner_dropdown_item, TranState.ARRAY);
         stateSpinner.setAdapter(arrayAdapter);
+        productListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            Profile profile_sup;
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Response.Listener rListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+
+                            JSONObject jResponse = new JSONObject(response);
+                            //상품 클릭했을 때 이동
+                            profile_sup = new Profile();
+                            profile_sup.setId(jResponse.getString(IntentName.ID));
+                            profile_sup.setCallNumber(jResponse.getString(IntentName.CALLNUMBER));
+                            Log.d("asd", jResponse.getString(IntentName.CALLNUMBER));
+                            profile_sup.setEmail(jResponse.getString(IntentName.EMAIL));
+                            Log.d("asd", jResponse.getString(IntentName.EMAIL));
+                            profile_sup.setIntroduce(jResponse.getString(IntentName.INFOMATION));
+                            Log.d("asd", jResponse.getString(IntentName.INFOMATION));
+                            profile_sup.setLocation(jResponse.getString(IntentName.LOCATION));
+                            Log.d("asd", jResponse.getString(IntentName.LOCATION));
+                            profile_sup.setRating(Double.parseDouble(jResponse.getString(IntentName.RATING)));
+                            profile_sup.setName(jResponse.getString(IntentName.NAME));
+                            Log.d("asd", jResponse.getString(IntentName.NAME));
+
+                            Intent intent = new Intent(getApplicationContext(), SupplierProfileActivity.class);
+                            intent.putExtra(IntentName.PROFILE_SUP, profile_sup);
+                            intent.putExtra(IntentName.PROFILE_RES, myProfile);
+                            startActivity(intent);
+
+                        } catch (Exception e) {
+                            Log.d("asd", e.toString());
+                        }
+                    }
+                };
+
+                //상품 공급자이름에 ID를 넣어놨음
+                SupplierInfoRequest supplierInfoRequest = new SupplierInfoRequest(products.get(i).getSupplyName(), rListener); //Request 처리 클래스
+                RequestQueue queue = Volley.newRequestQueue(TransactionCalendarActivity.this);
+                queue.add(supplierInfoRequest);
+
+            }
+        });
 
         //캘린더 날짜 변경했을 때
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -180,6 +224,7 @@ public class TransactionCalendarActivity extends Activity {
                         Log.d("asd", "거래 상품 정보 받아오기 성공 " + product.getTransactionDate());
                     }
 
+                    products.addAll(products_all);
                     adapter = new TransProductAdapter(products_all);
                     productListView.setAdapter(adapter);
                     setPriceTotal();
