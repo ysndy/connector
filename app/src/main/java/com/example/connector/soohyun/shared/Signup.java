@@ -165,7 +165,7 @@ public class Signup extends AppCompatActivity {
                         };
 
                         Log.d("asd", "RequestValue1" + editName.getText().toString()+ " " + joinId.getText().toString()+" "+ joinPass.getText().toString()+" "+ joinEmail.getText().toString()+ " "+ callnumber);
-                        InsertSignUp_sup insertSignUp_sup = new InsertSignUp_sup(editName.getText().toString(), joinId.getText().toString(), joinPass.getText().toString(), joinEmail.getText().toString(), callnumber, rListener);
+                        InsertSignUp_sup insertSignUp_sup = new InsertSignUp_sup(editName.getText().toString(), joinId.getText().toString(), joinPass.getText().toString(), joinEmail.getText().toString(), callnumber, storeName.getText().toString(), category.getSelectedItem().toString(), rListener);
                         RequestQueue queue = Volley.newRequestQueue(Signup.this);
                         queue.add(insertSignUp_sup);
 
@@ -187,7 +187,7 @@ public class Signup extends AppCompatActivity {
                             }
                         };
                         Log.d("asd", "RequestValue2 " + editName.getText().toString()+ " " + joinId.getText().toString()+" "+ joinPass.getText().toString()+" "+ joinEmail.getText().toString()+ " "+ callnumber);
-                        InsertSignUp_res insertSignUp_res = new InsertSignUp_res(editName.getText().toString(), joinId.getText().toString(), joinPass.getText().toString(), joinEmail.getText().toString(), callnumber, rListener);
+                        InsertSignUp_res insertSignUp_res = new InsertSignUp_res(editName.getText().toString(), joinId.getText().toString(), joinPass.getText().toString(), joinEmail.getText().toString(), callnumber, storeName.getText().toString(), category.getSelectedItem().toString(),  rListener);
                         RequestQueue queue = Volley.newRequestQueue(Signup.this);
                         queue.add(insertSignUp_res);
 

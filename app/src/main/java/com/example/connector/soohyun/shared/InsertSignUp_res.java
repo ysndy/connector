@@ -15,7 +15,7 @@ public class InsertSignUp_res extends StringRequest {
     final static private  String URL = "http://ysndy123.cafe24.com/SignUp_res.php";
     private Map<String, String> parameters;
 
-    public InsertSignUp_res(String name, String restaurantID, String passWord, String email, String callnumber, Response.Listener<String> listener){
+    public InsertSignUp_res(String name, String restaurantID, String passWord, String email, String callnumber, String storeName, String recommends, Response.Listener<String> listener){
         super(Request.Method.POST, URL, listener, null);
         parameters = new HashMap<>();
         parameters.put("name", name);
@@ -23,6 +23,8 @@ public class InsertSignUp_res extends StringRequest {
         parameters.put("passWord", passWord);
         parameters.put("email", email);
         parameters.put("callNumber", callnumber);
+        parameters.put("storeName", storeName);
+        parameters.put("recommends", recommends);
     }
 
     protected Map<String, String> getParams() throws AuthFailureError {
