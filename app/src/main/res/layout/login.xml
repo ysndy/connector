@@ -13,8 +13,8 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:text="GO!래처"
-            android:textSize="70dp"
+            android:text="GO!래처 \n LOGIN"
+            android:textSize="40dp"
             android:textColor="@color/green"
             android:fontFamily="@font/maplestorybold"
             android:layout_width="match_parent"

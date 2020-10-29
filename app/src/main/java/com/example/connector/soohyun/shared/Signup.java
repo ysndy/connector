@@ -44,12 +44,12 @@ class CheckException extends Exception {
 
 public class Signup extends AppCompatActivity {
 
-    EditText editName, joinId, joinPass, joinPass2, joinEmail, bodyNum, tailNum;
+    EditText editName, joinId, joinPass, joinPass2, joinEmail, bodyNum, tailNum, storeName;
     TextView joinAgree;
     Button goBtn, IDver, emailver, agreeBtn;
     CheckBox checkAgree;
     ImageButton backBtn;
-    Spinner headNum; //휴대폰번호앞
+    Spinner headNum, category; //휴대폰번호앞, 카테고리
     RadioButton sign_sup, sign_rest;
 
     String texttName, textID, textPW1, textPW2, textEmail; //Text로 받아오기위한 변수
@@ -78,13 +78,19 @@ public class Signup extends AppCompatActivity {
         agreeBtn = findViewById(R.id.agreeBtn);
         sign_rest = findViewById(R.id.sign_rest);
         sign_sup = findViewById(R.id.sign_sup);
-
+        storeName = findViewById(R.id.storeName);
+        category = findViewById(R.id.category);
 
         final String[] spinNum = {"010", "016", "017", "018", "019", "011"}; //전화번호 앞자리 배열데이터
 
         ArrayAdapter<String> adapter; //전화번호 앞
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, spinNum);
         headNum.setAdapter(adapter);
+
+        final String[] spinCate = {"과일", "정육/계란", "생선/해산물/건어물", "우유/유제품", "냉동식품/밥/돈까스", "라면/면류", "베이커리/잼", "생수/음료", "가루/밀가루", "장류/조미류/식용유", "위생용품/화장지/물티슈", "일회용품", "기타"};
+        ArrayAdapter<String> adaptercate;
+        adaptercate = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, spinCate);
+        category.setAdapter(adaptercate);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
