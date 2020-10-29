@@ -112,6 +112,7 @@ public class Signup extends AppCompatActivity {
             }
         });
 
+
         goBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,6 +131,15 @@ public class Signup extends AppCompatActivity {
                     } else {
                         throw new CheckException(); // 체크박스 체크 안 했을 경우
                     }
+                    //비밀번호 일치여부
+                    if (!joinPass.getText().toString().equals((joinPass2.getText().toString()))){
+                        Toast.makeText(Signup.this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_LONG).show();
+                        joinPass.setText("");
+                        joinPass2.setText("");
+                        joinPass.requestFocus();
+                        return;
+                    }
+
 
                     if (sign_sup.isChecked()) { //공급업자 회원가입
 
