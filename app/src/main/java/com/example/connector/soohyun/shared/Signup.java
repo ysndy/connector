@@ -117,6 +117,8 @@ public class Signup extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                String callnumber = (headNum.getSelectedItem().toString() + "-" + bodyNum.getText().toString() + "-" + tailNum.getText().toString()); //전화번호
+
                 try {
 
                     texttName = editName.getText().toString(); //이름
@@ -140,36 +142,50 @@ public class Signup extends AppCompatActivity {
                         return;
                     }
 
-
                     if (sign_sup.isChecked()) { //공급업자 회원가입
 
                         //서버연동
-                        Response.Listener rListener = new Response.Listener() {
+                        Response.Listener rListener = new Response.Listener<String>() {
                             @Override
-                            public void onResponse(Object response) {
-                                //  JSONObject jResponse = new JSONObject(response);
-                                Log.d("asd","");
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject jResponse = new JSONObject(response);
+                                }catch (Exception e) {
+
+                                }
+
                             }
                         };
 
                         Log.d("asd", "RequestValue ");
-                        //InsertSignUp_sup insertSignUp_sup = new InsertSignUp_sup("");
+                        InsertSignUp_sup insertSignUp_sup = new InsertSignUp_sup(editName.getText().toString(), joinId.getText().toString(), joinPass.getText().toString(), joinEmail.getText().toString(), callnumber, rListener);
                         RequestQueue queue = Volley.newRequestQueue(Signup.this);
-                        // queue.add(insertSignUp_sup);
+                        queue.add(insertSignUp_sup);
 
                         msg_Commit_sup(); //입력완료 후 공급업자 회원가입 성공 메세지 메소드
                     }
                     else //외식업자 회원가입
+                    //서버연동
+                    {
+                        Response.Listener rListener = new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject jResponse = new JSONObject(response);
+                                }catch (Exception e) {
 
-                        //서버연동
+                                }
 
-                    Log.d("asd", "RequestValue ");
-                    //InsertSignUp_sup insertSignUp_sup = new InsertSignUp_sup("");
-                    RequestQueue queue = Volley.newRequestQueue(Signup.this);
-                    // queue.add(insertSignUp_sup);
+                            }
+                        };
+                        Log.d("asd", "RequestValue ");
+                        InsertSignUp_res insertSignUp_res = new InsertSignUp_res(editName.getText().toString(), joinId.getText().toString(), joinPass.getText().toString(), joinEmail.getText().toString(), callnumber, rListener);
+                        RequestQueue queue = Volley.newRequestQueue(Signup.this);
+                        queue.add(insertSignUp_res);
 
+                        msg_Commit_rest(); //입력완료 후 외식업자 회원가입 성공 메세지 메소드
+                    }
 
-                    msg_Commit_rest(); //입력완료 후 외식업자 회원가입 성공 메세지 메소드
 
               } catch (EmptyException e){
                     Exception(0);

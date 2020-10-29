@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class InsertSignUp_res extends StringRequest {
 
-    final static private  String URL = "http://";
+    final static private  String URL = "http://ysndy123.cafe24.com/SignUp_res.php";
     private Map<String, String> parameters;
 
     public InsertSignUp_res(String name, String restaurantID, String passWord, String email, String callnumber, Response.Listener<String> listener){
