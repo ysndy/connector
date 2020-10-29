@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,12 +20,18 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
 import com.example.connector.MainActivity;
 import com.example.connector.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import org.json.JSONObject;
 
 import java.util.EmptyStackException;
 import java.util.HashMap;
@@ -43,6 +50,7 @@ public class Signup extends AppCompatActivity {
     CheckBox checkAgree;
     ImageButton backBtn;
     Spinner headNum; //휴대폰번호앞
+    RadioButton sign_sup, sign_rest;
 
     String texttName, textID, textPW1, textPW2, textEmail; //Text로 받아오기위한 변수
 
@@ -53,6 +61,7 @@ public class Signup extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+
         goBtn = findViewById(R.id.goBtn);
         editName = findViewById(R.id.editName); //이름입력
         joinId = findViewById(R.id.joinId); //아이디 입력
@@ -62,12 +71,14 @@ public class Signup extends AppCompatActivity {
         headNum = findViewById(R.id.headNum);
         bodyNum = findViewById(R.id.bodyNum);
         tailNum = findViewById(R.id.tailNum);
-        joinAgree = findViewById(R.id.goBtn);
         checkAgree = findViewById(R.id.checkAgree);
         IDver = findViewById(R.id.IDver);
         emailver = findViewById(R.id.email_ver);
         backBtn = findViewById(R.id.backBtn);
         agreeBtn = findViewById(R.id.agreeBtn);
+        sign_rest = findViewById(R.id.sign_rest);
+        sign_sup = findViewById(R.id.sign_sup);
+
 
         final String[] spinNum = {"010", "016", "017", "018", "019", "011"}; //전화번호 앞자리 배열데이터
 
@@ -119,8 +130,36 @@ public class Signup extends AppCompatActivity {
                     } else {
                         throw new CheckException(); // 체크박스 체크 안 했을 경우
                     }
-                    msg_Commit();
 
+                    if (sign_sup.isChecked()) { //공급업자 회원가입
+
+                        //서버연동
+                        Response.Listener rListener = new Response.Listener() {
+                            @Override
+                            public void onResponse(Object response) {
+                                //  JSONObject jResponse = new JSONObject(response);
+                                Log.d("asd","");
+                            }
+                        };
+
+                        Log.d("asd", "RequestValue ");
+                        //InsertSignUp_sup insertSignUp_sup = new InsertSignUp_sup("");
+                        RequestQueue queue = Volley.newRequestQueue(Signup.this);
+                        // queue.add(insertSignUp_sup);
+
+                        msg_Commit_sup(); //입력완료 후 공급업자 회원가입 성공 메세지 메소드
+                    }
+                    else //외식업자 회원가입
+
+                        //서버연동
+
+                    Log.d("asd", "RequestValue ");
+                    //InsertSignUp_sup insertSignUp_sup = new InsertSignUp_sup("");
+                    RequestQueue queue = Volley.newRequestQueue(Signup.this);
+                    // queue.add(insertSignUp_sup);
+
+
+                    msg_Commit_rest(); //입력완료 후 외식업자 회원가입 성공 메세지 메소드
 
               } catch (EmptyException e){
                     Exception(0);
@@ -131,22 +170,38 @@ public class Signup extends AppCompatActivity {
             }
         });
 
-//        emailver.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                AlertDialog.Builder dlg = new AlertDialog.Builder(Signup.this);
-//                dlg.setTitle("이메일 인증");
-//                dlg.setMessage("입력하신 이메일의 메일함을 확인하여 인증해주세요.");
-//                dlg.setPositiveButton("확인",null);
-//                dlg.show();
-//            }
-//        });
+        emailver.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View v) {
+                AlertDialog.Builder dlg = new AlertDialog.Builder(Signup.this);
+                dlg.setTitle("이메일 인증");
+                dlg.setMessage("입력하신 이메일의 메일함을 확인하여 인증해주세요.");
+                dlg.setPositiveButton("확인",null);
+                dlg.show();
+            }
+       });
     }
 
-    private void msg_Commit(){
+    private void msg_Commit_sup(){ //공급자 회원가입 완료 메세지 창
         AlertDialog.Builder dlg = new AlertDialog.Builder(Signup.this);
-        dlg.setTitle("회원가입 완료");
-        dlg.setMessage("축하합니다.\nGo래처 회원이 되었습니다.\n로그인해주세요. ");
+        dlg.setTitle("공급업자 회원가입 완료");
+        dlg.setMessage("축하합니다.\nGo래처 회원이 되었습니다.\n공급업자로 로그인해주세요. ");
+        dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        dlg.show();
+    }
+
+    private void msg_Commit_rest(){ //외식업자 회원가입 완료 메세지 창
+        AlertDialog.Builder dlg = new AlertDialog.Builder(Signup.this);
+        dlg.setTitle("외식업자 회원가입 완료");
+        dlg.setMessage("축하합니다.\nGo래처 회원이 되었습니다.\n외식업자로 로그인해주세요. ");
         dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
