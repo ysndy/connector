@@ -150,14 +150,15 @@ public class Signup extends AppCompatActivity {
                             public void onResponse(String response) {
                                 try {
                                     JSONObject jResponse = new JSONObject(response);
+                                    Log.d("asd", "hellosup");
                                 }catch (Exception e) {
-
+                                    Log.d("asd", "Signup.java - " + e.toString());
                                 }
 
                             }
                         };
 
-                        Log.d("asd", "RequestValue ");
+                        Log.d("asd", "RequestValue1" + editName.getText().toString()+ " " + joinId.getText().toString()+" "+ joinPass.getText().toString()+" "+ joinEmail.getText().toString()+ " "+ callnumber);
                         InsertSignUp_sup insertSignUp_sup = new InsertSignUp_sup(editName.getText().toString(), joinId.getText().toString(), joinPass.getText().toString(), joinEmail.getText().toString(), callnumber, rListener);
                         RequestQueue queue = Volley.newRequestQueue(Signup.this);
                         queue.add(insertSignUp_sup);
@@ -172,13 +173,14 @@ public class Signup extends AppCompatActivity {
                             public void onResponse(String response) {
                                 try {
                                     JSONObject jResponse = new JSONObject(response);
+                                    Log.d("asd", "hello_res");
                                 }catch (Exception e) {
-
+                                    Log.d("asd", "Signup.java - " + e.toString());
                                 }
 
                             }
                         };
-                        Log.d("asd", "RequestValue ");
+                        Log.d("asd", "RequestValue2 " + editName.getText().toString()+ " " + joinId.getText().toString()+" "+ joinPass.getText().toString()+" "+ joinEmail.getText().toString()+ " "+ callnumber);
                         InsertSignUp_res insertSignUp_res = new InsertSignUp_res(editName.getText().toString(), joinId.getText().toString(), joinPass.getText().toString(), joinEmail.getText().toString(), callnumber, rListener);
                         RequestQueue queue = Volley.newRequestQueue(Signup.this);
                         queue.add(insertSignUp_res);

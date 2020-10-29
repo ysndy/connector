@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class InsertSignUp_sup extends StringRequest {
 
-    final static private  String URL = "http://";
+    final static private  String URL = "http://ysndy123.cafe24.com/SignUp_sup.php";
     private Map<String, String> parameters;
 
     public InsertSignUp_sup(String name, String supplierID, String passWord, String email, String callnumber, Response.Listener<String> listener){
@@ -21,10 +21,10 @@ public class InsertSignUp_sup extends StringRequest {
         parameters.put("supplierID", supplierID);
         parameters.put("passWord", passWord);
         parameters.put("email", email);
-        parameters.put("callnumber", callnumber);
+        parameters.put("callNumber", callnumber);
     }
 
-    protected Map<String, String> getParms() throws AuthFailureError {
+    protected Map<String, String> getParams() throws AuthFailureError {
         Log.d("asd", "return-Insert");
         return parameters;
     }

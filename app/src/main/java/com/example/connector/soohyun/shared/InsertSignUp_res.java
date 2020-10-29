@@ -22,10 +22,10 @@ public class InsertSignUp_res extends StringRequest {
         parameters.put("restaurantID", restaurantID);
         parameters.put("passWord", passWord);
         parameters.put("email", email);
-        parameters.put("callnumber", callnumber);
+        parameters.put("callNumber", callnumber);
     }
 
-    protected Map<String, String> getParms() throws AuthFailureError {
+    protected Map<String, String> getParams() throws AuthFailureError {
         Log.d("asd", "return-Insert");
         return parameters;
     }
