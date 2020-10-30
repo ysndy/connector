@@ -1,4 +1,4 @@
-package com.example.connector.jeongeun;
+package com.example.connector.jeongeun.providerpage;
 
 import android.content.Intent;
 import android.os.Bundle;

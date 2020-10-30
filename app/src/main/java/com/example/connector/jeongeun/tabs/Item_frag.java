@@ -1,4 +1,4 @@
-package com.example.connector.jeongeun;
+package com.example.connector.jeongeun.tabs;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,11 +13,11 @@ import androidx.fragment.app.Fragment;
 import com.example.connector.R;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Transaction;
+import com.example.connector.jeongeun.providerpage.Add_item;
 import com.example.connector.sampleData.product.ProductData1;
 
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 // 공급자 마이페이지 상품
 public class Item_frag extends Fragment {

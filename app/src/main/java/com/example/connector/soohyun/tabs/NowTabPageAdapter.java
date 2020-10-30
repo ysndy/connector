@@ -5,9 +5,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.connector.jeongeun.Now_deal;
-import com.example.connector.jeongeun.Now_request;
-
 public class NowTabPageAdapter extends FragmentPagerAdapter {
 
     int num;

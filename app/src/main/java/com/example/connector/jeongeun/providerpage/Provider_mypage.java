@@ -1,4 +1,4 @@
-package com.example.connector.jeongeun;
+package com.example.connector.jeongeun.providerpage;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.connector.R;
+import com.example.connector.jeongeun.tabs.MyPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 // 공급자 마이페이지

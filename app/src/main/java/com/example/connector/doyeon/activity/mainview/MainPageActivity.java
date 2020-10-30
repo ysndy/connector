@@ -21,7 +21,7 @@ package com.example.connector.doyeon.activity.mainview;
         import com.example.connector.doyeon.activity.mainview.bestpager.BestPagerAdapter;
         import com.example.connector.doyeon.activity.mainview.maintab.MainTabPagerAdapter;
         import com.example.connector.doyeon.lib.request.SupplierListRequest;
-        import com.example.connector.jeongeun.Provider_mypage;
+        import com.example.connector.jeongeun.providerpage.Provider_mypage;
         import com.example.connector.doyeon.objects.Profile;
         import com.example.connector.soohyun.restaurantpage.MyPage;
         import com.google.android.material.tabs.TabLayout;

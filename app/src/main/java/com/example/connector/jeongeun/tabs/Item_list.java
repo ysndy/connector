@@ -1,4 +1,4 @@
-package com.example.connector.jeongeun;
+package com.example.connector.jeongeun.tabs;
 
 
 import android.content.Intent;
@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.connector.R;
 import com.example.connector.doyeon.objects.Product;
+import com.example.connector.jeongeun.providerpage.Edit_item;
 
 import java.util.ArrayList;
 

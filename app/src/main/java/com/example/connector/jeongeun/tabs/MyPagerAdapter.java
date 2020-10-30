@@ -1,4 +1,4 @@
-package com.example.connector.jeongeun;
+package com.example.connector.jeongeun.tabs;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

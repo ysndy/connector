@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".jeongeun.Now_request">
+    tools:context=".jeongeun.tabs.MiniPagerAdapter$Now_request">
 
     <!-- 공급자 마이페이지 현황 > 신청 현황 (정은) -->
     <ListView

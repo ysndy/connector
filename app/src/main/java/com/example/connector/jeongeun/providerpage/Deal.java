@@ -1,4 +1,4 @@
-package com.example.connector.jeongeun;
+package com.example.connector.jeongeun.providerpage;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,23 +20,23 @@ import com.example.connector.sampleData.transaction.TransactionData2;
 
 import java.util.ArrayList;
 
-// 신청현황
-public class Request extends AppCompatActivity {
+// 거래 진행중
+public class Deal extends AppCompatActivity {
 
-    TextView pcName, pcDate, pcNumtv;
-    ListView pc_lv;
-    Button requestBtn, acceptBtn, refuseBtn;
+    TextView dpcName, dpcDate, dpcNumtv;
+    ListView dpc_lv;
+    Button refuseBtn;
     ImageButton backBtn, homeBtn;
     ArrayList<Transaction> transactions;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.present_condition);
+        setContentView(R.layout.deal_present_condition);
 
-        pcName = findViewById(R.id.pcName);
-        pcDate = findViewById(R.id.pcDate);
-        pcNumtv = findViewById(R.id.pcNumtv);
-        pc_lv = findViewById(R.id.pc_lv);
+        dpcName = findViewById(R.id.dpcName);
+        dpcDate = findViewById(R.id.dpcDate);
+        dpcNumtv = findViewById(R.id.dpcNumtv);
+        dpc_lv = findViewById(R.id.dpc_lv);
         backBtn = findViewById(R.id.backBtn);
         homeBtn = findViewById(R.id.homeBtn);
 
@@ -52,7 +52,7 @@ public class Request extends AppCompatActivity {
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Request.this, MainPageActivity.class);
+                Intent intent = new Intent(Deal.this, MainPageActivity.class);
                 startActivity(intent);
             }
         });
@@ -83,33 +83,17 @@ public class Request extends AppCompatActivity {
         transaction2.setDate(TransactionData2.date);
         transactions.add(transaction2);
 
-        Request_adapter request_adapter = new Request_adapter(transactions);
-        pc_lv.setAdapter(request_adapter);
+        Deal_adapter deal_adapter = new Deal_adapter(transactions);
+        dpc_lv.setAdapter(deal_adapter);
 
         /*
-        // 수정 요청
-        requestBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 변경하신 내용으로 수정요청 하시겠습니까?
-            }
-        });
-
-        // 수락
-        acceptBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 1) 수정된 정보가 있습니다. 수정 없이 기존 신청 내용으로 수락하시겠습니까?
-                // 2) 신청을 수락하시겠습니까?
-            }
-        });
-
-        // 거절
+        // 철회
         refuseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 신청을 거절하시겠습니까?
+                // 정말로 철회요청을 하시겠습니까?
             }
-        });*/
+        }); */
+
     }
 }
