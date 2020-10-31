@@ -10,7 +10,7 @@
         android:background="@drawable/background_list_border"
         android:gravity="center"
         android:text="원산지"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
     <TextView
@@ -20,7 +20,7 @@
         android:background="@drawable/background_list_border"
         android:gravity="center"
         android:text="품목"
-        android:layout_weight="1"
+        android:layout_weight="3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
     <TextView
@@ -40,7 +40,7 @@
         android:background="@drawable/background_list_border"
         android:gravity="center"
         android:text="단가"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
     <TextView
@@ -50,7 +50,7 @@
         android:background="@drawable/background_list_border"
         android:gravity="center"
         android:text="공급가액"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
 

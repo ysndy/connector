@@ -38,6 +38,9 @@ public interface IntentName {
     final String RECOMMENDS = "recommends";
     final String CATEGORY = "category";
 
+    final String SIDO = "siDo";
+    final String GUGUN = "guGun";
+
     final int CODE_NEW = 11;
     final int CODE_RECO = 12;
     final int CODE_RES = 13;

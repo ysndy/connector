@@ -13,6 +13,8 @@ import android.widget.ListView;
 
 import com.example.connector.R;
 
+import java.util.ArrayList;
+
 public class Filter_region extends Fragment {
 
     ListView siDo, guGun;
@@ -106,6 +108,9 @@ public class Filter_region extends Fragment {
     private void listItem(int x) {
         switch (x) {
             case 0:
+                ArrayList<String> items = new ArrayList<>();
+                arrayAdapter1 = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, items);
+                guGun.setAdapter(arrayAdapter1);
                 break;
             case 1:
                 arrayAdapter1 = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.region_list_seoul));
@@ -176,5 +181,44 @@ public class Filter_region extends Fragment {
                 guGun.setAdapter(arrayAdapter1);
                 break;
         }
+    }
+
+    public String[][] getGugunArray() {
+        String[][] gugunArray = new String[18][];
+        gugunArray[0] = null;
+        gugunArray[1] = getResources().getStringArray(R.array.region_list_seoul);
+        gugunArray[2] = getResources().getStringArray(R.array.region_list_incheon);
+        gugunArray[3] = getResources().getStringArray(R.array.region_list_daegion);
+        gugunArray[4] = getResources().getStringArray(R.array.region_list_daegu);
+        gugunArray[5] = getResources().getStringArray(R.array.region_list_gwangju);
+        gugunArray[6] = getResources().getStringArray(R.array.region_list_busan);
+        gugunArray[7] = getResources().getStringArray(R.array.region_list_ulsan);
+        gugunArray[8] = getResources().getStringArray(R.array.region_list_sejong);
+        gugunArray[9] = getResources().getStringArray(R.array.region_list_gyeonggi);
+        gugunArray[10] = getResources().getStringArray(R.array.region_list_gangwon);
+        gugunArray[11] = getResources().getStringArray(R.array.region_list_chungbuk);
+        gugunArray[12] = getResources().getStringArray(R.array.region_list_chungnam);
+        gugunArray[13] = getResources().getStringArray(R.array.region_list_gyeongbuk);
+        gugunArray[14] = getResources().getStringArray(R.array.region_list_gyeongnam);
+        gugunArray[15] = getResources().getStringArray(R.array.region_list_jeonbuk);
+        gugunArray[16] = getResources().getStringArray(R.array.region_list_jeonnam);
+        gugunArray[17] = getResources().getStringArray(R.array.region_list_jeju);
+        return gugunArray;
+    }
+
+    public ListView getSiDo() {
+        return siDo;
+    }
+
+    public void setSiDo(ListView siDo) {
+        this.siDo = siDo;
+    }
+
+    public ListView getGuGun() {
+        return guGun;
+    }
+
+    public void setGuGun(ListView guGun) {
+        this.guGun = guGun;
     }
 }

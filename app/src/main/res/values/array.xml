@@ -321,6 +321,7 @@
     </string-array>
 
     <string-array name="category_list">
+        <item>전체</item>
         <item>쌀/잡곡/떡</item>
         <item>과일</item>
         <item>정육/계란</item>

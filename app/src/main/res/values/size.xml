@@ -14,5 +14,5 @@
     <dimen name="subtitle">22dp</dimen>
     <dimen name="gobtn">18dp</dimen>
     <dimen name="edittext">18sp</dimen>
-    <dimen name="tableTupleH">40dp</dimen>
+    <dimen name="tableTupleH">50dp</dimen>
 </resources>

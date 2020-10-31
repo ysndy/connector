@@ -87,7 +87,7 @@ public class Signup extends AppCompatActivity {
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, spinNum);
         headNum.setAdapter(adapter);
 
-        final String[] spinCate = {"과일", "정육/계란", "생선/해산물/건어물", "우유/유제품", "냉동식품/밥/돈까스", "라면/면류", "베이커리/잼", "생수/음료", "가루/밀가루", "장류/조미류/식용유", "위생용품/화장지/물티슈", "일회용품", "기타"};
+        final String[] spinCate = {"과일/채소", "정육/계란", "생선/해산물/건어물", "우유/유제품", "냉동식품/밥/돈까스", "라면/면류", "베이커리/잼", "생수/음료", "가루/밀가루", "장류/조미류/식용유", "위생용품/화장지/물티슈", "일회용품", "기타"};
         ArrayAdapter<String> adaptercate;
         adaptercate = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, spinCate);
         category.setAdapter(adaptercate);

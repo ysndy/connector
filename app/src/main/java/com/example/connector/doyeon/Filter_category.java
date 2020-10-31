@@ -16,11 +16,15 @@ import com.example.connector.R;
 // 필터 > 분류 리스트 기능 구현 (분류 데이터 가져오기)
 public class Filter_category extends Fragment {
 
-    ListView category_list;
+    private ListView category_list;
     private ArrayAdapter<String> arrayAdapter;
 
     public Filter_category() {
 
+    }
+
+    public ListView getCategory_list(){
+        return category_list;
     }
 
     @Override
@@ -32,7 +36,7 @@ public class Filter_category extends Fragment {
         arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.category_list));
 
         category_list.setAdapter(arrayAdapter);
-
+        //category_list.getSelectedItem().toString();
         /* 카테고리 클릭
         category_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
