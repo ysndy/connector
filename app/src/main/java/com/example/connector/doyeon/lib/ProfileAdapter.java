@@ -13,7 +13,7 @@ import com.example.connector.doyeon.objects.Profile;
 
 import java.util.ArrayList;
 
-public class ProfileAdapter extends BaseAdapter {
+public class  ProfileAdapter extends BaseAdapter {
 //프로필 어댑터
     private ArrayList<Profile> list;
 
@@ -49,6 +49,7 @@ public class ProfileAdapter extends BaseAdapter {
             holder.rating = (RatingBar) convertView.findViewById(R.id.rating);
             //holder.profileProducts = (TextView) convertView.findViewById(R.id.supplierProducts);
             convertView.setTag(holder);
+
         } else {
             holder = (CustomViewHolder) convertView.getTag();
         }

@@ -45,5 +45,6 @@ public interface IntentName {
     final int CODE_RECO = 12;
     final int CODE_RES = 13;
     final int CODE_SUP = 14;
+    final int CODE_GUEST = 15;
 
 }

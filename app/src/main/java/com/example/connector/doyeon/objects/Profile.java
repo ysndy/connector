@@ -34,62 +34,6 @@ public class Profile implements Parcelable {
     private ArrayList<Product> products;
     private ArrayList<Profile> follows;
 
-    public void insertProducts(Context context) {
-        //서버 DB 상품테이블에서 id로 상품 찾고 products 세팅
-        //임시데이터임
-//        ArrayList<Product> products = new ArrayList<>();
-//        Product product = new Product();
-//        product.setCategory(ProductData1.category);
-//        product.setFrom(ProductData1.from);
-//        product.setName(ProductData1.name);
-//        product.setPrice(ProductData1.price);
-//        product.setImageUrl(ProductData1.imageUrl);
-//        products.add(product);
-//
-//        Product product2 = new Product();
-//        product2.setCategory(ProductData2.category);
-//        product2.setFrom(ProductData2.from);
-//        product2.setName(ProductData2.name);
-//        product2.setPrice(ProductData2.price);
-//        product2.setImageUrl(ProductData2.imageUrl);
-//        products.add(product2);
-//
-//        setProducts(products);
-        products = new ArrayList<>();
-        Response.Listener rListener = new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONArray jResponse = new JSONArray(response);
-                    Log.d("asd", "insertProducts - jResponse.length() = "+jResponse.length());
-                    for (int i = 0; i < jResponse.length(); i++) {
-                        JSONObject jso = jResponse.getJSONObject(i);
-
-                        final Product product = new Product();
-                        product.setCategory(jso.getString(IntentName.CATEGORY));
-                        product.setFrom(jso.getString(IntentName.FROMTO));
-                        product.setName(jso.getString(IntentName.NAME));
-                        product.setPrice(jso.getInt(IntentName.PRICE));
-                        product.setImageUrl(jso.getString(IntentName.IMG));
-                        products.add(product);
-
-                    }
-                    //서버에서 받은 reponse JSONObject 객체의 newID 키의 값을 받아와서 확인
-                    //Log.d("asd", "jResponse"+jResponse.);
-
-                } catch (Exception e) {
-                    Log.d("asd", "Profile.java - "+e.toString());
-                }
-            }
-        };
-
-        SupplierProductRequest supplierProductRequest = new SupplierProductRequest(id, rListener); //Request 처리 클래스
-        RequestQueue queue = Volley.newRequestQueue(context);
-        queue.add(supplierProductRequest);
-        Log.d("asd", "Profile_products.size = "+products.size());
-
-    }
-
     public void insertFollows() {
         //서버 DB 팔로우테이블에서 id로 팔로워 찾고 follows 세팅
     }
@@ -114,6 +58,7 @@ public class Profile implements Parcelable {
             rating = in.readDouble();
         }
         follows = in.createTypedArrayList(Profile.CREATOR);
+        products = in.createTypedArrayList(Product.CREATOR);
         //insertProducts();
     }
 
@@ -248,6 +193,7 @@ public class Profile implements Parcelable {
             dest.writeDouble(rating);
         }
         dest.writeTypedList(follows);
+        dest.writeTypedList(products);
     }
 
     public String getSimpleInfo() {

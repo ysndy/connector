@@ -1,37 +1,39 @@
 package com.example.connector.doyeon.activity.mainview;
 
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.os.Handler;
-        import android.util.Log;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.ImageButton;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
-        import androidx.appcompat.app.AppCompatActivity;
-        import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
-        import com.android.volley.RequestQueue;
-        import com.android.volley.Response;
-        import com.android.volley.toolbox.Volley;
-        import com.example.connector.doyeon.activity.mainview.calendar.TransactionCalendarActivity;
-        import com.example.connector.doyeon.lib.IntentName;
-        import com.example.connector.R;
-        import com.example.connector.doyeon.lib.request.RestaurantInfoRequest;
-        import com.example.connector.doyeon.activity.mainview.bestpager.BestPagerAdapter;
-        import com.example.connector.doyeon.activity.mainview.maintab.MainTabPagerAdapter;
-        import com.example.connector.doyeon.lib.request.SupplierListRequest;
-        import com.example.connector.jeongeun.providerpage.Provider_mypage;
-        import com.example.connector.doyeon.objects.Profile;
-        import com.example.connector.soohyun.restaurantpage.MyPage;
-        import com.google.android.material.tabs.TabLayout;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+import com.example.connector.doyeon.activity.mainview.calendar.TransactionCalendarActivity;
+import com.example.connector.doyeon.lib.IntentName;
+import com.example.connector.R;
+import com.example.connector.doyeon.lib.request.RestaurantInfoRequest;
+import com.example.connector.doyeon.activity.mainview.bestpager.BestPagerAdapter;
+import com.example.connector.doyeon.activity.mainview.maintab.MainTabPagerAdapter;
+import com.example.connector.doyeon.lib.request.SupplierInfoRequest;
+import com.example.connector.doyeon.lib.request.SupplierListRequest;
+import com.example.connector.jeongeun.providerpage.Provider_mypage;
+import com.example.connector.doyeon.objects.Profile;
+import com.example.connector.soohyun.restaurantpage.MyPage;
+import com.google.android.material.tabs.TabLayout;
 
-        import org.json.JSONArray;
-        import org.json.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-        import java.util.ArrayList;
-        import java.util.Timer;
-        import java.util.TimerTask;
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainPageActivity extends AppCompatActivity {
 
@@ -104,33 +106,35 @@ public class MainPageActivity extends AppCompatActivity {
             }
         });
 
+        //마이페이지
         myPageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), Provider_mypage.class);
-                startActivity(intent);
+                if (loginCode == IntentName.CODE_SUP) {
+                    Intent intent = new Intent(getApplicationContext(), Provider_mypage.class);
+                    intent.putExtra(IntentName.PROFILE_SUP, myProfile);
+                    startActivity(intent);
 
-            }
-        });
+                } else if (loginCode == IntentName.CODE_RES) {
 
-        myPageBtn.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MyPage.class);
+                    intent.putExtra(IntentName.PROFILE_RES, myProfile);
+                    startActivity(intent);
 
-                Intent intent = new Intent(getApplicationContext(), MyPage.class);
-                startActivity(intent);
-
-                return false;
+                } else {
+                    Toast.makeText(getApplicationContext(), "로그인이 필요합니다.", Toast.LENGTH_SHORT);
+                }
             }
         });
 
     }
 
-    private void inflating(){
+    private void inflating() {
         myProfile = new Profile();
         //recMoreBtn = findViewById(R.id.recommendMoreBtn);
         //newMoreBtn = findViewById(R.id.newMoreBtn);
+        loginCode = getIntent().getIntExtra(IntentName.PROFILE, 0);
         searchBtn = findViewById(R.id.searchBtn);
         calendarBtn = findViewById(R.id.calendarBtn);
         homeBtn = findViewById(R.id.homeBtn);
@@ -141,37 +145,25 @@ public class MainPageActivity extends AppCompatActivity {
     }
 
     public void setMyProfile() {
-        //외식업자일 경우
         myProfile.setId(getIntent().getStringExtra(IntentName.ID));
-        //ID로 서버 데이터 조회해서 정보 받아옴
-
         final String userID = myProfile.getId();
 
-        //외식업자는 메인화면부터 서버 데이터를 받아야하고 공급업자는 마이페이지에서 서버 데이터 받으면 됨 ㅇㅇ
-        if (getIntent().getIntExtra(IntentName.PROFILE, 0) == IntentName.CODE_RES) {
+        //자신의 프로필 데이터 가져옴
+        if (loginCode == IntentName.CODE_RES) {
             Response.Listener rListener = new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     try {
 
                         JSONObject jResponse = new JSONObject(response);
-                        //서버에서 받은 reponse JSONObject 객체의 newID 키의 값을 받아와서 확인
-                        //Log.d("asd", "jResponse"+jResponse.);
                         myProfile.setCallNumber(jResponse.getString(IntentName.CALLNUMBER));
-                        Log.d("asd", jResponse.getString(IntentName.CALLNUMBER));
                         myProfile.setEmail(jResponse.getString(IntentName.EMAIL));
-                        Log.d("asd", jResponse.getString(IntentName.EMAIL));
                         myProfile.setIntroduce(jResponse.getString(IntentName.INFOMATION));
-                        Log.d("asd", jResponse.getString(IntentName.INFOMATION));
                         myProfile.setLocation(jResponse.getString(IntentName.LOCATION));
-                        Log.d("asd", jResponse.getString(IntentName.LOCATION));
                         myProfile.setMajor(jResponse.getString(IntentName.RECOMMENDS));
                         myProfile.setName(jResponse.getString(IntentName.NAME));
-                        Log.d("asd", jResponse.getString(IntentName.NAME));
-                        mainTabPagerAdapter = new MainTabPagerAdapter(getSupportFragmentManager(), myProfile);
-                        vp.setAdapter(mainTabPagerAdapter);
 
-
+                        setMainTabPagerAdapter();
 
                     } catch (Exception e) {
                         Log.d("asd", e.toString());
@@ -182,17 +174,47 @@ public class MainPageActivity extends AppCompatActivity {
             RestaurantInfoRequest restaurantInfoRequest = new RestaurantInfoRequest(userID, rListener); //Request 처리 클래스
             RequestQueue queue = Volley.newRequestQueue(MainPageActivity.this);
             queue.add(restaurantInfoRequest);
-            //데이터 전송에 사용할 Volley 큐 생성 및 Request 객체 추가
 
-            //myProfile.setCallNumber(RestaurantData1.callNumber);
-            //myProfile.setEmail(RestaurantData1.email);
-            //myProfile.setIntroduce(RestaurantData1.introduce);
-            //myProfile.setLocation(RestaurantData1.location);
-            //myProfile.setMajor(RestaurantData1.major);
-            //myProfile.setName(RestaurantData1.name);
+        } else if (loginCode == IntentName.CODE_SUP) {
+            Response.Listener rListener = new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    try {
+
+                        JSONObject jResponse = new JSONObject(response);
+                        myProfile.setCallNumber(jResponse.getString(IntentName.CALLNUMBER));
+                        myProfile.setEmail(jResponse.getString(IntentName.EMAIL));
+                        myProfile.setIntroduce(jResponse.getString(IntentName.INFOMATION));
+                        myProfile.setLocation(jResponse.getString(IntentName.LOCATION));
+                        myProfile.setMajor(jResponse.getString(IntentName.CATEGORY));
+                        myProfile.setName(jResponse.getString(IntentName.NAME));
+
+                        setMainTabPagerAdapter();
+
+                    } catch (Exception e) {
+                        Log.d("asd", e.toString());
+                    }
+                }
+            };
+
+            SupplierInfoRequest supplierInfoRequest = new SupplierInfoRequest(userID, rListener); //Request 처리 클래스
+            RequestQueue queue = Volley.newRequestQueue(MainPageActivity.this);
+            queue.add(supplierInfoRequest);
+
+        } else {
+
+            myProfile.setCallNumber("");
+            myProfile.setEmail("");
+            myProfile.setIntroduce("");
+            myProfile.setLocation("");
+            myProfile.setMajor("");
+            myProfile.setName("");
+
+            setMainTabPagerAdapter();
 
         }
     }
+
     public void setBestProfiles() {
 
         Response.Listener rListener = new Response.Listener<String>() {
@@ -203,8 +225,8 @@ public class MainPageActivity extends AppCompatActivity {
                     JSONArray jResponse = new JSONArray(response);
 
                     int max = 10;
-                    if(jResponse.length()<10) max = jResponse.length();
-                    for(int i = 0; i < max; i++){
+                    if (jResponse.length() < 10) max = jResponse.length();
+                    for (int i = 0; i < max; i++) {
                         JSONObject jso = jResponse.getJSONObject(i);
                         Profile profile = new Profile();
 
@@ -225,7 +247,7 @@ public class MainPageActivity extends AppCompatActivity {
                     //서버에서 받은 reponse JSONObject 객체의 newID 키의 값을 받아와서 확인
                     //Log.d("asd", "jResponse"+jResponse.);
 
-                }catch(Exception e){
+                } catch (Exception e) {
                     Log.d("asd", e.toString());
                 }
             }
@@ -271,12 +293,16 @@ public class MainPageActivity extends AppCompatActivity {
         super.onPause();
         // 다른 액티비티나 프레그먼트 실행시 타이머 제거
         // 현재 페이지의 번호는 변수에 저장되어 있으니 취소해도 상관없음
-        if(timer != null) {
+        if (timer != null) {
             timer.cancel();
             timer = null;
         }
     }
 
+    private void setMainTabPagerAdapter() {
+        mainTabPagerAdapter = new MainTabPagerAdapter(getSupportFragmentManager(), myProfile);
+        vp.setAdapter(mainTabPagerAdapter);
+    }
 
 
 }
