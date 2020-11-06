@@ -45,7 +45,6 @@ class CheckException extends Exception {
 public class Signup extends AppCompatActivity {
 
     EditText editName, joinId, joinPass, joinPass2, joinEmail, bodyNum, tailNum, storeName;
-    TextView joinAgree;
     Button goBtn, IDver, emailver, agreeBtn;
     CheckBox checkAgree;
     ImageButton backBtn;
