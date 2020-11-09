@@ -11,6 +11,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
@@ -58,7 +59,8 @@ public class Login extends AppCompatActivity {
     String userID, userPW;
     EditText etId;
     RadioGroup loginTypeRG;
-    RadioButton rest_check, supply_check; //로그인 시 외식업자인지 공급업자인지 체크
+    RadioButton rest_check, supply_check, none_check; //로그인 시 외식업자인지 공급업자인지 체크
+    CheckBox autoLogin;
 
     OAuthLogin mOAuthLoginModule;//네이버
     Context mContext; //네이버
@@ -97,6 +99,8 @@ public class Login extends AppCompatActivity {
         loginTypeRG = findViewById(R.id.loginTypeRG);
         rest_check = findViewById(R.id.rest_check);
         supply_check = findViewById(R.id.supply_check);
+        none_check = findViewById(R.id.none_check);
+        autoLogin = findViewById(R.id.autoLogin);
 
         //입력된 아이디로 서버에서 조회한 뒤 PW 맞추어보고 틀리면 빠꾸 맞으면 로그인
 
@@ -254,10 +258,14 @@ public class Login extends AppCompatActivity {
                     RequestQueue queue = Volley.newRequestQueue(Login.this);
                     queue.add(validateRequest);
                     //데이터 전송에 사용할 Volley 큐 생성 및 Request 객체 추가
-                }else {
+                }else if(loginTypeRG.getCheckedRadioButtonId() == R.id.rest_check) {
                     ValidateRequest_Res validateRequest_Res = new ValidateRequest_Res(userID, userPW, rListener); //Request 처리 클래스
                     RequestQueue queue = Volley.newRequestQueue(Login.this);
                     queue.add(validateRequest_Res);
+                }
+                else { //비회원 로그인 추가
+                    Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
+                    startActivity(intent);
                 }
 
             }

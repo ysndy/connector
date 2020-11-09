@@ -104,7 +104,7 @@
 
             <RadioButton
                 android:id="@+id/supply_check"
-                android:layout_width="130dp"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:text="공급업자"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -113,13 +113,20 @@
 
             <RadioButton
                 android:id="@+id/rest_check"
-                android:layout_width="130dp"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="외식업자"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/Id_Pass_Mid" />
+
+            <RadioButton
+                android:id="@+id/none_check"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:text="비회원"/>
+
         </RadioGroup>
     </LinearLayout>
 
@@ -155,31 +162,18 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="10dp"/>
 
-<!--    <LinearLayout
-        android:id="@+id/loginBtn_mid"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/background"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@+id/googleBtn">
-
-        <com.kakao.usermgmt.LoginButton
-            android:id="@+id/kakaoLogin"
-            android:layout_width="180dp"
-            android:layout_height="40dp">
-        </com.kakao.usermgmt.LoginButton>
-
-        <Button
-            android:id="@+id/naverLogin"
-            android:layout_width="180dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="30dp"
-            android:background="@drawable/naverloginbutton"
-            android:textColor="@color/darkbrown"
-            android:textSize="15sp" />
-
-    </LinearLayout>-->
+    <!--자동로그인-->
+    <CheckBox
+        android:id="@+id/autoLogin"
+        android:layout_width="140dp"
+        android:layout_height="30dp"
+        android:text="자동로그인하기"
+        android:textSize="15sp"
+        android:textColor="@color/darkbrown"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/naverLogin"
+        app:layout_constraintBottom_toTopOf="@id/findBtn_Bottom"/>
 
     <LinearLayout
         android:id="@+id/findBtn_Bottom"
