@@ -38,7 +38,8 @@ public class GoraeTab_Adapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return list.get(position);
+        //return list.get(position); 정은수정
+        return position;
     }
 
     @Override
@@ -50,7 +51,7 @@ public class GoraeTab_Adapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         GoraeTab_Adapter.CustomViewHolder holder;
 
-        this.context = parent.getContext();
+        //this.context = parent.getContext(); 정은수정
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.restitem_fraggorae, null, false);
 
@@ -70,7 +71,8 @@ public class GoraeTab_Adapter extends BaseAdapter {
         // holder.goraeItemImg.setText(product.getName());
         holder.goraeItemSupply.setText(profile.getName());
         holder.goraeItemContact.setText(profile.getCallNumber());
-        holder.goraeItemTotal.setText(profile.getProducts().get(0).getPrice().toString());
+       // holder.goraeItemTotal.setText(profile.getProducts().get(0).getPrice().toString()); 정은 수정
+        holder.goraeItemTotal.setText(profile.getLocation()); //총 매출로 바꿔야함 (임시로 해둠)
 
         //별점등록
         holder.giverStar.setOnClickListener(new View.OnClickListener() {

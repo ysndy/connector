@@ -41,7 +41,7 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
 
     // tab의 수 반환
     @Override
-    public int getCount() {
-        return mNumOfTabs;
+    public int getCount(){
+            return mNumOfTabs;
     }
 }

@@ -12,7 +12,9 @@ import android.widget.ListView;
 import com.example.connector.R;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Profile;
+import com.example.connector.jeongeun.tabs.Provider_list;
 import com.example.connector.sampleData.product.ProductData1;
+import com.example.connector.sampleData.restaurantprofile.RestaurantData1;
 import com.example.connector.sampleData.supplierprofile.SupplierData1;
 
 import java.util.ArrayList;
@@ -34,12 +36,16 @@ public class GoraeTab extends Fragment {
 
         goraeItemListView = viewGroup.findViewById(R.id.goraeItemListView);
         setProfileList();
+
         return viewGroup; // viewGroup을 리턴해야댐
     }
 
     private void setProfileList() {
 
+        ArrayList<Profile> profiles; //정은수정
         profiles = new ArrayList<>();
+
+
         ArrayList<Product> products = new ArrayList<>(); // 프로필에서 가지고 있는 상품들
         Product product1 = new Product(); // 상품1
         product1.setPrice(5000); //상품의 가격

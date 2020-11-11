@@ -22,7 +22,7 @@ import java.util.ArrayList;
 //팔로잉 탭
 public class FollowingTab extends Fragment {
 
-    private ArrayList<Profile> profiles;
+    //private ArrayList<Profile> profiles; 수정
     private ListView followingItemListView;
 
     private String mParam1;
@@ -48,12 +48,15 @@ public class FollowingTab extends Fragment {
 
     private void setProfileList() {
 
+        // 수정
+        ArrayList<Profile> profiles;
+        //
         profiles = new ArrayList<>();
 
         Profile profile1 = new Profile();
         profile1.setName(SupplierData4.name);
-        profile1.setMajor(ProductData1.category);
-        profile1.setLocation(SupplierData1.location);
+        profile1.setMajor(SupplierData4.major);
+        profile1.setLocation(SupplierData4.location);
         profiles.add(profile1);
 
         Profile profile2 = new Profile();
