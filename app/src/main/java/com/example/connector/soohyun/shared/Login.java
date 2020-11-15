@@ -53,13 +53,13 @@ public class Login extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient; //구글 API
 
     EditText ID, Password;
-    Button login1Btn, naverLogin, fjoin, fid, shareLoginBtn;
+    Button login1Btn, naverLogin, fjoin, fid, shareLoginBtn, nonMember;
     SignInButton googleBtn;//구글 로그인 버튼
     //volley test
     String userID, userPW;
     EditText etId;
     RadioGroup loginTypeRG;
-    RadioButton rest_check, supply_check, none_check; //로그인 시 외식업자인지 공급업자인지 체크
+    RadioButton rest_check, supply_check; //로그인 시 외식업자인지 공급업자인지 체크
     CheckBox autoLogin;
 
     OAuthLogin mOAuthLoginModule;//네이버
@@ -99,7 +99,7 @@ public class Login extends AppCompatActivity {
         loginTypeRG = findViewById(R.id.loginTypeRG);
         rest_check = findViewById(R.id.rest_check);
         supply_check = findViewById(R.id.supply_check);
-        none_check = findViewById(R.id.none_check);
+        nonMember = findViewById(R.id.nonMember);
         autoLogin = findViewById(R.id.autoLogin);
 
         //입력된 아이디로 서버에서 조회한 뒤 PW 맞추어보고 틀리면 빠꾸 맞으면 로그인
@@ -201,7 +201,7 @@ public class Login extends AppCompatActivity {
         fjoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Signup.class);
+                Intent intent = new Intent(getApplicationContext(), SignupBtn.class);
                 startActivity(intent);
             }
         });
@@ -214,6 +214,13 @@ public class Login extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        /*nonMember.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), )
+            }
+        });*/
 
         //로그인버튼 눌렀을 때 서버에서 아이디 비번 맞는지 확인
         shareLoginBtn.setOnClickListener(new View.OnClickListener() {

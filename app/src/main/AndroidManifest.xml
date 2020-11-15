@@ -48,6 +48,7 @@
         <activity android:name=".soohyun.shared.Find_ID_Pass"/>
         <activity android:name=".soohyun.restaurantpage.RestaurantProfileActivity"/>
         <activity android:name=".soohyun.shared.SignupAgree"/>
+        <activity android:name=".soohyun.shared.SignupBtn"/>
         <activity android:name=".soohyun.Loading"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
     </application>

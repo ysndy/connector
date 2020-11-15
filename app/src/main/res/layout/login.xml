@@ -121,46 +121,83 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/Id_Pass_Mid" />
 
-            <RadioButton
+<!--            <RadioButton
                 android:id="@+id/none_check"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
-                android:text="비회원"/>
+                android:text="비회원"/>-->
 
         </RadioGroup>
     </LinearLayout>
 
-    <!--구글 로그인 버튼-->
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/googleBtn"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_check" />
 
-    <com.kakao.usermgmt.LoginButton
-        android:id="@+id/kakaoLogin"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/googleBtn"
+    <LinearLayout
+        android:id="@+id/sns_login"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/background"
+        android:gravity="center"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="10dp">
-    </com.kakao.usermgmt.LoginButton>
+        app:layout_constraintTop_toBottomOf="@+id/login_check">
+
+        <TextView
+            android:id="@+id/snsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/passionitself"
+            android:textColor="@color/darkbrown"
+            android:textSize="26sp"
+            android:text="SNS 로그인하기"
+            app:layout_constraintTop_toBottomOf="@id/login_check"
+            app:layout_constraintBottom_toTopOf="@id/sns_login"
+            android:layout_marginTop="10dp"/>
+
+        <!--구글 로그인 버튼-->
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/googleBtn"
+            android:layout_width="55dp"
+            android:layout_height="50dp"
+            app:layout_constraintLeft_toRightOf="@id/snsText"
+            app:layout_constraintTop_toBottomOf="@id/login_check"
+            android:layout_marginLeft="10dp"/>
+
+        <com.kakao.usermgmt.LoginButton
+            android:id="@+id/kakaoLogin"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:background="@drawable/kakaoicon"
+            app:layout_constraintLeft_toRightOf="@id/googleBtn"
+            android:layout_marginLeft="30dp"
+            >
+        </com.kakao.usermgmt.LoginButton>
+
+        <Button
+            android:id="@+id/naverLogin"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:background="@drawable/naversimple"
+            android:textColor="@color/darkbrown"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toRightOf="@id/kakaoLogin"
+            android:layout_marginLeft="30dp"/>
+
+    </LinearLayout>
 
     <Button
-        android:id="@+id/naverLogin"
-        android:layout_width="300dp"
-        android:layout_height="55dp"
-        android:background="@drawable/naverloginbutton"
+        android:id="@+id/nonMember"
+        android:text="비회원으로 들어가기"
+        android:textSize="20dp"
         android:textColor="@color/darkbrown"
-        android:textSize="15sp"
-        app:layout_constraintTop_toBottomOf="@id/kakaoLogin"
+        android:fontFamily="@font/tttogether"
+        android:background="@drawable/radius"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="10dp"/>
+        app:layout_constraintBottom_toTopOf="@id/autoLogin"
+        app:layout_constraintTop_toBottomOf="@id/sns_login"/>
+
 
     <!--자동로그인-->
     <CheckBox
@@ -172,7 +209,7 @@
         android:textColor="@color/darkbrown"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/naverLogin"
+        app:layout_constraintTop_toBottomOf="@id/nonMember"
         app:layout_constraintBottom_toTopOf="@id/findBtn_Bottom"/>
 
     <LinearLayout

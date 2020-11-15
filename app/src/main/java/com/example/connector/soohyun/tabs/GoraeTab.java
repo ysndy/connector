@@ -42,9 +42,7 @@ public class GoraeTab extends Fragment {
 
     private void setProfileList() {
 
-        ArrayList<Profile> profiles; //정은수정
         profiles = new ArrayList<>();
-
 
         ArrayList<Product> products = new ArrayList<>(); // 프로필에서 가지고 있는 상품들
         Product product1 = new Product(); // 상품1

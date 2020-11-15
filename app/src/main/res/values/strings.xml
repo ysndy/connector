@@ -78,4 +78,7 @@
     <string name="naver_client_id">uMzH56lm9EaQQmvV4jJm</string>
     <string name="naver_client_secret">c0mTBFEUDa</string>
     <string name="naver_client_name">고래처</string>
+
+    <!--라인-->
+    <string name="line">-----------------------------------</string>
 </resources>
