@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
     <!--tools:context=".Item_frag" -->
 
     <!-- 공급처 마이페이지(상품) (정은)-->
@@ -25,7 +26,7 @@
         android:id="@+id/item_list"
         android:layout_width="match_parent"
         android:layout_height="660dp"
-        android:layout_marginTop="70dp" />
+        android:layout_marginTop="20dp" />
 
 
-</FrameLayout>
+</LinearLayout>

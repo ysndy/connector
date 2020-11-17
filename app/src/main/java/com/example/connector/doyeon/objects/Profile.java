@@ -1,18 +1,9 @@
 package com.example.connector.doyeon.objects;
 
-import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.Volley;
-import com.example.connector.doyeon.lib.IntentName;
-import com.example.connector.doyeon.lib.request.SupplierProductRequest;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
@@ -20,6 +11,7 @@ public class Profile implements Parcelable {
 
     //1. 이름 2. 지역 3. 소개 4. 연락처 5. 이메일 6. 프로필사진 7. 주류 8. 상품 9. 팔로워 + 아이디, 비밀번호
 
+    private int loginCode;
     private String name;
     private String id;
     private String pw;
@@ -42,7 +34,9 @@ public class Profile implements Parcelable {
 
     }
 
-    public Profile(Parcel in) {
+    public Profile(@NotNull Parcel in) {
+
+        loginCode = in.readInt();
         name = in.readString();
         id = in.readString();
         pw = in.readString();
@@ -177,6 +171,8 @@ public class Profile implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+
+        dest.writeInt(loginCode);
         dest.writeString(name);
         dest.writeString(id);
         dest.writeString(pw);
@@ -202,5 +198,13 @@ public class Profile implements Parcelable {
 
     public void setSimpleInfo(String simpleInfo) {
         this.simpleInfo = simpleInfo;
+    }
+
+    public Integer getLoginCode() {
+        return loginCode;
+    }
+
+    public void setLoginCode(Integer loginCode) {
+        this.loginCode = loginCode;
     }
 }

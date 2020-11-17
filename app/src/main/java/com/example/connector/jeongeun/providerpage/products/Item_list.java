@@ -1,4 +1,4 @@
-package com.example.connector.jeongeun.tabs;
+package com.example.connector.jeongeun.providerpage.products;
 
 
 import android.content.Intent;
@@ -11,8 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.connector.R;
+import com.example.connector.doyeon.dictionary.IntentName;
 import com.example.connector.doyeon.objects.Product;
-import com.example.connector.jeongeun.providerpage.Edit_item;
 
 import java.util.ArrayList;
 
@@ -68,6 +68,7 @@ public class Item_list extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(parent.getContext(), Edit_item.class);
+                intent.putExtra(IntentName.PRODUCTS, list.get(position));
                 parent.getContext().startActivity(intent);
             }
         });

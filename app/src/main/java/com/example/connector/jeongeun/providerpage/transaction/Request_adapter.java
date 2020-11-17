@@ -1,4 +1,4 @@
-package com.example.connector.jeongeun.providerpage;
+package com.example.connector.jeongeun.providerpage.transaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,7 +61,7 @@ public class Request_adapter extends BaseAdapter {
         Transaction transaction = list.get(position);
 
         //holder.reqItemImg.setImageURI(Uri.parse(sp.getImageUrl()));
-        holder.reqItemName.setText(transaction.getProducts().get(0).getName());
+        //holder.reqItemName.setText(transaction.getProducts().get(0).getName());
         holder.reqItemAE.setText(transaction.getCount().toString());
         holder.reqItemPrice.setText(transaction.getPriceTotal().toString());
         holder.reqItemDate.setText(transaction.getDate());

@@ -16,12 +16,22 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
 import com.example.connector.R;
+import com.example.connector.doyeon.dictionary.IntentName;
+import com.example.connector.doyeon.lib.request.Trans_Pre_Res_Request;
+import com.example.connector.doyeon.objects.Profile;
 import com.example.connector.doyeon.objects.Transaction;
+import com.example.connector.doyeon.util.Util;
 import com.example.connector.jeongeun.providerpage.Deal;
-import com.example.connector.jeongeun.providerpage.Request;
+import com.example.connector.jeongeun.providerpage.transaction.Request;
 import com.example.connector.sampleData.transaction.TransactionData1;
 import com.example.connector.sampleData.transaction.TransactionData2;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -29,10 +39,12 @@ import java.util.ArrayList;
 public class MiniPagerAdapter extends FragmentPagerAdapter {
 
     int num;
+    Profile myProfile;
 
-    public MiniPagerAdapter(@NonNull FragmentManager fm, int numTab) {
+    public MiniPagerAdapter(@NonNull FragmentManager fm, int numTab, Profile myProfile) {
         super(fm);
         this.num = numTab;
+        this.myProfile = myProfile;
     }
 
     @NonNull
@@ -40,10 +52,10 @@ public class MiniPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                Now_request tab1 = new Now_request();
+                Now_request tab1 = new Now_request(myProfile);
                 return tab1;
             case 1:
-                Now_deal tab2 = new Now_deal();
+                Now_deal tab2 = new Now_deal(myProfile);
                 return tab2;
             default:
                 return null;
@@ -62,7 +74,11 @@ public class MiniPagerAdapter extends FragmentPagerAdapter {
         Button pr_now_dealBtn;
         ArrayList<Transaction> transactions;
         TextView pr_now_dealName, pr_now_dealDate;
+        Profile myProfile;
 
+        public Now_deal(Profile myProfile){
+            this.myProfile = myProfile;
+        }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -77,14 +93,14 @@ public class MiniPagerAdapter extends FragmentPagerAdapter {
             transactions = new ArrayList<>();
             Transaction transaction1 = new Transaction();
 
-            transaction1.setSupplyName(TransactionData1.supply);
+            transaction1.setProviderName(TransactionData1.supply);
             transaction1.setDate(TransactionData1.date);
 
             transactions.add(transaction1);
 
             Transaction transaction2 = new Transaction();
 
-            transaction2.setSupplyName(TransactionData2.supply);
+            transaction2.setProviderName(TransactionData2.supply);
             transaction2.setDate(TransactionData2.date);
 
             transactions.add(transaction2);
@@ -140,7 +156,7 @@ public class MiniPagerAdapter extends FragmentPagerAdapter {
             Transaction transaction = list.get(position);
 
             //holder.proItemImg.setImageURI(Uri.parse(sp.getImageUrl()));
-            holder.dealName.setText(transaction.getSupplyName());
+            holder.dealName.setText(transaction.getProviderName());
             holder.dealDate.setText(transaction.getDate());
 
             // 거래진행중
@@ -173,9 +189,11 @@ public class MiniPagerAdapter extends FragmentPagerAdapter {
         TextView pr_now_requestName, pr_now_requestDate;
         ListView now_request_list;
         ArrayList<Transaction> transactions;
+        Profile myProfile;
 
-        public Now_request() {
 
+        public Now_request(Profile myProfile) {
+            this.myProfile = myProfile;
         }
 
         @Override
@@ -189,24 +207,38 @@ public class MiniPagerAdapter extends FragmentPagerAdapter {
 
             // 임시 데이터
 
-            ArrayList<Transaction> transactions;
-            transactions = new ArrayList<>();
-            Transaction transaction1 = new Transaction();
+            Response.Listener rListener = new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    try {
+                        transactions = new ArrayList<>();
+                        Util.printingLog(Now_request.this.getClass().getSimpleName(), response);
+                        Util.printingLog(Now_request.this.getClass().getSimpleName(), myProfile.getId());
 
-            transaction1.setSupplyName(TransactionData1.supply);
-            transaction1.setDate(TransactionData1.date);
+                        JSONArray jResponse = new JSONArray(response);
+                        int max = jResponse.length();
+                        for (int i = 0; i < max; i++) {
+                            JSONObject jso = jResponse.getJSONObject(i);
+                            Transaction transaction = new Transaction();
+                            transaction.setProviderName(jso.getString(IntentName.NAME));
+                            transaction.setDate(jso.getString(IntentName.DATE));
+                            transaction.setProviderID(jso.getString("restaurantID"));
+                            transactions.add(transaction);
 
-            transactions.add(transaction1);
+                        }
 
-            Transaction transaction2 = new Transaction();
+                        Now_request_list now_request_adapter = new Now_request_list(transactions);
+                        now_request_list.setAdapter(now_request_adapter);
 
-            transaction2.setSupplyName(TransactionData2.supply);
-            transaction2.setDate(TransactionData2.date);
-
-            transactions.add(transaction2);
-
-            Now_request_list now_request_adapter = new Now_request_list(transactions);
-            now_request_list.setAdapter(now_request_adapter);
+                    } catch (Exception e) {
+                        Util.printingLog(Now_request.this.getClass().getSimpleName(), e.toString());
+                        //Log.d("asd", "Request.java - " + e.toString());
+                    }
+                }
+            };
+            Trans_Pre_Res_Request transPreResRequest = new Trans_Pre_Res_Request(myProfile.getId(), rListener); //Request 처리 클래스
+            RequestQueue queue = Volley.newRequestQueue(getActivity());
+            queue.add(transPreResRequest);
 
             return v;
         }
@@ -256,7 +288,7 @@ public class MiniPagerAdapter extends FragmentPagerAdapter {
             Transaction transaction = list.get(position);
 
             //holder.proItemImg.setImageURI(Uri.parse(sp.getImageUrl()));
-            holder.resName.setText(transaction.getSupplyName());
+            holder.resName.setText(transaction.getProviderName());
             holder.requestDate.setText(transaction.getDate());
 
             //

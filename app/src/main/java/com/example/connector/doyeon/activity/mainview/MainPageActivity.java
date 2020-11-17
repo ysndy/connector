@@ -16,7 +16,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.example.connector.doyeon.activity.mainview.calendar.TransactionCalendarActivity;
-import com.example.connector.doyeon.lib.IntentName;
+import com.example.connector.doyeon.activity.mainview.search.SearchActivity;
+import com.example.connector.doyeon.dictionary.IntentName;
 import com.example.connector.R;
 import com.example.connector.doyeon.lib.request.RestaurantInfoRequest;
 import com.example.connector.doyeon.activity.mainview.bestpager.BestPagerAdapter;
@@ -82,10 +83,12 @@ public class MainPageActivity extends AppCompatActivity {
         setMyProfile();
         setBestProfiles(); // BEST 리스트
 
+        //검색
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                intent.putExtra(IntentName.PROFILE, myProfile);
                 startActivity(intent);
             }
         });
@@ -113,13 +116,13 @@ public class MainPageActivity extends AppCompatActivity {
 
                 if (loginCode == IntentName.CODE_SUP) {
                     Intent intent = new Intent(getApplicationContext(), Provider_mypage.class);
-                    intent.putExtra(IntentName.PROFILE_SUP, myProfile);
+                    intent.putExtra(IntentName.PROFILE, myProfile);
                     startActivity(intent);
 
                 } else if (loginCode == IntentName.CODE_RES) {
 
-                    Intent intent = new Intent(getApplicationContext(), MyPage.class);
-                    intent.putExtra(IntentName.PROFILE_RES, myProfile);
+                    Intent intent = new Intent(getApplicationContext(), Provider_mypage.class);
+                    intent.putExtra(IntentName.PROFILE, myProfile);
                     startActivity(intent);
 
                 } else {
@@ -141,6 +144,8 @@ public class MainPageActivity extends AppCompatActivity {
         myPageBtn = findViewById(R.id.myPageBtn);
         bestVp = findViewById(R.id.bestPager);
         vp = findViewById(R.id.pager);
+
+        myProfile.setLoginCode(loginCode);
 
     }
 

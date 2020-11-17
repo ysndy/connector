@@ -22,6 +22,15 @@ public class InsertProductRequest extends StringRequest {
         parameters.put("price", price);
         parameters.put("name", name);
         parameters.put("fromto", fromto);
+
+        Log.d("asd", "------InsertProduct------");
+        Log.d("asd", "code: "+code);
+        Log.d("asd", "supplier: "+supplier);
+        Log.d("asd", "price: "+price);
+        Log.d("asd", "name: "+name);
+        Log.d("asd", "fromto: "+fromto);
+        Log.d("asd", "-----/InsertProduct------");
+
         //서버에서 userID 키로 찾을 수 있도록 해쉬맵으로 데이터 추가
     }
 

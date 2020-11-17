@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.connector.doyeon.objects.Profile;
 import com.example.connector.soohyun.tabs.FollowingTab;
 import com.example.connector.soohyun.tabs.GoraeTab;
 import com.example.connector.soohyun.tabs.LikeTab;

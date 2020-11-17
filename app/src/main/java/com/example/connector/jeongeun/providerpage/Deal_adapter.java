@@ -59,7 +59,7 @@ public class Deal_adapter extends BaseAdapter {
         Transaction transaction = list.get(position);
 
         //holder.dealItemImg.setImageURI(Uri.parse(sp.getImageUrl()));
-        holder.dealItemName.setText(transaction.getProducts().get(0).getName());
+        //holder.dealItemName.setText(transaction.getProducts().get(0).getName());
         holder.dealItemAE.setText(transaction.getCount().toString());
         holder.dealItemPrice.setText(transaction.getPriceTotal().toString());
         holder.dealItemDate.setText(transaction.getDate());

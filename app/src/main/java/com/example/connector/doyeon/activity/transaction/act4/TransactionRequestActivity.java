@@ -17,15 +17,12 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.example.connector.R;
-import com.example.connector.doyeon.lib.IntentName;
+import com.example.connector.doyeon.dictionary.IntentName;
 import com.example.connector.doyeon.activity.mainview.MainPageActivity;
-import com.example.connector.doyeon.lib.request.InsertTransactionRequest;
 import com.example.connector.doyeon.activity.transaction.act4.transaction.TransactionApplicationForm;
 import com.example.connector.doyeon.lib.request.InsertTransactionsRequest;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Transaction;
-
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 

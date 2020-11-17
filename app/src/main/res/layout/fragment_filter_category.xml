@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".doyeon.Filter_category">
+    tools:context=".doyeon.activity.mainview.search.Filter_category">
 
     <!-- 필터 > 분류 리스트(정은) -->
     <ListView

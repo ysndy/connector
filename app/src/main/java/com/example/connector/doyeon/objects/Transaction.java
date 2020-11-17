@@ -13,8 +13,9 @@ public class Transaction implements Parcelable { // 거래 내용 저장
     private Profile supplier; //공급처
     private Integer count;
     private Integer priceTotal; //총금액
-    private ArrayList<Product> products; //선택상품
-    private String supplyName; //공급처이름
+    private Product product; //선택상품
+    private String providerName; //공급처이름
+    private String providerID; //공급처 아이디
 
     public String getSupplierID() {
         return supplierID;
@@ -45,6 +46,7 @@ public class Transaction implements Parcelable { // 거래 내용 저장
         date = in.readString();
         restaurant = in.readParcelable(Profile.class.getClassLoader());
         supplier = in.readParcelable(Profile.class.getClassLoader());
+        product = in.readParcelable(Product.class.getClassLoader());
         if (in.readByte() == 0) {
             count = null;
         } else {
@@ -55,7 +57,6 @@ public class Transaction implements Parcelable { // 거래 내용 저장
         } else {
             priceTotal = in.readInt();
         }
-        products = in.createTypedArrayList(Product.CREATOR);
     }
 
     public static final Creator<Transaction> CREATOR = new Creator<Transaction>() {
@@ -94,13 +95,6 @@ public class Transaction implements Parcelable { // 거래 내용 저장
         this.supplier = supplier;
     }
 
-    public ArrayList<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(ArrayList<Product> products) {
-        this.products = products;
-    }
 
     public Integer getCount() {
         return count;
@@ -128,6 +122,7 @@ public class Transaction implements Parcelable { // 거래 내용 저장
         dest.writeString(date);
         dest.writeParcelable(restaurant, flags);
         dest.writeParcelable(supplier, flags);
+        dest.writeParcelable(product, flags);
         if (count == null) {
             dest.writeByte((byte) 0);
         } else {
@@ -140,13 +135,20 @@ public class Transaction implements Parcelable { // 거래 내용 저장
             dest.writeByte((byte) 1);
             dest.writeInt(priceTotal);
         }
-        dest.writeTypedList(products);
     }
-    public String getSupplyName() {
-        return supplyName;
+    public String getProviderName() {
+        return providerName;
     }
 
-    public void setSupplyName(String supplyName) {
-        this.supplyName = supplyName;
+    public void setProviderName(String providerName) {
+        this.providerName = providerName;
+    }
+
+    public String getProviderID() {
+        return providerID;
+    }
+
+    public void setProviderID(String providerID) {
+        this.providerID = providerID;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.connector.jeongeun.tabs;
+package com.example.connector.jeongeun.providerpage.follow;
 
 import android.view.LayoutInflater;
 import android.view.View;

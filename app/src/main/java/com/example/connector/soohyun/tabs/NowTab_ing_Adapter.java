@@ -13,7 +13,6 @@ import android.widget.TextView;
 import com.example.connector.R;
 import com.example.connector.doyeon.objects.Transaction;
 import com.example.connector.soohyun.restaurantpage.NowRequest;
-import com.example.connector.soohyun.shared.Login;
 
 import java.util.ArrayList;
 
@@ -63,7 +62,7 @@ public class NowTab_ing_Adapter extends BaseAdapter {
         Transaction transaction = list.get(position);
 
         //holder.now2ItemImg
-        holder.now2ItemSupply.setText(transaction.getSupplyName()); //공급처명 표시
+        holder.now2ItemSupply.setText(transaction.getProviderName()); //공급처명 표시
         holder.now2ItemReqDate.setText(transaction.getDate()); // 신청일 표시
 
 

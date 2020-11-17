@@ -3,7 +3,7 @@ package com.example.connector.doyeon.lib.request;
 import android.util.Log;
 
 import com.android.volley.Response;
-import com.example.connector.doyeon.lib.IntentName;
+import com.example.connector.doyeon.dictionary.IntentName;
 import com.example.connector.doyeon.objects.Product;
 
 import org.json.JSONArray;

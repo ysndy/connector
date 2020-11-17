@@ -19,13 +19,10 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.example.connector.R;
-import com.example.connector.doyeon.activity.mainview.MainPageActivity;
 import com.example.connector.doyeon.activity.mainview.SupplierProfileActivity;
-import com.example.connector.doyeon.activity.mainview.maintab.MainTabPagerAdapter;
-import com.example.connector.doyeon.lib.IntentName;
-import com.example.connector.doyeon.lib.TranState;
+import com.example.connector.doyeon.dictionary.IntentName;
+import com.example.connector.doyeon.dictionary.TranState;
 import com.example.connector.doyeon.lib.request.CalendarRequest;
-import com.example.connector.doyeon.lib.request.RestaurantInfoRequest;
 import com.example.connector.doyeon.lib.request.SupplierInfoRequest;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Profile;
@@ -141,7 +138,9 @@ public class TransactionCalendarActivity extends Activity {
                 // 날짜 바뀔 때마다 서버에서 가져오면 속도가 느리니까 처음에 전체 다 가져와서 처리
 
                 products.clear();
-                String date = year + "-" + month + "-" + dayOfMonth;
+                String day = dayOfMonth+"";
+                if (dayOfMonth<10) day="0"+dayOfMonth;
+                String date = year + "-" + month + "-" + day;
                 priceTotal = 0;
                 for (int i = 0; i < products_all.size(); i++) {
                     Product product = products_all.get(i);
@@ -156,7 +155,7 @@ public class TransactionCalendarActivity extends Activity {
                 adapter.notifyDataSetChanged();
                 //총 금액 출력
                 setPriceTotal();
-                Log.d("asd", "TransactionCalendarActivity.change()");
+                Log.d("asd", "TransactionCalendarActivity.change() - "+products.size()+" "+date);
 
             }
         });
@@ -220,12 +219,12 @@ public class TransactionCalendarActivity extends Activity {
                         product.setCode(jso.getString(IntentName.PRODUCTCODE));
                         products_all.add(product);
 
-                        priceTotal+=product.getPrice();
+                        //priceTotal+=product.getPrice();
                         Log.d("asd", "거래 상품 정보 받아오기 성공 " + product.getTransactionDate());
                     }
 
-                    products.addAll(products_all);
-                    adapter = new TransProductAdapter(products_all);
+                    //products.addAll(products_all);
+                    adapter = new TransProductAdapter(products);
                     productListView.setAdapter(adapter);
                     setPriceTotal();
 

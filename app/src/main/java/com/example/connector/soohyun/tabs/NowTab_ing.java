@@ -67,7 +67,7 @@ public class NowTab_ing extends Fragment {
         transactions = new ArrayList<>();
 
         Transaction transaction1 = new Transaction();
-        transaction1.setSupplyName(SupplierData7.name);
+        transaction1.setProviderName(SupplierData7.name);
         transaction1.setDate(TransactionData1.date);
         transactions.add(transaction1);
 

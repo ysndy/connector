@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -17,9 +16,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.example.connector.R;
-import com.example.connector.doyeon.lib.IntentName;
+import com.example.connector.doyeon.dictionary.IntentName;
 import com.example.connector.doyeon.activity.mainview.ProfileListActivity;
-import com.example.connector.doyeon.activity.mainview.SupplierProfileActivity;
 import com.example.connector.doyeon.lib.ProfileAdapter;
 import com.example.connector.doyeon.lib.request.SupplierNewListRequest;
 import com.example.connector.doyeon.objects.Profile;
@@ -101,16 +99,16 @@ public class NewProfileListFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        newListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Toast.makeText(newListView.getContext(), "touch", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(newListView.getContext(), SupplierProfileActivity.class);
-                intent.putExtra(IntentName.PROFILE_SUP, newProfiles.get(position));
-                intent.putExtra(IntentName.PROFILE_RES, myProfile);
-                startActivity(intent);
-            }
-        });
+//        newListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                //Toast.makeText(newListView.getContext(), "touch", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(newListView.getContext(), SupplierProfileActivity.class);
+//                intent.putExtra(IntentName.PROFILE_SUP, newProfiles.get(position));
+//                intent.putExtra(IntentName.PROFILE_RES, myProfile);
+//                startActivity(intent);
+//            }
+//        });
         setNewProfiles();
         return rootView;
     }
@@ -143,7 +141,7 @@ public class NewProfileListFragment extends Fragment {
                         newProfiles.add(profile);
 
                     }
-                    ProfileAdapter adapter = new ProfileAdapter(newProfiles);
+                    ProfileAdapter adapter = new ProfileAdapter(newProfiles, myProfile, getContext());
                     newListView.setAdapter(adapter);
                     //서버에서 받은 reponse JSONObject 객체의 newID 키의 값을 받아와서 확인
                     //Log.d("asd", "jResponse"+jResponse.);

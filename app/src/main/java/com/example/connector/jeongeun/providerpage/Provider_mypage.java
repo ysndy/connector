@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.connector.R;
-import com.example.connector.doyeon.lib.IntentName;
+import com.example.connector.doyeon.dictionary.IntentName;
 import com.example.connector.doyeon.objects.Profile;
 import com.example.connector.jeongeun.tabs.MyPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
@@ -22,7 +22,7 @@ public class Provider_mypage extends AppCompatActivity {
     ImageButton backBtn, homeBtn; // 뒤로가기, 홈
     Button editBtn; // 정보 수정
     TabLayout tabs;
-    Profile profile_sup;
+    Profile myProfile;
     TextView nameTV;
 
     @Override
@@ -30,7 +30,7 @@ public class Provider_mypage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.provider_mypage);
         Intent intent = getIntent();
-        profile_sup = intent.getParcelableExtra(IntentName.PROFILE_SUP);
+        myProfile = intent.getParcelableExtra(IntentName.PROFILE);
 
         editBtn = findViewById(R.id.editBtn);
         backBtn = findViewById(R.id.backBtn);
@@ -58,12 +58,12 @@ public class Provider_mypage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Provider_mypage.this, Edit_info.class);
-                intent.putExtra(IntentName.PROFILE_SUP, profile_sup);
+                intent.putExtra(IntentName.PROFILE_SUP, myProfile);
                 startActivity(intent);
             }
         });
 
-        nameTV.setText(profile_sup.getName());
+        nameTV.setText(myProfile.getName());
 
         //Tablayout 참조, tab 추가
         tabs = findViewById(R.id.tab);
@@ -74,7 +74,7 @@ public class Provider_mypage extends AppCompatActivity {
         tabs.setTabGravity(tabs.GRAVITY_FILL);
 
         final ViewPager viewPager = findViewById(R.id.viewPager);
-        final MyPagerAdapter myPagerAdapter = new MyPagerAdapter(getSupportFragmentManager(), 4, profile_sup);
+        final MyPagerAdapter myPagerAdapter = new MyPagerAdapter(getSupportFragmentManager(), 4, myProfile);
         viewPager.setAdapter(myPagerAdapter);
 
         tabs.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));

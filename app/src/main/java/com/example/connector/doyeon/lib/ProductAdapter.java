@@ -11,15 +11,22 @@ import android.widget.TextView;
 
 import com.example.connector.R;
 import com.example.connector.doyeon.objects.Product;
+import com.example.connector.doyeon.objects.Profile;
 
 import java.util.ArrayList;
 
 public class ProductAdapter extends BaseAdapter {
 // 공급처 프로필에서 보여질 상품 리스트 어댑터
     private ArrayList<Product> list;
+    private Profile profile_res;
 
     public ProductAdapter(ArrayList<Product> list){
         this.list = list;
+    }
+
+    public ProductAdapter(ArrayList<Product> list, Profile profile_res){
+        this.list = list;
+        this.profile_res = profile_res;
     }
 
     @Override

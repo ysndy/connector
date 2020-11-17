@@ -1,6 +1,5 @@
 package com.example.connector.soohyun.tabs;
 
-import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,13 +7,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.example.connector.R;
 import com.example.connector.doyeon.objects.Transaction;
 import com.example.connector.soohyun.restaurantpage.EditRequest;
-import com.example.connector.soohyun.restaurantpage.NowRequest;
 
 import java.util.ArrayList;
 
@@ -65,7 +62,7 @@ public class NowTab_request_Adapter extends BaseAdapter {
         }
         Transaction transaction = list.get(position);
 
-        holder.now1ItemSupply.setText(transaction.getSupplyName()); //신청한 공급처명 표시
+        holder.now1ItemSupply.setText(transaction.getProviderName()); //신청한 공급처명 표시
         holder.now1ItemReqDate.setText(transaction.getDate()); //신청한 날짜 표시
 
         holder.yellBtn.setOnClickListener(new View.OnClickListener() {

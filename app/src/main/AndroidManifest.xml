@@ -25,7 +25,7 @@
         </activity>
         <activity android:name=".doyeon.activity.mainview.SupplierProfileActivity"/>
         <activity android:name=".doyeon.activity.transaction.act1.TransactionProductsActivity"/>
-        <activity android:name=".doyeon.activity.mainview.SearchActivity"/>
+        <activity android:name=".doyeon.activity.mainview.search.SearchActivity"/>
         <activity android:name=".doyeon.activity.mainview.ProfileListActivity"/>
         <activity android:name=".doyeon.activity.mainview.calendar.TransactionCalendarActivity"/>
         <activity android:name=".doyeon.activity.mainview.MainPageActivity" android:launchMode="singleTop"/>
@@ -33,11 +33,11 @@
         <activity android:name=".doyeon.activity.transaction.act4.TransactionRequestActivity"/>
         <activity android:name=".doyeon.activity.transaction.act2.TransactionSetDateActivity"/>
         <activity android:name=".jeongeun.providerpage.Provider_mypage"/>
-        <activity android:name=".jeongeun.providerpage.Restaurant_info" />
-        <activity android:name=".jeongeun.providerpage.Edit_item" />
+        <activity android:name=".jeongeun.providerpage.provider.Restaurant_info" />
+        <activity android:name=".jeongeun.providerpage.products.Edit_item" />
         <activity android:name=".jeongeun.providerpage.Edit_info" />
-        <activity android:name=".jeongeun.providerpage.Add_item" />
-        <activity android:name=".jeongeun.providerpage.Request" />
+        <activity android:name=".jeongeun.providerpage.products.Add_item" />
+        <activity android:name=".jeongeun.providerpage.transaction.Request" />
         <activity android:name=".jeongeun.providerpage.Deal" />
         <activity android:name=".soohyun.shared.Login"/>
         <activity android:name=".soohyun.restaurantpage.MyPage"/>

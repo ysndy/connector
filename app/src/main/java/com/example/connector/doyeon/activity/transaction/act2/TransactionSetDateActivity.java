@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.connector.R;
-import com.example.connector.doyeon.lib.IntentName;
+import com.example.connector.doyeon.dictionary.IntentName;
 import com.example.connector.doyeon.activity.transaction.act3.TosActivity;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Profile;

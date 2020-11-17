@@ -1,5 +1,6 @@
-package com.example.connector.jeongeun.tabs;
+package com.example.connector.jeongeun.providerpage.provider;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.connector.R;
+import com.example.connector.doyeon.dictionary.IntentName;
 import com.example.connector.doyeon.objects.Profile;
 
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ import java.util.ArrayList;
 public class Provider_list extends BaseAdapter {
 
     private ArrayList<Profile> list;
+
 
     public Provider_list(ArrayList<Profile> list){
         this.list = list;
@@ -55,6 +58,14 @@ public class Provider_list extends BaseAdapter {
         }
 
         Profile profile = list.get(position);
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(holder.pro_restName.getContext(), Restaurant_info.class);
+                intent.putExtra(IntentName.PROFILE, list.get(position));
+                holder.pro_restName.getContext().startActivity(intent);
+            }
+        });
 
         //holder.proItemImg.setImageURI(Uri.parse(sp.getImageUrl()));
         holder.pro_restName.setText(profile.getName());

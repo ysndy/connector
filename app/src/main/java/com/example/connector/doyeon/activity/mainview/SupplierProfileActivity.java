@@ -24,12 +24,22 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.example.connector.R;
-import com.example.connector.doyeon.lib.IntentName;
+import com.example.connector.doyeon.activity.transaction.act4.TransactionRequestActivity;
+import com.example.connector.doyeon.dictionary.IntentName;
 import com.example.connector.doyeon.activity.transaction.act1.TransactionProductsActivity;
 import com.example.connector.doyeon.activity.mainview.profiletab.ProfileTabPagerAdapter;
+import com.example.connector.doyeon.dictionary.Table_follow;
+import com.example.connector.doyeon.lib.request.FollowCheckRequest;
+import com.example.connector.doyeon.lib.request.InsertTransactionsRequest;
 import com.example.connector.doyeon.lib.request.SupplierProductRequest;
+import com.example.connector.doyeon.lib.request.ValidateRequest;
+import com.example.connector.doyeon.lib.request.ValidateRequest_Res;
 import com.example.connector.doyeon.objects.Product;
 import com.example.connector.doyeon.objects.Profile;
+import com.example.connector.doyeon.sql.DySQL_Delete;
+import com.example.connector.doyeon.sql.DySQL_Insert;
+import com.example.connector.doyeon.util.Util;
+import com.example.connector.soohyun.shared.Login;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -102,7 +112,7 @@ public class SupplierProfileActivity extends AppCompatActivity {
                 intent.putExtra(IntentName.PROFILE_SUP, (Parcelable) profileSup);
                 intent.putExtra(IntentName.PROFILE_RES, (Parcelable) profileRes);
                 intent.putExtra(IntentName.PRODUCTS, profileSup.getProducts());
-                Log.d("asd", ""+profileSup.getProducts().get(0).getCode());
+                Log.d("asd", "" + profileSup.getProducts().get(0).getCode());
                 startActivity(intent);
             }
         });
@@ -112,7 +122,73 @@ public class SupplierProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //profileRes.getId(), profileSup.getId() follow 테이블에 추가
-                Toast.makeText(getApplicationContext(), profileSup.getName() + "을 팔로우하였습니다.", Toast.LENGTH_SHORT).show();
+                //기존에 팔로우를 했었는지 확인
+               Response.Listener rListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            Util.printingLog(this.getClass().getSimpleName(), response);
+                            JSONObject jResponse = new JSONObject(response);
+                            boolean success = jResponse.getBoolean("success");
+                            if (success) {
+
+                                Toast.makeText(getApplicationContext(), profileSup.getName() + "을 팔로우하였습니다.", Toast.LENGTH_SHORT).show();
+                                //서버에 insert
+                                DySQL_Insert insert = new DySQL_Insert();
+                                insert.setTableName(Table_follow.TABLE_NAME);
+                                String [][] data = {
+                                        {Table_follow.SUPPLIER, profileSup.getId()}
+                                        ,{Table_follow.RESTAURANT, profileRes.getId()}
+                                };
+                                insert.setfAndValues(data);
+
+                                Response.Listener rListener = new Response.Listener<String>() {
+                                    @Override
+                                    public void onResponse(String response) {
+                                        try {
+                                        } catch (Exception e) {
+                                            Util.errorLog(this.getClass().getSimpleName(), e.getMessage());
+                                        }
+                                    }
+                                };
+                                InsertTransactionsRequest insertTransactionsRequest = new InsertTransactionsRequest(insert.getQuery(), rListener); //Request 처리 클래스
+                                RequestQueue queue = Volley.newRequestQueue(SupplierProfileActivity.this);
+                                queue.add(insertTransactionsRequest);
+
+
+                            } else {
+
+                                //서버에서 delete
+                                Toast.makeText(getApplicationContext(), profileSup.getName() + "을 팔로우 취소하였습니다.", Toast.LENGTH_SHORT).show();
+                                DySQL_Delete delete = new DySQL_Delete();
+                                delete.setTableName(Table_follow.TABLE_NAME);
+                                delete.setWhere(Table_follow.SUPPLIER +"='"+profileSup.getId()+"' AND "+Table_follow.RESTAURANT+"='"+profileRes.getId()+"'");
+
+                                Response.Listener rListener = new Response.Listener<String>() {
+                                    @Override
+                                    public void onResponse(String response) {
+                                        try {
+                                        } catch (Exception e) {
+                                            Util.errorLog(this.getClass().getSimpleName(), e.getMessage());
+                                        }
+                                    }
+                                };
+                                InsertTransactionsRequest insertTransactionsRequest = new InsertTransactionsRequest(delete.getQuery(), rListener); //Request 처리 클래스
+                                RequestQueue queue = Volley.newRequestQueue(SupplierProfileActivity.this);
+                                queue.add(insertTransactionsRequest);
+
+                            }
+
+                        } catch (Exception e) {
+                            Log.d("asd", e.toString());
+                        }
+                    }
+                };
+                FollowCheckRequest followCheckRequest = new FollowCheckRequest(profileSup.getId(), profileRes.getId(), rListener); //Request 처리 클래스
+                RequestQueue queue = Volley.newRequestQueue(SupplierProfileActivity.this);
+                queue.add(followCheckRequest);
+
+
             }
         });
 
@@ -193,7 +269,7 @@ public class SupplierProfileActivity extends AppCompatActivity {
 
                         final Product product = new Product();
                         product.setCode(jso.getString(IntentName.CODE));
-                        Log.d("asd", "productCode: "+product.getCode());
+                        Log.d("asd", "productCode: " + product.getCode());
                         product.setCategory(jso.getString(IntentName.CATEGORY));
                         product.setFrom(jso.getString(IntentName.FROMTO));
                         product.setName(jso.getString(IntentName.NAME));
@@ -231,6 +307,10 @@ public class SupplierProfileActivity extends AppCompatActivity {
         backBtn = findViewById(R.id.backBtn);
         homeBtn = findViewById(R.id.homeBtn);
         supplierNameTV = findViewById(R.id.supplierNameTV);
+
+    }
+
+    private void setOther() {
 
     }
 

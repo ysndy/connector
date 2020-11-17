@@ -1,4 +1,4 @@
-package com.example.connector.jeongeun.providerpage;
+package com.example.connector.jeongeun.providerpage.transaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -70,14 +70,14 @@ public class Request extends AppCompatActivity {
         products.add(product1);
 
         Transaction transaction1 = new Transaction();
-        transaction1.setProducts(products);
+        //transaction1.setProduct(product1);
         transaction1.setCount(TransactionData1.num);
         transaction1.setPriceTotal(TransactionData1.price);
         transaction1.setDate(TransactionData1.date);
         transactions.add(transaction1);
 
         Transaction transaction2 = new Transaction();
-        transaction2.setProducts(products);
+        //transaction2.setProducts(products);
         transaction2.setCount(TransactionData2.num);
         transaction2.setPriceTotal(TransactionData2.price);
         transaction2.setDate(TransactionData2.date);

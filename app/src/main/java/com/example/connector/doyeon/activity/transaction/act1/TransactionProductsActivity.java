@@ -14,7 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import com.example.connector.R;
-import com.example.connector.doyeon.lib.IntentName;
+import com.example.connector.doyeon.dictionary.IntentName;
 import com.example.connector.doyeon.activity.transaction.act2.TransactionSetDateActivity;
 import com.example.connector.doyeon.lib.RequestAdapter;
 import com.example.connector.doyeon.objects.Product;

@@ -1,12 +1,11 @@
 package com.example.connector.doyeon.lib.request;
 
-import android.content.Intent;
 import android.util.Log;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
-import com.example.connector.doyeon.lib.IntentName;
+import com.example.connector.doyeon.dictionary.IntentName;
 
 import java.util.HashMap;
 import java.util.Map;
