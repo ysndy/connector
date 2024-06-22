@@ -1,3 +1,5 @@
+# 프로젝트 관리
+[스프레드시트](https://docs.google.com/spreadsheets/d/1EDl84QG_RL_zSkncWXaaCLvBZNPUC6KiJe-1Fg7wiX4/edit?gid=0#gid=0)
 # 설계
 ## 메뉴 구조도
 ![image](https://github.com/ysndy/connector/assets/49807140/7c03a63e-5bdd-47f3-b120-487685143e34)
